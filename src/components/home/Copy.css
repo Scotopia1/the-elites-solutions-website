@@ -1,0 +1,7 @@
+.line {
+  position: relative;
+  transform: translateY(100%);
+  will-change: transform;
+  overflow: hidden;
+  display: inline-block;
+}

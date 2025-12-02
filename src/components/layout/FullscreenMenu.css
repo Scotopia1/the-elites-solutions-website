@@ -1,0 +1,360 @@
+/* ========================================
+   Fullscreen Menu - Awwwards Style
+   ======================================== */
+
+/* Menu Trigger (Logo) */
+.fullscreen-menu-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.menu-trigger {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  z-index: 101;
+  transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.menu-trigger:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+.menu-trigger-logo {
+  width: 380px;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+  transition: filter 0.3s ease;
+}
+
+.menu-trigger:hover .menu-trigger-logo {
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+}
+
+@media (max-width: 768px) {
+  .menu-trigger-logo {
+    width: 260px;
+  }
+
+  .menu-trigger {
+    top: 10px;
+  }
+}
+
+/* Fullscreen Overlay */
+.fullscreen-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: #0a0a0a;
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+  cursor: none;
+}
+
+/* Close Button */
+.menu-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "FK Screamer", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  opacity: 0;
+  transition: color 0.3s ease;
+  z-index: 10;
+}
+
+.menu-close-btn:hover {
+  color: #d4af37;
+}
+
+/* Menu Content */
+.menu-content {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+  overflow: visible;
+}
+
+/* Navigation */
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 10;
+  overflow: visible;
+}
+
+/* Menu Link */
+.menu-link {
+  opacity: 0;
+  transform: translateY(100px);
+  cursor: pointer;
+}
+
+.menu-link-inner {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+  cursor: pointer;
+}
+
+.menu-link:hover .menu-link-inner {
+  transform: translateX(20px);
+}
+
+/* Menu Number */
+.menu-number {
+  font-family: "FK Screamer", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.3);
+  transition: color 0.3s ease;
+  min-width: 3rem;
+}
+
+.menu-link:hover .menu-number,
+.menu-link.active .menu-number {
+  color: #d4af37;
+}
+
+/* Menu Title */
+.menu-title {
+  font-family: "FK Screamer", sans-serif;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.menu-link:hover .menu-title,
+.menu-link.active .menu-title {
+  color: #d4af37;
+  text-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+}
+
+/* Image Preview Container */
+.image-preview-container {
+  position: fixed;
+  top: 50%;
+  right: 10%;
+  width: 400px;
+  height: 500px;
+  pointer-events: none;
+  z-index: 5;
+  transform: translateY(-50%);
+}
+
+.image-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transform-origin: center center;
+}
+
+.image-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.image-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Custom Cursor */
+.menu-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+  width: 100%;
+  height: 100%;
+  background: #d4af37;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.cursor-dot span {
+  font-family: "FK Screamer", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #0a0a0a;
+}
+
+/* Menu Footer Info */
+.menu-footer-info {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-tagline {
+  font-family: "FK Screamer", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-cta {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.02em;
+}
+
+/* ========================================
+   Responsive Styles
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .menu-content {
+    padding-left: 5%;
+  }
+
+  .image-preview-container {
+    left: auto;
+    right: 5%;
+    transform: translate(0, -50%);
+    width: 280px;
+    height: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-close-btn {
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .menu-content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .menu-nav {
+    gap: 0.15rem;
+  }
+
+  .menu-link-inner {
+    gap: 0.75rem;
+    padding: 0.25rem 0;
+  }
+
+  .menu-number {
+    font-size: 0.875rem;
+    min-width: 2rem;
+  }
+
+  .menu-title {
+    font-size: clamp(1.75rem, 9vw, 2.75rem);
+  }
+
+  /* Hide image preview on mobile */
+  .image-preview-container,
+  .menu-cursor {
+    display: none;
+  }
+
+  .fullscreen-menu-overlay {
+    cursor: auto;
+  }
+
+  .menu-footer-info {
+    left: 1.5rem;
+    bottom: 2rem;
+  }
+
+  .footer-tagline {
+    font-size: 1rem;
+  }
+
+  .footer-cta {
+    font-size: 0.75rem;
+  }
+}
+
+/* ========================================
+   Animation States
+   ======================================== */
+
+/* Ensure proper stacking */
+.menu-link {
+  position: relative;
+  overflow: visible;
+}
+
+/* Underline effect on hover */
+.menu-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  transition: width 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.menu-link:hover::after,
+.menu-link.active::after {
+  width: 100%;
+}
+
+/* Smooth transitions for all interactive elements */
+.menu-link,
+.menu-close-btn {
+  will-change: transform, opacity;
+}
+
+.image-preview-container {
+  will-change: left, top;
+}
+
+.menu-cursor {
+  will-change: left, top;
+}

@@ -1,0 +1,74 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Gérez Votre Entreprise Plus Facilement",
+    "subtitle": "Sites web et logiciels personnalisés conçus pour VOTRE entreprise.",
+    "cta_primary": "Oui, Je Veux Ça",
+    "cta_secondary": "Voir Notre Travail"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Solutions personnalisées adaptées aux besoins de votre entreprise"
+  },
+  "about": {
+    "title": "À Propos de The Elites",
+    "subtitle": "Construction de systèmes d'automatisation personnalisés depuis le premier jour"
+  },
+  "contact": {
+    "title": "Travaillons Ensemble",
+    "subtitle": "Rapide, gratuit et direct. Sans pression, sans jeu de vente. Juste de la clarté.",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "company": "Entreprise",
+      "message": "Parlez-nous de votre projet",
+      "submit": "Envoyer le Message",
+      "success": "Message envoyé avec succès!",
+      "error": "Échec de l'envoi du message. Veuillez réessayer."
+    }
+  },
+  "booking": {
+    "title": "Réserver une Consultation",
+    "form": {
+      "date": "Date Préférée",
+      "time": "Heure Préférée",
+      "service": "Service Intéressé",
+      "submit": "Réserver une Consultation",
+      "success": "Demande de réservation envoyée avec succès!",
+      "error": "Échec de la réservation. Veuillez réessayer."
+    }
+  },
+  "footer": {
+    "tagline": "Votre idée, numérisée. Votre entreprise, optimisée. Votre succès, réalisé.",
+    "copyright": "© 2025 The Elites Solutions. Tous droits réservés.",
+    "links": {
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation",
+      "cookies": "Politique de Cookies"
+    }
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "success": "Succès!",
+    "back": "Retour",
+    "next": "Suivant",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "clear": "Effacer"
+  }
+}

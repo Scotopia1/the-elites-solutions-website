@@ -1,0 +1,14 @@
+
+/* elites-website/src/app/custom-background.css */
+
+body {
+  background: radial-gradient(circle at center, #111111 0%, #000000 100%);
+  background-attachment: fixed; /* Ensures the background stays in place during scroll */
+}
+
+/* Define gold accent colors as CSS variables for easy use */
+:root {
+  --color-gold-light: #FFD700; /* Standard Gold */
+  --color-gold-dark: #B8860B;  /* Darker Gold/Goldenrod */
+  --color-gold-accent: #DAA520; /* Goldenrod */
+}

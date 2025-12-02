@@ -1,0 +1,12 @@
+# The Elites
+
+> We are a digital agency that thrives on innovation, strategic thinking, and solutions that make you lean in and say 'yes.'
+
+## Navigation
+
+- [Full Documentation](llms-full.txt)
+- [Home](/)
+- [About](/about)
+- [Services](/services)
+- [Work](/work)
+- [Contact](/contact)

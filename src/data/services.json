@@ -1,0 +1,144 @@
+{
+  "services": [
+    {
+      "id": "web-development",
+      "phase": "01",
+      "category": "Web",
+      "title": "Modern",
+      "subtitle": "Development",
+      "description": "We build high-performance web applications using cutting-edge technologies. From responsive websites to complex web apps, we deliver solutions that scale with your business and exceed user expectations.",
+      "features": [
+        "Next.js & React development",
+        "TypeScript for type safety",
+        "Performance optimization",
+        "SEO-friendly architecture"
+      ],
+      "cta": {
+        "label": "Learn More",
+        "href": "/services#web-development"
+      },
+      "accentColor": "#ffd700",
+      "gridPosition": {
+        "mobile": { "colStart": 1, "colEnd": 2, "rowStart": 1, "rowEnd": 2 },
+        "tablet": { "colStart": 1, "colEnd": 2, "rowStart": 1, "rowEnd": 2 },
+        "desktop": { "colStart": 1, "colEnd": 3, "rowStart": 1, "rowEnd": 3 }
+      },
+      "detailContent": {
+        "overview": "Our web development team specializes in creating fast, scalable, and user-friendly web applications. We use the latest technologies and best practices to ensure your project is built for success.",
+        "technologies": ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
+        "deliverables": [
+          "Fully responsive web application",
+          "Admin dashboard",
+          "API documentation",
+          "Performance optimization report",
+          "SEO audit and implementation"
+        ]
+      }
+    },
+    {
+      "id": "mobile-apps",
+      "phase": "02",
+      "category": "Mobile",
+      "title": "Native",
+      "subtitle": "Apps",
+      "description": "Cross-platform mobile applications that deliver native performance. iOS and Android apps built with modern frameworks for seamless user experiences across all devices.",
+      "features": [
+        "React Native & Flutter",
+        "Native performance",
+        "Offline-first architecture",
+        "App Store optimization"
+      ],
+      "cta": {
+        "label": "Learn More",
+        "href": "/services#mobile-apps"
+      },
+      "accentColor": "#c9c9c9",
+      "gridPosition": {
+        "mobile": { "colStart": 1, "colEnd": 2, "rowStart": 2, "rowEnd": 3 },
+        "tablet": { "colStart": 2, "colEnd": 3, "rowStart": 1, "rowEnd": 2 },
+        "desktop": { "colStart": 3, "colEnd": 4, "rowStart": 1, "rowEnd": 2 }
+      },
+      "detailContent": {
+        "overview": "We build mobile applications that users love. Our apps are designed with performance and user experience in mind, ensuring your brand stands out in the app stores.",
+        "technologies": ["React Native", "Flutter", "Swift", "Kotlin", "Firebase"],
+        "deliverables": [
+          "iOS and Android apps",
+          "App Store and Play Store submission",
+          "Push notification setup",
+          "Analytics integration",
+          "Post-launch support"
+        ]
+      }
+    },
+    {
+      "id": "automation",
+      "phase": "03",
+      "category": "Process",
+      "title": "Workflow",
+      "subtitle": "Automation",
+      "description": "Streamline your business operations with custom automation solutions. Reduce manual tasks, eliminate errors, and boost productivity across your organization.",
+      "features": [
+        "Custom workflow design",
+        "API integrations",
+        "Data pipeline automation",
+        "Real-time monitoring"
+      ],
+      "cta": {
+        "label": "Learn More",
+        "href": "/services#automation"
+      },
+      "accentColor": "#ffd700",
+      "gridPosition": {
+        "mobile": { "colStart": 1, "colEnd": 2, "rowStart": 3, "rowEnd": 4 },
+        "tablet": { "colStart": 2, "colEnd": 3, "rowStart": 2, "rowEnd": 3 },
+        "desktop": { "colStart": 3, "colEnd": 4, "rowStart": 2, "rowEnd": 3 }
+      },
+      "detailContent": {
+        "overview": "Transform your business with intelligent automation. We analyze your workflows and implement solutions that save time, reduce costs, and improve accuracy.",
+        "technologies": ["n8n", "Zapier", "Make", "Python", "Node.js", "REST APIs"],
+        "deliverables": [
+          "Workflow analysis report",
+          "Custom automation scripts",
+          "Integration with existing tools",
+          "Monitoring dashboard",
+          "Documentation and training"
+        ]
+      }
+    },
+    {
+      "id": "enterprise",
+      "phase": "04",
+      "category": "Custom",
+      "title": "Enterprise",
+      "subtitle": "Solutions",
+      "description": "Tailored software solutions for complex business challenges. From CRM systems to inventory management, we build what you need to succeed in today's competitive landscape.",
+      "features": [
+        "Custom software development",
+        "System integrations",
+        "Legacy modernization",
+        "Scalable architecture"
+      ],
+      "cta": {
+        "label": "Learn More",
+        "href": "/services#enterprise"
+      },
+      "accentColor": "#9a9a9a",
+      "gridPosition": {
+        "mobile": { "colStart": 1, "colEnd": 2, "rowStart": 4, "rowEnd": 5 },
+        "tablet": { "colStart": 1, "colEnd": 3, "rowStart": 3, "rowEnd": 4 },
+        "desktop": { "colStart": 1, "colEnd": 4, "rowStart": 3, "rowEnd": 4 }
+      },
+      "detailContent": {
+        "overview": "We partner with businesses to create custom software that addresses their unique challenges. Our enterprise solutions are built to scale, integrate seamlessly, and drive real business results.",
+        "technologies": ["Node.js", "Python", "Java", "PostgreSQL", "MongoDB", "AWS", "Azure"],
+        "deliverables": [
+          "Custom enterprise application",
+          "System integration",
+          "Data migration",
+          "Staff training",
+          "Ongoing maintenance and support"
+        ]
+      }
+    }
+  ]
+}

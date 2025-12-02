@@ -1,0 +1,310 @@
+@import "./fonts.css";
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+/* Custom nm font for hero section */
+@font-face {
+  font-family: "nm";
+  src: url("/fonts/nm/nm-medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Tailwind color tokens */
+    --background: 0 0% 0%;
+    /* Black */
+    --foreground: 0 0% 95%;
+    /* Light gray */
+
+    --card: 0 0% 8%;
+    /* Dark gray */
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 45 100% 51%;
+    /* Gold */
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 64%;
+
+    --accent: 45 100% 51%;
+    /* Gold */
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 45 100% 51%;
+    /* Gold */
+
+    --radius: 0.5rem;
+
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-heading: 'FK Screamer', 'Montserrat', sans-serif;
+
+    /* ========================================
+       CSS Variables from Source Projects
+       ======================================== */
+
+    /* CGMWTNOV2024 - Balanced Pitch (Menu) */
+    --color-accent: #d6ff62;
+    --color-light: #fff;
+    --color-dark: #1d1d1d;
+
+    /* CGMWTFEB2025 - Isochrome (IndexHero, AnimatedH1) */
+    --bg: #1a1a1a;
+    --copy: #bac4b8;
+
+    /* CGMWTMAY2025 - Otis Valen (AboutSection) */
+    --bg-light: #edf1e8;
+    --fg: #141414;
+    --accent1: #ed6a5a;
+    --accent2: #f4f1bb;
+    --accent3: #9bc1bc;
+    --accent4: #5d576b;
+
+    /* CGMWTOCT2025 - Polite Chaos (ClientReviews, Contact) */
+    --base-100: #e3e3db;
+    --base-200: #ccccc4;
+    --base-300: #8c7e77;
+    --base-400: #1a1614;
+    --base-500: #ff6e14;
+    --accent-1: #3d2fa9;
+    --accent-2: #a92f78;
+    --accent-3: #ff3d33;
+    --accent-4: #785f47;
+    --accent-5: #2f72a9;
+    --variant-1: var(--base-200);
+    --variant-2: var(--base-400);
+    --variant-3: var(--base-500);
+    --disabled-folder-bg: #d4d7d0;
+    --disabled-folder-fg: #989b95;
+
+    /* CGMWTJULY2025 - Juno Watts (Footer) */
+    --base-100-light: #f9f4eb;
+    --base-200-light: #efece5;
+    --base-300-dark: #0a0a0a;
+    --base-secondary-dark: #686560;
+    --base-secondary-fade: rgba(249, 244, 235, 0.15);
+    --accent-1-light: #b1c1ef;
+    --accent-2-light: #f2acac;
+    --accent-3-light: #ffdd94;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .heading-1 {
+    @apply text-4xl font-bold tracking-tight lg:text-6xl;
+    font-family: var(--font-heading);
+  }
+
+  .heading-2 {
+    @apply text-3xl font-bold tracking-tight lg:text-5xl;
+    font-family: var(--font-heading);
+  }
+
+  .heading-3 {
+    @apply text-2xl font-bold tracking-tight lg:text-4xl;
+    font-family: var(--font-heading);
+  }
+
+  .heading-4 {
+    @apply text-xl font-semibold tracking-tight lg:text-3xl;
+    font-family: var(--font-heading);
+  }
+
+  .text-gold-gradient {
+    @apply bg-gradient-to-r from-gold-200 via-gold-100 to-gold-300 bg-clip-text text-transparent;
+  }
+
+  .glow-effect {
+    @apply shadow-glow transition-shadow duration-300 hover:shadow-glow-lg;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-lg bg-dark-100/80 border border-gray-800;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Remove scrollbar permanently */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Selection */
+::selection {
+  background-color: #ffd700;
+  color: #000000;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* RTL support for Arabic */
+[dir='rtl'] {
+  text-align: right;
+}
+
+[dir='rtl'] .flex {
+  flex-direction: row-reverse;
+}
+
+/* ========================================
+   Vanguard Theme - Premium Animations
+   ======================================== */
+
+/* Gold glow animation */
+@keyframes goldGlowPulse {
+  0%, 100% {
+    opacity: 0.3;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+  }
+}
+
+/* Scroll indicator bounce */
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* Floating particle animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-5deg);
+  }
+}
+
+/* Line draw animation */
+@keyframes drawLine {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Vanguard utility classes */
+@layer utilities {
+  /* Gold glow effects */
+  .gold-glow {
+    animation: goldGlowPulse 3s ease-in-out infinite;
+  }
+
+  .gold-glow-sm {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  }
+
+  .gold-glow-md {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+  }
+
+  .gold-glow-lg {
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.5);
+  }
+
+  /* Glassmorphism variants */
+  .glass-gold {
+    background: rgba(212, 175, 55, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Text stroke for outlined text */
+  .text-stroke {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    color: transparent;
+  }
+
+  .text-stroke-gold {
+    -webkit-text-stroke: 1px rgba(212, 175, 55, 0.5);
+    color: transparent;
+  }
+
+  /* Animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-1000 { animation-delay: 1000ms; }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .gold-glow {
+    animation: none;
+  }
+}

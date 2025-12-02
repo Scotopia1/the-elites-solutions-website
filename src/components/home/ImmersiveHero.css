@@ -1,0 +1,547 @@
+/* ==========================================================================
+   IMMERSIVE HERO - Apple-Inspired Scroll Experience
+   ========================================================================== */
+
+.immersive-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: transparent;
+  overflow: hidden;
+}
+
+.immersive-hero-inner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* ==========================================================================
+   BRAND TYPOGRAPHY
+   ========================================================================== */
+
+.immersive-brand {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.brand-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.brand-line {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.brand-line-1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #f9f4eb;
+}
+
+.brand-line-2 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+.brand-letter {
+  will-change: transform, opacity;
+  perspective: 1000px;
+}
+
+.brand-main {
+  color: #f9f4eb;
+}
+
+.brand-accent {
+  background: linear-gradient(
+    135deg,
+    #FFD700 0%,
+    #FFA500 25%,
+    #FFD700 50%,
+    #DAA520 75%,
+    #FFD700 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* ==========================================================================
+   SCALING MEDIA ELEMENT
+   ========================================================================== */
+
+.immersive-media {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  will-change: transform, border-radius;
+  z-index: 5;
+}
+
+.immersive-logo {
+  aspect-ratio: 1 / 1;
+  max-width: 500px;
+  width: 50%;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.3) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(10, 10, 10, 0.5) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.media-image {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.media-fallback {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    #1a1a1a 0%,
+    #0d0d0d 25%,
+    #1a1a1a 50%,
+    #0d0d0d 75%,
+    #1a1a1a 100%
+  );
+  z-index: -1;
+}
+
+.media-fallback::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(255, 165, 0, 0.06) 0%, transparent 50%);
+}
+
+/* ==========================================================================
+   TAGLINE
+   ========================================================================== */
+
+.immersive-tagline {
+  position: relative;
+  margin-top: 20px;
+  text-align: center;
+  z-index: 10;
+}
+
+.tagline-text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.tagline-accent {
+  color: #FFD700;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   CTA BUTTON
+   ========================================================================== */
+
+.immersive-cta {
+  position: relative;
+  margin-top: 20px;
+  z-index: 10;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  border-radius: 50px;
+  color: #f9f4eb;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.cta-button:hover {
+  border-color: #FFD700;
+  color: #0a0a0a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px -10px rgba(255, 215, 0, 0.4);
+}
+
+.cta-button:hover::before {
+  opacity: 1;
+}
+
+.cta-text {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-button:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   STATS ROW
+   ========================================================================== */
+
+.immersive-stats {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  gap: 3rem;
+  opacity: 0;
+  z-index: 10;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.stat-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.stat-suffix {
+  font-size: 0.7em;
+  color: #ffffff;
+}
+
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   DECORATIVE ELEMENTS
+   ========================================================================== */
+
+.immersive-decoration {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  color: rgba(255, 215, 0, 0.2);
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.decoration-left {
+  left: 2rem;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.decoration-right {
+  right: 2rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .immersive-brand {
+    top: 10%;
+  }
+
+  .brand-line-1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    letter-spacing: 0.2em;
+  }
+
+  .brand-line-2 {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+  }
+
+  .immersive-media {
+    width: 85%;
+  }
+
+  .immersive-stats {
+    gap: 1.5rem;
+  }
+
+  .stat-item {
+    padding: 0.75rem 1rem;
+  }
+
+  .immersive-decoration {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .immersive-hero-inner {
+    padding: 1rem;
+  }
+
+  .immersive-brand {
+    top: 8%;
+  }
+
+  .brand-line-1 {
+    font-size: 1.5rem;
+    letter-spacing: 0.15em;
+  }
+
+  .brand-line-2 {
+    font-size: 1.2rem;
+  }
+
+  .brand-divider {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+  }
+
+  .gold-line {
+    width: 120px;
+  }
+
+  .gold-line-top {
+    top: 12%;
+  }
+
+  .immersive-media {
+    width: 95%;
+    aspect-ratio: 4 / 3;
+  }
+
+  .immersive-tagline {
+    margin-top: 16px;
+  }
+
+  .tagline-text {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+
+  .immersive-cta {
+    margin-top: 16px;
+  }
+
+  .cta-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .immersive-stats {
+    margin-top: 16px;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .stat-item {
+    padding: 0.5rem 0.75rem;
+    min-width: 70px;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .brand-line-1 {
+    font-size: 1.2rem;
+  }
+
+  .brand-line-2 {
+    font-size: 1rem;
+  }
+
+  .immersive-stats {
+    gap: 0.35rem;
+  }
+
+  .stat-item {
+    padding: 0.4rem 0.5rem;
+    min-width: 60px;
+  }
+
+  .stat-value {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1920px) {
+  .immersive-brand {
+    top: 15%;
+  }
+
+  .brand-line-1 {
+    font-size: 5rem;
+  }
+
+  .brand-line-2 {
+    font-size: 4rem;
+  }
+
+  .gold-line {
+    width: 300px;
+    height: 3px;
+  }
+
+  .immersive-media {
+    max-width: 1400px;
+  }
+
+  .tagline-text {
+    font-size: 1.75rem;
+  }
+
+  .cta-button {
+    padding: 1.25rem 2.5rem;
+    font-size: 1rem;
+  }
+
+  .stat-item {
+    padding: 1.25rem 2rem;
+  }
+
+  .stat-value {
+    font-size: 3rem;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-letter,
+  .gold-line,
+  .immersive-media,
+  .immersive-tagline,
+  .immersive-cta,
+  .immersive-stats,
+  .cta-button,
+  .stat-item {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .immersive-stats {
+    opacity: 1 !important;
+  }
+}

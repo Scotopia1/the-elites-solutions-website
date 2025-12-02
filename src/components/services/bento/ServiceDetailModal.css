@@ -1,0 +1,348 @@
+/* ============================================
+   SERVICE DETAIL MODAL - Full Screen
+   Premium modal for service details on /services page
+   ============================================ */
+
+/* Backdrop */
+.service-detail-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+/* Modal Container */
+.service-detail-modal {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: linear-gradient(
+    145deg,
+    rgba(26, 26, 26, 0.98) 0%,
+    rgba(15, 15, 15, 0.98) 100%
+  );
+  border-radius: 1.5rem;
+  padding: 3rem;
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  box-shadow:
+    0 0 0 1px rgba(255, 215, 0, 0.05),
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 100px rgba(255, 215, 0, 0.05);
+}
+
+/* Close Button */
+.service-detail__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.service-detail__close:hover,
+.service-detail__close:focus {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.service-detail__close:focus {
+  outline: 2px solid #ffd700;
+  outline-offset: 2px;
+}
+
+/* Content - 2 Column Layout */
+.service-detail__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .service-detail__content {
+    grid-template-columns: 300px 1fr;
+    gap: 4rem;
+  }
+}
+
+/* Left Column */
+.service-detail__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Icon/Visual */
+.service-detail__icon {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.1) 0%,
+    rgba(255, 215, 0, 0.05) 100%
+  );
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.service-detail__phase {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: url(/textures/Gold.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Title */
+.service-detail__title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  background: url(/textures/Gold.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.service-detail__subtitle {
+  display: block;
+  font-size: 2rem;
+}
+
+/* Category Badge */
+.service-detail__category {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffd700;
+}
+
+/* Right Column */
+.service-detail__right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Description */
+.service-detail__description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Features */
+.service-detail__features {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.service-detail__features-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 215, 0, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem;
+}
+
+.service-detail__features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.service-detail__features-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.service-detail__feature-icon {
+  color: #ffd700;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* Extended Content */
+.service-detail__extended {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.service-detail__extended h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 215, 0, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.75rem;
+}
+
+.service-detail__overview p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* Technologies Grid */
+.service-detail__tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.service-detail__tech-badge {
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* CTA Button */
+.service-detail__cta-wrapper {
+  margin-top: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-detail__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #ffd700 0%, #c9a000 100%);
+  color: #000;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-detail__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+}
+
+.service-detail__cta svg {
+  transition: transform 0.2s ease;
+}
+
+.service-detail__cta:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   RESPONSIVE - Mobile
+   ============================================ */
+@media (max-width: 767px) {
+  .service-detail-backdrop {
+    padding: 1rem;
+    align-items: flex-end;
+  }
+
+  .service-detail-modal {
+    max-height: 95vh;
+    padding: 2rem 1.5rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+
+  .service-detail__close {
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .service-detail__icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-detail__phase {
+    font-size: 1.75rem;
+  }
+
+  .service-detail__title {
+    font-size: 1.75rem;
+  }
+
+  .service-detail__subtitle {
+    font-size: 1.5rem;
+  }
+
+  .service-detail__description {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .service-detail-modal,
+  .service-detail-backdrop,
+  .service-detail__close,
+  .service-detail__cta {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ============================================
+   HIGH DPI DISPLAYS
+   ============================================ */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .service-detail__title,
+  .service-detail__subtitle,
+  .service-detail__phase {
+    background-size: 150%;
+  }
+}

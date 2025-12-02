@@ -1,0 +1,32 @@
+# The Elites - Full Documentation
+
+## About Us
+
+This is The Elites.
+
+We're a digital agency that thrives on innovation, strategic thinking, and solutions that make you lean in and say 'yes.' Our work blends creative excellence with technical precision — whether it's a brand transformation, a cutting-edge website, or a bold concept that shouldn't work (but absolutely does). If it scales, converts, engages, or transforms — we're all in.
+
+## Services
+
+### 01. Web Development
+Modern web development.
+
+### 02. Mobile Apps
+Native mobile applications.
+
+### 03. Process Automation
+Workflow automation.
+
+### 04. Enterprise Solutions
+Custom enterprise software.
+
+## Contact
+
+- Email: contact@theelites.com
+- Focus: Digital Transformation, Strategic Solutions, Business Excellence
+- Base: Global Operations
+
+### Socials
+- Instagram
+- LinkedIn
+- Twitter

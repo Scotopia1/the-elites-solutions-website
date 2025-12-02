@@ -1,0 +1,219 @@
+/* ============================================
+   FAQ SECTION
+   Premium accordion with gold accents
+   ============================================ */
+
+.faq-section {
+  position: relative;
+  width: 100%;
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.faq-section__container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Header */
+.faq-section__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.faq-section__title {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: lighter;
+  text-transform: uppercase;
+  background: url(/textures/Gold.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 1rem;
+  line-height: 1.1;
+}
+
+.faq-section__subtitle {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Accordion Container */
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* FAQ Item */
+.faq-item {
+  background: rgba(26, 26, 26, 0.4);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.faq-item:hover,
+.faq-item--open {
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.faq-item--open {
+  background: rgba(26, 26, 26, 0.6);
+}
+
+/* Trigger Button */
+.faq-item__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-item__question {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 500;
+  color: white;
+  line-height: 1.4;
+}
+
+.faq-item__icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 50%;
+  color: #ffd700;
+  transition: background 0.3s ease;
+}
+
+.faq-item:hover .faq-item__icon,
+.faq-item--open .faq-item__icon {
+  background: rgba(255, 215, 0, 0.2);
+}
+
+/* Content */
+.faq-item__content {
+  overflow: hidden;
+}
+
+.faq-item__answer {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.faq-item__answer p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* Contact CTA */
+.faq-section__cta {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-section__cta p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 1rem;
+}
+
+.faq-section__cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffd700;
+  font-weight: 500;
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.faq-section__cta-link:hover {
+  gap: 0.75rem;
+}
+
+.faq-section__cta-link svg {
+  transition: transform 0.2s ease;
+}
+
+.faq-section__cta-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   RESPONSIVE - Mobile
+   ============================================ */
+@media (max-width: 640px) {
+  .faq-section {
+    padding: 4rem 1rem;
+  }
+
+  .faq-section__header {
+    margin-bottom: 3rem;
+  }
+
+  .faq-item__trigger {
+    padding: 1.25rem;
+  }
+
+  .faq-item__answer {
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  .faq-section__cta {
+    margin-top: 3rem;
+    padding-top: 2rem;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .faq-item,
+  .faq-item__icon,
+  .faq-item__content,
+  .faq-section__cta-link {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ============================================
+   KEYBOARD FOCUS STATES
+   ============================================ */
+.faq-item__trigger:focus {
+  outline: none;
+}
+
+.faq-item__trigger:focus-visible {
+  outline: 2px solid #ffd700;
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* ============================================
+   HIGH DPI DISPLAYS
+   ============================================ */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .faq-section__title {
+    background-size: 150%;
+  }
+}

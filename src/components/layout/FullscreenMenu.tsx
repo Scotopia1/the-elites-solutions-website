@@ -1,0 +1,352 @@
+'use client';
+
+import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import "./FullscreenMenu.css";
+
+gsap.registerPlugin(useGSAP);
+
+interface MenuItemData {
+  number: string;
+  title: string;
+  href: string;
+  image: string;
+}
+
+interface FullscreenMenuProps {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+}
+
+const menuItems: MenuItemData[] = [
+  { number: "00", title: "Home", href: "/", image: "/images/home/hero-img.jpg" },
+  { number: "01", title: "About", href: "/about", image: "/images/projects/project-1.jpg" },
+  { number: "02", title: "Services", href: "/services", image: "/images/projects/project-2.jpg" },
+  { number: "03", title: "Work", href: "/work", image: "/images/projects/project-3.jpg" },
+  { number: "04", title: "Blog", href: "/blog", image: "/images/projects/project-2.jpg" },
+  { number: "05", title: "Contact", href: "/contact", image: "/images/home/hero-img.jpg" },
+];
+
+const FullscreenMenu = ({ isOpen, setIsOpen }: FullscreenMenuProps) => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const menuItemsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const menuTriggerRef = useRef<HTMLDivElement>(null);
+
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Scroll-aware positioning - keep logo 20px above CTA
+  useEffect(() => {
+    const menuTrigger = menuTriggerRef.current;
+    if (!menuTrigger) return;
+
+    const updateLogoPosition = () => {
+      const ctaElement = document.querySelector('.immersive-cta') as HTMLElement;
+      if (!ctaElement) return;
+
+      const ctaRect = ctaElement.getBoundingClientRect();
+      const logoRect = menuTrigger.getBoundingClientRect();
+      const minGap = 20;
+
+      // Calculate the maximum top position to maintain 20px gap above CTA
+      const maxTop = ctaRect.top - logoRect.height - minGap;
+
+      // Only adjust if the logo would overlap with CTA area
+      if (maxTop < 20) {
+        // Hide or minimize the logo when it would overlap
+        gsap.to(menuTrigger, {
+          opacity: 0.3,
+          scale: 0.8,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      } else {
+        // Reset to normal state
+        gsap.to(menuTrigger, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      }
+    };
+
+    // Initial check
+    updateLogoPosition();
+
+    // Listen to scroll
+    window.addEventListener('scroll', updateLogoPosition, { passive: true });
+    window.addEventListener('resize', updateLogoPosition, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', updateLogoPosition);
+      window.removeEventListener('resize', updateLogoPosition);
+    };
+  }, []);
+
+  // GSAP quickTo for smooth cursor following
+  const xMoveCursor = useRef<gsap.QuickToFunc | null>(null);
+  const yMoveCursor = useRef<gsap.QuickToFunc | null>(null);
+
+  // Initialize GSAP quickTo functions for cursor
+  useEffect(() => {
+    if (cursorRef.current && isOpen) {
+      xMoveCursor.current = gsap.quickTo(cursorRef.current, "left", {
+        duration: 0.5,
+        ease: "power3",
+      });
+      yMoveCursor.current = gsap.quickTo(cursorRef.current, "top", {
+        duration: 0.5,
+        ease: "power3",
+      });
+    }
+  }, [isOpen]);
+
+  // Handle mouse move for custom cursor
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (xMoveCursor.current && yMoveCursor.current) {
+      xMoveCursor.current(e.clientX);
+      yMoveCursor.current(e.clientY);
+    }
+  };
+
+  // Close menu on route change
+  useEffect(() => {
+    if (isOpen) {
+      const timeout = setTimeout(() => {
+        handleClose();
+      }, 100);
+      return () => clearTimeout(timeout);
+    }
+  }, [pathname]);
+
+  // Handle menu open animation
+  const handleOpen = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setIsOpen(true);
+
+    const tl = gsap.timeline({
+      onComplete: () => setIsAnimating(false),
+    });
+
+    tl.set(overlayRef.current, { display: "flex" })
+      .fromTo(
+        overlayRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5, ease: "power2.out" }
+      )
+      .fromTo(
+        menuItemsRef.current.filter(Boolean),
+        { y: 100, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: "power4.out",
+        },
+        "-=0.3"
+      )
+      .fromTo(
+        closeButtonRef.current,
+        { opacity: 0, y: -20 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+        "-=0.6"
+      );
+  };
+
+  // Handle menu close animation
+  const handleClose = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        setIsAnimating(false);
+        setIsOpen(false);
+        setActiveIndex(null);
+      },
+    });
+
+    tl.to(closeButtonRef.current, {
+      opacity: 0,
+      y: -20,
+      duration: 0.3,
+      ease: "power2.in",
+    })
+      .to(
+        menuItemsRef.current.filter(Boolean).reverse(),
+        {
+          y: -50,
+          opacity: 0,
+          stagger: 0.05,
+          duration: 0.4,
+          ease: "power4.in",
+        },
+        "-=0.2"
+      )
+      .to(
+        overlayRef.current,
+        { opacity: 0, duration: 0.5, ease: "power2.in" },
+        "-=0.2"
+      )
+      .set(overlayRef.current, { display: "none" });
+  };
+
+  // Handle navigation
+  const handleNavigation = (href: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    handleClose();
+    setTimeout(() => {
+      router.push(href);
+    }, 800);
+  };
+
+  // Menu item hover handlers
+  const handleItemEnter = (index: number) => {
+    setActiveIndex(index);
+  };
+
+  const handleItemLeave = () => {
+    setActiveIndex(null);
+  };
+
+  // Animation variants for image preview
+  const imageVariants = {
+    hidden: { scale: 0, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: [0.76, 0, 0.24, 1],
+      },
+    },
+    exit: {
+      scale: 0,
+      opacity: 0,
+      transition: {
+        duration: 0.3,
+        ease: [0.76, 0, 0.24, 1],
+      },
+    },
+  };
+
+  // Get the current active image
+  const activeImage = activeIndex !== null ? menuItems[activeIndex] : null;
+
+  return (
+    <div className="fullscreen-menu-wrapper">
+      {/* Menu Trigger - Logo */}
+      <div ref={menuTriggerRef} className="menu-trigger" onClick={handleOpen}>
+        <img
+          src="/images/logos/elites-solutions-logo.webp"
+          alt="The Elites Solutions"
+          className="menu-trigger-logo"
+        />
+      </div>
+
+      {/* Fullscreen Overlay */}
+      <div
+        ref={overlayRef}
+        className="fullscreen-menu-overlay"
+        onMouseMove={handleMouseMove}
+      >
+        {/* Close Button */}
+        <button
+          ref={closeButtonRef}
+          className="menu-close-btn"
+          onClick={handleClose}
+        >
+          Close
+        </button>
+
+        {/* Menu Content */}
+        <div className="menu-content">
+          <nav className="menu-nav">
+            {menuItems.map((item, index) => (
+              <div
+                key={item.href}
+                ref={(el) => { menuItemsRef.current[index] = el; }}
+                className={`menu-link ${activeIndex === index ? "active" : ""}`}
+                onMouseEnter={() => handleItemEnter(index)}
+                onMouseLeave={handleItemLeave}
+              >
+                <Link
+                  href={item.href}
+                  onClick={handleNavigation(item.href)}
+                  className="menu-link-inner"
+                >
+                  <span className="menu-number">{item.number}</span>
+                  <span className="menu-title">{item.title}</span>
+                </Link>
+              </div>
+            ))}
+          </nav>
+        </div>
+
+        {/* Image Preview Container - fixed position */}
+        <div ref={imageContainerRef} className="image-preview-container">
+          <AnimatePresence mode="wait">
+            {activeImage && (
+              <motion.div
+                key={activeImage.href}
+                className="image-preview"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
+              >
+                <Image
+                  src={activeImage.image}
+                  alt={activeImage.title}
+                  fill
+                  style={{ objectFit: "cover" }}
+                  priority
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* Custom Cursor */}
+        <div ref={cursorRef} className="menu-cursor">
+          <AnimatePresence>
+            {activeIndex !== null && (
+              <motion.div
+                className="cursor-dot"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <span>View</span>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* Footer */}
+        <div className="menu-footer-info">
+          <p className="footer-tagline">Custom Solutions for Modern Businesses</p>
+          <p className="footer-cta">Transform Your Business with The Elites</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FullscreenMenu;

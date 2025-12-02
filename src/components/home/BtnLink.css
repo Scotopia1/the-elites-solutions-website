@@ -1,0 +1,47 @@
+.anime-link {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.anime-link:hover {
+  transform: translateX(4px);
+}
+
+.anime-link-label {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.anime-link-icon {
+  width: 4rem;
+  height: 1.25rem;
+  background-color: #ffd700; /* Gold color */
+  border-radius: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.anime-link:hover .anime-link-icon {
+  width: 4.5rem;
+  background-color: #ffed4e; /* Lighter gold on hover */
+}
+
+a.link-dark {
+  color: #000;
+}
+
+a.link-light {
+  color: #e4e7df; /* Light greyscale */
+}
+
+.anime-link.anime-link-dark .anime-link-icon {
+  background-color: #000;
+}

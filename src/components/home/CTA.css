@@ -1,0 +1,326 @@
+.cta-section {
+  position: relative;
+  padding: 120px 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* Gold texture overlay */
+/* Gold texture overlay removed for global background */
+
+.cta-container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  z-index: 1;
+}
+
+.cta-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: 80px 60px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.08) 50%, rgba(212, 175, 55, 0.12) 100%);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(212, 175, 55, 0.2),
+    inset 0 0 120px rgba(212, 175, 55, 0.08);
+}
+
+/* Gold texture inside CTA box */
+.cta-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Decorative blurred circles */
+.cta-decorative-top {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.cta-decorative-bottom {
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.cta-content {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 1;
+}
+
+.cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  background: rgba(10, 10, 10, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #d4af37;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 35px;
+  backdrop-filter: blur(10px);
+}
+
+.cta-badge svg {
+  width: 18px;
+  height: 18px;
+}
+
+.cta-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 0 0 25px 0;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cta-description {
+  font-size: 1.25rem;
+  color: #c0c0c0;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.cta-button-primary,
+.cta-button-secondary {
+  position: relative;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 16px 40px;
+  border-radius: 12px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.cta-button-primary {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  color: #d4af37;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.cta-button-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.2) 50%, transparent 100%);
+  transition: left 0.6s ease;
+}
+
+.cta-button-primary:hover::before {
+  left: 100%;
+}
+
+.cta-button-primary:hover {
+  border-color: #d4af37;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(212, 175, 55, 0.4);
+  transform: translateY(-3px);
+}
+
+.cta-button-primary svg {
+  transition: transform 0.3s ease;
+}
+
+.cta-button-primary:hover svg {
+  transform: translateX(5px);
+}
+
+.cta-button-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cta-button-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px);
+}
+
+.cta-trust-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.cta-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #c0c0c0;
+}
+
+.cta-trust-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d4af37 0%, #f4e5b2 100%);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .cta-section {
+    padding: 100px 0;
+  }
+
+  .cta-container {
+    padding: 0 30px;
+  }
+
+  .cta-box {
+    padding: 70px 50px;
+  }
+
+  .cta-title {
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  }
+
+  .cta-description {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 80px 0;
+  }
+
+  .cta-container {
+    padding: 0 20px;
+  }
+
+  .cta-box {
+    padding: 50px 30px;
+    border-radius: 20px;
+  }
+
+  .cta-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 20px;
+  }
+
+  .cta-description {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+
+  .cta-button-primary,
+  .cta-button-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 32px;
+    font-size: 1rem;
+  }
+
+  .cta-trust-indicators {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cta-decorative-top,
+  .cta-decorative-bottom {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-box {
+    padding: 40px 20px;
+    border-radius: 16px;
+  }
+
+  .cta-badge {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+  }
+
+  .cta-title {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+
+  .cta-description {
+    font-size: 1rem;
+  }
+
+  .cta-button-primary,
+  .cta-button-secondary {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+  }
+
+  .cta-trust-item {
+    font-size: 0.9rem;
+  }
+}

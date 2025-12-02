@@ -1,0 +1,34 @@
+{
+  "faqs": [
+    {
+      "id": "faq-1",
+      "question": "What is your typical project timeline?",
+      "answer": "Project timelines vary based on complexity and scope. A simple website typically takes 4-6 weeks, while complex web applications can take 3-6 months. We'll provide a detailed timeline during our initial consultation based on your specific requirements."
+    },
+    {
+      "id": "faq-2",
+      "question": "Do you offer ongoing maintenance and support?",
+      "answer": "Yes, we offer comprehensive maintenance and support packages. This includes regular updates, security patches, performance monitoring, and priority support. We believe in building long-term partnerships with our clients."
+    },
+    {
+      "id": "faq-3",
+      "question": "What technologies do you specialize in?",
+      "answer": "We specialize in modern web technologies including Next.js, React, TypeScript, Node.js, and Python. For mobile development, we use React Native and Flutter. We stay current with industry trends to deliver cutting-edge solutions."
+    },
+    {
+      "id": "faq-4",
+      "question": "How do you handle project communication?",
+      "answer": "We believe in transparent communication. You'll have a dedicated project manager, access to our project management tools, and regular status updates. We typically hold weekly check-ins and are available for quick questions via Slack or email."
+    },
+    {
+      "id": "faq-5",
+      "question": "What is your pricing model?",
+      "answer": "We offer both fixed-price and time-and-materials pricing models depending on project needs. Fixed-price works well for clearly defined projects, while time-and-materials is better for evolving requirements. We'll recommend the best approach during our consultation."
+    },
+    {
+      "id": "faq-6",
+      "question": "Do you sign NDAs and handle confidential information?",
+      "answer": "Absolutely. We take confidentiality seriously and are happy to sign NDAs before any detailed discussions. All client data and intellectual property are handled with the utmost care and security."
+    }
+  ]
+}

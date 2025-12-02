@@ -1,0 +1,187 @@
+/* ============================================
+   SERVICES HERO SECTION
+   Premium hero with gold particles and parallax
+   ============================================ */
+
+.services-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0a0a0a;
+  overflow: hidden;
+}
+
+/* Gold Particles Canvas */
+.services-hero__particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Dark gradient overlay */
+.services-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Content container */
+.services-hero__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+  max-width: 1200px;
+}
+
+/* Decorative line */
+.services-hero__line {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  margin-bottom: 2rem;
+  transform-origin: center;
+}
+
+/* Subtitle */
+.services-hero__subtitle {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: rgba(255, 215, 0, 0.9);
+  margin: 0 0 1.5rem;
+  font-weight: 500;
+}
+
+/* Main title */
+.services-hero__title {
+  font-size: clamp(3rem, 15vw, 12rem);
+  font-weight: lighter;
+  line-height: 0.9;
+  margin: 0 0 2rem;
+  text-transform: uppercase;
+}
+
+.services-hero__title-text {
+  display: block;
+  color: white;
+  font-weight: 300;
+}
+
+.services-hero__title-gold {
+  display: block;
+  background: url(/textures/Gold.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+/* Description */
+.services-hero__description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 4rem;
+  max-width: 500px;
+  font-weight: 300;
+}
+
+/* Scroll indicator */
+.services-hero__scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.services-hero__scroll span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.services-hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, #ffd700, transparent);
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Mobile */
+@media (max-width: 640px) {
+  .services-hero {
+    min-height: 90vh;
+  }
+
+  .services-hero__content {
+    padding: 0 1.5rem;
+  }
+
+  .services-hero__line {
+    width: 60px;
+    margin-bottom: 1.5rem;
+  }
+
+  .services-hero__subtitle {
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+  }
+
+  .services-hero__title {
+    margin-bottom: 1.5rem;
+  }
+
+  .services-hero__description {
+    margin-bottom: 3rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .services-hero__title {
+    font-size: clamp(4rem, 12vw, 8rem);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .services-hero__particles {
+    display: none;
+  }
+
+  .services-hero__scroll-line {
+    animation: none;
+  }
+}
+
+/* ============================================
+   HIGH DPI DISPLAYS
+   ============================================ */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .services-hero__title-gold {
+    background-size: 150%;
+  }
+}
