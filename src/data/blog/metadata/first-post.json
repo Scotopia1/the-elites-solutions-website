@@ -1,0 +1,22 @@
+{
+  "slug": "first-post",
+  "title": "How We Built Our New Website",
+  "subtitle": "A deep dive into our tech stack, design decisions, and the lessons we learned along the way",
+  "category": "Development",
+  "author": {
+    "name": "John Sterling",
+    "avatar": "/images/authors/john-sterling.jpg",
+    "title": "Lead Developer",
+    "bio": "Full-stack developer with a passion for creating exceptional web experiences. Specializing in React, Next.js, and modern animation techniques.",
+    "social": {
+      "twitter": "https://twitter.com/johnsterling",
+      "linkedin": "https://linkedin.com/in/johnsterling",
+      "github": "https://github.com/johnsterling"
+    }
+  },
+  "publishedDate": "December 1, 2024",
+  "readingTime": "8 min read",
+  "heroImage": "/images/blog/first-post-hero.jpg",
+  "tags": ["React", "Next.js", "Web Development", "GSAP", "Framer Motion", "Performance"],
+  "relatedPosts": ["second-post", "third-post", "fourth-post"]
+}

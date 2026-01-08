@@ -1,0 +1,125 @@
+{
+  "slug": "mobile-apps",
+  "title": "Native Mobile Apps",
+  "tagline": "Powerful mobile experiences in your pocket",
+  "icon": "/icons/services/mobile-app.svg",
+  "description": "We create native and cross-platform mobile applications that users love. From concept to deployment, we build apps that combine stunning design with robust functionality.",
+  "benefits": [
+    {
+      "title": "Cross-Platform",
+      "description": "Single codebase for iOS and Android with native performance"
+    },
+    {
+      "title": "Offline-First",
+      "description": "Apps that work seamlessly even without internet connection"
+    },
+    {
+      "title": "Push Notifications",
+      "description": "Keep users engaged with timely, relevant notifications"
+    },
+    {
+      "title": "App Store Ready",
+      "description": "Full submission and approval process support"
+    }
+  ],
+  "techStack": [
+    { "name": "React Native", "icon": "/icons/tech/react-native.svg" },
+    { "name": "Flutter", "icon": "/icons/tech/flutter.svg" },
+    { "name": "Swift", "icon": "/icons/tech/swift.svg" },
+    { "name": "Kotlin", "icon": "/icons/tech/kotlin.svg" },
+    { "name": "Firebase", "icon": "/icons/tech/firebase.svg" },
+    { "name": "AWS", "icon": "/icons/tech/aws.svg" }
+  ],
+  "process": [
+    {
+      "step": 1,
+      "title": "Discovery & Strategy",
+      "description": "We analyze your target market, competition, and user needs to define the perfect mobile strategy for your business."
+    },
+    {
+      "step": 2,
+      "title": "UX/UI Design",
+      "description": "Our designers create intuitive, beautiful interfaces that follow platform guidelines while maintaining your brand identity."
+    },
+    {
+      "step": 3,
+      "title": "Development & QA",
+      "description": "We build your app with clean code, rigorous testing on real devices, and continuous integration for quality assurance."
+    },
+    {
+      "step": 4,
+      "title": "Launch & Growth",
+      "description": "From app store submission to post-launch analytics and iteration, we help your app succeed in the marketplace."
+    }
+  ],
+  "caseStudies": [],
+  "pricing": [
+    {
+      "tier": "MVP",
+      "price": "$20,000",
+      "description": "Launch your idea quickly",
+      "features": [
+        "Single platform (iOS or Android)",
+        "5-7 core screens",
+        "Basic user authentication",
+        "Cloud database integration",
+        "Push notifications",
+        "App store submission",
+        "2 months support"
+      ]
+    },
+    {
+      "tier": "Pro App",
+      "price": "$50,000",
+      "description": "Full-featured application",
+      "features": [
+        "iOS & Android (cross-platform)",
+        "15-20 screens",
+        "Advanced authentication & security",
+        "Payment gateway integration",
+        "Real-time features",
+        "Analytics integration",
+        "Admin dashboard",
+        "6 months support"
+      ],
+      "highlighted": true
+    },
+    {
+      "tier": "Enterprise",
+      "price": "Custom",
+      "description": "Complex business solutions",
+      "features": [
+        "Native iOS & Android",
+        "Unlimited screens",
+        "Offline functionality",
+        "Custom backend architecture",
+        "Third-party integrations",
+        "Advanced security & encryption",
+        "Dedicated support",
+        "12 months support"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Should I build native or cross-platform?",
+      "answer": "Cross-platform (React Native/Flutter) is perfect for most apps, offering cost savings and faster development. We recommend native development only for apps requiring maximum performance or platform-specific features."
+    },
+    {
+      "question": "How do you handle app store submissions?",
+      "answer": "We handle the entire submission process for both Apple App Store and Google Play Store, including account setup, compliance checks, and managing the review process."
+    },
+    {
+      "question": "Can you update an existing mobile app?",
+      "answer": "Yes! We can take over existing apps, add new features, fix bugs, and modernize the codebase to current standards."
+    },
+    {
+      "question": "How much does app maintenance cost?",
+      "answer": "Maintenance costs vary based on complexity but typically range from $1,000-$5,000/month for monitoring, updates, bug fixes, and minor feature additions."
+    },
+    {
+      "question": "Do you provide backend development?",
+      "answer": "Yes, we build complete backend systems with APIs, databases, authentication, and cloud infrastructure to power your mobile app."
+    }
+  ]
+}

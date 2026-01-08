@@ -10,6 +10,7 @@
   font-display: swap;
 }
 
+/* Commented out - font files not available
 @font-face {
   font-family: "PP Editorial New";
   src: url("/fonts/pp-editorial-new-200.ttf") format("truetype");
@@ -44,6 +45,7 @@
   font-weight: 800;
   font-display: swap;
 }
+*/
 
 /* Fonts from CGMWTFEB2025 (Isochrome) */
 @font-face {

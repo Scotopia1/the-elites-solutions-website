@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getScrollTriggerScrub } from "@/lib/gsap-config";
 import { useReducedMotion } from "../hooks/useReducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -65,7 +66,7 @@ export function MissionStatement() {
         end: "+=200%",
         pin: true,
         pinSpacing: true,
-        scrub: 1,
+        scrub: getScrollTriggerScrub(1),
         refreshPriority: 0, // Middle priority for coordination
         onUpdate: (self) => {
           const progress = self.progress;

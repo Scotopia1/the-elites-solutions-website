@@ -1,0 +1,125 @@
+{
+  "slug": "enterprise",
+  "title": "Enterprise Solutions",
+  "tagline": "Custom software for complex business needs",
+  "icon": "/icons/services/enterprise.svg",
+  "description": "We build custom enterprise software that transforms how large organizations operate. From legacy system modernization to greenfield development, we deliver scalable solutions that drive digital transformation.",
+  "benefits": [
+    {
+      "title": "Custom Built",
+      "description": "Tailored solutions designed specifically for your business processes"
+    },
+    {
+      "title": "Enterprise Grade",
+      "description": "Built for scale, security, and compliance from day one"
+    },
+    {
+      "title": "Legacy Integration",
+      "description": "Seamlessly connect with existing systems and databases"
+    },
+    {
+      "title": "Dedicated Support",
+      "description": "24/7 support with SLAs and guaranteed response times"
+    }
+  ],
+  "techStack": [
+    { "name": "Java", "icon": "/icons/tech/java.svg" },
+    { "name": ".NET", "icon": "/icons/tech/dotnet.svg" },
+    { "name": "Docker", "icon": "/icons/tech/docker.svg" },
+    { "name": "Kubernetes", "icon": "/icons/tech/kubernetes.svg" },
+    { "name": "Azure", "icon": "/icons/tech/azure.svg" },
+    { "name": "Microservices", "icon": "/icons/tech/microservices.svg" }
+  ],
+  "process": [
+    {
+      "step": 1,
+      "title": "Enterprise Assessment",
+      "description": "Deep dive into your organization's needs, existing systems, compliance requirements, and strategic objectives."
+    },
+    {
+      "step": 2,
+      "title": "Architecture & Design",
+      "description": "Our architects design scalable, secure systems with detailed technical specifications and roadmaps."
+    },
+    {
+      "step": 3,
+      "title": "Agile Development",
+      "description": "Iterative development with regular sprint reviews, continuous integration, and comprehensive testing."
+    },
+    {
+      "step": 4,
+      "title": "Deployment & Evolution",
+      "description": "Managed deployment, monitoring, ongoing optimization, and continuous improvement to meet evolving needs."
+    }
+  ],
+  "caseStudies": [],
+  "pricing": [
+    {
+      "tier": "Internal Tool",
+      "price": "$50,000+",
+      "description": "Departmental solutions",
+      "features": [
+        "Single department focus",
+        "User authentication & roles",
+        "Database design & implementation",
+        "Basic reporting",
+        "API development",
+        "6 months development",
+        "3 months support"
+      ]
+    },
+    {
+      "tier": "Business Platform",
+      "price": "$150,000+",
+      "description": "Cross-organizational systems",
+      "features": [
+        "Multi-department integration",
+        "Advanced security & compliance",
+        "Microservices architecture",
+        "Real-time data processing",
+        "Advanced analytics",
+        "Third-party integrations",
+        "12 months development",
+        "6 months support"
+      ],
+      "highlighted": true
+    },
+    {
+      "tier": "Digital Transformation",
+      "price": "Custom",
+      "description": "Enterprise-wide modernization",
+      "features": [
+        "Complete system overhaul",
+        "Legacy migration strategy",
+        "Cloud infrastructure setup",
+        "AI/ML integration",
+        "Custom training programs",
+        "Dedicated dev team",
+        "Multi-year partnership",
+        "24/7 support"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How do you handle enterprise security requirements?",
+      "answer": "We implement industry-standard security practices including encryption, secure authentication, regular penetration testing, and compliance with standards like SOC 2, HIPAA, and GDPR as needed."
+    },
+    {
+      "question": "Can you work with our in-house development team?",
+      "answer": "Absolutely. We excel at collaborative development, whether augmenting your team, leading specific initiatives, or providing architectural guidance."
+    },
+    {
+      "question": "What's your approach to legacy system modernization?",
+      "answer": "We take a phased approach: assessment, strategic planning, incremental migration, and parallel running to minimize risk and ensure business continuity throughout the transformation."
+    },
+    {
+      "question": "Do you provide ongoing maintenance?",
+      "answer": "Yes. We offer comprehensive maintenance packages including 24/7 monitoring, regular updates, security patches, performance optimization, and dedicated support teams."
+    },
+    {
+      "question": "How do you ensure project success?",
+      "answer": "Through proven methodologies: detailed discovery, agile development with regular stakeholder reviews, transparent communication, rigorous testing, and post-launch optimization."
+    }
+  ]
+}

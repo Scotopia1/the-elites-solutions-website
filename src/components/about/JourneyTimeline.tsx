@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getScrollTriggerScrub } from "@/lib/gsap-config";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,7 +69,7 @@ export default function JourneyTimeline() {
             trigger: sectionRef.current,
             start: "top 60%",
             end: "bottom 80%",
-            scrub: 1,
+            scrub: getScrollTriggerScrub(1),
           },
         }
       );

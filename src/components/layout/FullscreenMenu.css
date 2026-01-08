@@ -20,6 +20,16 @@
   cursor: pointer;
   z-index: 101;
   transition: transform 0.3s ease, top 0.3s ease;
+  /* Remove default button styles */
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.menu-trigger:focus-visible {
+  outline: 3px solid #ffd700;
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .menu-trigger:hover {
@@ -75,6 +85,16 @@
   opacity: 0;
   transition: color 0.3s ease;
   z-index: 10;
+  /* Touch Target Sizing - WCAG 2.1 AAA Compliance */
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 1rem;
+}
+
+.menu-close-btn:focus-visible {
+  outline: 3px solid #ffd700;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .menu-close-btn:hover {
@@ -150,9 +170,77 @@
 }
 
 .menu-link:hover .menu-title,
-.menu-link.active .menu-title {
+.menu-link.hover-active .menu-title {
   color: #d4af37;
   text-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+}
+
+/* Current Page Indicator */
+.menu-link.current-page .menu-title {
+  color: #ffd700;
+  text-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+  position: relative;
+}
+
+.menu-link.current-page .menu-number {
+  color: #ffd700;
+  font-weight: 500;
+}
+
+.current-indicator {
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffd700;
+  font-size: 1.5rem;
+  animation: pulse-dot 2s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-50%) scale(1.2);
+  }
+}
+
+/* Ensure hover state doesn't override current page styling */
+.menu-link.current-page:hover .menu-title {
+  color: #ffd700;
+}
+
+.menu-link.current-page:hover .menu-number {
+  color: #ffd700;
+}
+
+/* Add subtle underline for current page */
+.menu-link.current-page .menu-link-inner {
+  position: relative;
+}
+
+.menu-link.current-page .menu-link-inner::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, #ffd700 0%, transparent 100%);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* Image Preview Container */

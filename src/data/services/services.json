@@ -1,0 +1,460 @@
+[
+  {
+    "id": "srv-001",
+    "slug": "web-development",
+    "title": {
+      "en": "Web Development",
+      "fr": "Développement Web",
+      "ar": "تطوير الويب"
+    },
+    "description": {
+      "en": "We craft high-performance, scalable web applications that deliver exceptional user experiences. Our team combines cutting-edge technology with creative design to build digital solutions that drive business growth.",
+      "fr": "Nous créons des applications web performantes et évolutives qui offrent des expériences utilisateur exceptionnelles. Notre équipe combine une technologie de pointe avec un design créatif pour construire des solutions numériques qui stimulent la croissance des entreprises.",
+      "ar": "نصمم تطبيقات ويب عالية الأداء وقابلة للتطوير توفر تجارب مستخدم استثنائية. يجمع فريقنا بين التكنولوجيا المتطورة والتصميم الإبداعي لبناء حلول رقمية تدفع نمو الأعمال."
+    },
+    "shortDescription": {
+      "en": "Modern web applications built with React, Next.js, and TypeScript for optimal performance and SEO.",
+      "fr": "Applications web modernes construites avec React, Next.js et TypeScript pour des performances et un SEO optimaux.",
+      "ar": "تطبيقات ويب حديثة مبنية باستخدام React و Next.js و TypeScript لأداء وتحسين محركات البحث الأمثل."
+    },
+    "icon": "/icons/services/web-dev.svg",
+    "features": [
+      {
+        "en": "Lightning Fast Performance",
+        "fr": "Performance Ultra-Rapide",
+        "ar": "أداء سريع للغاية"
+      },
+      {
+        "en": "SEO Optimized",
+        "fr": "Optimisé pour le SEO",
+        "ar": "محسّن لمحركات البحث"
+      },
+      {
+        "en": "Responsive Design",
+        "fr": "Design Responsive",
+        "ar": "تصميم متجاوب"
+      },
+      {
+        "en": "Secure & Scalable",
+        "fr": "Sécurisé et Évolutif",
+        "ar": "آمن وقابل للتوسع"
+      }
+    ],
+    "showPricing": true,
+    "pricingType": "project",
+    "pricingInfo": {
+      "startingAt": "$5,000",
+      "tiers": [
+        {
+          "name": "Starter",
+          "price": "$5,000",
+          "description": "Perfect for small businesses",
+          "features": ["5-10 pages", "Responsive design", "Basic SEO", "Contact forms", "1 month support"]
+        },
+        {
+          "name": "Professional",
+          "price": "$15,000",
+          "description": "For growing businesses",
+          "features": ["15-25 pages", "Custom design system", "Advanced SEO", "CMS integration", "API development", "3 months support"],
+          "highlighted": true
+        },
+        {
+          "name": "Enterprise",
+          "price": "Custom",
+          "description": "Large-scale applications",
+          "features": ["Unlimited pages", "Full custom development", "Microservices", "Advanced security", "12 months support"]
+        }
+      ]
+    },
+    "process": [
+      {
+        "step": 1,
+        "title": { "en": "Discovery & Planning", "fr": "Découverte et Planification", "ar": "الاكتشاف والتخطيط" },
+        "description": { "en": "We analyze your goals, audience, and requirements to create a comprehensive project roadmap.", "fr": "Nous analysons vos objectifs, votre public et vos exigences pour créer une feuille de route complète.", "ar": "نحلل أهدافك وجمهورك ومتطلباتك لإنشاء خارطة طريق شاملة للمشروع." }
+      },
+      {
+        "step": 2,
+        "title": { "en": "Design & Prototyping", "fr": "Design et Prototypage", "ar": "التصميم والنمذجة" },
+        "description": { "en": "Our designers create stunning mockups and interactive prototypes that bring your vision to life.", "fr": "Nos designers créent des maquettes impressionnantes et des prototypes interactifs qui donnent vie à votre vision.", "ar": "يقوم مصممونا بإنشاء نماذج مذهلة ونماذج أولية تفاعلية تجسد رؤيتك." }
+      },
+      {
+        "step": 3,
+        "title": { "en": "Development & Testing", "fr": "Développement et Tests", "ar": "التطوير والاختبار" },
+        "description": { "en": "We build your application with best practices and continuous testing for quality.", "fr": "Nous construisons votre application avec les meilleures pratiques et des tests continus pour la qualité.", "ar": "نبني تطبيقك باستخدام أفضل الممارسات والاختبار المستمر للجودة." }
+      },
+      {
+        "step": 4,
+        "title": { "en": "Launch & Support", "fr": "Lancement et Support", "ar": "الإطلاق والدعم" },
+        "description": { "en": "We handle deployment, monitoring, and provide ongoing support.", "fr": "Nous gérons le déploiement, la surveillance et fournissons un support continu.", "ar": "نتولى النشر والمراقبة ونقدم الدعم المستمر." }
+      }
+    ],
+    "teamSize": "3-5 developers",
+    "expertiseAreas": ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    "techStack": [
+      { "name": "React", "icon": "/icons/tech/react.svg" },
+      { "name": "Next.js", "icon": "/icons/tech/nextjs.svg" },
+      { "name": "TypeScript", "icon": "/icons/tech/typescript.svg" },
+      { "name": "Node.js", "icon": "/icons/tech/nodejs.svg" },
+      { "name": "Tailwind CSS", "icon": "/icons/tech/tailwind.svg" },
+      { "name": "PostgreSQL", "icon": "/icons/tech/postgresql.svg" }
+    ],
+    "metrics": {
+      "projectsCompleted": 50,
+      "averageRating": 4.9,
+      "averageDeliveryTime": "8 weeks"
+    },
+    "ctaType": "both",
+    "ctaButtonText": {
+      "en": "Start Your Project",
+      "fr": "Démarrer Votre Projet",
+      "ar": "ابدأ مشروعك"
+    },
+    "orderIndex": 1,
+    "isFeatured": true,
+    "createdAt": "2024-01-15T00:00:00.000Z",
+    "updatedAt": "2024-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "srv-002",
+    "slug": "mobile-apps",
+    "title": {
+      "en": "Mobile Apps",
+      "fr": "Applications Mobiles",
+      "ar": "تطبيقات الجوال"
+    },
+    "description": {
+      "en": "We create native and cross-platform mobile applications that users love. From concept to deployment, we build apps that combine stunning design with robust functionality for iOS and Android.",
+      "fr": "Nous créons des applications mobiles natives et multiplateformes que les utilisateurs adorent. Du concept au déploiement, nous construisons des applications qui combinent un design époustouflant avec des fonctionnalités robustes pour iOS et Android.",
+      "ar": "نقوم بإنشاء تطبيقات جوال أصلية ومتعددة المنصات يحبها المستخدمون. من المفهوم إلى النشر، نبني تطبيقات تجمع بين التصميم المذهل والوظائف القوية لنظامي iOS و Android."
+    },
+    "shortDescription": {
+      "en": "Native and cross-platform mobile apps with React Native and Flutter for iOS and Android.",
+      "fr": "Applications mobiles natives et multiplateformes avec React Native et Flutter pour iOS et Android.",
+      "ar": "تطبيقات جوال أصلية ومتعددة المنصات باستخدام React Native و Flutter لنظامي iOS و Android."
+    },
+    "icon": "/icons/services/mobile.svg",
+    "features": [
+      {
+        "en": "Cross-Platform Development",
+        "fr": "Développement Multiplateforme",
+        "ar": "تطوير متعدد المنصات"
+      },
+      {
+        "en": "Offline-First Architecture",
+        "fr": "Architecture Hors-Ligne d'Abord",
+        "ar": "بنية تعمل بدون اتصال أولاً"
+      },
+      {
+        "en": "Push Notifications",
+        "fr": "Notifications Push",
+        "ar": "إشعارات الدفع"
+      },
+      {
+        "en": "App Store Optimization",
+        "fr": "Optimisation App Store",
+        "ar": "تحسين متجر التطبيقات"
+      }
+    ],
+    "showPricing": true,
+    "pricingType": "project",
+    "pricingInfo": {
+      "startingAt": "$20,000",
+      "tiers": [
+        {
+          "name": "MVP",
+          "price": "$20,000",
+          "description": "Launch your idea quickly",
+          "features": ["Single platform", "5-7 screens", "Basic auth", "Push notifications", "2 months support"]
+        },
+        {
+          "name": "Pro App",
+          "price": "$50,000",
+          "description": "Full-featured application",
+          "features": ["iOS & Android", "15-20 screens", "Payment integration", "Real-time features", "Admin dashboard", "6 months support"],
+          "highlighted": true
+        },
+        {
+          "name": "Enterprise",
+          "price": "Custom",
+          "description": "Complex solutions",
+          "features": ["Native development", "Unlimited screens", "Offline functionality", "Custom backend", "12 months support"]
+        }
+      ]
+    },
+    "process": [
+      {
+        "step": 1,
+        "title": { "en": "Discovery & Strategy", "fr": "Découverte et Stratégie", "ar": "الاكتشاف والاستراتيجية" },
+        "description": { "en": "We analyze your market, competition, and user needs to define the perfect mobile strategy.", "fr": "Nous analysons votre marché, la concurrence et les besoins des utilisateurs pour définir la stratégie mobile parfaite.", "ar": "نحلل سوقك والمنافسة واحتياجات المستخدمين لتحديد استراتيجية الجوال المثالية." }
+      },
+      {
+        "step": 2,
+        "title": { "en": "UX/UI Design", "fr": "Design UX/UI", "ar": "تصميم تجربة وواجهة المستخدم" },
+        "description": { "en": "Our designers create intuitive, beautiful interfaces following platform guidelines.", "fr": "Nos designers créent des interfaces intuitives et belles suivant les directives de la plateforme.", "ar": "يقوم مصممونا بإنشاء واجهات بديهية وجميلة تتبع إرشادات المنصة." }
+      },
+      {
+        "step": 3,
+        "title": { "en": "Development & QA", "fr": "Développement et QA", "ar": "التطوير وضمان الجودة" },
+        "description": { "en": "We build with clean code, rigorous testing on real devices, and CI/CD.", "fr": "Nous construisons avec du code propre, des tests rigoureux sur de vrais appareils et CI/CD.", "ar": "نبني بكود نظيف واختبار صارم على أجهزة حقيقية و CI/CD." }
+      },
+      {
+        "step": 4,
+        "title": { "en": "Launch & Growth", "fr": "Lancement et Croissance", "ar": "الإطلاق والنمو" },
+        "description": { "en": "From app store submission to analytics and iteration.", "fr": "De la soumission à l'app store aux analyses et itérations.", "ar": "من تقديم متجر التطبيقات إلى التحليلات والتكرار." }
+      }
+    ],
+    "teamSize": "4-6 developers",
+    "expertiseAreas": ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "AWS"],
+    "techStack": [
+      { "name": "React Native", "icon": "/icons/tech/react-native.svg" },
+      { "name": "TypeScript", "icon": "/icons/tech/typescript.svg" },
+      { "name": "Node.js", "icon": "/icons/tech/nodejs.svg" },
+      { "name": "PostgreSQL", "icon": "/icons/tech/postgresql.svg" },
+      { "name": "Redis", "icon": "/icons/tech/redis.svg" },
+      { "name": "AWS", "icon": "/icons/tech/aws.svg" }
+    ],
+    "metrics": {
+      "projectsCompleted": 35,
+      "averageRating": 4.8,
+      "totalDownloads": "500K+"
+    },
+    "ctaType": "consultation",
+    "ctaButtonText": {
+      "en": "Discuss Your App",
+      "fr": "Discutez de Votre App",
+      "ar": "ناقش تطبيقك"
+    },
+    "orderIndex": 2,
+    "isFeatured": true,
+    "createdAt": "2024-01-15T00:00:00.000Z",
+    "updatedAt": "2024-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "srv-003",
+    "slug": "automation",
+    "title": {
+      "en": "Workflow Automation",
+      "fr": "Automatisation des Flux",
+      "ar": "أتمتة سير العمل"
+    },
+    "description": {
+      "en": "Eliminate repetitive tasks and streamline your business processes with custom automation solutions. We help you work smarter, not harder, by building intelligent systems that save time and reduce errors.",
+      "fr": "Éliminez les tâches répétitives et rationalisez vos processus d'affaires avec des solutions d'automatisation personnalisées. Nous vous aidons à travailler plus intelligemment, pas plus dur, en construisant des systèmes intelligents qui économisent du temps et réduisent les erreurs.",
+      "ar": "تخلص من المهام المتكررة وقم بتبسيط عمليات عملك مع حلول الأتمتة المخصصة. نساعدك على العمل بذكاء وليس بجهد أكبر من خلال بناء أنظمة ذكية توفر الوقت وتقلل الأخطاء."
+    },
+    "shortDescription": {
+      "en": "Custom automation solutions that eliminate manual tasks and streamline operations.",
+      "fr": "Solutions d'automatisation personnalisées qui éliminent les tâches manuelles et rationalisent les opérations.",
+      "ar": "حلول أتمتة مخصصة تقضي على المهام اليدوية وتبسط العمليات."
+    },
+    "icon": "/icons/services/automation.svg",
+    "features": [
+      {
+        "en": "70% Cost Reduction",
+        "fr": "Réduction des Coûts de 70%",
+        "ar": "تخفيض التكاليف بنسبة 70%"
+      },
+      {
+        "en": "Zero Manual Errors",
+        "fr": "Zéro Erreur Manuelle",
+        "ar": "صفر أخطاء يدوية"
+      },
+      {
+        "en": "50+ App Integrations",
+        "fr": "50+ Intégrations d'Apps",
+        "ar": "أكثر من 50 تكامل مع التطبيقات"
+      },
+      {
+        "en": "Real-time Monitoring",
+        "fr": "Surveillance en Temps Réel",
+        "ar": "مراقبة في الوقت الفعلي"
+      }
+    ],
+    "showPricing": true,
+    "pricingType": "project",
+    "pricingInfo": {
+      "startingAt": "$2,500",
+      "tiers": [
+        {
+          "name": "Starter Pack",
+          "price": "$2,500",
+          "description": "Automate key processes",
+          "features": ["5 workflows", "Standard integrations", "Documentation", "1 month support"]
+        },
+        {
+          "name": "Business Suite",
+          "price": "$8,000",
+          "description": "Comprehensive automation",
+          "features": ["20 workflows", "Custom integrations", "Advanced logic", "Team training", "3 months support"],
+          "highlighted": true
+        },
+        {
+          "name": "Enterprise",
+          "price": "Custom",
+          "description": "Full business automation",
+          "features": ["Unlimited workflows", "AI/ML integration", "Dedicated engineer", "Priority support", "12 months support"]
+        }
+      ]
+    },
+    "process": [
+      {
+        "step": 1,
+        "title": { "en": "Process Mapping", "fr": "Cartographie des Processus", "ar": "رسم خرائط العمليات" },
+        "description": { "en": "We analyze your current workflows to identify bottlenecks and automation opportunities.", "fr": "Nous analysons vos flux de travail actuels pour identifier les goulots d'étranglement et les opportunités d'automatisation.", "ar": "نحلل سير العمل الحالي لتحديد الاختناقات وفرص الأتمتة." }
+      },
+      {
+        "step": 2,
+        "title": { "en": "Solution Design", "fr": "Conception de la Solution", "ar": "تصميم الحل" },
+        "description": { "en": "Our team designs custom automation workflows that integrate with your existing tools.", "fr": "Notre équipe conçoit des flux de travail d'automatisation personnalisés qui s'intègrent à vos outils existants.", "ar": "يصمم فريقنا سير عمل أتمتة مخصص يتكامل مع أدواتك الحالية." }
+      },
+      {
+        "step": 3,
+        "title": { "en": "Implementation", "fr": "Implémentation", "ar": "التنفيذ" },
+        "description": { "en": "We build and test automation workflows, ensuring reliability before going live.", "fr": "Nous construisons et testons les flux de travail d'automatisation, assurant la fiabilité avant la mise en production.", "ar": "نبني ونختبر سير عمل الأتمتة، مع ضمان الموثوقية قبل الإطلاق." }
+      },
+      {
+        "step": 4,
+        "title": { "en": "Optimization & Training", "fr": "Optimisation et Formation", "ar": "التحسين والتدريب" },
+        "description": { "en": "We monitor performance, optimize workflows, and train your team.", "fr": "Nous surveillons les performances, optimisons les flux de travail et formons votre équipe.", "ar": "نراقب الأداء ونحسن سير العمل وندرب فريقك." }
+      }
+    ],
+    "teamSize": "2-3 specialists",
+    "expertiseAreas": ["Zapier", "Make", "n8n", "Python", "Airtable", "APIs"],
+    "techStack": [
+      { "name": "Python", "icon": "/icons/tech/python.svg" },
+      { "name": "Node.js", "icon": "/icons/tech/nodejs.svg" },
+      { "name": "PostgreSQL", "icon": "/icons/tech/postgresql.svg" },
+      { "name": "Redis", "icon": "/icons/tech/redis.svg" },
+      { "name": "AWS", "icon": "/icons/tech/aws.svg" }
+    ],
+    "metrics": {
+      "workflowsBuilt": 500,
+      "timeSaved": "10,000+ hours/month",
+      "costSavings": "$2M+"
+    },
+    "ctaType": "quote",
+    "ctaButtonText": {
+      "en": "Get Automation Quote",
+      "fr": "Obtenir un Devis",
+      "ar": "احصل على عرض أسعار"
+    },
+    "orderIndex": 3,
+    "isFeatured": true,
+    "createdAt": "2024-01-15T00:00:00.000Z",
+    "updatedAt": "2024-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "srv-004",
+    "slug": "enterprise",
+    "title": {
+      "en": "Enterprise Solutions",
+      "fr": "Solutions Entreprise",
+      "ar": "حلول المؤسسات"
+    },
+    "description": {
+      "en": "We build custom enterprise software that transforms how large organizations operate. From legacy system modernization to greenfield development, we deliver scalable solutions that drive digital transformation.",
+      "fr": "Nous construisons des logiciels d'entreprise personnalisés qui transforment le fonctionnement des grandes organisations. De la modernisation des systèmes hérités au développement greenfield, nous livrons des solutions évolutives qui stimulent la transformation numérique.",
+      "ar": "نبني برامج مؤسسية مخصصة تحول طريقة عمل المؤسسات الكبرى. من تحديث الأنظمة القديمة إلى التطوير من الصفر، نقدم حلولاً قابلة للتوسع تدفع التحول الرقمي."
+    },
+    "shortDescription": {
+      "en": "Custom enterprise software for digital transformation and legacy modernization.",
+      "fr": "Logiciels d'entreprise personnalisés pour la transformation numérique et la modernisation des systèmes.",
+      "ar": "برامج مؤسسية مخصصة للتحول الرقمي وتحديث الأنظمة القديمة."
+    },
+    "icon": "/icons/services/enterprise.svg",
+    "features": [
+      {
+        "en": "Enterprise-Grade Security",
+        "fr": "Sécurité de Niveau Entreprise",
+        "ar": "أمان على مستوى المؤسسات"
+      },
+      {
+        "en": "Legacy Integration",
+        "fr": "Intégration des Systèmes Hérités",
+        "ar": "تكامل الأنظمة القديمة"
+      },
+      {
+        "en": "Scalable Architecture",
+        "fr": "Architecture Évolutive",
+        "ar": "بنية قابلة للتوسع"
+      },
+      {
+        "en": "24/7 Support",
+        "fr": "Support 24/7",
+        "ar": "دعم على مدار الساعة"
+      }
+    ],
+    "showPricing": true,
+    "pricingType": "custom",
+    "pricingInfo": {
+      "startingAt": "$50,000+",
+      "tiers": [
+        {
+          "name": "Internal Tool",
+          "price": "$50,000+",
+          "description": "Departmental solutions",
+          "features": ["Single department", "User authentication", "Database design", "Basic reporting", "3 months support"]
+        },
+        {
+          "name": "Business Platform",
+          "price": "$150,000+",
+          "description": "Cross-organizational systems",
+          "features": ["Multi-department", "Microservices", "Advanced security", "Real-time processing", "6 months support"],
+          "highlighted": true
+        },
+        {
+          "name": "Digital Transformation",
+          "price": "Custom",
+          "description": "Enterprise-wide modernization",
+          "features": ["Complete overhaul", "Legacy migration", "Cloud infrastructure", "AI/ML integration", "Multi-year partnership"]
+        }
+      ]
+    },
+    "process": [
+      {
+        "step": 1,
+        "title": { "en": "Enterprise Assessment", "fr": "Évaluation Entreprise", "ar": "تقييم المؤسسة" },
+        "description": { "en": "Deep dive into your organization's needs, existing systems, and strategic objectives.", "fr": "Plongée approfondie dans les besoins de votre organisation, les systèmes existants et les objectifs stratégiques.", "ar": "تعمق في احتياجات مؤسستك والأنظمة الحالية والأهداف الاستراتيجية." }
+      },
+      {
+        "step": 2,
+        "title": { "en": "Architecture & Design", "fr": "Architecture et Design", "ar": "الهندسة والتصميم" },
+        "description": { "en": "Our architects design scalable, secure systems with detailed specifications.", "fr": "Nos architectes conçoivent des systèmes évolutifs et sécurisés avec des spécifications détaillées.", "ar": "يصمم مهندسونا أنظمة قابلة للتوسع وآمنة مع مواصفات مفصلة." }
+      },
+      {
+        "step": 3,
+        "title": { "en": "Agile Development", "fr": "Développement Agile", "ar": "التطوير المرن" },
+        "description": { "en": "Iterative development with sprint reviews, CI/CD, and comprehensive testing.", "fr": "Développement itératif avec des revues de sprint, CI/CD et des tests complets.", "ar": "تطوير تكراري مع مراجعات السبرنت و CI/CD واختبار شامل." }
+      },
+      {
+        "step": 4,
+        "title": { "en": "Deployment & Evolution", "fr": "Déploiement et Évolution", "ar": "النشر والتطور" },
+        "description": { "en": "Managed deployment, monitoring, and continuous improvement.", "fr": "Déploiement géré, surveillance et amélioration continue.", "ar": "نشر مُدار ومراقبة وتحسين مستمر." }
+      }
+    ],
+    "teamSize": "6-12 developers",
+    "expertiseAreas": ["Java", ".NET", "Docker", "Kubernetes", "Azure", "Microservices"],
+    "techStack": [
+      { "name": "Node.js", "icon": "/icons/tech/nodejs.svg" },
+      { "name": "TypeScript", "icon": "/icons/tech/typescript.svg" },
+      { "name": "PostgreSQL", "icon": "/icons/tech/postgresql.svg" },
+      { "name": "Redis", "icon": "/icons/tech/redis.svg" },
+      { "name": "AWS", "icon": "/icons/tech/aws.svg" }
+    ],
+    "metrics": {
+      "enterpriseClients": 25,
+      "uptime": "99.99%",
+      "dataProcessed": "1TB+/day"
+    },
+    "ctaType": "consultation",
+    "ctaButtonText": {
+      "en": "Schedule Consultation",
+      "fr": "Planifier une Consultation",
+      "ar": "جدولة استشارة"
+    },
+    "orderIndex": 4,
+    "isFeatured": false,
+    "createdAt": "2024-01-15T00:00:00.000Z",
+    "updatedAt": "2024-12-01T00:00:00.000Z"
+  }
+]

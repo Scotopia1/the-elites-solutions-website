@@ -1,195 +1,138 @@
+/**
+ * Services Component
+ *
+ * Vertical card grid layout from CGMWTNOV2025 featured-missions section.
+ * Single-column centered cards with images.
+ *
+ * Features:
+ * - Full-screen header with large title (pinned on scroll)
+ * - Cards scroll over the pinned header
+ * - Centered single column (40% width on desktop, 100% on mobile)
+ * - Card structure: number → title → image → category
+ * - Hover effects: scale and border glow
+ * - Scroll animations with Framer Motion
+ * - Responsive: width and gap adjustments
+ * - Light beige cards with dark text and gold accents
+ *
+ * Source: CGMWTNOV2025\orbit-matter - featured-missions section
+ */
+
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { motion } from "motion/react";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { cardsData, indicesData } from "./servicesData";
+import { servicesData } from "./servicesData";
+import styles from "./Services.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+interface ServiceCardProps {
+  service: typeof servicesData[0];
+  onNavigate: (slug: string) => void;
+  index: number;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ service, onNavigate, index }) => {
+  return (
+    <motion.div
+      className={styles.serviceCard}
+      onClick={() => onNavigate(service.slug)}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.1,
+        ease: "easeOut"
+      }}
+    >
+      {/* Number */}
+      <p>{service.number}</p>
+
+      {/* Title */}
+      <h3>{service.title}</h3>
+
+      {/* Image Container */}
+      <div className={styles.serviceImage}>
+        <img
+          src={service.image}
+          alt={service.title}
+          onError={(e) => {
+            // Hide image if it fails to load (use gradient background)
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+      </div>
+
+      {/* Category */}
+      <p className={styles.serviceCategory}>{service.category}</p>
+    </motion.div>
+  );
+};
+
 export default function Services() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
-  const indicesRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const headerRef = useRef<HTMLElement>(null);
+  const cardsRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const section = sectionRef.current;
-    const cards = cardsRef.current.filter(Boolean) as HTMLDivElement[];
+    if (!headerRef.current || !cardsRef.current) return;
+
     const header = headerRef.current;
-    const progress = progressRef.current;
-    const indices = indicesRef.current;
+    const cards = cardsRef.current;
 
-    if (!section || cards.length === 0) return;
-
-    const ctx = gsap.context(() => {
-      // Calculate total scroll distance based on number of cards
-      const cardCount = cards.length;
-      const scrollPerCard = window.innerHeight;
-      const totalScroll = scrollPerCard * (cardCount + 1);
-
-      // Create the main ScrollTrigger for the pinned section
-      const mainTrigger = ScrollTrigger.create({
-        trigger: section,
-        start: "top top",
-        end: () => `+=${totalScroll}`,
-        pin: true,
-        pinSpacing: true,
-        scrub: 1,
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          const progress = self.progress;
-
-          // Animate header opacity (fade out as first card comes in)
-          if (header) {
-            const headerOpacity = Math.max(0, 1 - progress * 4);
-            gsap.set(header, { opacity: headerOpacity });
-          }
-
-          // Animate progress bar
-          if (progressRef.current) {
-            const progressBar = progressRef.current.querySelector('.progress');
-            if (progressBar) {
-              gsap.set(progressBar, { height: `${progress * 100}%` });
-            }
-          }
-
-          // Animate each card
-          cards.forEach((card, index) => {
-            // Calculate when this card should animate
-            const cardStartProgress = index / (cardCount + 1);
-            const cardEndProgress = (index + 1) / (cardCount + 1);
-            const cardProgress = gsap.utils.clamp(
-              0,
-              1,
-              (progress - cardStartProgress) / (cardEndProgress - cardStartProgress)
-            );
-
-            // Card enters from bottom (150% to 50%)
-            const topPercent = 150 - cardProgress * 100;
-
-            // Cards shrink as next card comes in
-            const nextCardProgress = gsap.utils.clamp(
-              0,
-              1,
-              (progress - cardEndProgress) / ((cardEndProgress + 1 / (cardCount + 1)) - cardEndProgress)
-            );
-            const scale = 1 - nextCardProgress * 0.15;
-
-            // Alternating rotation for visual interest
-            const rotationDirection = index % 2 === 0 ? 1 : -1;
-            const rotation = nextCardProgress * 5 * rotationDirection;
-
-            // Dark overlay as card gets "pushed back"
-            const overlayOpacity = nextCardProgress * 0.6;
-
-            gsap.set(card, {
-              top: `${topPercent}%`,
-              scale,
-              rotation,
-              '--after-opacity': overlayOpacity,
-            });
-          });
-
-          // Animate indices
-          if (indices) {
-            gsap.set(indices, { opacity: progress > 0.05 ? 1 : 0 });
-
-            const indexElements = indices.querySelectorAll('.index');
-            indexElements.forEach((el, index) => {
-              const isActive = progress >= (index / cardCount) && progress < ((index + 1) / cardCount);
-              gsap.set(el, { opacity: isActive ? 1 : 0.25 });
-            });
-          }
-        },
-      });
-
-      // Fade in progress bar and indices
-      gsap.set([progressRef.current, indices], { opacity: 0 });
-
-      return () => {
-        mainTrigger.kill();
-      };
-    }, section);
-
-    // Handle resize
-    const handleResize = () => {
-      ScrollTrigger.refresh();
-    };
-    window.addEventListener("resize", handleResize);
+    // Pin the header section
+    const pinTrigger = ScrollTrigger.create({
+      trigger: header,
+      start: "top top",
+      end: () => `+=${cards.offsetHeight}`,
+      pin: true,
+      pinSpacing: false,
+      scrub: true,
+      invalidateOnRefresh: true,
+    });
 
     return () => {
-      ctx.revert();
-      window.removeEventListener("resize", handleResize);
+      pinTrigger.kill();
     };
   }, []);
 
+  const handleNavigate = (slug: string) => {
+    router.push(`/services/${slug}`);
+  };
+
   return (
-    <section ref={sectionRef} className="relative w-full h-screen bg-transparent overflow-hidden">
-      {/* Sticky Header - "Services" Title */}
-      <div ref={headerRef} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-100 z-0">
-        <h1 
-          className="text-[15vw] md:text-[18vw] lg:text-[20vw] font-light uppercase text-center leading-none bg-clip-text text-transparent"
-          style={{ backgroundImage: "url('/textures/Gold.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
-        >
-          Services
+    <>
+      {/* Full-screen Header - Pinned */}
+      <motion.section
+        ref={headerRef}
+        className={styles.servicesHeader}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <h1>
+          Our<br />Services
         </h1>
-      </div>
+      </motion.section>
 
-      {/* Service Cards */}
-      {cardsData.map((card, index) => (
-        <div
-          key={card.id}
-          ref={(el) => {
-            cardsRef.current[index] = el;
-          }}
-          className="absolute top-[150%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center 
-            bg-dark-100/20 backdrop-blur-md border border-gold-400/20 rounded-2xl shadow-2xl
-            w-[85%] h-[60%] md:w-[65%] md:h-[55%] lg:w-[45%] lg:h-[52%] xl:max-w-[800px]
-            overflow-visible"
-          style={{ zIndex: index + 1 }}
-        >
-          {/* Card Content */}
-          <div className="flex flex-col gap-2 md:gap-4 text-center relative z-10 px-4 md:px-12 w-full">
-            <p 
-              className="text-xl md:text-3xl lg:text-4xl font-bold bg-clip-text text-transparent break-words"
-              style={{ backgroundImage: "url('/textures/Gold.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
-            >
-              {card.date}
-            </p>
-            <h1 
-              className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight bg-clip-text text-transparent break-words hyphens-auto"
-              style={{ backgroundImage: "url('/textures/Gold.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
-            >
-              {card.title}
-              <span> {card.span}</span>
-            </h1>
-          </div>
-
-          {/* Dark Overlay for depth effect (controlled by GSAP) */}
-          <div 
-            className="absolute inset-0 bg-black rounded-2xl pointer-events-none transition-opacity duration-300"
-            style={{ opacity: 'var(--after-opacity, 0)' }}
-          />
+      {/* Services Cards - Scroll over header */}
+      <section ref={cardsRef} className={styles.services}>
+        <div className={styles.servicesList}>
+          {servicesData.map((service, index) => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+              onNavigate={handleNavigate}
+              index={index}
+            />
+          ))}
         </div>
-      ))}
-
-      {/* Progress Bar - Hidden on mobile */}
-      <div ref={progressRef} className="hidden md:block absolute top-0 right-0 w-2 h-full opacity-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
-        <div className="progress w-full h-0 bg-neutral-700" />
-      </div>
-
-      {/* Indices - Hidden on mobile */}
-      <div ref={indicesRef} className="hidden md:flex absolute top-0 right-6 h-full flex-col justify-center gap-16 opacity-0">
-        {indicesData.map((item) => (
-          <div key={item.id} id={item.id} className="index text-right opacity-25">
-            <p className="line-through uppercase text-sm font-mono text-gold-400">{item.date}</p>
-            <p className="line-through uppercase text-lg font-bold text-neutral-400">{item.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

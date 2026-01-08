@@ -1,0 +1,148 @@
+/* ========================================
+   Page Transition - Vanguard Style
+   Elegant gold/black transitions
+   ======================================== */
+
+.page-transition-wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ========================================
+   Transition Overlay
+   ======================================== */
+
+.transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000000;
+  transform-origin: bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Gold accent line in center */
+.transition-gold-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 215, 0, 0.3) 20%,
+    #ffd700 50%,
+    rgba(255, 215, 0, 0.3) 80%,
+    transparent 100%
+  );
+  transform-origin: center;
+  box-shadow:
+    0 0 20px rgba(255, 215, 0, 0.5),
+    0 0 40px rgba(255, 215, 0, 0.3),
+    0 0 60px rgba(255, 215, 0, 0.1);
+}
+
+/* Geometric elements */
+.transition-geometrics {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.transition-diamond {
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  background: transparent;
+  box-shadow:
+    0 0 30px rgba(255, 215, 0, 0.3),
+    inset 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+/* Grid pattern overlay */
+.transition-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 215, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 215, 0, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.5;
+}
+
+/* ========================================
+   Page Content
+   ======================================== */
+
+.page-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   Corner Brackets Animation
+   ======================================== */
+
+.transition-corners {
+  position: absolute;
+  inset: 40px;
+  pointer-events: none;
+}
+
+.transition-corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-color: rgba(255, 215, 0, 0.4);
+  border-style: solid;
+  border-width: 0;
+}
+
+.transition-corner-tl {
+  top: 0;
+  left: 0;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.transition-corner-tr {
+  top: 0;
+  right: 0;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.transition-corner-bl {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.transition-corner-br {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .transition-overlay,
+  .transition-gold-line,
+  .transition-diamond,
+  .page-content {
+    animation: none !important;
+    transition: opacity 0.3s ease !important;
+  }
+}

@@ -103,6 +103,11 @@ export function GoldParticleSystem({
         if (particle.y < 0) particle.y = canvas.height;
         if (particle.y > canvas.height) particle.y = 0;
 
+        // Validate canvas dimensions before creating gradient
+        if (!canvas.width || !canvas.height || !isFinite(particle.x) || !isFinite(particle.y)) {
+          return;
+        }
+
         // Draw particle with gold gradient
         const gradient = ctx.createRadialGradient(
           particle.x,

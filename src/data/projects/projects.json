@@ -1,0 +1,491 @@
+[
+  {
+    "id": "proj-001",
+    "slug": "ecommerce-platform-redesign",
+    "title": {
+      "en": "E-Commerce Platform Redesign",
+      "fr": "Refonte de Plateforme E-Commerce",
+      "ar": "إعادة تصميم منصة التجارة الإلكترونية"
+    },
+    "category": "Web Development",
+    "industry": "E-Commerce",
+    "projectScale": "large",
+    "clientName": "TechMart Inc.",
+    "clientLogoUrl": "/images/clients/techmart-logo.svg",
+    "shortDescription": {
+      "en": "Modern, fast, and scalable e-commerce platform handling 10,000+ daily visitors with 45% higher conversion rates.",
+      "fr": "Plateforme e-commerce moderne, rapide et évolutive gérant plus de 10 000 visiteurs quotidiens avec des taux de conversion 45% plus élevés.",
+      "ar": "منصة تجارة إلكترونية حديثة وسريعة وقابلة للتطوير تتعامل مع أكثر من 10,000 زائر يوميًا مع معدلات تحويل أعلى بنسبة 45٪."
+    },
+    "challenge": {
+      "en": "TechMart's legacy platform couldn't handle growing traffic, had slow page loads averaging 5+ seconds, and suffered from poor mobile experience resulting in declining conversion rates.",
+      "fr": "La plateforme héritée de TechMart ne pouvait pas gérer le trafic croissant, avait des chargements de page lents de plus de 5 secondes en moyenne, et souffrait d'une mauvaise expérience mobile entraînant des taux de conversion en baisse.",
+      "ar": "لم تستطع منصة TechMart القديمة التعامل مع الزيارات المتزايدة، وكانت أوقات تحميل الصفحات بطيئة بمعدل أكثر من 5 ثوانٍ، وعانت من تجربة جوال سيئة أدت إلى انخفاض معدلات التحويل."
+    },
+    "solution": {
+      "en": "We built a headless e-commerce solution using Next.js, Shopify, and PostgreSQL with advanced search, personalized recommendations, and a streamlined checkout process optimized for all devices.",
+      "fr": "Nous avons construit une solution e-commerce headless utilisant Next.js, Shopify et PostgreSQL avec une recherche avancée, des recommandations personnalisées et un processus de paiement simplifié optimisé pour tous les appareils.",
+      "ar": "قمنا ببناء حل تجارة إلكترونية headless باستخدام Next.js و Shopify و PostgreSQL مع بحث متقدم وتوصيات مخصصة وعملية دفع مبسطة ومحسنة لجميع الأجهزة."
+    },
+    "results": {
+      "en": "The new platform achieved 45% higher conversion rates, 60% faster load times, 200% increase in mobile sales, and generated over $2M in additional annual revenue.",
+      "fr": "La nouvelle plateforme a atteint des taux de conversion 45% plus élevés, des temps de chargement 60% plus rapides, une augmentation de 200% des ventes mobiles, et a généré plus de 2M$ de revenus annuels supplémentaires.",
+      "ar": "حققت المنصة الجديدة معدلات تحويل أعلى بنسبة 45٪، وأوقات تحميل أسرع بنسبة 60٪، وزيادة بنسبة 200٪ في مبيعات الجوال، وحققت أكثر من 2 مليون دولار من الإيرادات السنوية الإضافية."
+    },
+    "overview": {
+      "description": {
+        "en": "TechMart needed a modern, fast, and scalable e-commerce platform to handle 10,000+ daily visitors and improve conversion rates. We built a headless e-commerce solution using Next.js, Shopify, and PostgreSQL.",
+        "fr": "TechMart avait besoin d'une plateforme e-commerce moderne, rapide et évolutive. Nous avons construit une solution e-commerce headless utilisant Next.js, Shopify et PostgreSQL.",
+        "ar": "احتاجت TechMart إلى منصة تجارة إلكترونية حديثة وسريعة وقابلة للتطوير. قمنا ببناء حل تجارة إلكترونية headless."
+      },
+      "highlights": [
+        "45% increase in conversion rate",
+        "60% faster page load times",
+        "200% increase in mobile sales",
+        "$2M+ additional annual revenue"
+      ]
+    },
+    "quickFacts": {
+      "client": "TechMart Inc.",
+      "year": "2024",
+      "duration": "3 months",
+      "status": "Completed",
+      "liveUrl": "https://techmart-demo.theelites.com"
+    },
+    "technologies": ["Next.js", "React", "TypeScript", "Shopify", "PostgreSQL", "Tailwind CSS", "Vercel"],
+    "techStack": [
+      { "name": "Next.js", "logo": "/icons/tech/nextjs.svg", "reason": "Server-side rendering for optimal performance and SEO" },
+      { "name": "React", "logo": "/icons/tech/react.svg", "reason": "Component-based architecture for maintainability" },
+      { "name": "TypeScript", "logo": "/icons/tech/typescript.svg", "reason": "Type safety and better developer experience" },
+      { "name": "Shopify", "logo": "/icons/tech/shopify.svg", "reason": "Headless commerce backend with robust API" },
+      { "name": "PostgreSQL", "logo": "/icons/tech/postgresql.svg", "reason": "Reliable relational database for custom data" },
+      { "name": "Tailwind CSS", "logo": "/icons/tech/tailwind.svg", "reason": "Utility-first CSS framework for rapid UI development" }
+    ],
+    "servicesUsed": ["web-development"],
+    "timeline": [
+      { "phase": "Discovery & Planning", "date": "Week 1-2", "description": "Requirements gathering, competitor analysis, and technical architecture design" },
+      { "phase": "Design & Prototyping", "date": "Week 3-4", "description": "UI/UX design, wireframes, and interactive prototypes" },
+      { "phase": "Development Sprint 1", "date": "Week 5-7", "description": "Core e-commerce functionality, product catalog, and search" },
+      { "phase": "Development Sprint 2", "date": "Week 8-10", "description": "Checkout flow, payment integration, and user accounts" },
+      { "phase": "Testing & Optimization", "date": "Week 11", "description": "Performance optimization, accessibility testing, and bug fixes" },
+      { "phase": "Launch & Monitoring", "date": "Week 12", "description": "Production deployment, post-launch monitoring, and support" }
+    ],
+    "duration": "3 months",
+    "resultsMetrics": [
+      { "metric": "45%", "label": "Conversion Increase", "description": "Streamlined checkout and improved UX led to significantly higher conversion rates" },
+      { "metric": "60%", "label": "Faster Load Times", "description": "Next.js SSR and image optimization reduced page load times from 5s to 2s" },
+      { "metric": "200%", "label": "Mobile Sales Boost", "description": "Mobile-first design and PWA features tripled mobile conversions" },
+      { "metric": "$2M+", "label": "Annual Revenue", "description": "Combined improvements generated over $2M in additional annual revenue" }
+    ],
+    "testimonial": {
+      "quote": "The Elites transformed our e-commerce platform beyond our expectations. The results speak for themselves - our conversion rates doubled, and we're handling 3x the traffic with zero performance issues.",
+      "author": "Sarah Johnson",
+      "title": "CEO, TechMart Inc.",
+      "avatar": "/images/testimonials/sarah-johnson.jpg"
+    },
+    "heroImage": "/images/projects/techmart-hero.jpg",
+    "featuredImageUrl": "/images/projects/techmart-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/techmart-1.jpg", "alt": "TechMart homepage redesign" },
+      { "url": "/images/projects/techmart-2.jpg", "alt": "Product listing page" },
+      { "url": "/images/projects/techmart-3.jpg", "alt": "Checkout flow" },
+      { "url": "/images/projects/techmart-4.jpg", "alt": "Mobile responsive design" }
+    ],
+    "projectUrl": "https://techmart-demo.theelites.com",
+    "isFeatured": true,
+    "publishedAt": "2024-06-15T00:00:00.000Z",
+    "orderIndex": 1,
+    "createdAt": "2024-03-01T00:00:00.000Z",
+    "updatedAt": "2024-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "proj-002",
+    "slug": "fintech-banking-app",
+    "title": {
+      "en": "FinTech Mobile Banking App",
+      "fr": "Application Bancaire Mobile FinTech",
+      "ar": "تطبيق الخدمات المصرفية عبر الهاتف المحمول"
+    },
+    "category": "Mobile Development",
+    "industry": "Financial Services",
+    "projectScale": "enterprise",
+    "clientName": "NeoBank Solutions",
+    "clientLogoUrl": "/images/clients/neobank-logo.svg",
+    "shortDescription": {
+      "en": "Secure mobile banking app with biometric authentication and AI-powered financial insights serving 100,000+ users.",
+      "fr": "Application bancaire mobile sécurisée avec authentification biométrique et insights financiers alimentés par l'IA pour plus de 100 000 utilisateurs.",
+      "ar": "تطبيق مصرفي آمن عبر الهاتف المحمول مع المصادقة البيومترية والرؤى المالية المدعومة بالذكاء الاصطناعي لخدمة أكثر من 100,000 مستخدم."
+    },
+    "challenge": {
+      "en": "NeoBank needed a next-generation digital banking app that could compete with traditional banks while meeting strict financial regulations and security requirements.",
+      "fr": "NeoBank avait besoin d'une application bancaire numérique de nouvelle génération capable de concurrencer les banques traditionnelles tout en respectant les réglementations financières strictes et les exigences de sécurité.",
+      "ar": "احتاج NeoBank إلى تطبيق مصرفي رقمي من الجيل التالي يمكنه التنافس مع البنوك التقليدية مع تلبية اللوائح المالية الصارمة ومتطلبات الأمان."
+    },
+    "solution": {
+      "en": "We developed a cross-platform mobile banking app with React Native featuring real-time transaction processing, biometric authentication, and AI-powered financial insights with bank-grade security.",
+      "fr": "Nous avons développé une application bancaire mobile multiplateforme avec React Native comprenant le traitement des transactions en temps réel, l'authentification biométrique et des insights financiers alimentés par l'IA avec une sécurité de niveau bancaire.",
+      "ar": "قمنا بتطوير تطبيق مصرفي متعدد المنصات باستخدام React Native يتميز بمعالجة المعاملات في الوقت الفعلي والمصادقة البيومترية والرؤى المالية المدعومة بالذكاء الاصطناعي مع أمان بمستوى البنوك."
+    },
+    "results": {
+      "en": "The app achieved 100,000+ downloads in 3 months, 4.8/5 star rating, 99.99% transaction success rate, and helped NeoBank exceed user acquisition projections by 40%.",
+      "fr": "L'application a atteint plus de 100 000 téléchargements en 3 mois, une note de 4,8/5 étoiles, un taux de réussite des transactions de 99,99%, et a aidé NeoBank à dépasser les projections d'acquisition d'utilisateurs de 40%.",
+      "ar": "حقق التطبيق أكثر من 100,000 تنزيل في 3 أشهر، وتقييم 4.8/5 نجوم، ومعدل نجاح المعاملات 99.99٪، وساعد NeoBank على تجاوز توقعات اكتساب المستخدمين بنسبة 40٪."
+    },
+    "overview": {
+      "description": {
+        "en": "End-to-end development of a secure mobile banking application for a next-generation digital bank with real-time transaction processing and AI-powered insights.",
+        "fr": "Développement de bout en bout d'une application bancaire mobile sécurisée pour une banque numérique de nouvelle génération.",
+        "ar": "تطوير شامل لتطبيق مصرفي آمن عبر الهاتف المحمول لبنك رقمي من الجيل التالي."
+      },
+      "highlights": [
+        "100,000+ downloads in first 3 months",
+        "4.8/5 star rating on app stores",
+        "Bank-grade security with biometric auth",
+        "Real-time transaction processing"
+      ]
+    },
+    "quickFacts": {
+      "client": "NeoBank Solutions",
+      "year": "2024",
+      "duration": "6 months",
+      "status": "Live in Production",
+      "liveUrl": "https://neobank-demo.theelites.com"
+    },
+    "technologies": ["React Native", "TypeScript", "Node.js", "PostgreSQL", "Redis", "AWS"],
+    "techStack": [
+      { "name": "React Native", "logo": "/icons/tech/react-native.svg", "reason": "Cross-platform development with native performance" },
+      { "name": "TypeScript", "logo": "/icons/tech/typescript.svg", "reason": "Type safety for financial data handling" },
+      { "name": "Node.js", "logo": "/icons/tech/nodejs.svg", "reason": "High-performance backend API" },
+      { "name": "PostgreSQL", "logo": "/icons/tech/postgresql.svg", "reason": "ACID-compliant transaction database" },
+      { "name": "Redis", "logo": "/icons/tech/redis.svg", "reason": "Real-time data caching and session management" },
+      { "name": "AWS", "logo": "/icons/tech/aws.svg", "reason": "Scalable cloud infrastructure with compliance" }
+    ],
+    "servicesUsed": ["mobile-apps"],
+    "timeline": [
+      { "phase": "Research & Compliance", "date": "January 2024", "description": "Analyzed banking regulations, security requirements, and user needs" },
+      { "phase": "UI/UX Design", "date": "February 2024", "description": "Designed intuitive mobile interfaces with accessibility and security in mind" },
+      { "phase": "Core Development", "date": "March - May 2024", "description": "Built cross-platform mobile apps, secure backend APIs, and payment gateways" },
+      { "phase": "Security Audit & Launch", "date": "June 2024", "description": "Penetration testing, security certifications, and app store launch" }
+    ],
+    "duration": "6 months",
+    "resultsMetrics": [
+      { "metric": "100k+", "label": "Downloads", "description": "Downloads in first 3 months" },
+      { "metric": "4.8/5", "label": "App Rating", "description": "App store rating" },
+      { "metric": "99.99%", "label": "Success Rate", "description": "Transaction success rate" },
+      { "metric": "<2s", "label": "Response Time", "description": "Average response time" }
+    ],
+    "testimonial": {
+      "quote": "The Elites delivered a banking app that exceeds industry standards. The biometric security, real-time features, and beautiful UX have set us apart from traditional banks.",
+      "author": "Michael Chen",
+      "title": "CTO, NeoBank Solutions",
+      "avatar": "/images/testimonials/michael-chen.jpg"
+    },
+    "heroImage": "/images/projects/neobank-hero.jpg",
+    "featuredImageUrl": "/images/projects/neobank-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/neobank-1.jpg", "alt": "Dashboard overview" },
+      { "url": "/images/projects/neobank-2.jpg", "alt": "Transaction history" },
+      { "url": "/images/projects/neobank-3.jpg", "alt": "Biometric authentication" },
+      { "url": "/images/projects/neobank-4.jpg", "alt": "Financial insights" }
+    ],
+    "projectUrl": "https://neobank-demo.theelites.com",
+    "isFeatured": true,
+    "publishedAt": "2024-07-01T00:00:00.000Z",
+    "orderIndex": 2,
+    "createdAt": "2024-01-15T00:00:00.000Z",
+    "updatedAt": "2024-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "proj-003",
+    "slug": "healthcare-mobile-app",
+    "title": {
+      "en": "Healthcare Mobile App",
+      "fr": "Application Mobile de Santé",
+      "ar": "تطبيق الرعاية الصحية للجوال"
+    },
+    "category": "Mobile Development",
+    "industry": "Healthcare",
+    "projectScale": "large",
+    "clientName": "HealthCare Solutions Inc.",
+    "clientLogoUrl": "/images/clients/healthcare-logo.svg",
+    "shortDescription": {
+      "en": "HIPAA-compliant patient management system with telemedicine consultations and digital medical record management.",
+      "fr": "Système de gestion des patients conforme HIPAA avec consultations de télémédecine et gestion des dossiers médicaux numériques.",
+      "ar": "نظام إدارة المرضى المتوافق مع HIPAA مع استشارات الطب عن بُعد وإدارة السجلات الطبية الرقمية."
+    },
+    "challenge": {
+      "en": "HealthCare Solutions needed to modernize patient care delivery with a secure, accessible platform that met strict HIPAA compliance requirements while serving diverse age groups.",
+      "fr": "HealthCare Solutions devait moderniser la prestation des soins aux patients avec une plateforme sécurisée et accessible répondant aux exigences strictes de conformité HIPAA tout en servant des groupes d'âge divers.",
+      "ar": "احتاجت HealthCare Solutions إلى تحديث تقديم رعاية المرضى بمنصة آمنة وسهلة الوصول تلبي متطلبات الامتثال الصارمة لـ HIPAA مع خدمة فئات عمرية متنوعة."
+    },
+    "solution": {
+      "en": "We built a comprehensive HIPAA-compliant mobile app with React Native featuring appointment scheduling, secure video consultations, EHR integration, and prescription management with end-to-end encryption.",
+      "fr": "Nous avons construit une application mobile complète conforme HIPAA avec React Native comprenant la planification des rendez-vous, les consultations vidéo sécurisées, l'intégration DSE et la gestion des prescriptions avec chiffrement de bout en bout.",
+      "ar": "قمنا ببناء تطبيق جوال شامل متوافق مع HIPAA باستخدام React Native يتميز بجدولة المواعيد واستشارات الفيديو الآمنة وتكامل السجلات الصحية الإلكترونية وإدارة الوصفات الطبية مع تشفير شامل."
+    },
+    "results": {
+      "en": "The app achieved 10,000+ active users, 95% patient satisfaction, 40% reduction in missed appointments, and enabled the client to increase their reach by 300% to serve rural communities.",
+      "fr": "L'application a atteint plus de 10 000 utilisateurs actifs, 95% de satisfaction des patients, une réduction de 40% des rendez-vous manqués, et a permis au client d'augmenter sa portée de 300% pour servir les communautés rurales.",
+      "ar": "حقق التطبيق أكثر من 10,000 مستخدم نشط، و95٪ رضا المرضى، وتقليل 40٪ في المواعيد الفائتة، ومكّن العميل من زيادة وصوله بنسبة 300٪ لخدمة المجتمعات الريفية."
+    },
+    "overview": {
+      "description": {
+        "en": "A comprehensive patient management system that revolutionizes healthcare delivery through mobile technology with HIPAA-compliant architecture.",
+        "fr": "Un système complet de gestion des patients qui révolutionne la prestation des soins de santé grâce à la technologie mobile.",
+        "ar": "نظام شامل لإدارة المرضى يُحدث ثورة في تقديم الرعاية الصحية من خلال تكنولوجيا الهاتف المحمول."
+      },
+      "highlights": [
+        "HIPAA-compliant secure architecture",
+        "Real-time video consultations",
+        "Electronic Health Records (EHR) integration",
+        "Push notification appointment reminders",
+        "Prescription management and refills"
+      ]
+    },
+    "quickFacts": {
+      "client": "HealthCare Solutions Inc.",
+      "year": "2024",
+      "duration": "6 months",
+      "status": "Launched",
+      "liveUrl": "https://healthcare-demo.theelites.com"
+    },
+    "technologies": ["React Native", "Node.js", "MongoDB", "AWS", "WebRTC", "Socket.io"],
+    "techStack": [
+      { "name": "React Native", "logo": "/icons/tech/react-native.svg", "reason": "Cross-platform development for iOS and Android" },
+      { "name": "Node.js", "logo": "/icons/tech/nodejs.svg", "reason": "Scalable backend API for real-time communications" },
+      { "name": "MongoDB", "logo": "/icons/tech/mongodb.svg", "reason": "Flexible document storage for patient records" },
+      { "name": "AWS", "logo": "/icons/tech/aws.svg", "reason": "HIPAA-compliant cloud infrastructure" },
+      { "name": "WebRTC", "logo": "/icons/tech/webrtc.svg", "reason": "Peer-to-peer video consultations" },
+      { "name": "Socket.io", "logo": "/icons/tech/socketio.svg", "reason": "Real-time messaging" }
+    ],
+    "servicesUsed": ["mobile-apps"],
+    "timeline": [
+      { "phase": "Discovery & Planning", "date": "Jan 2024", "description": "HIPAA compliance audit, user research with healthcare providers and patients" },
+      { "phase": "Design & Prototyping", "date": "Feb 2024", "description": "UI/UX design focusing on accessibility and ease of use for all age groups" },
+      { "phase": "Development", "date": "Mar - May 2024", "description": "Iterative development with weekly demos and security audits" },
+      { "phase": "Testing & Launch", "date": "Jun 2024", "description": "Comprehensive security testing, beta program, App Store launch" }
+    ],
+    "duration": "6 months",
+    "resultsMetrics": [
+      { "metric": "10,000+", "label": "Active Users", "description": "Active users within first 3 months" },
+      { "metric": "95%", "label": "Satisfaction Rate", "description": "Patient satisfaction rating" },
+      { "metric": "40%", "label": "Fewer No-Shows", "description": "Reduction in missed appointments" },
+      { "metric": "2.5M+", "label": "Consultation Minutes", "description": "Video consultation minutes" }
+    ],
+    "testimonial": {
+      "quote": "This app has transformed how we deliver care to our patients. The telemedicine feature alone has increased our reach by 300%, allowing us to serve rural communities effectively.",
+      "author": "Dr. Sarah Mitchell",
+      "title": "Chief Medical Officer, HealthCare Solutions",
+      "avatar": "/images/testimonials/sarah-mitchell.jpg"
+    },
+    "heroImage": "/images/projects/healthcare-hero.jpg",
+    "featuredImageUrl": "/images/projects/healthcare-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/healthcare-1.jpg", "alt": "App dashboard" },
+      { "url": "/images/projects/healthcare-2.jpg", "alt": "Video consultation interface" },
+      { "url": "/images/projects/healthcare-3.jpg", "alt": "Medical records view" },
+      { "url": "/images/projects/healthcare-4.jpg", "alt": "Appointment booking" }
+    ],
+    "projectUrl": "https://healthcare-demo.theelites.com",
+    "isFeatured": true,
+    "publishedAt": "2024-07-15T00:00:00.000Z",
+    "orderIndex": 3,
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "proj-004",
+    "slug": "automation-suite",
+    "title": {
+      "en": "Business Automation Suite",
+      "fr": "Suite d'Automatisation Business",
+      "ar": "مجموعة أتمتة الأعمال"
+    },
+    "category": "Automation & Integration",
+    "industry": "Enterprise",
+    "projectScale": "large",
+    "clientName": "Enterprise Corp",
+    "clientLogoUrl": "/images/clients/enterprise-logo.svg",
+    "shortDescription": {
+      "en": "Custom workflow automation platform eliminating manual tasks with visual workflow builder and 50+ enterprise integrations.",
+      "fr": "Plateforme d'automatisation de flux de travail personnalisée éliminant les tâches manuelles avec un constructeur de flux visuel et plus de 50 intégrations entreprise.",
+      "ar": "منصة أتمتة سير العمل المخصصة التي تقضي على المهام اليدوية مع منشئ سير عمل مرئي وأكثر من 50 تكامل مؤسسي."
+    },
+    "challenge": {
+      "en": "Enterprise Corp had 50+ manual processes across Sales, HR, and Operations that consumed thousands of employee hours monthly and were prone to human error.",
+      "fr": "Enterprise Corp avait plus de 50 processus manuels dans les départements Ventes, RH et Opérations qui consommaient des milliers d'heures d'employés mensuellement et étaient sujets aux erreurs humaines.",
+      "ar": "كان لدى Enterprise Corp أكثر من 50 عملية يدوية عبر أقسام المبيعات والموارد البشرية والعمليات التي استهلكت آلاف ساعات الموظفين شهريًا وكانت عرضة للخطأ البشري."
+    },
+    "solution": {
+      "en": "We built a custom workflow automation platform with Python and FastAPI featuring a visual drag-and-drop builder, 50+ pre-built integrations, real-time monitoring, RBAC, and comprehensive audit logging.",
+      "fr": "Nous avons construit une plateforme d'automatisation de flux de travail personnalisée avec Python et FastAPI comprenant un constructeur visuel par glisser-déposer, plus de 50 intégrations pré-construites, une surveillance en temps réel, RBAC et une journalisation d'audit complète.",
+      "ar": "قمنا ببناء منصة أتمتة سير عمل مخصصة باستخدام Python و FastAPI تتميز بمنشئ سحب وإفلات مرئي، وأكثر من 50 تكامل مُعد مسبقًا، ومراقبة في الوقت الفعلي، و RBAC، وتسجيل تدقيق شامل."
+    },
+    "results": {
+      "en": "The platform achieved 80% reduction in manual tasks, saved 15 hours per employee weekly, powers 500+ active workflows, and generates $250K in annual cost savings.",
+      "fr": "La plateforme a atteint une réduction de 80% des tâches manuelles, économisé 15 heures par employé par semaine, alimente plus de 500 flux de travail actifs et génère 250K$ d'économies annuelles.",
+      "ar": "حققت المنصة تقليل 80٪ في المهام اليدوية، ووفرت 15 ساعة لكل موظف أسبوعيًا، وتشغل أكثر من 500 سير عمل نشط، وتحقق 250 ألف دولار في وفورات التكلفة السنوية."
+    },
+    "overview": {
+      "description": {
+        "en": "A custom workflow automation platform that eliminates repetitive manual tasks across departments with a visual workflow builder for non-technical users.",
+        "fr": "Une plateforme d'automatisation de flux de travail personnalisée qui élimine les tâches manuelles répétitives avec un constructeur de flux visuel.",
+        "ar": "منصة أتمتة سير العمل المخصصة التي تقضي على المهام اليدوية المتكررة مع منشئ سير عمل مرئي."
+      },
+      "highlights": [
+        "Visual drag-and-drop workflow builder",
+        "Pre-built integrations with 50+ enterprise apps",
+        "Real-time execution monitoring and error handling",
+        "Role-based access control (RBAC)",
+        "Audit logging and compliance reporting"
+      ]
+    },
+    "quickFacts": {
+      "client": "Enterprise Corp",
+      "year": "2024",
+      "duration": "4 months",
+      "status": "Launched",
+      "githubUrl": "https://github.com/enterprise/automation-suite"
+    },
+    "technologies": ["Python", "FastAPI", "Redis", "Docker", "PostgreSQL", "Celery"],
+    "techStack": [
+      { "name": "Python", "logo": "/icons/tech/python.svg", "reason": "Robust scripting language for automation" },
+      { "name": "FastAPI", "logo": "/icons/tech/fastapi.svg", "reason": "High-performance async API framework" },
+      { "name": "Redis", "logo": "/icons/tech/redis.svg", "reason": "Message queue and caching layer" },
+      { "name": "Docker", "logo": "/icons/tech/docker.svg", "reason": "Containerized deployments" },
+      { "name": "PostgreSQL", "logo": "/icons/tech/postgresql.svg", "reason": "Reliable data storage" },
+      { "name": "Celery", "logo": "/icons/tech/celery.svg", "reason": "Distributed task queue" }
+    ],
+    "servicesUsed": ["automation"],
+    "timeline": [
+      { "phase": "Requirements Gathering", "date": "Feb 2024", "description": "Identified 50+ manual processes across Sales, HR, and Operations" },
+      { "phase": "Architecture Design", "date": "Mar 2024", "description": "Designed microservices architecture with event-driven workflow engine" },
+      { "phase": "Development Sprint 1-3", "date": "Mar - May 2024", "description": "Built workflow builder, execution engine, and core integrations" },
+      { "phase": "Deployment & Training", "date": "Jun 2024", "description": "On-premise deployment, team training, and process migration" }
+    ],
+    "duration": "4 months",
+    "resultsMetrics": [
+      { "metric": "80%", "label": "Task Reduction", "description": "Reduction in manual tasks" },
+      { "metric": "15hrs/week", "label": "Time Saved", "description": "Average time saved per employee" },
+      { "metric": "500+", "label": "Active Workflows", "description": "Active automated workflows" },
+      { "metric": "$250K", "label": "Annual Savings", "description": "Annual cost savings" }
+    ],
+    "testimonial": {
+      "quote": "The automation suite has been transformational for our operations. Tasks that used to take days now complete in minutes, and our team can focus on strategic work instead of repetitive data entry.",
+      "author": "Michael Chen",
+      "title": "VP of Operations, Enterprise Corp",
+      "avatar": "/images/testimonials/michael-chen-ops.jpg"
+    },
+    "heroImage": "/images/projects/automation-hero.jpg",
+    "featuredImageUrl": "/images/projects/automation-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/automation-1.jpg", "alt": "Workflow builder interface" },
+      { "url": "/images/projects/automation-2.jpg", "alt": "Integration dashboard" },
+      { "url": "/images/projects/automation-3.jpg", "alt": "Analytics and reporting" },
+      { "url": "/images/projects/automation-4.jpg", "alt": "Execution logs" }
+    ],
+    "isFeatured": true,
+    "publishedAt": "2024-06-30T00:00:00.000Z",
+    "orderIndex": 4,
+    "createdAt": "2024-02-01T00:00:00.000Z",
+    "updatedAt": "2024-12-01T00:00:00.000Z"
+  },
+  {
+    "id": "proj-005",
+    "slug": "enterprise-dashboard",
+    "title": {
+      "en": "Enterprise Analytics Dashboard",
+      "fr": "Tableau de Bord Analytique Entreprise",
+      "ar": "لوحة تحليلات المؤسسة"
+    },
+    "category": "Enterprise Solutions",
+    "industry": "Logistics",
+    "projectScale": "enterprise",
+    "clientName": "Global Logistics Inc.",
+    "clientLogoUrl": "/images/clients/globallogistics-logo.svg",
+    "shortDescription": {
+      "en": "Real-time analytics dashboard consolidating 15+ data sources with AI-powered insights for executive decision-making.",
+      "fr": "Tableau de bord d'analyse en temps réel consolidant plus de 15 sources de données avec des insights alimentés par l'IA pour la prise de décision exécutive.",
+      "ar": "لوحة تحليلات في الوقت الفعلي تجمع أكثر من 15 مصدرًا للبيانات مع رؤى مدعومة بالذكاء الاصطناعي لاتخاذ القرارات التنفيذية."
+    },
+    "challenge": {
+      "en": "Global Logistics relied on weekly manual reports from siloed data sources, leading to delayed decisions and missed opportunities in a fast-moving logistics environment.",
+      "fr": "Global Logistics s'appuyait sur des rapports manuels hebdomadaires provenant de sources de données cloisonnées, entraînant des décisions retardées et des opportunités manquées dans un environnement logistique rapide.",
+      "ar": "اعتمدت Global Logistics على التقارير اليدوية الأسبوعية من مصادر البيانات المنعزلة، مما أدى إلى تأخر القرارات وفقدان الفرص في بيئة لوجستية سريعة الحركة."
+    },
+    "solution": {
+      "en": "We built a real-time analytics dashboard using Next.js and D3.js with Apache Kafka for data streaming, ClickHouse for analytics, and TensorFlow for predictive insights, all deployed on Kubernetes.",
+      "fr": "Nous avons construit un tableau de bord d'analyse en temps réel utilisant Next.js et D3.js avec Apache Kafka pour le streaming de données, ClickHouse pour les analyses, et TensorFlow pour les insights prédictifs, le tout déployé sur Kubernetes.",
+      "ar": "قمنا ببناء لوحة تحليلات في الوقت الفعلي باستخدام Next.js و D3.js مع Apache Kafka لبث البيانات، و ClickHouse للتحليلات، و TensorFlow للرؤى التنبؤية، وكلها منشورة على Kubernetes."
+    },
+    "results": {
+      "en": "The dashboard enabled 70% faster decision-making, integrated 15+ data sources, achieved 98% AI prediction accuracy, and helped avoid two major supply chain disruptions.",
+      "fr": "Le tableau de bord a permis une prise de décision 70% plus rapide, a intégré plus de 15 sources de données, a atteint une précision de prédiction IA de 98%, et a aidé à éviter deux perturbations majeures de la chaîne d'approvisionnement.",
+      "ar": "مكّنت لوحة المعلومات من اتخاذ قرارات أسرع بنسبة 70٪، ودمجت أكثر من 15 مصدرًا للبيانات، وحققت دقة تنبؤ بالذكاء الاصطناعي بنسبة 98٪، وساعدت على تجنب اضطرابين رئيسيين في سلسلة التوريد."
+    },
+    "overview": {
+      "description": {
+        "en": "A real-time analytics dashboard that consolidates data from multiple sources to provide actionable business intelligence with AI-powered insights.",
+        "fr": "Un tableau de bord d'analyse en temps réel qui consolide les données de plusieurs sources pour fournir des informations commerciales exploitables.",
+        "ar": "لوحة تحليلات في الوقت الفعلي تجمع البيانات من مصادر متعددة لتوفير ذكاء أعمال قابل للتنفيذ."
+      },
+      "highlights": [
+        "Real-time data synchronization from 15+ sources",
+        "AI-powered predictive analytics",
+        "Custom report builder with drag-and-drop",
+        "Mobile-responsive executive views",
+        "Automated alert system for KPI thresholds"
+      ]
+    },
+    "quickFacts": {
+      "client": "Global Logistics Inc.",
+      "year": "2023",
+      "duration": "5 months",
+      "status": "In Production",
+      "liveUrl": "https://dashboard-demo.theelites.com"
+    },
+    "technologies": ["Next.js", "D3.js", "Apache Kafka", "ClickHouse", "TensorFlow", "Kubernetes"],
+    "techStack": [
+      { "name": "Next.js", "logo": "/icons/tech/nextjs.svg", "reason": "Server-side rendering for fast initial loads" },
+      { "name": "D3.js", "logo": "/icons/tech/d3.svg", "reason": "Custom interactive data visualizations" },
+      { "name": "Apache Kafka", "logo": "/icons/tech/kafka.svg", "reason": "Real-time data streaming" },
+      { "name": "ClickHouse", "logo": "/icons/tech/clickhouse.svg", "reason": "Column-oriented database for fast queries" },
+      { "name": "TensorFlow", "logo": "/icons/tech/tensorflow.svg", "reason": "Machine learning for predictive analytics" },
+      { "name": "Kubernetes", "logo": "/icons/tech/kubernetes.svg", "reason": "Container orchestration for scalability" }
+    ],
+    "servicesUsed": ["enterprise", "web-development"],
+    "timeline": [
+      { "phase": "Data Assessment", "date": "Aug 2023", "description": "Audited existing data sources, identified key metrics, and defined integration strategy" },
+      { "phase": "Architecture & Design", "date": "Sep 2023", "description": "Designed data pipeline architecture and created UI/UX mockups" },
+      { "phase": "Development", "date": "Oct - Nov 2023", "description": "Built data pipelines, dashboard UI, and AI prediction models" },
+      { "phase": "Launch & Training", "date": "Dec 2023", "description": "Production deployment, executive training sessions, and documentation" }
+    ],
+    "duration": "5 months",
+    "resultsMetrics": [
+      { "metric": "70%", "label": "Faster Decisions", "description": "Faster decision-making with real-time data" },
+      { "metric": "15+", "label": "Data Sources", "description": "Integrated data sources" },
+      { "metric": "98%", "label": "Prediction Accuracy", "description": "AI prediction accuracy" },
+      { "metric": "500+", "label": "Daily Users", "description": "Daily active users across departments" }
+    ],
+    "testimonial": {
+      "quote": "This dashboard has revolutionized how our executive team operates. We went from weekly reports to real-time insights, and the AI predictions have helped us avoid two major supply chain disruptions.",
+      "author": "Jennifer Adams",
+      "title": "COO, Global Logistics Inc.",
+      "avatar": "/images/testimonials/jennifer-adams.jpg"
+    },
+    "heroImage": "/images/projects/dashboard-hero.jpg",
+    "featuredImageUrl": "/images/projects/dashboard-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/dashboard-1.jpg", "alt": "Main dashboard view" },
+      { "url": "/images/projects/dashboard-2.jpg", "alt": "Report builder" },
+      { "url": "/images/projects/dashboard-3.jpg", "alt": "Mobile executive view" },
+      { "url": "/images/projects/dashboard-4.jpg", "alt": "AI insights panel" }
+    ],
+    "projectUrl": "https://dashboard-demo.theelites.com",
+    "isFeatured": false,
+    "publishedAt": "2024-01-15T00:00:00.000Z",
+    "orderIndex": 5,
+    "createdAt": "2023-08-01T00:00:00.000Z",
+    "updatedAt": "2024-12-01T00:00:00.000Z"
+  }
+]

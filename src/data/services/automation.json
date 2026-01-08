@@ -1,0 +1,122 @@
+{
+  "slug": "automation",
+  "title": "Workflow Automation",
+  "tagline": "Streamline operations, multiply productivity",
+  "icon": "/icons/services/automation.svg",
+  "description": "Eliminate repetitive tasks and streamline your business processes with custom automation solutions. We help you work smarter, not harder, by building intelligent systems that save time and reduce errors.",
+  "benefits": [
+    {
+      "title": "Time Savings",
+      "description": "Automate hours of manual work with intelligent workflows"
+    },
+    {
+      "title": "Error Reduction",
+      "description": "Eliminate human error with consistent, automated processes"
+    },
+    {
+      "title": "Cost Efficiency",
+      "description": "Reduce operational costs by up to 70% with automation"
+    },
+    {
+      "title": "Scalability",
+      "description": "Handle growing workloads without adding headcount"
+    }
+  ],
+  "techStack": [
+    { "name": "Zapier", "icon": "/icons/tech/zapier.svg" },
+    { "name": "Make", "icon": "/icons/tech/make.svg" },
+    { "name": "n8n", "icon": "/icons/tech/n8n.svg" },
+    { "name": "Python", "icon": "/icons/tech/python.svg" },
+    { "name": "Airtable", "icon": "/icons/tech/airtable.svg" },
+    { "name": "Notion", "icon": "/icons/tech/notion.svg" }
+  ],
+  "process": [
+    {
+      "step": 1,
+      "title": "Process Mapping",
+      "description": "We analyze your current workflows to identify bottlenecks, inefficiencies, and automation opportunities."
+    },
+    {
+      "step": 2,
+      "title": "Solution Design",
+      "description": "Our team designs custom automation workflows that integrate seamlessly with your existing tools and systems."
+    },
+    {
+      "step": 3,
+      "title": "Implementation",
+      "description": "We build and test automation workflows, ensuring reliability and handling edge cases before going live."
+    },
+    {
+      "step": 4,
+      "title": "Optimization & Training",
+      "description": "We monitor performance, optimize workflows, and train your team to leverage and maintain the automation systems."
+    }
+  ],
+  "caseStudies": [],
+  "pricing": [
+    {
+      "tier": "Starter Pack",
+      "price": "$2,500",
+      "description": "Automate key processes",
+      "features": [
+        "Up to 5 automated workflows",
+        "Standard tool integrations",
+        "Documentation",
+        "Basic error handling",
+        "2 rounds of revisions",
+        "1 month support"
+      ]
+    },
+    {
+      "tier": "Business Suite",
+      "price": "$8,000",
+      "description": "Comprehensive automation",
+      "features": [
+        "Up to 20 automated workflows",
+        "Custom integrations",
+        "Advanced logic & branching",
+        "Error recovery systems",
+        "Team training (2 sessions)",
+        "Workflow documentation",
+        "3 months support"
+      ],
+      "highlighted": true
+    },
+    {
+      "tier": "Enterprise",
+      "price": "Custom",
+      "description": "Full business automation",
+      "features": [
+        "Unlimited workflows",
+        "Custom software development",
+        "AI & machine learning integration",
+        "Dedicated automation engineer",
+        "Quarterly optimization reviews",
+        "Priority support",
+        "12 months support"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "What types of tasks can be automated?",
+      "answer": "Almost anything repetitive! Common examples include data entry, email management, report generation, social media posting, customer onboarding, invoice processing, and CRM updates."
+    },
+    {
+      "question": "Will automation replace my employees?",
+      "answer": "No, automation eliminates tedious tasks so your team can focus on strategic, creative, and high-value work. It's about augmenting your workforce, not replacing it."
+    },
+    {
+      "question": "How long does it take to see ROI?",
+      "answer": "Most clients see positive ROI within 2-4 months. Time savings are immediate, and efficiency gains compound over time as your team adopts automated workflows."
+    },
+    {
+      "question": "Can you integrate with our existing tools?",
+      "answer": "Yes! We work with 1000+ tools including Salesforce, HubSpot, Slack, Google Workspace, Microsoft 365, Shopify, QuickBooks, and virtually any platform with an API."
+    },
+    {
+      "question": "What if something breaks?",
+      "answer": "We build robust error handling and monitoring into all workflows. Plus, our support packages include proactive monitoring and quick fixes to keep your automation running smoothly."
+    }
+  ]
+}

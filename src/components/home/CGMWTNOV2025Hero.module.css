@@ -1,0 +1,291 @@
+/**
+ * CGMWTNOV2025Hero Styles
+ *
+ * Futuristic hero section with clip-path container, scanline overlay,
+ * and gold color palette from CGMWTNOV2025.
+ *
+ * Source: CGMWTNOV2025\orbit-matter\css\home.css
+ */
+
+/* Main Hero Container */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  filter: url("#goo");
+}
+
+/* Image Container with Clip-Path */
+.heroImgContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  clip-path: polygon(
+    4rem 0px,
+    calc(50% - 15rem) 0px,
+    calc(50% - 13.5rem) 2.75rem,
+    calc(50% + 13.5rem) 2.75rem,
+    calc(50% + 15rem) 0px,
+    calc(100% - 4rem) 0px,
+    100% 4rem,
+    100% calc(100% - 4rem),
+    calc(100% - 4rem) 100%,
+    4rem 100%,
+    0px calc(100% - 4rem),
+    0px 4rem
+  );
+}
+
+.heroImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Scanline Overlay (Gold Tint) */
+.heroImgOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(255, 215, 0, 0.125),
+    rgba(255, 215, 0, 0.125) 4px,
+    transparent 4px,
+    transparent 10px
+  );
+  background-size: 100% 9px;
+  filter: blur(2px);
+  animation: panOverlay 30s infinite linear;
+  z-index: 1;
+}
+
+@keyframes panOverlay {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 0% -100%;
+  }
+}
+
+/* Gradient Overlay (Bottom Fade) */
+.heroImgGradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+}
+
+/* Content Overlay */
+.heroContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.container {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+}
+
+/* Top Nav Section with Timer */
+.heroContentNav {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.heroTimer {
+  width: 12rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--orbit-glow);
+  border: 1px solid var(--orbit-border);
+  border-radius: 0.25rem;
+  backdrop-filter: blur(0.2rem);
+  font-size: clamp(0.75rem, 0.75vw, 0.85rem);
+  font-family: 'Geist Mono', 'DM Mono', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+/* Headline Section */
+.heroContentHeader {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.heroContentHeader h1 {
+  font-family: 'FK Screamer', 'PP Editorial New', serif;
+  font-size: clamp(3.5rem, 10vw, 10rem);
+  font-weight: 500;
+  line-height: 0.85;
+  text-transform: uppercase;
+  letter-spacing: clamp(-0.05rem, -1vw, -0.15rem);
+  color: #ffffff;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+}
+
+/* Footer Section */
+.heroContentFooter {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.heroFooterCopy {
+  flex: 3;
+}
+
+.heroFooterCopy p {
+  max-width: 50%;
+  font-size: clamp(1rem, 0.85vw, 1.25rem);
+  line-height: 1.4;
+  color: #ffffff;
+  font-family: 'Inter', 'Host Grotesk', sans-serif;
+  font-weight: 400;
+}
+
+.heroCallout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.heroCallout p {
+  font-size: clamp(0.85rem, 0.75vw, 0.95rem);
+  font-family: 'Geist Mono', 'DM Mono', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  text-align: right;
+}
+
+.heroCtaLink {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  margin-top: 0.5rem;
+  background-color: transparent;
+  border: 1px solid var(--orbit-border);
+  border-radius: 0.25rem;
+  font-size: clamp(0.85rem, 0.75vw, 0.95rem);
+  font-family: 'Geist Mono', 'DM Mono', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--orbit-gold-100);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.heroCtaLink:hover {
+  background-color: var(--orbit-gold-100);
+  color: var(--orbit-dark-300);
+  border-color: var(--orbit-gold-100);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Responsive Styles */
+@media (max-width: 1000px) {
+  /* Remove clip-path on mobile */
+  .heroImgContainer {
+    clip-path: none;
+  }
+
+  /* Hide scanlines on mobile for performance */
+  .heroImgOverlay {
+    display: none;
+  }
+
+  .container {
+    padding: 2rem 1.5rem;
+  }
+
+  .heroContentHeader h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .heroFooterCopy p {
+    max-width: 100%;
+  }
+
+  .heroContentFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .heroCallout {
+    align-items: flex-start;
+  }
+
+  .heroCallout p {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroTimer {
+    width: 10rem;
+    font-size: 0.7rem;
+  }
+
+  .heroContentHeader h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .heroFooterCopy p {
+    font-size: clamp(0.9rem, 1vw, 1rem);
+  }
+
+  .heroCallout p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .heroImgOverlay {
+    animation: none;
+  }
+}

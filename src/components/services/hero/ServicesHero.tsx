@@ -201,7 +201,6 @@ export default function ServicesHero() {
           style={{ y: subtitleY }}
           variants={itemVariants}
         >
-          What We Do
         </motion.p>
 
         {/* Main title */}

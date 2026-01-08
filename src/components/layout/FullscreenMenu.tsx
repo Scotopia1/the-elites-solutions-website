@@ -7,6 +7,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import FocusTrap from "focus-trap-react";
 import "./FullscreenMenu.css";
 
 gsap.registerPlugin(useGSAP);
@@ -132,6 +133,18 @@ const FullscreenMenu = ({ isOpen, setIsOpen }: FullscreenMenuProps) => {
     }
   }, [pathname]);
 
+  // Handle Escape key to close menu
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        handleClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isOpen]);
+
   // Handle menu open animation
   const handleOpen = () => {
     if (isAnimating) return;
@@ -251,99 +264,135 @@ const FullscreenMenu = ({ isOpen, setIsOpen }: FullscreenMenuProps) => {
   return (
     <div className="fullscreen-menu-wrapper">
       {/* Menu Trigger - Logo */}
-      <div ref={menuTriggerRef} className="menu-trigger" onClick={handleOpen}>
+      <button
+        ref={menuTriggerRef}
+        className="menu-trigger"
+        onClick={handleOpen}
+        aria-label="Open navigation menu"
+        aria-expanded={isOpen}
+        aria-controls="fullscreen-menu"
+      >
         <img
           src="/images/logos/elites-solutions-logo.webp"
           alt="The Elites Solutions"
           className="menu-trigger-logo"
         />
-      </div>
+      </button>
 
       {/* Fullscreen Overlay */}
       <div
+        id="fullscreen-menu"
         ref={overlayRef}
         className="fullscreen-menu-overlay"
         onMouseMove={handleMouseMove}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
       >
-        {/* Close Button */}
-        <button
-          ref={closeButtonRef}
-          className="menu-close-btn"
-          onClick={handleClose}
+        <FocusTrap
+          active={isOpen}
+          focusTrapOptions={{
+            initialFocus: () => closeButtonRef.current || undefined,
+            escapeDeactivates: false, // We handle Escape manually
+            clickOutsideDeactivates: false,
+            returnFocusOnDeactivate: true,
+            allowOutsideClick: true,
+          }}
         >
-          Close
-        </button>
+          <div>
+            {/* Close Button */}
+            <button
+              ref={closeButtonRef}
+              className="menu-close-btn"
+              onClick={handleClose}
+              aria-label="Close menu"
+            >
+              Close
+            </button>
 
-        {/* Menu Content */}
-        <div className="menu-content">
-          <nav className="menu-nav">
-            {menuItems.map((item, index) => (
-              <div
-                key={item.href}
-                ref={(el) => { menuItemsRef.current[index] = el; }}
-                className={`menu-link ${activeIndex === index ? "active" : ""}`}
-                onMouseEnter={() => handleItemEnter(index)}
-                onMouseLeave={handleItemLeave}
-              >
-                <Link
-                  href={item.href}
-                  onClick={handleNavigation(item.href)}
-                  className="menu-link-inner"
-                >
-                  <span className="menu-number">{item.number}</span>
-                  <span className="menu-title">{item.title}</span>
-                </Link>
-              </div>
-            ))}
-          </nav>
-        </div>
+            {/* Menu Content */}
+            <div className="menu-content">
+              <nav className="menu-nav" aria-label="Main navigation">
+                {menuItems.map((item, index) => {
+                  const isCurrentPage = pathname === item.href ||
+                    (item.href !== '/' && pathname.startsWith(item.href));
 
-        {/* Image Preview Container - fixed position */}
-        <div ref={imageContainerRef} className="image-preview-container">
-          <AnimatePresence mode="wait">
-            {activeImage && (
-              <motion.div
-                key={activeImage.href}
-                className="image-preview"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-                transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
-              >
-                <Image
-                  src={activeImage.image}
-                  alt={activeImage.title}
-                  fill
-                  style={{ objectFit: "cover" }}
-                  priority
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+                  return (
+                    <div
+                      key={item.href}
+                      ref={(el) => { menuItemsRef.current[index] = el; }}
+                      className={`menu-link ${activeIndex === index ? "hover-active" : ""} ${isCurrentPage ? "current-page" : ""}`}
+                      onMouseEnter={() => handleItemEnter(index)}
+                      onMouseLeave={handleItemLeave}
+                    >
+                      <Link
+                        href={item.href}
+                        onClick={handleNavigation(item.href)}
+                        className="menu-link-inner"
+                        aria-current={isCurrentPage ? "page" : undefined}
+                      >
+                        <span className="menu-number">{item.number}</span>
+                        <span className="menu-title">{item.title}</span>
+                        {isCurrentPage && (
+                          <span className="current-indicator" aria-hidden="true">
+                            ●
+                          </span>
+                        )}
+                      </Link>
+                    </div>
+                  );
+                })}
+              </nav>
+            </div>
 
-        {/* Custom Cursor */}
-        <div ref={cursorRef} className="menu-cursor">
-          <AnimatePresence>
-            {activeIndex !== null && (
-              <motion.div
-                className="cursor-dot"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <span>View</span>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+            {/* Image Preview Container - fixed position */}
+            <div ref={imageContainerRef} className="image-preview-container" aria-hidden="true">
+              <AnimatePresence mode="wait">
+                {activeImage && (
+                  <motion.div
+                    key={activeImage.href}
+                    className="image-preview"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.8, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
+                  >
+                    <Image
+                      src={activeImage.image}
+                      alt={activeImage.title}
+                      fill
+                      style={{ objectFit: "cover" }}
+                      priority
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
-        {/* Footer */}
-        <div className="menu-footer-info">
-          <p className="footer-tagline">Custom Solutions for Modern Businesses</p>
-          <p className="footer-cta">Transform Your Business with The Elites</p>
-        </div>
+            {/* Custom Cursor */}
+            <div ref={cursorRef} className="menu-cursor" aria-hidden="true">
+              <AnimatePresence>
+                {activeIndex !== null && (
+                  <motion.div
+                    className="cursor-dot"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <span>View</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Footer */}
+            <div className="menu-footer-info">
+              <p className="footer-tagline">Custom Solutions for Modern Businesses</p>
+              <p className="footer-cta">Transform Your Business with The Elites</p>
+            </div>
+          </div>
+        </FocusTrap>
       </div>
     </div>
   );

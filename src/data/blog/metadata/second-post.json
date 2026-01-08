@@ -1,0 +1,21 @@
+{
+  "slug": "second-post",
+  "title": "Mastering GSAP ScrollTrigger: Advanced Techniques",
+  "subtitle": "Unlock the full potential of scroll-based animations with these professional tips and tricks",
+  "category": "Animation",
+  "author": {
+    "name": "Sarah Chen",
+    "avatar": "/images/authors/sarah-chen.jpg",
+    "title": "Creative Developer",
+    "bio": "Animation specialist focused on creating delightful user experiences through motion design.",
+    "social": {
+      "twitter": "https://twitter.com/sarahchen",
+      "linkedin": "https://linkedin.com/in/sarahchen"
+    }
+  },
+  "publishedDate": "November 28, 2024",
+  "readingTime": "6 min read",
+  "heroImage": "/images/blog/second-post-hero.jpg",
+  "tags": ["GSAP", "ScrollTrigger", "Animation", "JavaScript"],
+  "relatedPosts": ["first-post", "third-post", "fourth-post"]
+}

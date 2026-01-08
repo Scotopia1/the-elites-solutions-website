@@ -62,23 +62,40 @@ export const metadata: Metadata = {
 
 import { SessionProvider } from '@/components/providers/session-provider';
 import { LoadingProvider } from '@/components/providers/loading-provider';
+import { TransitionProvider } from '@/components/transitions';
+import { ReducedMotionProvider } from '@/components/providers/ReducedMotionProvider';
+import { getOrganizationSchema } from '@/lib/seo/structured-data';
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = getOrganizationSchema();
+
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+      </head>
       <body
         className={`${inter.variable} ${montserrat.variable} font-sans antialiased`}
       >
-        <SessionProvider>
-          <LoadingProvider>
-            {children}
-          </LoadingProvider>
-          <Toaster position="top-right" richColors />
-        </SessionProvider>
+        <ReducedMotionProvider>
+          <SessionProvider>
+            <TransitionProvider>
+              <LoadingProvider>
+                {children}
+              </LoadingProvider>
+            </TransitionProvider>
+            <Toaster position="top-right" richColors />
+          </SessionProvider>
+        </ReducedMotionProvider>
       </body>
     </html>
   );

@@ -1,0 +1,57 @@
+{
+  "slug": "automation-suite",
+  "title": "Business Automation Suite",
+  "category": "Automation & Integration",
+  "heroImage": "/images/projects/automation-hero.jpg",
+  "quickFacts": {
+    "client": "Enterprise Corp",
+    "year": "2024",
+    "duration": "4 months",
+    "status": "Launched",
+    "githubUrl": "https://github.com/enterprise/automation-suite"
+  },
+  "overview": {
+    "description": "A custom workflow automation platform that eliminates repetitive manual tasks across departments. The suite integrates with existing enterprise tools and provides a visual workflow builder for non-technical users to create powerful automations.",
+    "highlights": [
+      "Visual drag-and-drop workflow builder",
+      "Pre-built integrations with 50+ enterprise apps",
+      "Real-time execution monitoring and error handling",
+      "Role-based access control (RBAC)",
+      "Audit logging and compliance reporting"
+    ]
+  },
+  "gallery": [
+    { "url": "/images/projects/automation-1.jpg", "alt": "Workflow builder interface" },
+    { "url": "/images/projects/automation-2.jpg", "alt": "Integration dashboard" },
+    { "url": "/images/projects/automation-3.jpg", "alt": "Analytics and reporting" },
+    { "url": "/images/projects/automation-4.jpg", "alt": "Execution logs" }
+  ],
+  "techStack": [
+    { "name": "Python", "logo": "/icons/tech/python.svg", "reason": "Robust scripting language ideal for automation and data processing" },
+    { "name": "FastAPI", "logo": "/icons/tech/fastapi.svg", "reason": "High-performance async API framework for workflow execution engine" },
+    { "name": "Redis", "logo": "/icons/tech/redis.svg", "reason": "Message queue and caching layer for distributed task processing" },
+    { "name": "Docker", "logo": "/icons/tech/docker.svg", "reason": "Containerized deployments ensuring consistent execution environments" },
+    { "name": "PostgreSQL", "logo": "/icons/tech/postgresql.svg", "reason": "Reliable data storage for workflow definitions and execution history" },
+    { "name": "Celery", "logo": "/icons/tech/celery.svg", "reason": "Distributed task queue for parallel workflow execution" }
+  ],
+  "timeline": [
+    { "phase": "Requirements Gathering", "date": "Feb 2024", "description": "Identified 50+ manual processes across Sales, HR, and Operations departments" },
+    { "phase": "Architecture Design", "date": "Mar 2024", "description": "Designed microservices architecture with event-driven workflow engine" },
+    { "phase": "Development Sprint 1-3", "date": "Mar - May 2024", "description": "Built workflow builder, execution engine, and core integrations" },
+    { "phase": "Deployment & Training", "date": "Jun 2024", "description": "On-premise deployment, team training, and process migration" }
+  ],
+  "results": [
+    { "metric": "80%", "description": "Reduction in manual tasks" },
+    { "metric": "15hrs/week", "description": "Average time saved per employee" },
+    { "metric": "500+", "description": "Active automated workflows" },
+    { "metric": "$250K", "description": "Annual cost savings" }
+  ],
+  "testimonial": {
+    "quote": "The automation suite has been transformational for our operations. Tasks that used to take days now complete in minutes, and our team can focus on strategic work instead of repetitive data entry.",
+    "author": "Michael Chen",
+    "title": "VP of Operations, Enterprise Corp",
+    "avatar": "/images/authors/michael-chen.jpg"
+  },
+  "videoUrl": "https://www.youtube.com/watch?v=demo-automation",
+  "nextProject": "project-alpha"
+}

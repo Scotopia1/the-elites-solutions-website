@@ -5,12 +5,12 @@ import { ArrowRight } from 'lucide-react';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
+    title: 'E-Commerce Platform Redesign',
     category: 'Web Development',
     description: 'A fully-featured online store with inventory management, payment processing, and real-time analytics.',
     image: '/images/projects/project-1.jpg',
     tags: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
-    link: '/work/ecommerce-platform',
+    link: '/work/project-alpha',
   },
   {
     title: 'Healthcare Mobile App',

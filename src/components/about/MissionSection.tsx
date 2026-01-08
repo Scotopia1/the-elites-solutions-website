@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getScrollTriggerScrub } from "@/lib/gsap-config";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,7 +41,7 @@ export default function MissionSection() {
         end: "+=200%",
         pin: true,
         pinSpacing: true,
-        scrub: 1,
+        scrub: getScrollTriggerScrub(1),
         onUpdate: (self) => {
           const progress = self.progress;
           const wordCount = words.length;

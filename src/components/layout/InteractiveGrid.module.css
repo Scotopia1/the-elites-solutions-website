@@ -1,0 +1,44 @@
+/**
+ * InteractiveGrid Styles
+ *
+ * Fixed background grid with mouse-reactive highlighting.
+ * Uses CGMWTNOV2025 color variables for gold accents.
+ */
+
+.grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.block {
+  position: absolute;
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  will-change: transform;
+}
+
+.block.highlight {
+  border-color: #FFD700;
+  border-width: 1px;
+}
+
+/* Disable grid on mobile */
+@media (max-width: 767px) {
+  .grid {
+    display: none;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .block {
+    transition: none;
+  }
+}

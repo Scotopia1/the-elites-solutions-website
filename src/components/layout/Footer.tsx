@@ -1,7 +1,9 @@
 "use client";
 import "./Footer.css";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import { TransitionLink } from "@/components/transitions";
+import { FaLinkedinIn, FaInstagram, FaXTwitter, FaDribbble } from "react-icons/fa6";
+import NewsletterForm from "@/components/newsletter/NewsletterForm";
 
 const navigationLinks = [
   { href: "/", label: "Home" },
@@ -19,10 +21,16 @@ const serviceLinks = [
 ];
 
 const socialLinks = [
-  { href: "https://linkedin.com", label: "LinkedIn", icon: "in" },
-  { href: "https://instagram.com", label: "Instagram", icon: "ig" },
-  { href: "https://twitter.com", label: "Twitter", icon: "x" },
-  { href: "https://dribbble.com", label: "Dribbble", icon: "dr" },
+  { href: "https://linkedin.com", label: "LinkedIn", Icon: FaLinkedinIn },
+  { href: "https://instagram.com", label: "Instagram", Icon: FaInstagram },
+  { href: "https://twitter.com", label: "Twitter", Icon: FaXTwitter },
+  { href: "https://dribbble.com", label: "Dribbble", Icon: FaDribbble },
+];
+
+const legalLinks = [
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Service" },
+  { href: "/cookies", label: "Cookie Policy" },
 ];
 
 export function Footer() {
@@ -61,10 +69,10 @@ export function Footer() {
                         whileHover={{ x: 8 }}
                         transition={{ type: "spring", stiffness: 400, damping: 25 }}
                       >
-                        <Link href={link.href} className="footer-nav-link">
+                        <TransitionLink href={link.href} className="footer-nav-link">
                           <span className="link-arrow">→</span>
                           <span className="link-text">{link.label}</span>
-                        </Link>
+                        </TransitionLink>
                       </motion.div>
                     </li>
                   ))}
@@ -81,10 +89,10 @@ export function Footer() {
                         whileHover={{ x: 8 }}
                         transition={{ type: "spring", stiffness: 400, damping: 25 }}
                       >
-                        <Link href={link.href} className="footer-nav-link">
+                        <TransitionLink href={link.href} className="footer-nav-link">
                           <span className="link-arrow">→</span>
                           <span className="link-text">{link.label}</span>
-                        </Link>
+                        </TransitionLink>
                       </motion.div>
                     </li>
                   ))}
@@ -118,15 +126,15 @@ export function Footer() {
                     </motion.a>
                   </li>
                   <li>
-                    <motion.a
-                      href="/contact"
-                      className="footer-contact-link"
+                    <motion.div
                       whileHover={{ x: 8 }}
                       transition={{ type: "spring", stiffness: 400, damping: 25 }}
                     >
-                      <span className="link-arrow">→</span>
-                      <span className="link-text">Visit Office</span>
-                    </motion.a>
+                      <TransitionLink href="/contact" className="footer-contact-link">
+                        <span className="link-arrow">→</span>
+                        <span className="link-text">Visit Office</span>
+                      </TransitionLink>
+                    </motion.div>
                   </li>
                 </ul>
               </div>
@@ -151,21 +159,52 @@ export function Footer() {
 
           {/* Social Links */}
           <div className="footer-social">
-            {socialLinks.map((social) => (
-              <motion.a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                <span className="social-icon">{social.icon}</span>
-                <span className="social-label">{social.label}</span>
-              </motion.a>
-            ))}
+            {socialLinks.map((social) => {
+              const Icon = social.Icon;
+              return (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                  aria-label={social.label}
+                  whileHover={{ scale: 1.15, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <Icon className="social-icon-svg" size={24} />
+                </motion.a>
+              );
+            })}
+          </div>
+
+          {/* Newsletter Subscription */}
+          <div className="footer-newsletter" style={{ marginTop: '3rem', marginBottom: '2rem', paddingTop: '2rem', borderTop: '1px solid rgba(212, 175, 55, 0.15)' }}>
+            <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
+              <h4 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#fff', marginBottom: '0.5rem' }}>
+                Stay Updated
+              </h4>
+              <p style={{ fontSize: '0.875rem', color: '#9ca3af' }}>
+                Get the latest insights, projects, and industry trends delivered to your inbox
+              </p>
+            </div>
+            <NewsletterForm variant="simple" />
+          </div>
+
+          {/* Legal Links */}
+          <div className="footer-legal">
+            <div className="legal-links">
+              {legalLinks.map((link) => (
+                <TransitionLink
+                  key={link.href}
+                  href={link.href}
+                  className="legal-link"
+                >
+                  {link.label}
+                </TransitionLink>
+              ))}
+            </div>
           </div>
 
           {/* Copyright - Inside Frame */}

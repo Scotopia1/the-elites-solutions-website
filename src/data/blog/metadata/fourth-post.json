@@ -1,0 +1,22 @@
+{
+  "slug": "fourth-post",
+  "title": "Performance Optimization for Next.js Applications",
+  "subtitle": "Practical strategies to achieve perfect Core Web Vitals and lightning-fast load times",
+  "category": "Performance",
+  "author": {
+    "name": "Emily Watson",
+    "avatar": "/images/authors/emily-watson.jpg",
+    "title": "Performance Engineer",
+    "bio": "Obsessed with making the web faster, one optimization at a time. Expert in Core Web Vitals and performance auditing.",
+    "social": {
+      "twitter": "https://twitter.com/emilywatson",
+      "linkedin": "https://linkedin.com/in/emilywatson",
+      "github": "https://github.com/emilywatson"
+    }
+  },
+  "publishedDate": "November 22, 2024",
+  "readingTime": "10 min read",
+  "heroImage": "/images/blog/fourth-post-hero.jpg",
+  "tags": ["Next.js", "Performance", "Optimization", "Core Web Vitals"],
+  "relatedPosts": ["first-post", "second-post", "third-post"]
+}

@@ -1,0 +1,404 @@
+/**
+ * ClientReviews Styles - Routine Section Design
+ *
+ * Horizontal scrolling testimonials with CGMWTNOV2025 routine section design.
+ * Exact card structure matching routine blocks.
+ *
+ * Card Structure (matching CGMWTNOV2025):
+ * - Header: Number (left) + Company (right)
+ * - Center: Testimonial quote (replacing icon)
+ * - Footer: Client name (left) + Role (right)
+ *
+ * Source: CGMWTNOV2025\orbit-matter\observatory - routine section
+ */
+
+/* Routine Section Container */
+.routine {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.routineContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Beveled Background with Clip-Path */
+.routineBg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #303030;
+  clip-path: polygon(
+    4rem 0px,
+    calc(50% - 15rem) 0px,
+    calc(50% - 13.5rem) 2.75rem,
+    calc(50% + 13.5rem) 2.75rem,
+    calc(50% + 15rem) 0px,
+    calc(100% - 4rem) 0px,
+    100% 4rem,
+    100% calc(100% - 4rem),
+    calc(100% - 4rem) 100%,
+    4rem 100%,
+    0px calc(100% - 4rem),
+    0px 4rem
+  );
+}
+
+/* Content Overlay */
+.routineCopy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.container {
+  padding: 6rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header - Split Titles */
+.routineHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center the titles */
+  align-items: center;
+  gap: 5rem; /* Increased spacing between Client and Reviews */
+}
+
+.routineHeader h3 {
+  font-family: 'FK Screamer', 'PP Editorial New', serif;
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem); /* 150% larger (1.5x) */
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 0.15em; /* Increased character spacing */
+  line-height: 1.1;
+  margin: 0;
+  text-align: center; /* Center text within element */
+}
+
+/* Progress Bar */
+.routineProgressBar {
+  position: relative;
+  width: 100%;
+  height: 0.25rem;
+  background-color: #3f3f3f;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+.routineProgress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFD700;
+  transform: scaleX(0);
+  transform-origin: left;
+  will-change: transform;
+}
+
+/* Horizontal Slider */
+.routineSlider {
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.routineSliderWrapper {
+  position: relative;
+  width: 350%;
+  height: 100%;
+  transform: translateX(0%);
+  display: flex;
+  gap: 1.5rem;
+  will-change: transform;
+}
+
+/* Testimonial Card (Routine Block) - EXACT STRUCTURE */
+.routineBlock {
+  position: relative;
+  flex: 0 0 auto; /* Don't grow or shrink */
+  width: 963.5px; /* Exact width specification */
+  height: 519px; /* Exact height specification */
+  background-color: #303030;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Add subtle border */
+  border-radius: 0.75rem;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Card Header (Number + Company) */
+.routineBlockHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem; /* Add spacing below header */
+}
+
+.routineBlockHeader p {
+  font-family: 'Geist Mono', 'DM Mono', monospace;
+  font-size: clamp(0.85rem, 1vw, 1rem); /* Slightly larger */
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.routineBlockHeader p:nth-child(2) {
+  color: #6b6b6b; /* Darker muted color for better contrast */
+  text-align: right; /* Ensure right alignment */
+  max-width: 50%; /* Prevent overflow */
+}
+
+/* Card Center (Testimonial Quote - replacing routine-icon) */
+.routineQuote {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%; /* Slightly wider */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem; /* Reduced gap */
+}
+
+/* Quote Mark Decoration */
+.quoteIcon {
+  width: 2rem; /* Smaller icon */
+  height: 2rem;
+  opacity: 0.2; /* More subtle */
+  color: #FFD700;
+  flex-shrink: 0;
+}
+
+/* Testimonial Text */
+.testimonialText {
+  font-family: 'PP Editorial New', 'Playfair Display', serif;
+  font-size: clamp(0.9rem, 1.1vw, 1.15rem); /* Slightly larger */
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5; /* Tighter line height */
+  color: rgba(255, 255, 255, 0.9); /* More opaque */
+  margin: 0;
+  max-height: 65%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Reduced to 5 lines for more compact look */
+  -webkit-box-orient: vertical;
+}
+
+/* Card Footer (Client Name + Role) */
+.routineBlockFooter {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 1rem; /* Add spacing above footer */
+  gap: 1rem; /* Add gap between elements */
+}
+
+.routineBlockFooter h3 {
+  font-family: 'FK Screamer', 'PP Editorial New', serif;
+  font-size: clamp(1.5rem, 2.2vw, 2.5rem); /* Larger footer title */
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 0.1em; /* Increased spacing between characters */
+  line-height: 1;
+  margin: 0;
+  flex: 1; /* Allow to take available space */
+}
+
+.routineBlockFooter p {
+  font-family: 'Geist Mono', 'DM Mono', monospace;
+  font-size: clamp(0.75rem, 0.9vw, 0.95rem); /* Slightly larger */
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #6b6b6b; /* Darker muted color matching header */
+  letter-spacing: 0.05em;
+  margin: 0;
+  text-align: right;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .container {
+    padding: 4rem 2rem;
+  }
+
+  .routineSliderWrapper {
+    width: 400%;
+  }
+
+  .routineBlock {
+    width: 700px; /* Smaller on tablets */
+    height: 400px;
+  }
+
+  .routineQuote {
+    width: 85%;
+  }
+
+  .testimonialText {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 5;
+  }
+}
+
+@media (max-width: 768px) {
+  .routineBg {
+    clip-path: polygon(
+      2rem 0px,
+      calc(50% - 8rem) 0px,
+      calc(50% - 7rem) 1.5rem,
+      calc(50% + 7rem) 1.5rem,
+      calc(50% + 8rem) 0px,
+      calc(100% - 2rem) 0px,
+      100% 2rem,
+      100% calc(100% - 2rem),
+      calc(100% - 2rem) 100%,
+      2rem 100%,
+      0px calc(100% - 2rem),
+      0px 2rem
+    );
+  }
+
+  .container {
+    padding: 3rem 1.5rem;
+  }
+
+  .routineHeader {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .routineSliderWrapper {
+    width: 500%;
+    gap: 1rem;
+  }
+
+  .routineBlock {
+    width: 366px; /* Exact mobile dimensions */
+    height: 628px;
+    padding: 1.25rem;
+  }
+
+  .routineQuote {
+    width: 90%;
+  }
+
+  .quoteIcon {
+    width: 3.2rem; /* 80% of 4rem */
+    height: 3.2rem;
+  }
+
+  .testimonialText {
+    font-size: 1.28rem; /* 80% of 1.6rem */
+    line-height: 1.5;
+    -webkit-line-clamp: 8;
+  }
+
+  .routineBlockHeader p {
+    font-size: 1.36rem; /* 80% of 1.7rem */
+  }
+
+  .routineBlockFooter h3 {
+    font-size: 2.4rem; /* 80% of 3rem */
+    letter-spacing: 0.1em; /* Increased spacing between characters */
+  }
+
+  .routineBlockFooter p {
+    font-size: 1.2rem; /* 80% of 1.5rem */
+  }
+}
+
+@media (max-width: 480px) {
+  .routineBg {
+    clip-path: polygon(
+      1rem 0px,
+      calc(50% - 5rem) 0px,
+      calc(50% - 4rem) 1rem,
+      calc(50% + 4rem) 1rem,
+      calc(50% + 5rem) 0px,
+      calc(100% - 1rem) 0px,
+      100% 1rem,
+      100% calc(100% - 1rem),
+      calc(100% - 1rem) 100%,
+      1rem 100%,
+      0px calc(100% - 1rem),
+      0px 1rem
+    );
+  }
+
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .routineSliderWrapper {
+    width: 600%;
+  }
+
+  .routineBlock {
+    width: 366px; /* Exact mobile dimensions */
+    height: 628px;
+  }
+
+  .quoteIcon {
+    width: 3.2rem; /* 80% of 4rem */
+    height: 3.2rem;
+  }
+
+  .testimonialText {
+    font-size: 1.28rem; /* 80% of 1.6rem */
+    -webkit-line-clamp: 8;
+  }
+
+  .routineBlockHeader p {
+    font-size: 1.36rem; /* 80% of 1.7rem */
+  }
+
+  .routineBlockFooter h3 {
+    font-size: 2.4rem; /* 80% of 3rem */
+    letter-spacing: 0.1em; /* Increased spacing between characters */
+  }
+
+  .routineBlockFooter p {
+    font-size: 1.2rem; /* 80% of 1.5rem */
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .routineSliderWrapper {
+    transition: none;
+    will-change: auto;
+  }
+
+  .routineProgress {
+    transition: none;
+    will-change: auto;
+  }
+}

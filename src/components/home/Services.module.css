@@ -1,0 +1,221 @@
+/**
+ * Services Styles
+ *
+ * Port of CGMWTNOV2025 featured-missions section with gold/white palette.
+ * Vertical card grid layout with centered single column.
+ *
+ * Source: CGMWTNOV2025\orbit-matter\css\home.css - featured-missions section
+ */
+
+/* Services Header Section (full screen intro) */
+.servicesHeader {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.servicesHeader h1 {
+  font-family: 'FK Screamer', 'PP Editorial New', serif;
+  font-size: 20vw;
+  font-weight: 500;
+  line-height: 0.85;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: clamp(-0.05rem, -1vw, -0.15rem);
+}
+
+/* Services Cards Section */
+.services {
+  position: relative;
+  width: 100%;
+  padding: 7.5rem 1.5rem 15rem 1.5rem;
+  z-index: 2;
+  background-color: transparent;
+}
+
+/* Services List Container (single column centered) */
+.servicesList {
+  width: 40%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 7.5rem;
+}
+
+/* Individual Service Card */
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  background-color: #8c8a7f;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  padding: 3rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.serviceCard:hover {
+  transform: scale(1.02);
+  border-color: rgba(255, 215, 0, 0.5);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+}
+
+/* Card Typography */
+.serviceCard h3 {
+  font-family: 'FK Screamer', 'PP Editorial New', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #141414;
+  letter-spacing: clamp(-0.025rem, -0.5vw, -0.075rem);
+  margin: 0;
+}
+
+.serviceCard p {
+  font-family: 'Geist Mono', 'DM Mono', monospace;
+  font-size: clamp(0.8rem, 0.75vw, 0.85rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #141414;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.serviceCard .serviceCategory {
+  color: #FFD700;
+  font-weight: 700;
+}
+
+/* Service Image Container */
+.serviceImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, rgba(100, 100, 100, 0.3) 0%, rgba(60, 60, 60, 0.5) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.serviceCard:hover .serviceImage {
+  transform: scale(1.05);
+}
+
+.serviceImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .servicesList {
+    width: 60%;
+  }
+
+  .services {
+    padding: 6rem 1.5rem 12rem 1.5rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .servicesHeader h1 {
+    font-size: 25vw;
+  }
+
+  .services {
+    padding: 8rem 1rem;
+  }
+
+  .servicesList {
+    width: 100%;
+    gap: 4.5rem;
+  }
+
+  .serviceCard {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .serviceCard h3 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesHeader {
+    height: 80svh;
+  }
+
+  .services {
+    padding: 6rem 1rem;
+  }
+
+  .servicesList {
+    gap: 3.5rem;
+  }
+
+  .serviceCard {
+    padding: 2rem 1.25rem;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .servicesHeader h1 {
+    font-size: 18vw;
+  }
+
+  .services {
+    padding: 4rem 1rem;
+  }
+
+  .servicesList {
+    gap: 2.5rem;
+  }
+
+  .serviceCard {
+    padding: 1.5rem 1rem;
+  }
+
+  .serviceCard h3 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .serviceCard p {
+    font-size: 0.7rem;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .serviceCard {
+    transition: none;
+  }
+
+  .serviceCard:hover {
+    transform: none;
+  }
+
+  .serviceImage {
+    transition: none;
+  }
+
+  .serviceCard:hover .serviceImage {
+    transform: none;
+  }
+}

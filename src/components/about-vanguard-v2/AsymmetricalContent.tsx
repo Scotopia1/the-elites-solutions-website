@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getScrollTriggerScrub } from "@/lib/gsap-config";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,7 +27,7 @@ export const AsymmetricalContent = () => {
             trigger: containerRef.current,
             start: "top center",
             end: "bottom bottom",
-            scrub: 1,
+            scrub: getScrollTriggerScrub(1),
           },
         }
       );

@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { getScrollTriggerScrub } from '@/lib/gsap-config';
 
 // Register GSAP plugins at module level (before component)
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -29,7 +30,7 @@ export default function DescriptionSection() {
         start: 'top top',
         end: `+=${window.innerHeight * 3}`,
         pinSpacing: true,               // Create scroll space for 3-viewport animation
-        scrub: true,                    // Use true instead of number for smooth sync
+        scrub: getScrollTriggerScrub(true),                    // Use true instead of number for smooth sync
         anticipatePin: 1,               // Prevent visual jumps during fast scrolling
         refreshPriority: -1,            // Lower priority - calculate after other sections
         invalidateOnRefresh: true,      // Recalculate positions on refresh

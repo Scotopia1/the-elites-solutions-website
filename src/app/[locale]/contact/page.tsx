@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'next/navigation';
 import { ReactLenis } from 'lenis/react';
+import { useLenisConfig } from '@/hooks/useLenisConfig';
 import { motion, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,6 +18,7 @@ import {
 } from '@/components/ui/select';
 import { Mail, Phone, MapPin, Send, Trophy, Clock, Star, Shield, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
+import NewsletterForm from '@/components/newsletter/NewsletterForm';
 
 // Trust signals data
 const trustSignals = [
@@ -117,6 +119,7 @@ function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: strin
 export default function ContactPage() {
   const params = useParams();
   const locale = (params?.locale as string) || 'en';
+  const lenisOptions = useLenisConfig();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -136,11 +139,9 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/inquiries', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
@@ -153,9 +154,9 @@ export default function ContactPage() {
         }),
       });
 
-      const data = await response.json();
+      const result = await response.json();
 
-      if (data.success) {
+      if (result.success) {
         setIsSuccess(true);
         toast.success("Message sent successfully! We'll get back to you soon.");
         setFormData({
@@ -169,7 +170,7 @@ export default function ContactPage() {
           message: '',
         });
       } else {
-        toast.error(data.message || 'Failed to send message. Please try again.');
+        toast.error(result.message || 'Failed to send message. Please try again.');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -180,7 +181,7 @@ export default function ContactPage() {
   };
 
   return (
-    <ReactLenis root>
+    <ReactLenis root options={lenisOptions}>
       {/* Background Layer */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#0a0a0a_0%,#1a1a1a_50%,#0a0a0a_100%)]" />
@@ -560,6 +561,21 @@ export default function ContactPage() {
                 </div>
               </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* Newsletter Subscription Section */}
+        <section className="py-20 px-6 lg:px-20">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="p-12 bg-gradient-to-br from-dark-200/80 to-dark-300/50 rounded-3xl border border-white/5"
+            >
+              <NewsletterForm variant="full" />
+            </motion.div>
           </div>
         </section>
       </div>

@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CustomEase from "gsap/CustomEase";
+import { getScrollTriggerScrub, getAnimationConfig, shouldDisableAnimation } from "@/lib/gsap-config";
 
 gsap.registerPlugin(ScrollTrigger, CustomEase);
 CustomEase.create("hop", "0.9, 0, 0.1, 1");
@@ -27,12 +28,22 @@ function GoldParticles() {
     pulse: number;
   }>>([]);
 
+  // Respect reduced motion preference
+  if (shouldDisableAnimation()) {
+    return null;
+  }
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    // Get device-aware animation config
+    const config = getAnimationConfig();
+    const particleCount = config.particleCount; // 10, 20, or 80 based on device
+    const targetFrameTime = 1000 / config.targetFPS; // 16.67ms (60fps) or 33.33ms (30fps)
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -42,7 +53,6 @@ function GoldParticles() {
     window.addEventListener("resize", resizeCanvas);
 
     // Initialize particles
-    const particleCount = 80;
     particlesRef.current = Array.from({ length: particleCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -59,7 +69,17 @@ function GoldParticles() {
     window.addEventListener("mousemove", handleMouseMove);
 
     let animationId: number;
-    const animate = () => {
+    let lastFrameTime = 0;
+
+    const animate = (currentTime: number) => {
+      // FPS throttling for mobile devices
+      const deltaTime = currentTime - lastFrameTime;
+      if (deltaTime < targetFrameTime) {
+        animationId = requestAnimationFrame(animate);
+        return;
+      }
+      lastFrameTime = currentTime - (deltaTime % targetFrameTime);
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particlesRef.current.forEach((particle) => {
@@ -93,6 +113,11 @@ function GoldParticles() {
         if (particle.y < 0) particle.y = canvas.height;
         if (particle.y > canvas.height) particle.y = 0;
 
+        // Validate canvas dimensions before creating gradient
+        if (!canvas.width || !canvas.height || !isFinite(particle.x) || !isFinite(particle.y)) {
+          return;
+        }
+
         // Draw particle with gold gradient
         const gradient = ctx.createRadialGradient(
           particle.x,
@@ -114,7 +139,7 @@ function GoldParticles() {
 
       animationId = requestAnimationFrame(animate);
     };
-    animate();
+    animate(0);
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
@@ -269,7 +294,7 @@ export default function CinematicHero() {
             trigger: heroRef.current,
             start: "top top",
             end: "bottom top",
-            scrub: 1,
+            scrub: getScrollTriggerScrub(1),
           },
         });
       });

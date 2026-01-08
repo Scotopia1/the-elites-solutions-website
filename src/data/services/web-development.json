@@ -1,0 +1,124 @@
+{
+  "slug": "web-development",
+  "title": "Modern Web Development",
+  "tagline": "Building the future, one pixel at a time",
+  "icon": "/icons/services/web-dev.svg",
+  "description": "We craft high-performance, scalable web applications that deliver exceptional user experiences. Our team combines cutting-edge technology with creative design to build digital solutions that drive business growth.",
+  "benefits": [
+    {
+      "title": "Lightning Fast",
+      "description": "Optimized for speed with modern frameworks and best practices"
+    },
+    {
+      "title": "Secure & Reliable",
+      "description": "Enterprise-grade security and 99.9% uptime guarantee"
+    },
+    {
+      "title": "Scalable Architecture",
+      "description": "Built to grow with your business needs"
+    },
+    {
+      "title": "SEO Optimized",
+      "description": "Rank higher with performance-focused development"
+    }
+  ],
+  "techStack": [
+    { "name": "React", "icon": "/icons/tech/react.svg" },
+    { "name": "Next.js", "icon": "/icons/tech/nextjs.svg" },
+    { "name": "TypeScript", "icon": "/icons/tech/typescript.svg" },
+    { "name": "Node.js", "icon": "/icons/tech/nodejs.svg" },
+    { "name": "Tailwind CSS", "icon": "/icons/tech/tailwind.svg" },
+    { "name": "PostgreSQL", "icon": "/icons/tech/postgresql.svg" }
+  ],
+  "process": [
+    {
+      "step": 1,
+      "title": "Discovery & Planning",
+      "description": "We dive deep into your business goals, target audience, and technical requirements to create a comprehensive project roadmap."
+    },
+    {
+      "step": 2,
+      "title": "Design & Prototyping",
+      "description": "Our design team creates stunning mockups and interactive prototypes that bring your vision to life before a single line of code is written."
+    },
+    {
+      "step": 3,
+      "title": "Development & Testing",
+      "description": "Our developers build your application using industry best practices, with continuous testing to ensure quality and performance."
+    },
+    {
+      "step": 4,
+      "title": "Launch & Support",
+      "description": "We handle deployment, monitoring, and provide ongoing support to ensure your application runs smoothly and evolves with your needs."
+    }
+  ],
+  "caseStudies": ["project-alpha", "project-beta"],
+  "pricing": [
+    {
+      "tier": "Starter",
+      "price": "$5,000",
+      "description": "Perfect for small businesses and startups",
+      "features": [
+        "5-10 pages",
+        "Responsive design",
+        "Basic SEO optimization",
+        "Contact forms",
+        "2 rounds of revisions",
+        "1 month support"
+      ]
+    },
+    {
+      "tier": "Professional",
+      "price": "$15,000",
+      "description": "Ideal for growing businesses",
+      "features": [
+        "15-25 pages",
+        "Custom design system",
+        "Advanced SEO",
+        "CMS integration",
+        "API development",
+        "Analytics setup",
+        "3 rounds of revisions",
+        "3 months support"
+      ],
+      "highlighted": true
+    },
+    {
+      "tier": "Enterprise",
+      "price": "Custom",
+      "description": "For large-scale applications",
+      "features": [
+        "Unlimited pages",
+        "Full custom development",
+        "Microservices architecture",
+        "Advanced security",
+        "Load balancing & CDN",
+        "Third-party integrations",
+        "Unlimited revisions",
+        "12 months support"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How long does a typical web development project take?",
+      "answer": "Project timelines vary based on complexity. A standard website takes 4-8 weeks, while more complex web applications can take 3-6 months. We'll provide a detailed timeline during discovery."
+    },
+    {
+      "question": "Do you provide ongoing maintenance and support?",
+      "answer": "Yes! All our packages include post-launch support, and we offer ongoing maintenance plans to keep your website secure, updated, and performing optimally."
+    },
+    {
+      "question": "Can you integrate with our existing systems?",
+      "answer": "Absolutely. We specialize in integrating with third-party APIs, CRMs, payment gateways, and legacy systems. We'll assess your requirements during discovery."
+    },
+    {
+      "question": "What technologies do you use?",
+      "answer": "We use modern, proven technologies like React, Next.js, Node.js, and PostgreSQL. Our stack is chosen based on your specific needs for performance, scalability, and maintainability."
+    },
+    {
+      "question": "Will my website be mobile-friendly?",
+      "answer": "Yes, all our websites are fully responsive and optimized for mobile, tablet, and desktop. We follow a mobile-first approach to ensure the best experience on all devices."
+    }
+  ]
+}

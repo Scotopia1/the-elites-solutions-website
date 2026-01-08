@@ -7,6 +7,7 @@ import { useReducedMotion } from "../hooks/useReducedMotion";
 /**
  * VanguardHero - 3D Interactive Hero with WebGL-like effects
  * Features: Interactive mesh, 3D perspective, cursor tracking, floating orbs
+ * Updated: Team section and scroll indicator positioning
  */
 
 // Interactive Wire Mesh Canvas Component
@@ -341,7 +342,6 @@ export function VanguardHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            About The Elites
           </motion.span>
         </motion.div>
 
@@ -427,6 +427,28 @@ export function VanguardHero() {
             </svg>
           </motion.a>
         </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          className="mt-16 flex flex-col items-center gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 2.2 }}
+          style={{ translateZ: 75 }}
+        >
+          <span className="font-mono text-[10px] text-white/40 uppercase tracking-[0.3em]">
+            Scroll to explore
+          </span>
+          <motion.div
+            className="w-px h-10 bg-gradient-to-b from-gold-400 to-transparent"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            whileHover={{
+              background: "linear-gradient(180deg, rgb(212, 175, 55), rgba(212, 175, 55, 0.5))",
+              boxShadow: "0 0 8px rgba(212, 175, 55, 0.6)"
+            }}
+          />
+        </motion.div>
       </motion.div>
 
       {/* Corner Elements */}
@@ -466,28 +488,6 @@ export function VanguardHero() {
         transition={{ duration: 0.8, delay: 2.1 }}
       >
         <div className="w-8 h-8 border-r-2 border-b-2 border-gold-400/30" />
-      </motion.div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 2.2 }}
-      >
-        <span className="font-mono text-[10px] text-white/30 uppercase tracking-[0.3em]">
-          Scroll
-        </span>
-        <motion.div
-          className="w-6 h-10 rounded-full border border-white/20 flex justify-center p-2"
-          whileHover={{ borderColor: "rgba(212, 175, 55, 0.5)" }}
-        >
-          <motion.div
-            className="w-1 h-2 bg-gold-400 rounded-full"
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </motion.div>
       </motion.div>
     </section>
   );

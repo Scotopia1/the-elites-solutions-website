@@ -2,6 +2,7 @@
 
 import { ReactLenis } from "lenis/react";
 import { ParallaxProvider } from "react-scroll-parallax";
+import { useLenisConfig } from "@/hooks/useLenisConfig";
 
 // Section imports
 import { VanguardHero } from "./sections/VanguardHero";
@@ -23,8 +24,10 @@ import { ContactCTA } from "./sections/ContactCTA";
  * - Glassmorphism with gold tints
  */
 export default function VanguardAboutPage() {
+  const lenisOptions = useLenisConfig();
+
   return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true }}>
+    <ReactLenis root options={lenisOptions}>
       <ParallaxProvider>
         <main className="relative bg-black min-h-screen overflow-x-hidden">
           {/* Section 1: Hero with Marquee + Particles */}

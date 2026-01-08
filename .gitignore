@@ -1,72 +1,85 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
+# Dependencies
+node_modules/
+.pnp
 .pnp.js
-.yarn/install-state.gz
 
-# testing
-/coverage
+# Testing
+coverage/
+.nyc_output
+*.lcov
 
-# next.js
-/.next/
-/out/
+# Next.js
+.next/
+out/
+build/
+dist/
 
-# production
+# Production
 /build
 
-# misc
+# Misc
 .DS_Store
 *.pem
+Thumbs.db
 
-# debug
+# Debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
-# local env files
-.env*.local
+# Local env files
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# vercel
+# Vercel
 .vercel
 
-# typescript
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
 
-# drizzle
-/drizzle
-
-# Windows artifacts
-nul
-
-# IDE/Editor configs
-.claude/
-.serena/
+# IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
 
-# Playwright/Testing screenshots
+# Claude Code and AI Tools
+.claude/
+.claude-plugin/
+.serena/
 .playwright-mcp/
-*.png
-!public/**/*.png
-
-# Session/Documentation files (not part of core project)
-ASSETS_COMPLETE.md
-CHANGELOG.md
-IMPLEMENTATION_COMPLETE.md
-IMPLEMENTATION_PROGRESS.md
-SESSION_PROGRESS.md
-WAKE_UP_MESSAGE.md
-
-# Lock files (keep one based on package manager)
-# Uncomment the one you're NOT using:
-# package-lock.json
-pnpm-lock.yaml
+.pytest_cache/
+.venv/
 
 # Temporary files
+_nul
+nul
 *.tmp
 *.temp
-*.log
+
+# Screenshots and test artifacts
+*.png
+*.jpg
+*.jpeg
+*.gif
+!public/**/*.png
+!public/**/*.jpg
+!public/**/*.jpeg
+!public/**/*.gif
+
+# Lock files (keep package-lock.json, but ignore others)
+pnpm-lock.yaml
+yarn.lock
+
+# Session and progress documentation (optional - comment out if you want to track these)
+*_PROGRESS.md
+*_SUMMARY.md
+*_COMPLETE.md
+SESSION_*.md
+WAKE_UP_*.md

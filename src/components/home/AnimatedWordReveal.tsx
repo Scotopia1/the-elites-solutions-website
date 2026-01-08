@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getScrollTriggerScrub } from "@/lib/gsap-config";
 import SplitType from "split-type";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -42,7 +43,7 @@ const AnimatedWordReveal = ({
       trigger: textRef.current.closest("section"),
       start: "top 60%",
       end: "bottom 40%",
-      scrub: 2,
+      scrub: getScrollTriggerScrub(2),
       onUpdate: (self) => {
         const progress = self.progress;
 

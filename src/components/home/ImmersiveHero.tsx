@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getScrollTriggerScrub, getAnimationConfig } from "@/lib/gsap-config";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -100,38 +101,68 @@ export default function ImmersiveHero() {
 
         // Logo element scroll-triggered scaling
         if (mediaRef.current) {
+          // Get device-aware animation config
+          const config = getAnimationConfig();
+
           // Initial small state
           gsap.set(mediaRef.current, {
             scale: 0.8,
           });
 
-          ScrollTrigger.create({
-            trigger: containerRef.current,
-            start: "top top",
-            end: "+=150%",
-            pin: true,
-            pinSpacing: true,
-            scrub: 1,
-            onUpdate: (self) => {
-              const progress = self.progress;
+          // Desktop: Full pinned scroll experience
+          // Mobile: Simple fade and scale without pinning
+          if (config.enablePinning) {
+            ScrollTrigger.create({
+              trigger: containerRef.current,
+              start: "top top",
+              end: "+=150%",
+              pin: true,
+              pinSpacing: true,
+              scrub: getScrollTriggerScrub(1),
+              onUpdate: (self) => {
+                const progress = self.progress;
 
-              // Scale from 0.8 to 1.2
-              const scale = 0.8 + progress * 0.4;
-              // Stats fade in at the end
-              const statsOpacity = Math.max(0, (progress - 0.6) * 2.5);
+                // Scale from 0.8 to 1.2
+                const scale = 0.8 + progress * 0.4;
+                // Stats fade in at the end
+                const statsOpacity = Math.max(0, (progress - 0.6) * 2.5);
 
-              gsap.set(mediaRef.current, {
-                scale: scale,
-              });
+                gsap.set(mediaRef.current, {
+                  scale: scale,
+                });
 
-              if (statsRef.current) {
-                gsap.set(statsRef.current, { opacity: statsOpacity });
-                if (statsOpacity > 0.5 && !statsInView) {
-                  setStatsInView(true);
+                if (statsRef.current) {
+                  gsap.set(statsRef.current, { opacity: statsOpacity });
+                  if (statsOpacity > 0.5 && !statsInView) {
+                    setStatsInView(true);
+                  }
                 }
-              }
-            },
-          });
+              },
+            });
+          } else {
+            // Mobile fallback: Simple scroll animation without pinning
+            gsap.to(mediaRef.current, {
+              scale: 1.2,
+              scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top center",
+                end: "bottom center",
+                scrub: getScrollTriggerScrub(true),
+              },
+            });
+
+            // Stats fade in on mobile
+            if (statsRef.current) {
+              gsap.to(statsRef.current, {
+                opacity: 1,
+                scrollTrigger: {
+                  trigger: statsRef.current,
+                  start: "top 80%",
+                  onEnter: () => setStatsInView(true),
+                },
+              });
+            }
+          }
         }
       }, containerRef);
 

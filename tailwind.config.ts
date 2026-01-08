@@ -16,6 +16,9 @@ const config: Config = {
       },
     },
     extend: {
+      screens: {
+        'xs': '480px',  // Small mobile (iPhone SE, small Android)
+      },
       colors: {
         dark: {
           100: '#1a1a1a',
@@ -94,6 +97,11 @@ const config: Config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+      perspective: {
+        '1000': '1000px',
+        '1500': '1500px',
+        '2000': '2000px',
       },
     },
   },

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useBentoGrid } from './BentoGridContext';
 import { useMagneticHover } from './useMagneticHover';
 import { BentoCardProps, CardState } from './types';
+import { getAnimationConfig } from '@/lib/gsap-config';
 
 const BentoCard = forwardRef<HTMLDivElement, BentoCardProps>(
   ({ card, index, onLearnMore, ctaMode = 'navigate' }, forwardedRef) => {
@@ -18,7 +19,11 @@ const BentoCard = forwardRef<HTMLDivElement, BentoCardProps>(
       openDetailModal,
     } = useBentoGrid();
 
+    // Get device-aware animation config
+    const config = getAnimationConfig();
+
     // Magnetic hover effect with pronounced settings
+    // Disabled on touch devices for better performance
     const {
       ref: magneticRef,
       x,
@@ -30,10 +35,11 @@ const BentoCard = forwardRef<HTMLDivElement, BentoCardProps>(
       onMouseEnter,
       onMouseLeave,
     } = useMagneticHover({
-      strength: 0.4,
-      rotationRange: 15,
+      strength: config.enable3DTransforms ? 0.4 : 0,
+      rotationRange: config.enable3DTransforms ? 15 : 0,
       damping: 15,
       stiffness: 150,
+      disabled: !config.enable3DTransforms,
     });
 
     const isExpanded = expandedCardId === card.id;
@@ -144,8 +150,10 @@ const BentoCard = forwardRef<HTMLDivElement, BentoCardProps>(
           rotateX,
           rotateY,
           scale,
-          transformStyle: 'preserve-3d',
-          perspective: 1000,
+          ...(config.enable3DTransforms && {
+            transformStyle: 'preserve-3d',
+            perspective: 1000,
+          }),
           // Grid positioning via CSS custom properties
           '--col-start-mobile': card.gridPosition.mobile.colStart,
           '--col-end-mobile': card.gridPosition.mobile.colEnd,

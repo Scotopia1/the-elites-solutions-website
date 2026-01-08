@@ -1,12 +1,15 @@
 "use client";
 
 import { ReactLenis } from "lenis/react";
+import { useLenisConfig } from "@/hooks/useLenisConfig";
 import { VanguardHero } from "./VanguardHero";
 import { AsymmetricalContent } from "./AsymmetricalContent";
 
 export default function VanguardV2Page() {
+  const lenisOptions = useLenisConfig();
+
   return (
-    <ReactLenis root>
+    <ReactLenis root options={lenisOptions}>
       <div className="bg-black min-h-screen text-white selection:bg-gold-400 selection:text-black">
         <VanguardHero />
         <AsymmetricalContent />

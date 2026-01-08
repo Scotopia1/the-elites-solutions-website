@@ -1,0 +1,120 @@
+{
+  "slug": "ecommerce-platform-redesign",
+  "title": "E-Commerce Platform Redesign",
+  "category": "Web Development",
+  "heroImage": "/projects/techmart-featured.jpg",
+  "quickFacts": {
+    "client": "TechMart Inc.",
+    "year": "2024",
+    "duration": "3 months",
+    "status": "Completed",
+    "liveUrl": "https://techmart-demo.theelites.com"
+  },
+  "overview": {
+    "description": "TechMart needed a modern, fast, and scalable e-commerce platform to handle 10,000+ daily visitors and improve conversion rates. We built a headless e-commerce solution using Next.js, Shopify, and PostgreSQL with advanced search, personalized recommendations, and a streamlined checkout process.",
+    "highlights": [
+      "45% increase in conversion rate",
+      "60% faster page load times",
+      "200% increase in mobile sales",
+      "$2M+ additional annual revenue"
+    ]
+  },
+  "gallery": [
+    { "url": "/projects/techmart-1.jpg", "alt": "TechMart homepage redesign" },
+    { "url": "/projects/techmart-2.jpg", "alt": "Product listing page" },
+    { "url": "/projects/techmart-3.jpg", "alt": "Checkout flow" }
+  ],
+  "techStack": [
+    {
+      "name": "Next.js",
+      "logo": "/logos/nextjs.svg",
+      "reason": "Server-side rendering for optimal performance and SEO"
+    },
+    {
+      "name": "React",
+      "logo": "/logos/react.svg",
+      "reason": "Component-based architecture for maintainability"
+    },
+    {
+      "name": "TypeScript",
+      "logo": "/logos/typescript.svg",
+      "reason": "Type safety and better developer experience"
+    },
+    {
+      "name": "Shopify",
+      "logo": "/logos/shopify.svg",
+      "reason": "Headless commerce backend with robust API"
+    },
+    {
+      "name": "PostgreSQL",
+      "logo": "/logos/postgresql.svg",
+      "reason": "Reliable relational database for custom data"
+    },
+    {
+      "name": "Tailwind CSS",
+      "logo": "/logos/tailwind.svg",
+      "reason": "Utility-first CSS framework for rapid UI development"
+    },
+    {
+      "name": "Vercel",
+      "logo": "/logos/vercel.svg",
+      "reason": "Deployment platform optimized for Next.js"
+    }
+  ],
+  "timeline": [
+    {
+      "phase": "Discovery & Planning",
+      "date": "Week 1-2",
+      "description": "Requirements gathering, competitor analysis, and technical architecture design"
+    },
+    {
+      "phase": "Design & Prototyping",
+      "date": "Week 3-4",
+      "description": "UI/UX design, wireframes, and interactive prototypes"
+    },
+    {
+      "phase": "Development Sprint 1",
+      "date": "Week 5-7",
+      "description": "Core e-commerce functionality, product catalog, and search"
+    },
+    {
+      "phase": "Development Sprint 2",
+      "date": "Week 8-10",
+      "description": "Checkout flow, payment integration, and user accounts"
+    },
+    {
+      "phase": "Testing & Optimization",
+      "date": "Week 11",
+      "description": "Performance optimization, accessibility testing, and bug fixes"
+    },
+    {
+      "phase": "Launch & Monitoring",
+      "date": "Week 12",
+      "description": "Production deployment, post-launch monitoring, and support"
+    }
+  ],
+  "results": [
+    {
+      "metric": "45% Conversion Increase",
+      "description": "Streamlined checkout and improved UX led to significantly higher conversion rates"
+    },
+    {
+      "metric": "60% Faster Load Times",
+      "description": "Next.js SSR and image optimization reduced page load times from 5s to 2s"
+    },
+    {
+      "metric": "200% Mobile Sales Boost",
+      "description": "Mobile-first design and PWA features tripled mobile conversions"
+    },
+    {
+      "metric": "$2M+ Annual Revenue",
+      "description": "Combined improvements generated over $2M in additional annual revenue"
+    }
+  ],
+  "testimonial": {
+    "quote": "The Elites transformed our e-commerce platform beyond our expectations. The results speak for themselves - our conversion rates doubled, and we're handling 3x the traffic with zero performance issues.",
+    "author": "Sarah Johnson",
+    "title": "CEO, TechMart Inc.",
+    "avatar": "/avatars/sarah-johnson.jpg"
+  }
+}
