@@ -19,11 +19,12 @@
 
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import { servicesData } from "./servicesData";
 import styles from "./Services.module.css";
 
@@ -78,7 +79,7 @@ export default function Services() {
   const headerRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!headerRef.current || !cardsRef.current) return;
 
     const header = headerRef.current;
@@ -98,7 +99,7 @@ export default function Services() {
     return () => {
       pinTrigger.kill();
     };
-  }, []);
+  }, { scope: headerRef });
 
   const handleNavigate = (slug: string) => {
     router.push(`/services/${slug}`);

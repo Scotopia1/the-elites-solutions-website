@@ -1,12 +1,13 @@
 "use client";
 import "./WorkPreview.css";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 
 import AnimatedH1 from "@/components/animations/AnimatedH1";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,7 +49,7 @@ const WorkPreview = () => {
   const stickyWorkHeaderRef = useRef(null);
   const homeWorkRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     const handleResize = () => {
       ScrollTrigger.refresh();
     };
@@ -76,7 +77,7 @@ const WorkPreview = () => {
       }
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, { scope: stickyWorkHeaderRef });
 
   return (
     <>

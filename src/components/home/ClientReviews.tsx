@@ -22,9 +22,10 @@
 
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import styles from "./ClientReviews.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -79,7 +80,7 @@ export default function ClientReviews() {
   const sliderWrapperRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!sectionRef.current || !sliderWrapperRef.current || !progressBarRef.current) return;
 
     const sliderWrapper = sliderWrapperRef.current;
@@ -126,7 +127,7 @@ export default function ClientReviews() {
     return () => {
       trigger.kill();
     };
-  }, []);
+  }, { scope: sectionRef });
 
   return (
     <section ref={sectionRef} className={styles.routine}>

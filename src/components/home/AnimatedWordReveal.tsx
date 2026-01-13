@@ -1,7 +1,8 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import { getScrollTriggerScrub } from "@/lib/gsap-config";
 import SplitType from "split-type";
 
@@ -23,7 +24,7 @@ const AnimatedWordReveal = ({
   const textRef = useRef<HTMLDivElement>(null);
   const splitRef = useRef<SplitType | null>(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!textRef.current) return;
 
     // Split text into words
@@ -76,7 +77,7 @@ const AnimatedWordReveal = ({
       trigger.kill();
       splitRef.current?.revert();
     };
-  }, [animationStart, animationEnd]);
+  }, { dependencies: [animationStart, animationEnd], scope: textRef });
 
   return (
     <div ref={textRef} className={className}>

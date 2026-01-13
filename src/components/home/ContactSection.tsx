@@ -14,8 +14,13 @@ const ContactSection = () => {
 
     const existingScreensavers = container.querySelectorAll(".screensaver");
     existingScreensavers.forEach((el) => {
-      if (el && el.parentNode) {
-        el.parentNode.removeChild(el);
+      try {
+        if (el && el.parentNode && el.parentNode.contains(el)) {
+          el.parentNode.removeChild(el);
+        }
+      } catch (e) {
+        // Silently handle if element already removed
+        console.debug('Element already removed', e);
       }
     });
 
@@ -55,21 +60,33 @@ const ContactSection = () => {
         animationIdRef.current = null;
       }
 
-      if (screensaverElement && screensaverElement.parentNode) {
-        screensaverElement.parentNode.removeChild(screensaverElement);
-        screensaverElement = null;
+      try {
+        if (screensaverElement && screensaverElement.parentNode && screensaverElement.parentNode.contains(screensaverElement)) {
+          screensaverElement.parentNode.removeChild(screensaverElement);
+          screensaverElement = null;
+        }
+      } catch (e) {
+        console.debug('Screensaver element already removed', e);
       }
 
-      if (screensaverRef.current && screensaverRef.current.parentNode) {
-        screensaverRef.current.parentNode.removeChild(screensaverRef.current);
-        screensaverRef.current = null;
+      try {
+        if (screensaverRef.current && screensaverRef.current.parentNode && screensaverRef.current.parentNode.contains(screensaverRef.current)) {
+          screensaverRef.current.parentNode.removeChild(screensaverRef.current);
+          screensaverRef.current = null;
+        }
+      } catch (e) {
+        console.debug('Screensaver ref already removed', e);
       }
 
       const leftoverScreensavers =
         container?.querySelectorAll(".screensaver") || [];
       leftoverScreensavers.forEach((el) => {
-        if (el && el.parentNode) {
-          el.parentNode.removeChild(el);
+        try {
+          if (el && el.parentNode && el.parentNode.contains(el)) {
+            el.parentNode.removeChild(el);
+          }
+        } catch (e) {
+          console.debug('Leftover screensaver already removed', e);
         }
       });
     };

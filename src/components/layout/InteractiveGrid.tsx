@@ -52,7 +52,10 @@ export function InteractiveGrid() {
     }
 
     const resetGrid = () => {
-      container.innerHTML = "";
+      // Properly remove all child elements instead of using innerHTML
+      while (container.firstChild) {
+        container.removeChild(container.firstChild);
+      }
       blocksRef.current = [];
 
       const gridWidth = window.innerWidth;

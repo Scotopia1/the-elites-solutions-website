@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -75,7 +76,7 @@ const AnimatedH1 = ({
     };
   }, [headingId, lineSelector, direction]);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!isInitialized || !headingRef.current || !headingId) return;
 
     const tl = gsap.timeline({

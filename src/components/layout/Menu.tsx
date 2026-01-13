@@ -6,6 +6,7 @@ import { useRouter, usePathname } from "next/navigation";
 import "./Menu.css";
 
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 interface MenuProps {
   isOpen: boolean;
@@ -27,7 +28,12 @@ const Menu = ({ isOpen, setIsOpen, isDark }: MenuProps) => {
   const pathname = usePathname();
   const navigationTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
+  // Store timeline refs for cleanup
+  const openTimelineRef = useRef<gsap.core.Timeline | null>(null);
+  const closeTimelineRef = useRef<gsap.core.Timeline | null>(null);
+  const glowTimelineRef = useRef<gsap.core.Timeline | null>(null);
+
+  useGSAP(() => {
     if (navigationTimeoutRef.current) {
       clearTimeout(navigationTimeoutRef.current);
     }
@@ -60,17 +66,22 @@ const Menu = ({ isOpen, setIsOpen, isDark }: MenuProps) => {
         clearTimeout(navigationTimeoutRef.current);
       }
     };
-  }, [pathname, setIsOpen]);
+  }, { dependencies: [pathname, setIsOpen] });
 
   const handleMenuOpen = () => {
     if (isAnimating) return;
     setIsAnimating(true);
 
-    const timeline = gsap.timeline({
+    // Kill existing timeline if any
+    if (openTimelineRef.current) {
+      openTimelineRef.current.kill();
+    }
+
+    openTimelineRef.current = gsap.timeline({
       onComplete: () => setIsAnimating(false),
     });
 
-    timeline
+    openTimelineRef.current
       .to(menuColsRef.current, {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         duration: 1,
@@ -118,11 +129,16 @@ const Menu = ({ isOpen, setIsOpen, isDark }: MenuProps) => {
     if (isAnimating) return;
     setIsAnimating(true);
 
-    const timeline = gsap.timeline({
+    // Kill existing timeline if any
+    if (closeTimelineRef.current) {
+      closeTimelineRef.current.kill();
+    }
+
+    closeTimelineRef.current = gsap.timeline({
       onComplete: () => setIsAnimating(false),
     });
 
-    timeline
+    closeTimelineRef.current
       .to(
         [menuCloseRef.current, ...menuItemsRef.current, menuFooterRef.current],
         {
@@ -169,42 +185,63 @@ const Menu = ({ isOpen, setIsOpen, isDark }: MenuProps) => {
   };
 
   // Gold glow pulse animation on homepage load
-  useEffect(() => {
+  useGSAP(() => {
     if (menuLogoRef.current && pathname === "/en") {
-      const tl = gsap.timeline({ delay: 0.5 });
+      // Kill existing glow timeline if any
+      if (glowTimelineRef.current) {
+        glowTimelineRef.current.kill();
+      }
 
-      tl.to(menuLogoRef.current, {
-        filter: "drop-shadow(0 0 25px rgba(255, 215, 0, 0.8))",
-        duration: 0.8,
-        ease: "power2.inOut",
-      })
-      .to(menuLogoRef.current, {
-        filter: "drop-shadow(0 0 10px rgba(255, 215, 0, 0.4))",
-        duration: 0.8,
-        ease: "power2.inOut",
-      })
-      .to(menuLogoRef.current, {
-        filter: "drop-shadow(0 0 25px rgba(255, 215, 0, 0.8))",
-        duration: 0.8,
-        ease: "power2.inOut",
-      })
-      .to(menuLogoRef.current, {
-        filter: "drop-shadow(0 0 10px rgba(255, 215, 0, 0.4))",
-        duration: 0.8,
-        ease: "power2.inOut",
-      })
-      .to(menuLogoRef.current, {
-        filter: "drop-shadow(0 0 25px rgba(255, 215, 0, 0.8))",
-        duration: 0.8,
-        ease: "power2.inOut",
-      })
-      .to(menuLogoRef.current, {
-        filter: "drop-shadow(0 0 10px rgba(255, 215, 0, 0.4))",
-        duration: 0.8,
-        ease: "power2.inOut",
-      });
+      glowTimelineRef.current = gsap.timeline({ delay: 0.5 });
+
+      glowTimelineRef.current
+        .to(menuLogoRef.current, {
+          filter: "drop-shadow(0 0 25px rgba(255, 215, 0, 0.8))",
+          duration: 0.8,
+          ease: "power2.inOut",
+        })
+        .to(menuLogoRef.current, {
+          filter: "drop-shadow(0 0 10px rgba(255, 215, 0, 0.4))",
+          duration: 0.8,
+          ease: "power2.inOut",
+        })
+        .to(menuLogoRef.current, {
+          filter: "drop-shadow(0 0 25px rgba(255, 215, 0, 0.8))",
+          duration: 0.8,
+          ease: "power2.inOut",
+        })
+        .to(menuLogoRef.current, {
+          filter: "drop-shadow(0 0 10px rgba(255, 215, 0, 0.4))",
+          duration: 0.8,
+          ease: "power2.inOut",
+        })
+        .to(menuLogoRef.current, {
+          filter: "drop-shadow(0 0 25px rgba(255, 215, 0, 0.8))",
+          duration: 0.8,
+          ease: "power2.inOut",
+        })
+        .to(menuLogoRef.current, {
+          filter: "drop-shadow(0 0 10px rgba(255, 215, 0, 0.4))",
+          duration: 0.8,
+          ease: "power2.inOut",
+        });
     }
-  }, [pathname]);
+  }, { dependencies: [pathname] });
+
+  // Cleanup all GSAP animations on unmount
+  useEffect(() => {
+    return () => {
+      if (openTimelineRef.current) {
+        openTimelineRef.current.kill();
+      }
+      if (closeTimelineRef.current) {
+        closeTimelineRef.current.kill();
+      }
+      if (glowTimelineRef.current) {
+        glowTimelineRef.current.kill();
+      }
+    };
+  }, []);
 
   const handleNavigation = (to: string) => (e: React.MouseEvent) => {
     e.preventDefault();

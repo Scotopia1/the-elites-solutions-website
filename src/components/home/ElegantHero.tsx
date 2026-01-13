@@ -1,52 +1,49 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function ElegantHero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const spotlightRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Entrance Animations
-      gsap.fromTo(
-        ".elegant-logo",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 1, ease: "power2.out", delay: 0.5 }
-      );
-      gsap.fromTo(
-        ".elegant-headline",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 1, ease: "power2.out", delay: 0.8 }
-      );
-      gsap.fromTo(
-        ".elegant-subheadline",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 1, ease: "power2.out", delay: 1.1 }
-      );
-      gsap.fromTo(
-        ".elegant-cta",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 1, ease: "power2.out", delay: 1.4 }
-      );
+  useGSAP(() => {
+    // Entrance Animations
+    gsap.fromTo(
+      ".elegant-logo",
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: "power2.out", delay: 0.5 }
+    );
+    gsap.fromTo(
+      ".elegant-headline",
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: "power2.out", delay: 0.8 }
+    );
+    gsap.fromTo(
+      ".elegant-subheadline",
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: "power2.out", delay: 1.1 }
+    );
+    gsap.fromTo(
+      ".elegant-cta",
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 1, ease: "power2.out", delay: 1.4 }
+    );
 
-      // Spotlight Pulse Animation (Replaces CSS keyframes)
-      if (spotlightRef.current) {
-        gsap.to(spotlightRef.current, {
-          scale: 1.2,
-          opacity: 0.15,
-          duration: 10,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-        });
-      }
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
+    // Spotlight Pulse Animation (Replaces CSS keyframes)
+    if (spotlightRef.current) {
+      gsap.to(spotlightRef.current, {
+        scale: 1.2,
+        opacity: 0.15,
+        duration: 10,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+    }
+  }, { scope: heroRef });
 
   return (
     <section ref={heroRef} className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-transparent">

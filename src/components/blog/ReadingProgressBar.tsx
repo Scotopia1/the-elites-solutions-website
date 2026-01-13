@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getScrollTriggerScrub } from "@/lib/gsap-config";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,7 +25,7 @@ export default function ReadingProgressBar() {
         scrub: getScrollTriggerScrub(0.3),
       },
     });
-  }, []);
+  }, { scope: barRef });
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-neutral-900">

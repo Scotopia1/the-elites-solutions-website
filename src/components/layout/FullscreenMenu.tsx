@@ -48,8 +48,12 @@ const FullscreenMenu = ({ isOpen, setIsOpen }: FullscreenMenuProps) => {
   const router = useRouter();
   const pathname = usePathname();
 
+  // Store timeline refs for cleanup
+  const openTimelineRef = useRef<gsap.core.Timeline | null>(null);
+  const closeTimelineRef = useRef<gsap.core.Timeline | null>(null);
+
   // Scroll-aware positioning - keep logo 20px above CTA
-  useEffect(() => {
+  useGSAP(() => {
     const menuTrigger = menuTriggerRef.current;
     if (!menuTrigger) return;
 
@@ -95,14 +99,14 @@ const FullscreenMenu = ({ isOpen, setIsOpen }: FullscreenMenuProps) => {
       window.removeEventListener('scroll', updateLogoPosition);
       window.removeEventListener('resize', updateLogoPosition);
     };
-  }, []);
+  }, { scope: containerRef });
 
   // GSAP quickTo for smooth cursor following
   const xMoveCursor = useRef<gsap.QuickToFunc | null>(null);
   const yMoveCursor = useRef<gsap.QuickToFunc | null>(null);
 
   // Initialize GSAP quickTo functions for cursor
-  useEffect(() => {
+  useGSAP(() => {
     if (cursorRef.current && isOpen) {
       xMoveCursor.current = gsap.quickTo(cursorRef.current, "left", {
         duration: 0.5,
@@ -113,7 +117,7 @@ const FullscreenMenu = ({ isOpen, setIsOpen }: FullscreenMenuProps) => {
         ease: "power3",
       });
     }
-  }, [isOpen]);
+  }, { dependencies: [isOpen], scope: containerRef });
 
   // Handle mouse move for custom cursor
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -145,17 +149,34 @@ const FullscreenMenu = ({ isOpen, setIsOpen }: FullscreenMenuProps) => {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen]);
 
+  // Cleanup all GSAP animations on unmount
+  useEffect(() => {
+    return () => {
+      if (openTimelineRef.current) {
+        openTimelineRef.current.kill();
+      }
+      if (closeTimelineRef.current) {
+        closeTimelineRef.current.kill();
+      }
+    };
+  }, []);
+
   // Handle menu open animation
   const handleOpen = () => {
     if (isAnimating) return;
     setIsAnimating(true);
     setIsOpen(true);
 
-    const tl = gsap.timeline({
+    // Kill existing timeline if any
+    if (openTimelineRef.current) {
+      openTimelineRef.current.kill();
+    }
+
+    openTimelineRef.current = gsap.timeline({
       onComplete: () => setIsAnimating(false),
     });
 
-    tl.set(overlayRef.current, { display: "flex" })
+    openTimelineRef.current.set(overlayRef.current, { display: "flex" })
       .fromTo(
         overlayRef.current,
         { opacity: 0 },
@@ -186,7 +207,12 @@ const FullscreenMenu = ({ isOpen, setIsOpen }: FullscreenMenuProps) => {
     if (isAnimating) return;
     setIsAnimating(true);
 
-    const tl = gsap.timeline({
+    // Kill existing timeline if any
+    if (closeTimelineRef.current) {
+      closeTimelineRef.current.kill();
+    }
+
+    closeTimelineRef.current = gsap.timeline({
       onComplete: () => {
         setIsAnimating(false);
         setIsOpen(false);
@@ -194,7 +220,7 @@ const FullscreenMenu = ({ isOpen, setIsOpen }: FullscreenMenuProps) => {
       },
     });
 
-    tl.to(closeButtonRef.current, {
+    closeTimelineRef.current.to(closeButtonRef.current, {
       opacity: 0,
       y: -20,
       duration: 0.3,

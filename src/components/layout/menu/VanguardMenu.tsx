@@ -88,7 +88,7 @@ const VanguardMenu: React.FC<VanguardMenuProps> = ({ isOpen, setIsOpen }) => {
   }, []);
 
   // Scroll-aware logo positioning
-  useEffect(() => {
+  useGSAP(() => {
     const menuTrigger = menuTriggerRef.current;
     if (!menuTrigger) return;
 
@@ -126,7 +126,7 @@ const VanguardMenu: React.FC<VanguardMenuProps> = ({ isOpen, setIsOpen }) => {
       window.removeEventListener('scroll', updateLogoPosition);
       window.removeEventListener('resize', updateLogoPosition);
     };
-  }, []);
+  });
 
   // Close menu on route change
   useEffect(() => {

@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 interface CinematicServiceHeroProps {
   title: string;
@@ -28,7 +29,7 @@ export default function CinematicServiceHero({
   const rotateX = useTransform(smoothMouseY, [-0.5, 0.5], [10, -10]);
   const rotateY = useTransform(smoothMouseX, [-0.5, 0.5], [-10, 10]);
 
-  useEffect(() => {
+  useGSAP(() => {
     // Animate icon on load
     if (iconRef.current) {
       gsap.fromTo(
@@ -47,7 +48,7 @@ export default function CinematicServiceHero({
         }
       );
     }
-  }, []);
+  }, { scope: iconRef });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;

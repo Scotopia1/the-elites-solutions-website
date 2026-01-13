@@ -3,6 +3,7 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 interface MenuCursorProps {
   isActive: boolean;
@@ -22,7 +23,7 @@ const MenuCursor = forwardRef<HTMLDivElement, MenuCursorProps>(
     const xMoveRing = useRef<gsap.QuickToFunc | null>(null);
     const yMoveRing = useRef<gsap.QuickToFunc | null>(null);
 
-    useEffect(() => {
+    useGSAP(() => {
       if (!isOpen) return;
 
       // Setup quickTo functions

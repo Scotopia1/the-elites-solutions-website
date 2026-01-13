@@ -1,9 +1,10 @@
 'use client';
 
-import React, { forwardRef, useRef, useEffect } from 'react';
+import React, { forwardRef, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 interface MenuImagePreviewProps {
   activeImage: {
@@ -19,7 +20,7 @@ const MenuImagePreview = forwardRef<HTMLDivElement, MenuImagePreviewProps>(
     const glitchRef = useRef<HTMLDivElement>(null);
 
     // Parallax effect on mouse movement
-    useEffect(() => {
+    useGSAP(() => {
       if (!containerRef.current) return;
 
       const container = containerRef.current;
@@ -39,10 +40,10 @@ const MenuImagePreview = forwardRef<HTMLDivElement, MenuImagePreviewProps>(
         duration: 0.5,
         ease: 'power3.out',
       });
-    }, [mousePosition]);
+    }, { dependencies: [mousePosition], scope: containerRef });
 
     // Glitch effect on image change
-    useEffect(() => {
+    useGSAP(() => {
       if (!glitchRef.current || !activeImage) return;
 
       const glitch = glitchRef.current;
@@ -65,7 +66,7 @@ const MenuImagePreview = forwardRef<HTMLDivElement, MenuImagePreviewProps>(
           opacity: 0,
           duration: 0.15,
         });
-    }, [activeImage?.image]);
+    }, { dependencies: [activeImage?.image], scope: glitchRef });
 
     // Image transition variants
     const imageVariants = {
