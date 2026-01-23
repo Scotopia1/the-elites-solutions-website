@@ -16,24 +16,24 @@ export default function CTA() {
           <div className="cta-content">
             <div className="cta-badge">
               <MessageSquare />
-              <span>Let's Build Something Amazing</span>
+              <span>15 Years. 50+ Projects. $2M+ Generated.</span>
             </div>
 
             <h2 className="cta-title">
-              Ready to Transform Your Business?
+              Your Turn.
             </h2>
 
             <p className="cta-description">
-              Get in touch with our team to discuss your project. We'll help you find the perfect solution for your business needs.
+              Free consultation. Real recommendations. No sales games.
             </p>
 
             <div className="cta-buttons">
               <Link href="/contact" className="cta-button-primary">
-                Start Your Project
+                Book Your Call
                 <ArrowRight size={20} />
               </Link>
-              <Link href="/services" className="cta-button-secondary">
-                Explore Services
+              <Link href="/work" className="cta-button-secondary">
+                See Our Work
               </Link>
             </div>
 
@@ -41,15 +41,15 @@ export default function CTA() {
             <div className="cta-trust-indicators">
               <div className="cta-trust-item">
                 <div className="cta-trust-dot" />
-                <span>Free Consultation</span>
+                <span>Response in 24hrs</span>
               </div>
               <div className="cta-trust-item">
                 <div className="cta-trust-dot" />
-                <span>No Commitment Required</span>
+                <span>Proposal in 48hrs</span>
               </div>
               <div className="cta-trust-item">
                 <div className="cta-trust-dot" />
-                <span>Fast Response Time</span>
+                <span>No Hidden Fees</span>
               </div>
             </div>
           </div>

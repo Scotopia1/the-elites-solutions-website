@@ -148,9 +148,9 @@ export default function CGMWTNOV2025Hero() {
                   className="hero-headline"
                   style={{ clipPath: "inset(0 0 100% 0)" }}
                 >
-                  Engineering
+                  Your Business.
                   <br />
-                  Digital Masterpieces
+                  Automated. Unstoppable.
                 </h1>
               </div>
 
@@ -161,20 +161,19 @@ export default function CGMWTNOV2025Hero() {
                     className="hero-body bodyCopy"
                     style={{ clipPath: "inset(0 0 100% 0)" }}
                   >
-                    We blend unparalleled craftsmanship with cutting-edge
-                    technology to forge bespoke digital solutions that define
-                    excellence and elevate your brand.
+                    Custom software that turns hours into minutes.
+                    $2M+ revenue generated for clients. Zero excuses.
                   </p>
                 </div>
 
                 <div className={styles.heroCallout}>
-                  <p className="hero-callout">Premium Craftsmanship</p>
-                  <p className="hero-callout">Cutting-Edge Technology</p>
+                  <p className="hero-callout">50+ Projects Shipped</p>
+                  <p className="hero-callout">98% Client Satisfaction</p>
                   <Link
                     href="/work"
                     className={`hero-callout ${styles.heroCtaLink}`}
                   >
-                    Discover Our Portfolio →
+                    Start Your Project →
                   </Link>
                 </div>
               </div>

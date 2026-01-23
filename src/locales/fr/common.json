@@ -3,64 +3,64 @@
     "home": "Accueil",
     "about": "À propos",
     "services": "Services",
-    "portfolio": "Portfolio",
+    "portfolio": "Réalisations",
     "contact": "Contact"
   },
   "hero": {
-    "title": "Gérez Votre Entreprise Plus Facilement",
-    "subtitle": "Sites web et logiciels personnalisés conçus pour VOTRE entreprise.",
-    "cta_primary": "Oui, Je Veux Ça",
-    "cta_secondary": "Voir Notre Travail"
+    "title": "Votre Entreprise. Automatisée. Inarrêtable.",
+    "subtitle": "Logiciels sur mesure qui transforment les heures en minutes.",
+    "cta_primary": "Lancez Votre Projet",
+    "cta_secondary": "Voir Nos Réalisations"
   },
   "services": {
-    "title": "Nos Services",
-    "subtitle": "Solutions personnalisées adaptées aux besoins de votre entreprise"
+    "title": "Ce Que Nous Construisons",
+    "subtitle": "Web. Mobile. Automatisation. Entreprise."
   },
   "about": {
-    "title": "À Propos de The Elites",
-    "subtitle": "Construction de systèmes d'automatisation personnalisés depuis le premier jour"
+    "title": "50+ Entreprises Transformées",
+    "subtitle": "E-commerce. FinTech. Santé. Entreprise."
   },
   "contact": {
-    "title": "Travaillons Ensemble",
-    "subtitle": "Rapide, gratuit et direct. Sans pression, sans jeu de vente. Juste de la clarté.",
+    "title": "Parlons",
+    "subtitle": "Consultation gratuite. Recommandations concrètes. Sans jeux de vente.",
     "form": {
       "name": "Nom",
       "email": "Email",
       "phone": "Téléphone",
       "company": "Entreprise",
-      "message": "Parlez-nous de votre projet",
-      "submit": "Envoyer le Message",
-      "success": "Message envoyé avec succès!",
-      "error": "Échec de l'envoi du message. Veuillez réessayer."
+      "message": "Que construisez-vous?",
+      "submit": "Envoyer",
+      "success": "Message envoyé. Réponse sous 24 heures.",
+      "error": "Échec de l'envoi. Réessayez ou contactez-nous directement."
     }
   },
   "booking": {
-    "title": "Réserver une Consultation",
+    "title": "Réserver un Appel",
     "form": {
       "date": "Date Préférée",
       "time": "Heure Préférée",
       "service": "Service Intéressé",
-      "submit": "Réserver une Consultation",
-      "success": "Demande de réservation envoyée avec succès!",
+      "submit": "Réserver Maintenant",
+      "success": "Réservé. Consultez votre email pour confirmation.",
       "error": "Échec de la réservation. Veuillez réessayer."
     }
   },
   "footer": {
-    "tagline": "Votre idée, numérisée. Votre entreprise, optimisée. Votre succès, réalisé.",
+    "tagline": "50+ projets. 2M$+ générés. Zéro compromis.",
     "copyright": "© 2025 The Elites Solutions. Tous droits réservés.",
     "links": {
-      "privacy": "Politique de Confidentialité",
-      "terms": "Conditions d'Utilisation",
-      "cookies": "Politique de Cookies"
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "cookies": "Cookies"
     }
   },
   "common": {
     "loading": "Chargement...",
-    "error": "Une erreur s'est produite",
-    "success": "Succès!",
+    "error": "Quelque chose s'est mal passé",
+    "success": "Terminé!",
     "back": "Retour",
     "next": "Suivant",
-    "submit": "Soumettre",
+    "submit": "Envoyer",
     "cancel": "Annuler",
     "save": "Enregistrer",
     "delete": "Supprimer",

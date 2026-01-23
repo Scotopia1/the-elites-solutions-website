@@ -124,9 +124,9 @@ export default function IntroStats() {
         {/* Main Headline */}
         <div className={styles.introHeader}>
           <h1 ref={headlineRef}>
-            We Engineer
+            Results
             <br />
-            Digital Excellence
+            That Speak
           </h1>
         </div>
 
@@ -134,10 +134,8 @@ export default function IntroStats() {
         <div className={styles.introCopy}>
           <div ref={copyRef} className={styles.introCopyWrapper}>
             <h3>
-              From enterprise platforms to bespoke applications, every solution
-              we create reveals our commitment to precision, innovation, and
-              excellence. Some challenges demand bold creativity, others require
-              meticulous engineering—we deliver both.
+              TechMart: $2M revenue boost. NeoBank: 100K downloads in 3 months.
+              Enterprise Corp: 80% task reduction. Your business could be next.
             </h3>
           </div>
         </div>

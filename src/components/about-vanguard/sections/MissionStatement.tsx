@@ -12,18 +12,20 @@ gsap.registerPlugin(ScrollTrigger);
 // Mission statement words with highlight flags
 const missionWords = [
   { text: "We", highlight: false },
-  { text: "transform", highlight: true },
-  { text: "ambitious", highlight: false },
-  { text: "ideas", highlight: true },
+  { text: "turn", highlight: false },
+  { text: "complex", highlight: true },
+  { text: "problems", highlight: false },
   { text: "into", highlight: false },
-  { text: "digital", highlight: false },
-  { text: "experiences", highlight: true },
+  { text: "simple", highlight: true },
+  { text: "software", highlight: false },
   { text: "that", highlight: false },
-  { text: "elevate", highlight: true },
-  { text: "businesses", highlight: false },
-  { text: "to", highlight: false },
-  { text: "elite", highlight: true },
-  { text: "status.", highlight: false },
+  { text: "saves", highlight: true },
+  { text: "time,", highlight: false },
+  { text: "makes", highlight: false },
+  { text: "money,", highlight: true },
+  { text: "and", highlight: false },
+  { text: "just", highlight: false },
+  { text: "works.", highlight: true },
 ];
 
 /**

@@ -4,9 +4,9 @@
       "id": "web-development",
       "phase": "01",
       "category": "Web",
-      "title": "Modern",
-      "subtitle": "Development",
-      "description": "We build high-performance web applications using cutting-edge technologies. From responsive websites to complex web apps, we deliver solutions that scale with your business and exceed user expectations.",
+      "title": "Sites That",
+      "subtitle": "Convert",
+      "description": "Fast sites that convert. TechMart saw 45% higher conversions and $2M more revenue after we rebuilt their platform. 3 months. Zero downtime.",
       "features": [
         "Next.js & React development",
         "TypeScript for type safety",
@@ -14,7 +14,7 @@
         "SEO-friendly architecture"
       ],
       "cta": {
-        "label": "Learn More",
+        "label": "See Results",
         "href": "/services#web-development"
       },
       "accentColor": "#ffd700",
@@ -24,7 +24,7 @@
         "desktop": { "colStart": 1, "colEnd": 3, "rowStart": 1, "rowEnd": 3 }
       },
       "detailContent": {
-        "overview": "Our web development team specializes in creating fast, scalable, and user-friendly web applications. We use the latest technologies and best practices to ensure your project is built for success.",
+        "overview": "Sites built for speed and conversion. We use modern frameworks to deliver sub-second load times and measurable business results.",
         "technologies": ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
         "deliverables": [
           "Fully responsive web application",
@@ -39,9 +39,9 @@
       "id": "mobile-apps",
       "phase": "02",
       "category": "Mobile",
-      "title": "Native",
-      "subtitle": "Apps",
-      "description": "Cross-platform mobile applications that deliver native performance. iOS and Android apps built with modern frameworks for seamless user experiences across all devices.",
+      "title": "Apps Users",
+      "subtitle": "Love",
+      "description": "NeoBank hit 100K downloads in 3 months with a 4.8 star rating. Cross-platform apps that feel native. Ship once, run everywhere.",
       "features": [
         "React Native & Flutter",
         "Native performance",
@@ -49,7 +49,7 @@
         "App Store optimization"
       ],
       "cta": {
-        "label": "Learn More",
+        "label": "See Results",
         "href": "/services#mobile-apps"
       },
       "accentColor": "#c9c9c9",
@@ -59,7 +59,7 @@
         "desktop": { "colStart": 3, "colEnd": 4, "rowStart": 1, "rowEnd": 2 }
       },
       "detailContent": {
-        "overview": "We build mobile applications that users love. Our apps are designed with performance and user experience in mind, ensuring your brand stands out in the app stores.",
+        "overview": "Mobile apps that users actually want to keep. High ratings, strong retention, real downloads. We build what the app stores feature.",
         "technologies": ["React Native", "Flutter", "Swift", "Kotlin", "Firebase"],
         "deliverables": [
           "iOS and Android apps",
@@ -74,9 +74,9 @@
       "id": "automation",
       "phase": "03",
       "category": "Process",
-      "title": "Workflow",
-      "subtitle": "Automation",
-      "description": "Streamline your business operations with custom automation solutions. Reduce manual tasks, eliminate errors, and boost productivity across your organization.",
+      "title": "Hours →",
+      "subtitle": "Minutes",
+      "description": "80% task reduction. $250K annual savings. We automated Enterprise Corp's entire workflow. Your manual processes are costing you money.",
       "features": [
         "Custom workflow design",
         "API integrations",
@@ -84,7 +84,7 @@
         "Real-time monitoring"
       ],
       "cta": {
-        "label": "Learn More",
+        "label": "See Results",
         "href": "/services#automation"
       },
       "accentColor": "#ffd700",
@@ -94,7 +94,7 @@
         "desktop": { "colStart": 3, "colEnd": 4, "rowStart": 2, "rowEnd": 3 }
       },
       "detailContent": {
-        "overview": "Transform your business with intelligent automation. We analyze your workflows and implement solutions that save time, reduce costs, and improve accuracy.",
+        "overview": "Stop doing repetitive work. We analyze your workflows and automate everything that doesn't need a human. ROI in weeks, not years.",
         "technologies": ["n8n", "Zapier", "Make", "Python", "Node.js", "REST APIs"],
         "deliverables": [
           "Workflow analysis report",
@@ -109,9 +109,9 @@
       "id": "enterprise",
       "phase": "04",
       "category": "Custom",
-      "title": "Enterprise",
-      "subtitle": "Solutions",
-      "description": "Tailored software solutions for complex business challenges. From CRM systems to inventory management, we build what you need to succeed in today's competitive landscape.",
+      "title": "Built for",
+      "subtitle": "Scale",
+      "description": "500+ active workflows. 70% faster decisions. We build the systems that run businesses. CRM, inventory, analytics—if you can imagine it, we can build it.",
       "features": [
         "Custom software development",
         "System integrations",
@@ -119,7 +119,7 @@
         "Scalable architecture"
       ],
       "cta": {
-        "label": "Learn More",
+        "label": "See Results",
         "href": "/services#enterprise"
       },
       "accentColor": "#9a9a9a",
@@ -129,7 +129,7 @@
         "desktop": { "colStart": 1, "colEnd": 4, "rowStart": 3, "rowEnd": 4 }
       },
       "detailContent": {
-        "overview": "We partner with businesses to create custom software that addresses their unique challenges. Our enterprise solutions are built to scale, integrate seamlessly, and drive real business results.",
+        "overview": "Custom software that grows with you. We build systems designed for 10x scale. Your tech should accelerate your business, not limit it.",
         "technologies": ["Node.js", "Python", "Java", "PostgreSQL", "MongoDB", "AWS", "Azure"],
         "deliverables": [
           "Custom enterprise application",

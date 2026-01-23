@@ -3,61 +3,61 @@
     "home": "Home",
     "about": "About",
     "services": "Services",
-    "portfolio": "Portfolio",
+    "portfolio": "Work",
     "contact": "Contact"
   },
   "hero": {
-    "title": "Run Your Business Smoother",
-    "subtitle": "Custom websites & software built for YOUR business.",
-    "cta_primary": "Yes, I Want That",
-    "cta_secondary": "View Our Work"
+    "title": "Your Business. Automated. Unstoppable.",
+    "subtitle": "Custom software that turns hours into minutes.",
+    "cta_primary": "Start Your Project",
+    "cta_secondary": "See Our Work"
   },
   "services": {
-    "title": "Our Services",
-    "subtitle": "Custom solutions tailored to your business needs"
+    "title": "What We Build",
+    "subtitle": "Web. Mobile. Automation. Enterprise."
   },
   "about": {
-    "title": "About The Elites",
-    "subtitle": "Building custom automation systems since day one"
+    "title": "50+ Businesses Transformed",
+    "subtitle": "E-commerce. FinTech. Healthcare. Enterprise."
   },
   "contact": {
-    "title": "Let's Work Together",
-    "subtitle": "Quick, free, and to the point. No pressure, no sales games. Just clarity.",
+    "title": "Let's Talk",
+    "subtitle": "Free consultation. Real recommendations. No sales games.",
     "form": {
       "name": "Name",
       "email": "Email",
       "phone": "Phone",
       "company": "Company",
-      "message": "Tell us about your project",
+      "message": "What are you building?",
       "submit": "Send Message",
-      "success": "Message sent successfully!",
-      "error": "Failed to send message. Please try again."
+      "success": "Message sent. We'll respond within 24 hours.",
+      "error": "Failed to send. Try again or email us directly."
     }
   },
   "booking": {
-    "title": "Book a Consultation",
+    "title": "Book a Call",
     "form": {
       "date": "Preferred Date",
       "time": "Preferred Time",
       "service": "Service Interested In",
-      "submit": "Book Consultation",
-      "success": "Booking request sent successfully!",
-      "error": "Failed to book. Please try again."
+      "submit": "Book Now",
+      "success": "Booked. Check your email for confirmation.",
+      "error": "Booking failed. Please try again."
     }
   },
   "footer": {
-    "tagline": "Your idea, digitalized. Your business, optimized. Your success, realized.",
+    "tagline": "50+ projects. $2M+ generated. Zero compromises.",
     "copyright": "© 2025 The Elites Solutions. All rights reserved.",
     "links": {
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "cookies": "Cookie Policy"
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies"
     }
   },
   "common": {
     "loading": "Loading...",
-    "error": "An error occurred",
-    "success": "Success!",
+    "error": "Something went wrong",
+    "success": "Done!",
     "back": "Back",
     "next": "Next",
     "submit": "Submit",

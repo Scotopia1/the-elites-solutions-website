@@ -3,8 +3,8 @@ export const servicesData = [
     id: "1",
     number: "01 / 06",
     title: "Web Development",
-    image: "/services/web-development.jpg", // Placeholder - can be replaced
-    category: "[ Digital Platforms ]",
+    image: "/services/web-development.jpg",
+    category: "[ 45% Higher Conversions ]",
     slug: "web-development",
   },
   {
@@ -12,7 +12,7 @@ export const servicesData = [
     number: "02 / 06",
     title: "Mobile Applications",
     image: "/services/mobile-apps.jpg",
-    category: "[ Native & Cross-Platform ]",
+    category: "[ 4.8 Avg Store Rating ]",
     slug: "mobile-apps",
   },
   {
@@ -20,7 +20,7 @@ export const servicesData = [
     number: "03 / 06",
     title: "Process Automation",
     image: "/services/automation.jpg",
-    category: "[ Workflow Optimization ]",
+    category: "[ 80% Task Reduction ]",
     slug: "automation",
   },
   {
@@ -28,7 +28,7 @@ export const servicesData = [
     number: "04 / 06",
     title: "Enterprise Solutions",
     image: "/services/enterprise.jpg",
-    category: "[ Custom Systems ]",
+    category: "[ 500+ Active Workflows ]",
     slug: "enterprise",
   },
   {
@@ -36,7 +36,7 @@ export const servicesData = [
     number: "05 / 06",
     title: "Cloud Infrastructure",
     image: "/services/cloud-infrastructure.jpg",
-    category: "[ DevOps & Deployment ]",
+    category: "[ 99.9% Uptime ]",
     slug: "cloud-infrastructure",
   },
   {
@@ -44,7 +44,7 @@ export const servicesData = [
     number: "06 / 06",
     title: "API Development",
     image: "/services/api-development.jpg",
-    category: "[ Backend Services ]",
+    category: "[ Sub-100ms Response ]",
     slug: "api-development",
   },
 ];

@@ -201,6 +201,7 @@ export default function ServicesHero() {
           style={{ y: subtitleY }}
           variants={itemVariants}
         >
+          From idea to launch in weeks, not months
         </motion.p>
 
         {/* Main title */}
@@ -209,8 +210,8 @@ export default function ServicesHero() {
           style={{ y: titleY }}
           variants={itemVariants}
         >
-          <span className="services-hero__title-text">Our</span>
-          <span className="services-hero__title-gold">Services</span>
+          <span className="services-hero__title-text">What We</span>
+          <span className="services-hero__title-gold">Build</span>
         </motion.h1>
 
         {/* Description */}
@@ -218,7 +219,7 @@ export default function ServicesHero() {
           className="services-hero__description"
           variants={itemVariants}
         >
-          Elevating your digital presence with premium solutions
+          Web. Mobile. Automation. Enterprise. Built fast. Built right. Built to last.
         </motion.p>
 
         {/* Scroll indicator */}

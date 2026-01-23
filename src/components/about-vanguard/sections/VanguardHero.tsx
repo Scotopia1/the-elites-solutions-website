@@ -361,13 +361,13 @@ export function VanguardHero() {
             animate={{ opacity: 1, y: 0, rotateX: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
           >
-            <span className="text-white">WE BUILD</span>
+            <span className="text-white">50+ BUSINESSES</span>
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 relative">
-              THE FUTURE
+              TRANSFORMED
               {/* Glow effect */}
               <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 blur-2xl opacity-50">
-                THE FUTURE
+                TRANSFORMED
               </span>
             </span>
           </motion.h1>
@@ -393,9 +393,8 @@ export function VanguardHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
           >
-            Digital architects crafting{" "}
-            <span className="text-gold-400 font-medium">elite experiences</span>{" "}
-            that transform brands and captivate audiences worldwide
+            E-commerce. FinTech. Healthcare. Enterprise.{" "}
+            <span className="text-gold-400 font-medium">We build what others can't.</span>
           </motion.p>
         </motion.div>
 
@@ -415,7 +414,7 @@ export function VanguardHero() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span>Discover Our Story</span>
+            <span>Our Story</span>
             <svg
               className="w-4 h-4 transition-transform group-hover:translate-y-1"
               viewBox="0 0 24 24"

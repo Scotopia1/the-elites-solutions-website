@@ -1,491 +1,578 @@
 [
   {
     "id": "proj-001",
-    "slug": "ecommerce-platform-redesign",
+    "slug": "natlaupa-luxury-hotel-booking",
     "title": {
-      "en": "E-Commerce Platform Redesign",
-      "fr": "Refonte de Plateforme E-Commerce",
-      "ar": "إعادة تصميم منصة التجارة الإلكترونية"
+      "en": "Natlaupa Luxury Hotel Booking Platform",
+      "fr": "Plateforme de Reservation Natlaupa",
+      "ar": "منصة حجز فنادق ناتلاوبا الفاخرة"
     },
     "category": "Web Development",
-    "industry": "E-Commerce",
-    "projectScale": "large",
-    "clientName": "TechMart Inc.",
-    "clientLogoUrl": "/images/clients/techmart-logo.svg",
+    "industry": "Luxury Hospitality",
+    "projectScale": "enterprise",
+    "clientName": "Natlaupa",
+    "clientLogoUrl": "/images/clients/natlaupa-logo.svg",
     "shortDescription": {
-      "en": "Modern, fast, and scalable e-commerce platform handling 10,000+ daily visitors with 45% higher conversion rates.",
-      "fr": "Plateforme e-commerce moderne, rapide et évolutive gérant plus de 10 000 visiteurs quotidiens avec des taux de conversion 45% plus élevés.",
-      "ar": "منصة تجارة إلكترونية حديثة وسريعة وقابلة للتطوير تتعامل مع أكثر من 10,000 زائر يوميًا مع معدلات تحويل أعلى بنسبة 45٪."
+      "en": "AI-powered luxury hotel booking platform managing 60+ properties across 3 continents with AI concierge recommendations and comprehensive admin dashboard.",
+      "fr": "Plateforme de reservation d'hotels de luxe alimentee par l'IA gerant plus de 60 proprietes sur 3 continents avec des recommandations de conciergerie IA.",
+      "ar": "منصة حجز فنادق فاخرة مدعومة بالذكاء الاصطناعي تدير أكثر من 60 عقارًا عبر 3 قارات مع توصيات الكونسيرج بالذكاء الاصطناعي."
     },
     "challenge": {
-      "en": "TechMart's legacy platform couldn't handle growing traffic, had slow page loads averaging 5+ seconds, and suffered from poor mobile experience resulting in declining conversion rates.",
-      "fr": "La plateforme héritée de TechMart ne pouvait pas gérer le trafic croissant, avait des chargements de page lents de plus de 5 secondes en moyenne, et souffrait d'une mauvaise expérience mobile entraînant des taux de conversion en baisse.",
-      "ar": "لم تستطع منصة TechMart القديمة التعامل مع الزيارات المتزايدة، وكانت أوقات تحميل الصفحات بطيئة بمعدل أكثر من 5 ثوانٍ، وعانت من تجربة جوال سيئة أدت إلى انخفاض معدلات التحويل."
+      "en": "Natlaupa, a luxury hospitality firm with offices in Paris, Barcelona, and Beirut, needed a sophisticated booking platform to showcase 60+ curated hotels across 10 countries while providing personalized AI-powered recommendations.",
+      "fr": "Natlaupa, une entreprise d'hospitalite de luxe avec des bureaux a Paris, Barcelone et Beyrouth, avait besoin d'une plateforme sophistiquee pour presenter plus de 60 hotels selectionnes dans 10 pays.",
+      "ar": "احتاجت ناتلاوبا، شركة ضيافة فاخرة لديها مكاتب في باريس وبرشلونة وبيروت، إلى منصة حجز متطورة لعرض أكثر من 60 فندقًا منتقى عبر 10 دول."
     },
     "solution": {
-      "en": "We built a headless e-commerce solution using Next.js, Shopify, and PostgreSQL with advanced search, personalized recommendations, and a streamlined checkout process optimized for all devices.",
-      "fr": "Nous avons construit une solution e-commerce headless utilisant Next.js, Shopify et PostgreSQL avec une recherche avancée, des recommandations personnalisées et un processus de paiement simplifié optimisé pour tous les appareils.",
-      "ar": "قمنا ببناء حل تجارة إلكترونية headless باستخدام Next.js و Shopify و PostgreSQL مع بحث متقدم وتوصيات مخصصة وعملية دفع مبسطة ومحسنة لجميع الأجهزة."
+      "en": "We built a full-stack luxury booking platform with Next.js 15, React 19, and Google Gemini AI integration. Features include mood-based hotel matching, interactive Mapbox destination maps, comprehensive admin dashboard with 20 API endpoints, and GDPR-compliant architecture.",
+      "fr": "Nous avons construit une plateforme de reservation de luxe complete avec Next.js 15, React 19 et integration Google Gemini AI. Les fonctionnalites incluent la correspondance d'hotels basee sur l'humeur et des cartes interactives.",
+      "ar": "قمنا ببناء منصة حجز فاخرة متكاملة باستخدام Next.js 15 و React 19 وتكامل Google Gemini AI مع مطابقة الفنادق على أساس المزاج وخرائط تفاعلية."
     },
     "results": {
-      "en": "The new platform achieved 45% higher conversion rates, 60% faster load times, 200% increase in mobile sales, and generated over $2M in additional annual revenue.",
-      "fr": "La nouvelle plateforme a atteint des taux de conversion 45% plus élevés, des temps de chargement 60% plus rapides, une augmentation de 200% des ventes mobiles, et a généré plus de 2M$ de revenus annuels supplémentaires.",
-      "ar": "حققت المنصة الجديدة معدلات تحويل أعلى بنسبة 45٪، وأوقات تحميل أسرع بنسبة 60٪، وزيادة بنسبة 200٪ في مبيعات الجوال، وحققت أكثر من 2 مليون دولار من الإيرادات السنوية الإضافية."
+      "en": "The platform now manages 60+ hotels across 3 continents and 10 countries. Admin dashboard handles hotel CRUD, offers, blog, inquiries, partnerships, and newsletter management. AI concierge provides personalized recommendations for every visitor.",
+      "fr": "La plateforme gere maintenant plus de 60 hotels sur 3 continents et 10 pays. Le tableau de bord admin gere les hotels, offres, blog et recommandations personnalisees.",
+      "ar": "تدير المنصة الآن أكثر من 60 فندقًا عبر 3 قارات و10 دول. تتعامل لوحة التحكم مع إدارة الفنادق والعروض والمدونة والاستفسارات."
     },
     "overview": {
       "description": {
-        "en": "TechMart needed a modern, fast, and scalable e-commerce platform to handle 10,000+ daily visitors and improve conversion rates. We built a headless e-commerce solution using Next.js, Shopify, and PostgreSQL.",
-        "fr": "TechMart avait besoin d'une plateforme e-commerce moderne, rapide et évolutive. Nous avons construit une solution e-commerce headless utilisant Next.js, Shopify et PostgreSQL.",
-        "ar": "احتاجت TechMart إلى منصة تجارة إلكترونية حديثة وسريعة وقابلة للتطوير. قمنا ببناء حل تجارة إلكترونية headless."
+        "en": "A comprehensive luxury hotel booking platform with AI-powered concierge recommendations, serving high-end travelers across Europe, Middle East, and beyond.",
+        "fr": "Une plateforme complete de reservation d'hotels de luxe avec des recommandations de conciergerie alimentees par l'IA.",
+        "ar": "منصة شاملة لحجز الفنادق الفاخرة مع توصيات الكونسيرج المدعومة بالذكاء الاصطناعي."
       },
       "highlights": [
-        "45% increase in conversion rate",
-        "60% faster page load times",
-        "200% increase in mobile sales",
-        "$2M+ additional annual revenue"
+        "60+ luxury hotels across 10 countries",
+        "AI-powered mood-based recommendations",
+        "Interactive Mapbox destination exploration",
+        "Full admin dashboard with 20 API endpoints",
+        "GDPR-compliant with cookie consent system"
       ]
     },
     "quickFacts": {
-      "client": "TechMart Inc.",
-      "year": "2024",
-      "duration": "3 months",
-      "status": "Completed",
-      "liveUrl": "https://techmart-demo.theelites.com"
+      "client": "Natlaupa",
+      "year": "2025",
+      "duration": "Ongoing",
+      "status": "Live with Active Support",
+      "liveUrl": "https://natlaupa.com"
     },
-    "technologies": ["Next.js", "React", "TypeScript", "Shopify", "PostgreSQL", "Tailwind CSS", "Vercel"],
+    "technologies": ["Next.js", "React", "TypeScript", "TailwindCSS", "GSAP", "Framer Motion", "Mapbox GL", "Google Gemini AI"],
     "techStack": [
-      { "name": "Next.js", "logo": "/icons/tech/nextjs.svg", "reason": "Server-side rendering for optimal performance and SEO" },
-      { "name": "React", "logo": "/icons/tech/react.svg", "reason": "Component-based architecture for maintainability" },
-      { "name": "TypeScript", "logo": "/icons/tech/typescript.svg", "reason": "Type safety and better developer experience" },
-      { "name": "Shopify", "logo": "/icons/tech/shopify.svg", "reason": "Headless commerce backend with robust API" },
-      { "name": "PostgreSQL", "logo": "/icons/tech/postgresql.svg", "reason": "Reliable relational database for custom data" },
-      { "name": "Tailwind CSS", "logo": "/icons/tech/tailwind.svg", "reason": "Utility-first CSS framework for rapid UI development" }
+      { "name": "Next.js 15", "logo": "/icons/tech/nextjs.svg", "reason": "App Router for optimal performance and SEO" },
+      { "name": "React 19", "logo": "/icons/tech/react.svg", "reason": "Latest React features for responsive UI" },
+      { "name": "Google Gemini AI", "logo": "/icons/tech/google.svg", "reason": "AI-powered hotel recommendations and concierge" },
+      { "name": "Mapbox GL", "logo": "/icons/tech/mapbox.svg", "reason": "Interactive destination maps and exploration" },
+      { "name": "GSAP", "logo": "/icons/tech/gsap.svg", "reason": "Premium scroll-triggered animations" },
+      { "name": "TailwindCSS", "logo": "/icons/tech/tailwind.svg", "reason": "Responsive luxury design system" }
     ],
-    "servicesUsed": ["web-development"],
+    "servicesUsed": ["web-development", "enterprise"],
     "timeline": [
-      { "phase": "Discovery & Planning", "date": "Week 1-2", "description": "Requirements gathering, competitor analysis, and technical architecture design" },
-      { "phase": "Design & Prototyping", "date": "Week 3-4", "description": "UI/UX design, wireframes, and interactive prototypes" },
-      { "phase": "Development Sprint 1", "date": "Week 5-7", "description": "Core e-commerce functionality, product catalog, and search" },
-      { "phase": "Development Sprint 2", "date": "Week 8-10", "description": "Checkout flow, payment integration, and user accounts" },
-      { "phase": "Testing & Optimization", "date": "Week 11", "description": "Performance optimization, accessibility testing, and bug fixes" },
-      { "phase": "Launch & Monitoring", "date": "Week 12", "description": "Production deployment, post-launch monitoring, and support" }
+      { "phase": "Discovery & Design", "date": "December 2025", "description": "Requirements gathering, UI/UX design for luxury brand positioning" },
+      { "phase": "Website Development", "date": "December 2025", "description": "Core platform with hotel listings, AI integration, and booking flows" },
+      { "phase": "Admin Dashboard", "date": "January 2026", "description": "Comprehensive admin system with 20 API endpoints" },
+      { "phase": "SEO & Optimization", "date": "Ongoing", "description": "Monthly SEO, Core Web Vitals optimization, and performance monitoring" }
     ],
-    "duration": "3 months",
+    "duration": "Ongoing partnership",
     "resultsMetrics": [
-      { "metric": "45%", "label": "Conversion Increase", "description": "Streamlined checkout and improved UX led to significantly higher conversion rates" },
-      { "metric": "60%", "label": "Faster Load Times", "description": "Next.js SSR and image optimization reduced page load times from 5s to 2s" },
-      { "metric": "200%", "label": "Mobile Sales Boost", "description": "Mobile-first design and PWA features tripled mobile conversions" },
-      { "metric": "$2M+", "label": "Annual Revenue", "description": "Combined improvements generated over $2M in additional annual revenue" }
+      { "metric": "60+", "label": "Hotels", "description": "Curated luxury properties managed" },
+      { "metric": "10", "label": "Countries", "description": "Global destination coverage" },
+      { "metric": "20", "label": "API Endpoints", "description": "Full-featured admin dashboard" },
+      { "metric": "99.5%", "label": "Uptime", "description": "Guaranteed service availability" }
     ],
     "testimonial": {
-      "quote": "The Elites transformed our e-commerce platform beyond our expectations. The results speak for themselves - our conversion rates doubled, and we're handling 3x the traffic with zero performance issues.",
-      "author": "Sarah Johnson",
-      "title": "CEO, TechMart Inc.",
-      "avatar": "/images/testimonials/sarah-johnson.jpg"
+      "quote": "The Elites understood our vision for a luxury digital experience. The AI concierge has transformed how our clients discover their perfect hotel. The platform perfectly represents our brand across Paris, Barcelona, and Beirut.",
+      "author": "Natlaupa Team",
+      "title": "Luxury Hospitality",
+      "avatar": "/images/testimonials/natlaupa.jpg"
     },
-    "heroImage": "/images/projects/techmart-hero.jpg",
-    "featuredImageUrl": "/images/projects/techmart-featured.jpg",
+    "heroImage": "/images/projects/natlaupa-hero.jpg",
+    "featuredImageUrl": "/images/projects/natlaupa-featured.jpg",
     "gallery": [
-      { "url": "/images/projects/techmart-1.jpg", "alt": "TechMart homepage redesign" },
-      { "url": "/images/projects/techmart-2.jpg", "alt": "Product listing page" },
-      { "url": "/images/projects/techmart-3.jpg", "alt": "Checkout flow" },
-      { "url": "/images/projects/techmart-4.jpg", "alt": "Mobile responsive design" }
+      { "url": "/images/projects/natlaupa-1.jpg", "alt": "Homepage with trending hotels" },
+      { "url": "/images/projects/natlaupa-2.jpg", "alt": "AI-powered hotel recommendations" },
+      { "url": "/images/projects/natlaupa-3.jpg", "alt": "Interactive Mapbox destination view" },
+      { "url": "/images/projects/natlaupa-4.jpg", "alt": "Admin dashboard interface" }
     ],
-    "projectUrl": "https://techmart-demo.theelites.com",
+    "projectUrl": "https://natlaupa.com",
     "isFeatured": true,
-    "publishedAt": "2024-06-15T00:00:00.000Z",
+    "publishedAt": "2025-01-15T00:00:00.000Z",
     "orderIndex": 1,
-    "createdAt": "2024-03-01T00:00:00.000Z",
-    "updatedAt": "2024-12-01T00:00:00.000Z"
+    "createdAt": "2025-12-01T00:00:00.000Z",
+    "updatedAt": "2026-01-20T00:00:00.000Z"
   },
   {
     "id": "proj-002",
-    "slug": "fintech-banking-app",
+    "slug": "trd-structural-remediation",
     "title": {
-      "en": "FinTech Mobile Banking App",
-      "fr": "Application Bancaire Mobile FinTech",
-      "ar": "تطبيق الخدمات المصرفية عبر الهاتف المحمول"
+      "en": "TRD Structural Remediation Website",
+      "fr": "Site Web TRD Remediation Structurelle",
+      "ar": "موقع TRD للمعالجة الهيكلية"
     },
-    "category": "Mobile Development",
-    "industry": "Financial Services",
-    "projectScale": "enterprise",
-    "clientName": "NeoBank Solutions",
-    "clientLogoUrl": "/images/clients/neobank-logo.svg",
+    "category": "Web Development",
+    "industry": "Construction & Engineering",
+    "projectScale": "large",
+    "clientName": "TRD (Tension Reinforced Developments)",
+    "clientLogoUrl": "/images/clients/trd-logo.svg",
     "shortDescription": {
-      "en": "Secure mobile banking app with biometric authentication and AI-powered financial insights serving 100,000+ users.",
-      "fr": "Application bancaire mobile sécurisée avec authentification biométrique et insights financiers alimentés par l'IA pour plus de 100 000 utilisateurs.",
-      "ar": "تطبيق مصرفي آمن عبر الهاتف المحمول مع المصادقة البيومترية والرؤى المالية المدعومة بالذكاء الاصطناعي لخدمة أكثر من 100,000 مستخدم."
+      "en": "Award-worthy structural remediation website featuring industry-first 3D building visualization, procedural models, and WCAG 2.1 AA accessibility compliance.",
+      "fr": "Site web de remediation structurelle digne de prix avec visualisation 3D de batiment premiere du secteur et conformite WCAG 2.1 AA.",
+      "ar": "موقع معالجة هيكلية يستحق الجوائز مع تصور ثلاثي الأبعاد للمباني الأول في الصناعة ونماذج إجرائية."
     },
     "challenge": {
-      "en": "NeoBank needed a next-generation digital banking app that could compete with traditional banks while meeting strict financial regulations and security requirements.",
-      "fr": "NeoBank avait besoin d'une application bancaire numérique de nouvelle génération capable de concurrencer les banques traditionnelles tout en respectant les réglementations financières strictes et les exigences de sécurité.",
-      "ar": "احتاج NeoBank إلى تطبيق مصرفي رقمي من الجيل التالي يمكنه التنافس مع البنوك التقليدية مع تلبية اللوائح المالية الصارمة ومتطلبات الأمان."
+      "en": "TRD needed a website that could showcase complex structural remediation services in an engaging, understandable way while demonstrating technical expertise to enterprise clients in the construction industry.",
+      "fr": "TRD avait besoin d'un site web capable de presenter des services complexes de remediation structurelle de maniere engageante tout en demontrant l'expertise technique.",
+      "ar": "احتاجت TRD إلى موقع ويب يمكنه عرض خدمات المعالجة الهيكلية المعقدة بطريقة جذابة ومفهومة مع إظهار الخبرة التقنية."
     },
     "solution": {
-      "en": "We developed a cross-platform mobile banking app with React Native featuring real-time transaction processing, biometric authentication, and AI-powered financial insights with bank-grade security.",
-      "fr": "Nous avons développé une application bancaire mobile multiplateforme avec React Native comprenant le traitement des transactions en temps réel, l'authentification biométrique et des insights financiers alimentés par l'IA avec une sécurité de niveau bancaire.",
-      "ar": "قمنا بتطوير تطبيق مصرفي متعدد المنصات باستخدام React Native يتميز بمعالجة المعاملات في الوقت الفعلي والمصادقة البيومترية والرؤى المالية المدعومة بالذكاء الاصطناعي مع أمان بمستوى البنوك."
+      "en": "We built an award-worthy website with React Three Fiber for procedural 3D building models, GSAP ScrollTrigger for 7 major animated sections, interactive case study visualizations (timeline, before/after slider, 3D stress analysis), and full WCAG 2.1 AA compliance.",
+      "fr": "Nous avons construit un site web digne de prix avec React Three Fiber pour les modeles 3D proceduraux, GSAP ScrollTrigger pour 7 sections animees majeures et une conformite WCAG 2.1 AA complete.",
+      "ar": "قمنا ببناء موقع يستحق الجوائز مع React Three Fiber للنماذج ثلاثية الأبعاد الإجرائية و GSAP ScrollTrigger لـ 7 أقسام متحركة رئيسية."
     },
     "results": {
-      "en": "The app achieved 100,000+ downloads in 3 months, 4.8/5 star rating, 99.99% transaction success rate, and helped NeoBank exceed user acquisition projections by 40%.",
-      "fr": "L'application a atteint plus de 100 000 téléchargements en 3 mois, une note de 4,8/5 étoiles, un taux de réussite des transactions de 99,99%, et a aidé NeoBank à dépasser les projections d'acquisition d'utilisateurs de 40%.",
-      "ar": "حقق التطبيق أكثر من 100,000 تنزيل في 3 أشهر، وتقييم 4.8/5 نجوم، ومعدل نجاح المعاملات 99.99٪، وساعد NeoBank على تجاوز توقعات اكتساب المستخدمين بنسبة 40٪."
+      "en": "Delivered industry-first 3D visualization for construction. 27 custom components built. 60fps desktop / 30fps mobile performance. Award submission materials ready for CSS Design Awards, Awwwards, Webby Awards, and Australian Web Awards.",
+      "fr": "Livre la premiere visualisation 3D de l'industrie pour la construction. 27 composants personnalises. Performance 60fps desktop. Materiaux de soumission aux prix prets.",
+      "ar": "قدم أول تصور ثلاثي الأبعاد في الصناعة للبناء. 27 مكونًا مخصصًا. أداء 60 إطارًا في الثانية. مواد التقديم للجوائز جاهزة."
     },
     "overview": {
       "description": {
-        "en": "End-to-end development of a secure mobile banking application for a next-generation digital bank with real-time transaction processing and AI-powered insights.",
-        "fr": "Développement de bout en bout d'une application bancaire mobile sécurisée pour une banque numérique de nouvelle génération.",
-        "ar": "تطوير شامل لتطبيق مصرفي آمن عبر الهاتف المحمول لبنك رقمي من الجيل التالي."
+        "en": "A cutting-edge structural remediation showcase featuring procedural 3D building models, interactive case study visualizations, and award-worthy animations built for the construction industry.",
+        "fr": "Une vitrine de remediation structurelle de pointe avec des modeles de batiments 3D proceduraux et des visualisations interactives.",
+        "ar": "عرض معالجة هيكلية متطور يتميز بنماذج مباني ثلاثية الأبعاد إجرائية وتصورات تفاعلية لدراسات الحالة."
       },
       "highlights": [
-        "100,000+ downloads in first 3 months",
-        "4.8/5 star rating on app stores",
-        "Bank-grade security with biometric auth",
-        "Real-time transaction processing"
+        "Industry-first 3D building visualization",
+        "Procedural building model (no external 3D files)",
+        "7 major animated sections with ScrollTrigger",
+        "WCAG 2.1 AA accessibility compliance",
+        "Award submission ready for 4 major awards"
       ]
     },
     "quickFacts": {
-      "client": "NeoBank Solutions",
-      "year": "2024",
-      "duration": "6 months",
-      "status": "Live in Production",
-      "liveUrl": "https://neobank-demo.theelites.com"
+      "client": "TRD (Tension Reinforced Developments)",
+      "year": "2025",
+      "duration": "8 weeks",
+      "status": "Complete - Ready for Deployment",
+      "liveUrl": "https://trd-remedial-website.vercel.app"
     },
-    "technologies": ["React Native", "TypeScript", "Node.js", "PostgreSQL", "Redis", "AWS"],
+    "technologies": ["Next.js", "React", "TypeScript", "React Three Fiber", "Three.js", "GSAP", "Framer Motion", "TailwindCSS", "Lenis"],
     "techStack": [
-      { "name": "React Native", "logo": "/icons/tech/react-native.svg", "reason": "Cross-platform development with native performance" },
-      { "name": "TypeScript", "logo": "/icons/tech/typescript.svg", "reason": "Type safety for financial data handling" },
-      { "name": "Node.js", "logo": "/icons/tech/nodejs.svg", "reason": "High-performance backend API" },
-      { "name": "PostgreSQL", "logo": "/icons/tech/postgresql.svg", "reason": "ACID-compliant transaction database" },
-      { "name": "Redis", "logo": "/icons/tech/redis.svg", "reason": "Real-time data caching and session management" },
-      { "name": "AWS", "logo": "/icons/tech/aws.svg", "reason": "Scalable cloud infrastructure with compliance" }
+      { "name": "Next.js 15", "logo": "/icons/tech/nextjs.svg", "reason": "App Router with static generation for all 7 pages" },
+      { "name": "React Three Fiber", "logo": "/icons/tech/threejs.svg", "reason": "Procedural 3D building models and stress visualizations" },
+      { "name": "GSAP 3", "logo": "/icons/tech/gsap.svg", "reason": "ScrollTrigger for 7 major animated sections" },
+      { "name": "Framer Motion", "logo": "/icons/tech/framer.svg", "reason": "UI component animations and transitions" },
+      { "name": "TypeScript", "logo": "/icons/tech/typescript.svg", "reason": "Type safety for complex 3D components" },
+      { "name": "Lenis", "logo": "/icons/tech/lenis.svg", "reason": "Smooth scrolling for premium feel" }
     ],
-    "servicesUsed": ["mobile-apps"],
+    "servicesUsed": ["web-development"],
     "timeline": [
-      { "phase": "Research & Compliance", "date": "January 2024", "description": "Analyzed banking regulations, security requirements, and user needs" },
-      { "phase": "UI/UX Design", "date": "February 2024", "description": "Designed intuitive mobile interfaces with accessibility and security in mind" },
-      { "phase": "Core Development", "date": "March - May 2024", "description": "Built cross-platform mobile apps, secure backend APIs, and payment gateways" },
-      { "phase": "Security Audit & Launch", "date": "June 2024", "description": "Penetration testing, security certifications, and app store launch" }
+      { "phase": "Foundation", "date": "Week 1-2", "description": "Project setup, design system, core components" },
+      { "phase": "Core Sections", "date": "Week 3-4", "description": "7 major sections with GSAP animations" },
+      { "phase": "3D Integration", "date": "Week 5-6", "description": "Procedural building model, stress visualization, guided tour" },
+      { "phase": "Polish & Performance", "date": "Week 7-8", "description": "Accessibility audit, performance optimization, award materials" }
     ],
-    "duration": "6 months",
+    "duration": "8 weeks",
     "resultsMetrics": [
-      { "metric": "100k+", "label": "Downloads", "description": "Downloads in first 3 months" },
-      { "metric": "4.8/5", "label": "App Rating", "description": "App store rating" },
-      { "metric": "99.99%", "label": "Success Rate", "description": "Transaction success rate" },
-      { "metric": "<2s", "label": "Response Time", "description": "Average response time" }
+      { "metric": "27", "label": "Components", "description": "Custom-built React components" },
+      { "metric": "60fps", "label": "Performance", "description": "Desktop 3D rendering performance" },
+      { "metric": "229kB", "label": "Bundle Size", "description": "First Load JS (excellent for features)" },
+      { "metric": "95+", "label": "Lighthouse", "description": "SEO score with real assets" }
     ],
     "testimonial": {
-      "quote": "The Elites delivered a banking app that exceeds industry standards. The biometric security, real-time features, and beautiful UX have set us apart from traditional banks.",
-      "author": "Michael Chen",
-      "title": "CTO, NeoBank Solutions",
-      "avatar": "/images/testimonials/michael-chen.jpg"
+      "quote": "The 3D building visualization has set us apart from every competitor. Clients understand our complex remediation work instantly. The website is not just functional - it's award-worthy.",
+      "author": "TRD Team",
+      "title": "Structural Remediation Experts",
+      "avatar": "/images/testimonials/trd.jpg"
     },
-    "heroImage": "/images/projects/neobank-hero.jpg",
-    "featuredImageUrl": "/images/projects/neobank-featured.jpg",
+    "heroImage": "/images/projects/trd-hero.jpg",
+    "featuredImageUrl": "/images/projects/trd-featured.jpg",
     "gallery": [
-      { "url": "/images/projects/neobank-1.jpg", "alt": "Dashboard overview" },
-      { "url": "/images/projects/neobank-2.jpg", "alt": "Transaction history" },
-      { "url": "/images/projects/neobank-3.jpg", "alt": "Biometric authentication" },
-      { "url": "/images/projects/neobank-4.jpg", "alt": "Financial insights" }
+      { "url": "/images/projects/trd-1.jpg", "alt": "3D building visualization with service hotspots" },
+      { "url": "/images/projects/trd-2.jpg", "alt": "Interactive case study timeline" },
+      { "url": "/images/projects/trd-3.jpg", "alt": "Before/after comparison slider" },
+      { "url": "/images/projects/trd-4.jpg", "alt": "Stress analysis 3D overlay" }
     ],
-    "projectUrl": "https://neobank-demo.theelites.com",
+    "projectUrl": "https://trd-remedial-website.vercel.app",
     "isFeatured": true,
-    "publishedAt": "2024-07-01T00:00:00.000Z",
+    "publishedAt": "2025-10-15T00:00:00.000Z",
     "orderIndex": 2,
-    "createdAt": "2024-01-15T00:00:00.000Z",
-    "updatedAt": "2024-12-01T00:00:00.000Z"
+    "createdAt": "2025-08-01T00:00:00.000Z",
+    "updatedAt": "2026-01-20T00:00:00.000Z"
   },
   {
     "id": "proj-003",
-    "slug": "healthcare-mobile-app",
+    "slug": "michel-yammine-perfumerie",
     "title": {
-      "en": "Healthcare Mobile App",
-      "fr": "Application Mobile de Santé",
-      "ar": "تطبيق الرعاية الصحية للجوال"
+      "en": "Michel Yammine Perfumerie E-Commerce",
+      "fr": "E-Commerce Parfumerie Michel Yammine",
+      "ar": "متجر عطور ميشال يمين الإلكتروني"
     },
-    "category": "Mobile Development",
-    "industry": "Healthcare",
+    "category": "Web Development",
+    "industry": "Luxury Retail",
     "projectScale": "large",
-    "clientName": "HealthCare Solutions Inc.",
-    "clientLogoUrl": "/images/clients/healthcare-logo.svg",
+    "clientName": "Perfumerie Michel Yammine",
+    "clientLogoUrl": "/images/clients/michelyammine-logo.svg",
     "shortDescription": {
-      "en": "HIPAA-compliant patient management system with telemedicine consultations and digital medical record management.",
-      "fr": "Système de gestion des patients conforme HIPAA avec consultations de télémédecine et gestion des dossiers médicaux numériques.",
-      "ar": "نظام إدارة المرضى المتوافق مع HIPAA مع استشارات الطب عن بُعد وإدارة السجلات الطبية الرقمية."
+      "en": "Luxury perfume e-commerce platform with AI-powered scent recommendations serving Lebanon's fragrance market since 1970.",
+      "fr": "Plateforme e-commerce de parfums de luxe avec recommandations de parfums alimentées par l'IA, servant le marché libanais depuis 1970.",
+      "ar": "منصة تجارة إلكترونية للعطور الفاخرة مع توصيات الروائح المدعومة بالذكاء الاصطناعي تخدم سوق العطور اللبناني منذ 1970."
     },
     "challenge": {
-      "en": "HealthCare Solutions needed to modernize patient care delivery with a secure, accessible platform that met strict HIPAA compliance requirements while serving diverse age groups.",
-      "fr": "HealthCare Solutions devait moderniser la prestation des soins aux patients avec une plateforme sécurisée et accessible répondant aux exigences strictes de conformité HIPAA tout en servant des groupes d'âge divers.",
-      "ar": "احتاجت HealthCare Solutions إلى تحديث تقديم رعاية المرضى بمنصة آمنة وسهلة الوصول تلبي متطلبات الامتثال الصارمة لـ HIPAA مع خدمة فئات عمرية متنوعة."
+      "en": "Michel Yammine, a prestigious Lebanese perfumery established in 1970, needed a modern e-commerce platform to bring their luxury fragrance expertise online while maintaining the personalized boutique experience their customers expect.",
+      "fr": "Michel Yammine, une parfumerie libanaise prestigieuse établie en 1970, avait besoin d'une plateforme e-commerce moderne pour mettre en ligne leur expertise en parfumerie de luxe tout en maintenant l'expérience boutique personnalisée.",
+      "ar": "احتاج ميشال يمين، متجر العطور اللبناني المرموق المؤسس عام 1970، إلى منصة تجارة إلكترونية حديثة لنقل خبرتهم في العطور الفاخرة عبر الإنترنت."
     },
     "solution": {
-      "en": "We built a comprehensive HIPAA-compliant mobile app with React Native featuring appointment scheduling, secure video consultations, EHR integration, and prescription management with end-to-end encryption.",
-      "fr": "Nous avons construit une application mobile complète conforme HIPAA avec React Native comprenant la planification des rendez-vous, les consultations vidéo sécurisées, l'intégration DSE et la gestion des prescriptions avec chiffrement de bout en bout.",
-      "ar": "قمنا ببناء تطبيق جوال شامل متوافق مع HIPAA باستخدام React Native يتميز بجدولة المواعيد واستشارات الفيديو الآمنة وتكامل السجلات الصحية الإلكترونية وإدارة الوصفات الطبية مع تشفير شامل."
+      "en": "We built a full-featured luxury e-commerce platform with Next.js featuring AI-powered scent quiz recommendations, advanced product filtering by gender and category, same-day delivery integration, cash-on-delivery support, and SEO-optimized structured data for maximum visibility.",
+      "fr": "Nous avons construit une plateforme e-commerce de luxe complète avec Next.js comprenant des recommandations de quiz de parfum alimentées par l'IA, un filtrage avancé des produits et une intégration de livraison le jour même.",
+      "ar": "قمنا ببناء منصة تجارة إلكترونية فاخرة متكاملة باستخدام Next.js تتميز بتوصيات اختبار الروائح المدعومة بالذكاء الاصطناعي وتصفية المنتجات المتقدمة."
     },
     "results": {
-      "en": "The app achieved 10,000+ active users, 95% patient satisfaction, 40% reduction in missed appointments, and enabled the client to increase their reach by 300% to serve rural communities.",
-      "fr": "L'application a atteint plus de 10 000 utilisateurs actifs, 95% de satisfaction des patients, une réduction de 40% des rendez-vous manqués, et a permis au client d'augmenter sa portée de 300% pour servir les communautés rurales.",
-      "ar": "حقق التطبيق أكثر من 10,000 مستخدم نشط، و95٪ رضا المرضى، وتقليل 40٪ في المواعيد الفائتة، ومكّن العميل من زيادة وصوله بنسبة 300٪ لخدمة المجتمعات الريفية."
+      "en": "The platform now serves customers across Lebanon with 100% authentic luxury fragrances from authorized distributors. Features include AI scent matching, same-day delivery for orders before 2 PM, 24/7 fragrance expert support, and gift wrapping services.",
+      "fr": "La plateforme sert maintenant les clients à travers le Liban avec des parfums de luxe 100% authentiques. Les fonctionnalités incluent la correspondance de parfum IA et la livraison le jour même.",
+      "ar": "تخدم المنصة الآن العملاء في جميع أنحاء لبنان بعطور فاخرة أصلية 100٪ من موزعين معتمدين مع مطابقة الروائح بالذكاء الاصطناعي."
     },
     "overview": {
       "description": {
-        "en": "A comprehensive patient management system that revolutionizes healthcare delivery through mobile technology with HIPAA-compliant architecture.",
-        "fr": "Un système complet de gestion des patients qui révolutionne la prestation des soins de santé grâce à la technologie mobile.",
-        "ar": "نظام شامل لإدارة المرضى يُحدث ثورة في تقديم الرعاية الصحية من خلال تكنولوجيا الهاتف المحمول."
+        "en": "A luxury fragrance e-commerce platform bringing nearly 50 years of perfumery expertise online with AI-powered personalized recommendations.",
+        "fr": "Une plateforme e-commerce de parfums de luxe apportant près de 50 ans d'expertise en parfumerie en ligne.",
+        "ar": "منصة تجارة إلكترونية للعطور الفاخرة تقدم ما يقرب من 50 عامًا من الخبرة في صناعة العطور عبر الإنترنت."
       },
       "highlights": [
-        "HIPAA-compliant secure architecture",
-        "Real-time video consultations",
-        "Electronic Health Records (EHR) integration",
-        "Push notification appointment reminders",
-        "Prescription management and refills"
+        "AI-powered scent quiz and recommendations",
+        "100% authentic luxury fragrances",
+        "Same-day delivery (orders before 2 PM)",
+        "Cash on delivery payment option",
+        "24/7 fragrance expert support"
       ]
     },
     "quickFacts": {
-      "client": "HealthCare Solutions Inc.",
-      "year": "2024",
-      "duration": "6 months",
-      "status": "Launched",
-      "liveUrl": "https://healthcare-demo.theelites.com"
+      "client": "Perfumerie Michel Yammine",
+      "year": "2025",
+      "duration": "3 months",
+      "status": "Live",
+      "liveUrl": "https://michelyammine.com"
     },
-    "technologies": ["React Native", "Node.js", "MongoDB", "AWS", "WebRTC", "Socket.io"],
+    "technologies": ["Next.js", "React", "TypeScript", "TailwindCSS", "Node.js", "PostgreSQL"],
     "techStack": [
-      { "name": "React Native", "logo": "/icons/tech/react-native.svg", "reason": "Cross-platform development for iOS and Android" },
-      { "name": "Node.js", "logo": "/icons/tech/nodejs.svg", "reason": "Scalable backend API for real-time communications" },
-      { "name": "MongoDB", "logo": "/icons/tech/mongodb.svg", "reason": "Flexible document storage for patient records" },
-      { "name": "AWS", "logo": "/icons/tech/aws.svg", "reason": "HIPAA-compliant cloud infrastructure" },
-      { "name": "WebRTC", "logo": "/icons/tech/webrtc.svg", "reason": "Peer-to-peer video consultations" },
-      { "name": "Socket.io", "logo": "/icons/tech/socketio.svg", "reason": "Real-time messaging" }
+      { "name": "Next.js", "logo": "/icons/tech/nextjs.svg", "reason": "Server-side rendering for SEO and fast page loads" },
+      { "name": "React", "logo": "/icons/tech/react.svg", "reason": "Component-based UI for product catalog" },
+      { "name": "TypeScript", "logo": "/icons/tech/typescript.svg", "reason": "Type safety for e-commerce transactions" },
+      { "name": "TailwindCSS", "logo": "/icons/tech/tailwind.svg", "reason": "Luxury design system with responsive layouts" },
+      { "name": "Node.js", "logo": "/icons/tech/nodejs.svg", "reason": "API backend for orders and inventory" },
+      { "name": "PostgreSQL", "logo": "/icons/tech/postgresql.svg", "reason": "Product catalog and order management" }
     ],
-    "servicesUsed": ["mobile-apps"],
+    "servicesUsed": ["web-development"],
     "timeline": [
-      { "phase": "Discovery & Planning", "date": "Jan 2024", "description": "HIPAA compliance audit, user research with healthcare providers and patients" },
-      { "phase": "Design & Prototyping", "date": "Feb 2024", "description": "UI/UX design focusing on accessibility and ease of use for all age groups" },
-      { "phase": "Development", "date": "Mar - May 2024", "description": "Iterative development with weekly demos and security audits" },
-      { "phase": "Testing & Launch", "date": "Jun 2024", "description": "Comprehensive security testing, beta program, App Store launch" }
+      { "phase": "Discovery & Design", "date": "Month 1", "description": "Requirements gathering, luxury UI/UX design, brand integration" },
+      { "phase": "E-Commerce Development", "date": "Month 2", "description": "Product catalog, cart, checkout, payment integration" },
+      { "phase": "AI & Launch", "date": "Month 3", "description": "Scent quiz AI, SEO optimization, delivery integration, launch" }
     ],
-    "duration": "6 months",
+    "duration": "3 months",
     "resultsMetrics": [
-      { "metric": "10,000+", "label": "Active Users", "description": "Active users within first 3 months" },
-      { "metric": "95%", "label": "Satisfaction Rate", "description": "Patient satisfaction rating" },
-      { "metric": "40%", "label": "Fewer No-Shows", "description": "Reduction in missed appointments" },
-      { "metric": "2.5M+", "label": "Consultation Minutes", "description": "Video consultation minutes" }
+      { "metric": "50+", "label": "Years Legacy", "description": "Bringing decades of expertise online" },
+      { "metric": "100%", "label": "Authentic", "description": "Guaranteed genuine fragrances" },
+      { "metric": "Same-Day", "label": "Delivery", "description": "Orders before 2 PM delivered same day" },
+      { "metric": "24/7", "label": "Support", "description": "Fragrance expert assistance" }
     ],
     "testimonial": {
-      "quote": "This app has transformed how we deliver care to our patients. The telemedicine feature alone has increased our reach by 300%, allowing us to serve rural communities effectively.",
-      "author": "Dr. Sarah Mitchell",
-      "title": "Chief Medical Officer, HealthCare Solutions",
-      "avatar": "/images/testimonials/sarah-mitchell.jpg"
+      "quote": "The Elites brought our 50-year legacy into the digital age. The AI scent quiz captures the personalized experience we provide in-store, and our customers love the convenience of same-day delivery.",
+      "author": "Michel Yammine Team",
+      "title": "Luxury Perfumery",
+      "avatar": "/images/testimonials/michelyammine.jpg"
     },
-    "heroImage": "/images/projects/healthcare-hero.jpg",
-    "featuredImageUrl": "/images/projects/healthcare-featured.jpg",
+    "heroImage": "/images/projects/michelyammine-hero.jpg",
+    "featuredImageUrl": "/images/projects/michelyammine-featured.jpg",
     "gallery": [
-      { "url": "/images/projects/healthcare-1.jpg", "alt": "App dashboard" },
-      { "url": "/images/projects/healthcare-2.jpg", "alt": "Video consultation interface" },
-      { "url": "/images/projects/healthcare-3.jpg", "alt": "Medical records view" },
-      { "url": "/images/projects/healthcare-4.jpg", "alt": "Appointment booking" }
+      { "url": "/images/projects/michelyammine-1.jpg", "alt": "Homepage with featured fragrances" },
+      { "url": "/images/projects/michelyammine-2.jpg", "alt": "Product catalog with filters" },
+      { "url": "/images/projects/michelyammine-3.jpg", "alt": "AI scent quiz interface" },
+      { "url": "/images/projects/michelyammine-4.jpg", "alt": "Product detail page" }
     ],
-    "projectUrl": "https://healthcare-demo.theelites.com",
+    "projectUrl": "https://michelyammine.com",
     "isFeatured": true,
-    "publishedAt": "2024-07-15T00:00:00.000Z",
+    "publishedAt": "2025-06-01T00:00:00.000Z",
     "orderIndex": 3,
-    "createdAt": "2024-01-01T00:00:00.000Z",
-    "updatedAt": "2024-12-01T00:00:00.000Z"
+    "createdAt": "2025-03-01T00:00:00.000Z",
+    "updatedAt": "2026-01-20T00:00:00.000Z"
   },
   {
     "id": "proj-004",
-    "slug": "automation-suite",
+    "slug": "francis-legacy-heritage",
     "title": {
-      "en": "Business Automation Suite",
-      "fr": "Suite d'Automatisation Business",
-      "ar": "مجموعة أتمتة الأعمال"
+      "en": "Francis Legacy Heritage Website",
+      "fr": "Site Patrimoine Francis Legacy",
+      "ar": "موقع تراث فرانسيس ليجاسي"
     },
-    "category": "Automation & Integration",
-    "industry": "Enterprise",
-    "projectScale": "large",
-    "clientName": "Enterprise Corp",
-    "clientLogoUrl": "/images/clients/enterprise-logo.svg",
+    "category": "Web Development",
+    "industry": "Family Heritage",
+    "projectScale": "medium",
+    "clientName": "Francis Family",
+    "clientLogoUrl": "/images/clients/francis-logo.svg",
     "shortDescription": {
-      "en": "Custom workflow automation platform eliminating manual tasks with visual workflow builder and 50+ enterprise integrations.",
-      "fr": "Plateforme d'automatisation de flux de travail personnalisée éliminant les tâches manuelles avec un constructeur de flux visuel et plus de 50 intégrations entreprise.",
-      "ar": "منصة أتمتة سير العمل المخصصة التي تقضي على المهام اليدوية مع منشئ سير عمل مرئي وأكثر من 50 تكامل مؤسسي."
+      "en": "Modern family heritage website preserving generational stories with interactive timelines and elegant documentation.",
+      "fr": "Site web moderne de patrimoine familial préservant les histoires générationnelles avec des chronologies interactives.",
+      "ar": "موقع تراث عائلي حديث يحافظ على قصص الأجيال مع جداول زمنية تفاعلية."
     },
     "challenge": {
-      "en": "Enterprise Corp had 50+ manual processes across Sales, HR, and Operations that consumed thousands of employee hours monthly and were prone to human error.",
-      "fr": "Enterprise Corp avait plus de 50 processus manuels dans les départements Ventes, RH et Opérations qui consommaient des milliers d'heures d'employés mensuellement et étaient sujets aux erreurs humaines.",
-      "ar": "كان لدى Enterprise Corp أكثر من 50 عملية يدوية عبر أقسام المبيعات والموارد البشرية والعمليات التي استهلكت آلاف ساعات الموظفين شهريًا وكانت عرضة للخطأ البشري."
+      "en": "The Francis family wanted to preserve their generational heritage in a modern, accessible format that could be shared across family members worldwide while maintaining an elegant, respectful presentation.",
+      "fr": "La famille Francis souhaitait préserver son patrimoine générationnel dans un format moderne et accessible pouvant être partagé entre les membres de la famille dans le monde entier.",
+      "ar": "أرادت عائلة فرانسيس الحفاظ على تراثهم العائلي في شكل حديث وسهل الوصول يمكن مشاركته بين أفراد العائلة في جميع أنحاء العالم."
     },
     "solution": {
-      "en": "We built a custom workflow automation platform with Python and FastAPI featuring a visual drag-and-drop builder, 50+ pre-built integrations, real-time monitoring, RBAC, and comprehensive audit logging.",
-      "fr": "Nous avons construit une plateforme d'automatisation de flux de travail personnalisée avec Python et FastAPI comprenant un constructeur visuel par glisser-déposer, plus de 50 intégrations pré-construites, une surveillance en temps réel, RBAC et une journalisation d'audit complète.",
-      "ar": "قمنا ببناء منصة أتمتة سير عمل مخصصة باستخدام Python و FastAPI تتميز بمنشئ سحب وإفلات مرئي، وأكثر من 50 تكامل مُعد مسبقًا، ومراقبة في الوقت الفعلي، و RBAC، وتسجيل تدقيق شامل."
+      "en": "We built a modern heritage website using Vite, React, and TypeScript with shadcn/ui components for an elegant interface. The site features interactive family timelines, photo galleries, and story documentation with smooth animations.",
+      "fr": "Nous avons construit un site web de patrimoine moderne utilisant Vite, React et TypeScript avec des composants shadcn/ui pour une interface élégante.",
+      "ar": "قمنا ببناء موقع تراث حديث باستخدام Vite و React و TypeScript مع مكونات shadcn/ui لواجهة أنيقة."
     },
     "results": {
-      "en": "The platform achieved 80% reduction in manual tasks, saved 15 hours per employee weekly, powers 500+ active workflows, and generates $250K in annual cost savings.",
-      "fr": "La plateforme a atteint une réduction de 80% des tâches manuelles, économisé 15 heures par employé par semaine, alimente plus de 500 flux de travail actifs et génère 250K$ d'économies annuelles.",
-      "ar": "حققت المنصة تقليل 80٪ في المهام اليدوية، ووفرت 15 ساعة لكل موظف أسبوعيًا، وتشغل أكثر من 500 سير عمل نشط، وتحقق 250 ألف دولار في وفورات التكلفة السنوية."
+      "en": "The website now serves as the family's digital archive, accessible to members worldwide. The elegant design honors the family's legacy while the modern tech stack ensures long-term maintainability.",
+      "fr": "Le site web sert maintenant d'archive numérique familiale, accessible aux membres dans le monde entier.",
+      "ar": "يعمل الموقع الآن كأرشيف رقمي للعائلة، متاح للأعضاء في جميع أنحاء العالم."
     },
     "overview": {
       "description": {
-        "en": "A custom workflow automation platform that eliminates repetitive manual tasks across departments with a visual workflow builder for non-technical users.",
-        "fr": "Une plateforme d'automatisation de flux de travail personnalisée qui élimine les tâches manuelles répétitives avec un constructeur de flux visuel.",
-        "ar": "منصة أتمتة سير العمل المخصصة التي تقضي على المهام اليدوية المتكررة مع منشئ سير عمل مرئي."
+        "en": "A digital family heritage platform preserving stories, photos, and memories across generations.",
+        "fr": "Une plateforme de patrimoine familial numérique préservant les histoires et souvenirs à travers les générations.",
+        "ar": "منصة تراث عائلي رقمية تحافظ على القصص والصور والذكريات عبر الأجيال."
       },
       "highlights": [
-        "Visual drag-and-drop workflow builder",
-        "Pre-built integrations with 50+ enterprise apps",
-        "Real-time execution monitoring and error handling",
-        "Role-based access control (RBAC)",
-        "Audit logging and compliance reporting"
+        "Interactive family timelines",
+        "Photo gallery with lightbox",
+        "Story documentation system",
+        "Elegant shadcn/ui design",
+        "Deployed on Vercel"
       ]
     },
     "quickFacts": {
-      "client": "Enterprise Corp",
-      "year": "2024",
-      "duration": "4 months",
-      "status": "Launched",
-      "githubUrl": "https://github.com/enterprise/automation-suite"
+      "client": "Francis Family",
+      "year": "2025",
+      "duration": "6 weeks",
+      "status": "Completed"
     },
-    "technologies": ["Python", "FastAPI", "Redis", "Docker", "PostgreSQL", "Celery"],
+    "technologies": ["Vite", "React", "TypeScript", "TailwindCSS", "shadcn/ui"],
     "techStack": [
-      { "name": "Python", "logo": "/icons/tech/python.svg", "reason": "Robust scripting language for automation" },
-      { "name": "FastAPI", "logo": "/icons/tech/fastapi.svg", "reason": "High-performance async API framework" },
-      { "name": "Redis", "logo": "/icons/tech/redis.svg", "reason": "Message queue and caching layer" },
-      { "name": "Docker", "logo": "/icons/tech/docker.svg", "reason": "Containerized deployments" },
-      { "name": "PostgreSQL", "logo": "/icons/tech/postgresql.svg", "reason": "Reliable data storage" },
-      { "name": "Celery", "logo": "/icons/tech/celery.svg", "reason": "Distributed task queue" }
+      { "name": "Vite", "logo": "/icons/tech/vite.svg", "reason": "Fast build tooling and HMR" },
+      { "name": "React", "logo": "/icons/tech/react.svg", "reason": "Component-based UI architecture" },
+      { "name": "TypeScript", "logo": "/icons/tech/typescript.svg", "reason": "Type safety for content management" },
+      { "name": "shadcn/ui", "logo": "/icons/tech/shadcn.svg", "reason": "Elegant pre-built components" },
+      { "name": "TailwindCSS", "logo": "/icons/tech/tailwind.svg", "reason": "Responsive design system" }
     ],
-    "servicesUsed": ["automation"],
+    "servicesUsed": ["web-development"],
     "timeline": [
-      { "phase": "Requirements Gathering", "date": "Feb 2024", "description": "Identified 50+ manual processes across Sales, HR, and Operations" },
-      { "phase": "Architecture Design", "date": "Mar 2024", "description": "Designed microservices architecture with event-driven workflow engine" },
-      { "phase": "Development Sprint 1-3", "date": "Mar - May 2024", "description": "Built workflow builder, execution engine, and core integrations" },
-      { "phase": "Deployment & Training", "date": "Jun 2024", "description": "On-premise deployment, team training, and process migration" }
+      { "phase": "Planning & Design", "date": "Week 1-2", "description": "Family consultation, content gathering, UI design" },
+      { "phase": "Development", "date": "Week 3-5", "description": "Timeline features, galleries, content integration" },
+      { "phase": "Launch", "date": "Week 6", "description": "Final review, Vercel deployment, family handoff" }
     ],
-    "duration": "4 months",
+    "duration": "6 weeks",
     "resultsMetrics": [
-      { "metric": "80%", "label": "Task Reduction", "description": "Reduction in manual tasks" },
-      { "metric": "15hrs/week", "label": "Time Saved", "description": "Average time saved per employee" },
-      { "metric": "500+", "label": "Active Workflows", "description": "Active automated workflows" },
-      { "metric": "$250K", "label": "Annual Savings", "description": "Annual cost savings" }
+      { "metric": "100%", "label": "Family Coverage", "description": "Complete generational documentation" },
+      { "metric": "Global", "label": "Access", "description": "Available to family worldwide" },
+      { "metric": "Fast", "label": "Performance", "description": "Vite-powered instant loads" },
+      { "metric": "Elegant", "label": "Design", "description": "shadcn/ui premium aesthetics" }
     ],
     "testimonial": {
-      "quote": "The automation suite has been transformational for our operations. Tasks that used to take days now complete in minutes, and our team can focus on strategic work instead of repetitive data entry.",
-      "author": "Michael Chen",
-      "title": "VP of Operations, Enterprise Corp",
-      "avatar": "/images/testimonials/michael-chen-ops.jpg"
+      "quote": "The Elites created a beautiful digital home for our family's history. Future generations will be able to explore our legacy in a way that was never possible before.",
+      "author": "Francis Family",
+      "title": "Heritage Project",
+      "avatar": "/images/testimonials/francis.jpg"
     },
-    "heroImage": "/images/projects/automation-hero.jpg",
-    "featuredImageUrl": "/images/projects/automation-featured.jpg",
+    "heroImage": "/images/projects/francis-hero.jpg",
+    "featuredImageUrl": "/images/projects/francis-featured.jpg",
     "gallery": [
-      { "url": "/images/projects/automation-1.jpg", "alt": "Workflow builder interface" },
-      { "url": "/images/projects/automation-2.jpg", "alt": "Integration dashboard" },
-      { "url": "/images/projects/automation-3.jpg", "alt": "Analytics and reporting" },
-      { "url": "/images/projects/automation-4.jpg", "alt": "Execution logs" }
+      { "url": "/images/projects/francis-1.jpg", "alt": "Interactive family timeline" },
+      { "url": "/images/projects/francis-2.jpg", "alt": "Photo gallery view" },
+      { "url": "/images/projects/francis-3.jpg", "alt": "Story documentation" },
+      { "url": "/images/projects/francis-4.jpg", "alt": "Mobile responsive design" }
     ],
-    "isFeatured": true,
-    "publishedAt": "2024-06-30T00:00:00.000Z",
+    "isFeatured": false,
+    "publishedAt": "2025-09-01T00:00:00.000Z",
     "orderIndex": 4,
-    "createdAt": "2024-02-01T00:00:00.000Z",
-    "updatedAt": "2024-12-01T00:00:00.000Z"
+    "createdAt": "2025-07-15T00:00:00.000Z",
+    "updatedAt": "2026-01-20T00:00:00.000Z"
   },
   {
     "id": "proj-005",
-    "slug": "enterprise-dashboard",
+    "slug": "mr5-pos-system",
     "title": {
-      "en": "Enterprise Analytics Dashboard",
-      "fr": "Tableau de Bord Analytique Entreprise",
-      "ar": "لوحة تحليلات المؤسسة"
+      "en": "Mr5 Point-of-Sale System",
+      "fr": "Système de Point de Vente Mr5",
+      "ar": "نظام نقاط البيع Mr5"
     },
-    "category": "Enterprise Solutions",
-    "industry": "Logistics",
-    "projectScale": "enterprise",
-    "clientName": "Global Logistics Inc.",
-    "clientLogoUrl": "/images/clients/globallogistics-logo.svg",
+    "category": "Desktop Application",
+    "industry": "Retail & Hospitality",
+    "projectScale": "large",
+    "clientName": "Mr5 Restaurant Group",
+    "clientLogoUrl": "/images/clients/mr5-logo.svg",
     "shortDescription": {
-      "en": "Real-time analytics dashboard consolidating 15+ data sources with AI-powered insights for executive decision-making.",
-      "fr": "Tableau de bord d'analyse en temps réel consolidant plus de 15 sources de données avec des insights alimentés par l'IA pour la prise de décision exécutive.",
-      "ar": "لوحة تحليلات في الوقت الفعلي تجمع أكثر من 15 مصدرًا للبيانات مع رؤى مدعومة بالذكاء الاصطناعي لاتخاذ القرارات التنفيذية."
+      "en": "Full-featured Electron.js Point-of-Sale system with modern desktop interface for restaurant and retail operations management.",
+      "fr": "Système de point de vente complet basé sur Electron.js avec interface desktop moderne pour la gestion des opérations de restauration et de vente au détail.",
+      "ar": "نظام نقاط بيع متكامل قائم على Electron.js مع واجهة سطح مكتب حديثة لإدارة عمليات المطاعم والبيع بالتجزئة."
     },
     "challenge": {
-      "en": "Global Logistics relied on weekly manual reports from siloed data sources, leading to delayed decisions and missed opportunities in a fast-moving logistics environment.",
-      "fr": "Global Logistics s'appuyait sur des rapports manuels hebdomadaires provenant de sources de données cloisonnées, entraînant des décisions retardées et des opportunités manquées dans un environnement logistique rapide.",
-      "ar": "اعتمدت Global Logistics على التقارير اليدوية الأسبوعية من مصادر البيانات المنعزلة، مما أدى إلى تأخر القرارات وفقدان الفرص في بيئة لوجستية سريعة الحركة."
+      "en": "Mr5 Restaurant Group needed a robust, offline-capable POS system that could handle high-volume transactions, manage inventory, track sales analytics, and integrate with their kitchen display systems across multiple locations.",
+      "fr": "Mr5 Restaurant Group avait besoin d'un système POS robuste, capable de fonctionner hors ligne, pour gérer des transactions à haut volume, l'inventaire et l'analyse des ventes.",
+      "ar": "احتاجت مجموعة مطاعم Mr5 إلى نظام نقاط بيع قوي قادر على العمل دون اتصال للتعامل مع المعاملات ذات الحجم الكبير وإدارة المخزون."
     },
     "solution": {
-      "en": "We built a real-time analytics dashboard using Next.js and D3.js with Apache Kafka for data streaming, ClickHouse for analytics, and TensorFlow for predictive insights, all deployed on Kubernetes.",
-      "fr": "Nous avons construit un tableau de bord d'analyse en temps réel utilisant Next.js et D3.js avec Apache Kafka pour le streaming de données, ClickHouse pour les analyses, et TensorFlow pour les insights prédictifs, le tout déployé sur Kubernetes.",
-      "ar": "قمنا ببناء لوحة تحليلات في الوقت الفعلي باستخدام Next.js و D3.js مع Apache Kafka لبث البيانات، و ClickHouse للتحليلات، و TensorFlow للرؤى التنبؤية، وكلها منشورة على Kubernetes."
+      "en": "We developed a comprehensive Electron.js-based POS system with a modern, responsive desktop UI. Features include user authentication, real-time inventory tracking, sales reporting, receipt printing, and multi-terminal synchronization with cross-platform deployment capability.",
+      "fr": "Nous avons développé un système POS complet basé sur Electron.js avec une interface desktop moderne et réactive avec authentification, suivi d'inventaire et rapports de ventes.",
+      "ar": "قمنا بتطوير نظام نقاط بيع شامل قائم على Electron.js لواجهة سطح مكتب حديثة مع المصادقة وتتبع المخزون وتقارير المبيعات."
     },
     "results": {
-      "en": "The dashboard enabled 70% faster decision-making, integrated 15+ data sources, achieved 98% AI prediction accuracy, and helped avoid two major supply chain disruptions.",
-      "fr": "Le tableau de bord a permis une prise de décision 70% plus rapide, a intégré plus de 15 sources de données, a atteint une précision de prédiction IA de 98%, et a aidé à éviter deux perturbations majeures de la chaîne d'approvisionnement.",
-      "ar": "مكّنت لوحة المعلومات من اتخاذ قرارات أسرع بنسبة 70٪، ودمجت أكثر من 15 مصدرًا للبيانات، وحققت دقة تنبؤ بالذكاء الاصطناعي بنسبة 98٪، وساعدت على تجنب اضطرابين رئيسيين في سلسلة التوريد."
+      "en": "The POS system now handles daily operations across multiple restaurant locations with reliable offline capability, streamlined checkout processes, and comprehensive sales analytics for business decision-making.",
+      "fr": "Le système POS gère maintenant les opérations quotidiennes dans plusieurs emplacements avec une capacité hors ligne fiable et des analyses de ventes complètes.",
+      "ar": "يتعامل نظام نقاط البيع الآن مع العمليات اليومية عبر مواقع متعددة مع قدرة موثوقة على العمل دون اتصال."
     },
     "overview": {
       "description": {
-        "en": "A real-time analytics dashboard that consolidates data from multiple sources to provide actionable business intelligence with AI-powered insights.",
-        "fr": "Un tableau de bord d'analyse en temps réel qui consolide les données de plusieurs sources pour fournir des informations commerciales exploitables.",
-        "ar": "لوحة تحليلات في الوقت الفعلي تجمع البيانات من مصادر متعددة لتوفير ذكاء أعمال قابل للتنفيذ."
+        "en": "A professional Point-of-Sale system built with Electron.js for cross-platform restaurant and retail operations.",
+        "fr": "Un système de point de vente professionnel construit avec Electron.js pour les opérations de restauration multiplateforme.",
+        "ar": "نظام نقاط بيع احترافي مبني باستخدام Electron.js لعمليات المطاعم والبيع بالتجزئة متعددة المنصات."
       },
       "highlights": [
-        "Real-time data synchronization from 15+ sources",
-        "AI-powered predictive analytics",
-        "Custom report builder with drag-and-drop",
-        "Mobile-responsive executive views",
-        "Automated alert system for KPI thresholds"
+        "Electron.js cross-platform desktop app",
+        "Offline-capable operation",
+        "Real-time inventory tracking",
+        "Sales analytics and reporting",
+        "Multi-terminal synchronization"
       ]
     },
     "quickFacts": {
-      "client": "Global Logistics Inc.",
-      "year": "2023",
-      "duration": "5 months",
-      "status": "In Production",
-      "liveUrl": "https://dashboard-demo.theelites.com"
+      "client": "Mr5 Restaurant Group",
+      "year": "2025",
+      "duration": "4 months",
+      "status": "Live"
     },
-    "technologies": ["Next.js", "D3.js", "Apache Kafka", "ClickHouse", "TensorFlow", "Kubernetes"],
+    "technologies": ["Electron.js", "JavaScript", "Node.js", "SQLite", "HTML", "CSS"],
     "techStack": [
-      { "name": "Next.js", "logo": "/icons/tech/nextjs.svg", "reason": "Server-side rendering for fast initial loads" },
-      { "name": "D3.js", "logo": "/icons/tech/d3.svg", "reason": "Custom interactive data visualizations" },
-      { "name": "Apache Kafka", "logo": "/icons/tech/kafka.svg", "reason": "Real-time data streaming" },
-      { "name": "ClickHouse", "logo": "/icons/tech/clickhouse.svg", "reason": "Column-oriented database for fast queries" },
-      { "name": "TensorFlow", "logo": "/icons/tech/tensorflow.svg", "reason": "Machine learning for predictive analytics" },
-      { "name": "Kubernetes", "logo": "/icons/tech/kubernetes.svg", "reason": "Container orchestration for scalability" }
+      { "name": "Electron.js", "logo": "/icons/tech/electron.svg", "reason": "Cross-platform desktop application framework" },
+      { "name": "JavaScript", "logo": "/icons/tech/javascript.svg", "reason": "Core application logic and UI interactions" },
+      { "name": "Node.js", "logo": "/icons/tech/nodejs.svg", "reason": "Backend processes and system integration" },
+      { "name": "SQLite", "logo": "/icons/tech/sqlite.svg", "reason": "Lightweight embedded database for offline capability" }
     ],
-    "servicesUsed": ["enterprise", "web-development"],
+    "servicesUsed": ["web-development", "automation"],
     "timeline": [
-      { "phase": "Data Assessment", "date": "Aug 2023", "description": "Audited existing data sources, identified key metrics, and defined integration strategy" },
-      { "phase": "Architecture & Design", "date": "Sep 2023", "description": "Designed data pipeline architecture and created UI/UX mockups" },
-      { "phase": "Development", "date": "Oct - Nov 2023", "description": "Built data pipelines, dashboard UI, and AI prediction models" },
-      { "phase": "Launch & Training", "date": "Dec 2023", "description": "Production deployment, executive training sessions, and documentation" }
+      { "phase": "Requirements & Design", "date": "Month 1", "description": "Business process analysis, UI/UX design for touch screens" },
+      { "phase": "Core Development", "date": "Month 2-3", "description": "Transaction processing, inventory, user management" },
+      { "phase": "Testing & Deployment", "date": "Month 4", "description": "Multi-location testing, staff training, rollout" }
     ],
-    "duration": "5 months",
+    "duration": "4 months",
     "resultsMetrics": [
-      { "metric": "70%", "label": "Faster Decisions", "description": "Faster decision-making with real-time data" },
-      { "metric": "15+", "label": "Data Sources", "description": "Integrated data sources" },
-      { "metric": "98%", "label": "Prediction Accuracy", "description": "AI prediction accuracy" },
-      { "metric": "500+", "label": "Daily Users", "description": "Daily active users across departments" }
+      { "metric": "100%", "label": "Offline", "description": "Fully operational without internet" },
+      { "metric": "Fast", "label": "Transactions", "description": "Sub-second checkout processing" },
+      { "metric": "Real-time", "label": "Inventory", "description": "Live stock tracking" },
+      { "metric": "Multi", "label": "Terminal", "description": "Synchronized across locations" }
     ],
     "testimonial": {
-      "quote": "This dashboard has revolutionized how our executive team operates. We went from weekly reports to real-time insights, and the AI predictions have helped us avoid two major supply chain disruptions.",
-      "author": "Jennifer Adams",
-      "title": "COO, Global Logistics Inc.",
-      "avatar": "/images/testimonials/jennifer-adams.jpg"
+      "quote": "The POS system has transformed our restaurant operations. The offline capability means we never miss a sale, and the inventory tracking has reduced our waste significantly.",
+      "author": "Mr5 Team",
+      "title": "Restaurant Operations",
+      "avatar": "/images/testimonials/mr5.jpg"
     },
-    "heroImage": "/images/projects/dashboard-hero.jpg",
-    "featuredImageUrl": "/images/projects/dashboard-featured.jpg",
+    "heroImage": "/images/projects/mr5pos-hero.jpg",
+    "featuredImageUrl": "/images/projects/mr5pos-featured.jpg",
     "gallery": [
-      { "url": "/images/projects/dashboard-1.jpg", "alt": "Main dashboard view" },
-      { "url": "/images/projects/dashboard-2.jpg", "alt": "Report builder" },
-      { "url": "/images/projects/dashboard-3.jpg", "alt": "Mobile executive view" },
-      { "url": "/images/projects/dashboard-4.jpg", "alt": "AI insights panel" }
+      { "url": "/images/projects/mr5pos-1.jpg", "alt": "Login screen interface" },
+      { "url": "/images/projects/mr5pos-2.jpg", "alt": "Main POS terminal view" },
+      { "url": "/images/projects/mr5pos-3.jpg", "alt": "Inventory management" },
+      { "url": "/images/projects/mr5pos-4.jpg", "alt": "Sales analytics dashboard" }
     ],
-    "projectUrl": "https://dashboard-demo.theelites.com",
     "isFeatured": false,
-    "publishedAt": "2024-01-15T00:00:00.000Z",
+    "publishedAt": "2025-06-20T00:00:00.000Z",
     "orderIndex": 5,
-    "createdAt": "2023-08-01T00:00:00.000Z",
-    "updatedAt": "2024-12-01T00:00:00.000Z"
+    "createdAt": "2025-02-01T00:00:00.000Z",
+    "updatedAt": "2026-01-20T00:00:00.000Z"
+  },
+  {
+    "id": "proj-006",
+    "slug": "mr5-digital-menu",
+    "title": {
+      "en": "Mr5 Digital Menu System",
+      "fr": "Système de Menu Digital Mr5",
+      "ar": "نظام القائمة الرقمية Mr5"
+    },
+    "category": "Web Development",
+    "industry": "Hospitality",
+    "projectScale": "medium",
+    "clientName": "Mr5 Restaurant Group",
+    "clientLogoUrl": "/images/clients/mr5-logo.svg",
+    "shortDescription": {
+      "en": "Modern digital menu web application with React and TypeScript, enabling QR-code accessible menus for restaurant customers.",
+      "fr": "Application web de menu digital moderne avec React et TypeScript, permettant des menus accessibles par QR code pour les clients du restaurant.",
+      "ar": "تطبيق ويب قائمة رقمية حديث مع React و TypeScript، يتيح قوائم يمكن الوصول إليها عبر رمز QR لعملاء المطعم."
+    },
+    "challenge": {
+      "en": "Mr5 Restaurant Group wanted to modernize their customer experience with contactless digital menus that could be easily updated, support multiple languages, and provide an elegant browsing experience on any device.",
+      "fr": "Mr5 Restaurant Group souhaitait moderniser l'expérience client avec des menus digitaux sans contact facilement mis à jour et supportant plusieurs langues.",
+      "ar": "أرادت مجموعة مطاعم Mr5 تحديث تجربة العملاء بقوائم رقمية بدون تلامس يمكن تحديثها بسهولة ودعم لغات متعددة."
+    },
+    "solution": {
+      "en": "We built a responsive digital menu web application using React, TypeScript, and Tailwind CSS with shadcn/ui components. Customers scan a QR code to access the menu on their phones, with smooth navigation, category filtering, and an elegant design that matches the restaurant's brand.",
+      "fr": "Nous avons construit une application web de menu digital responsive utilisant React, TypeScript et Tailwind CSS avec des composants shadcn/ui.",
+      "ar": "قمنا ببناء تطبيق ويب قائمة رقمية متجاوب باستخدام React و TypeScript و Tailwind CSS مع مكونات shadcn/ui."
+    },
+    "results": {
+      "en": "The digital menu is now deployed on Vercel with instant updates, zero printing costs, and enhanced customer experience. Menu changes go live immediately without reprinting, saving costs and reducing environmental impact.",
+      "fr": "Le menu digital est maintenant déployé sur Vercel avec des mises à jour instantanées, zéro coût d'impression et une expérience client améliorée.",
+      "ar": "تم نشر القائمة الرقمية الآن على Vercel مع تحديثات فورية وتكلفة طباعة صفرية وتجربة عملاء محسنة."
+    },
+    "overview": {
+      "description": {
+        "en": "A QR-accessible digital menu system for modern restaurant operations.",
+        "fr": "Un système de menu digital accessible par QR pour les opérations de restaurant modernes.",
+        "ar": "نظام قائمة رقمية يمكن الوصول إليه عبر QR لعمليات المطاعم الحديثة."
+      },
+      "highlights": [
+        "QR code access",
+        "Real-time menu updates",
+        "Mobile-first responsive design",
+        "Category filtering",
+        "Deployed on Vercel"
+      ]
+    },
+    "quickFacts": {
+      "client": "Mr5 Restaurant Group",
+      "year": "2025",
+      "duration": "4 weeks",
+      "status": "Live",
+      "liveUrl": "https://mr5-menu.vercel.app"
+    },
+    "technologies": ["React", "TypeScript", "Vite", "TailwindCSS", "shadcn/ui"],
+    "techStack": [
+      { "name": "React", "logo": "/icons/tech/react.svg", "reason": "Component-based UI for menu items" },
+      { "name": "TypeScript", "logo": "/icons/tech/typescript.svg", "reason": "Type safety for menu data" },
+      { "name": "Vite", "logo": "/icons/tech/vite.svg", "reason": "Fast development and builds" },
+      { "name": "TailwindCSS", "logo": "/icons/tech/tailwind.svg", "reason": "Responsive mobile-first styling" },
+      { "name": "shadcn/ui", "logo": "/icons/tech/shadcn.svg", "reason": "Elegant pre-built components" }
+    ],
+    "servicesUsed": ["web-development"],
+    "timeline": [
+      { "phase": "Design", "date": "Week 1", "description": "Menu UI/UX design, brand alignment" },
+      { "phase": "Development", "date": "Week 2-3", "description": "React components, menu data structure, filtering" },
+      { "phase": "Launch", "date": "Week 4", "description": "Vercel deployment, QR code generation, staff training" }
+    ],
+    "duration": "4 weeks",
+    "resultsMetrics": [
+      { "metric": "0", "label": "Print Cost", "description": "Eliminated menu printing expenses" },
+      { "metric": "Instant", "label": "Updates", "description": "Menu changes go live immediately" },
+      { "metric": "100%", "label": "Mobile", "description": "Fully responsive on all devices" },
+      { "metric": "QR", "label": "Access", "description": "Contactless menu browsing" }
+    ],
+    "testimonial": {
+      "quote": "The digital menu has streamlined our operations completely. We can update prices, add seasonal items, and mark sold-out dishes instantly without any printing delays.",
+      "author": "Mr5 Team",
+      "title": "Restaurant Operations",
+      "avatar": "/images/testimonials/mr5.jpg"
+    },
+    "heroImage": "/images/projects/mr5menu-hero.jpg",
+    "featuredImageUrl": "/images/projects/mr5menu-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/mr5menu-1.jpg", "alt": "Digital menu homepage" },
+      { "url": "/images/projects/mr5menu-2.jpg", "alt": "Category navigation" },
+      { "url": "/images/projects/mr5menu-3.jpg", "alt": "Menu item details" },
+      { "url": "/images/projects/mr5menu-4.jpg", "alt": "Mobile responsive view" }
+    ],
+    "projectUrl": "https://mr5-menu.vercel.app",
+    "isFeatured": false,
+    "publishedAt": "2025-06-24T00:00:00.000Z",
+    "orderIndex": 6,
+    "createdAt": "2025-05-20T00:00:00.000Z",
+    "updatedAt": "2026-01-20T00:00:00.000Z"
   }
 ]
