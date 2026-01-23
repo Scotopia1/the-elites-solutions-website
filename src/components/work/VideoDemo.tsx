@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 
 interface VideoDemoProps {
   videoUrl: string;
+  title?: { en: string; fr: string; ar: string };
+  locale?: string;
 }
 
-export default function VideoDemo({ videoUrl }: VideoDemoProps) {
+export default function VideoDemo({ videoUrl, title, locale = 'en' }: VideoDemoProps) {
   // Don't render if no video URL
   if (!videoUrl) return null;
 

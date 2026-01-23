@@ -1,0 +1,436 @@
+/* ================================================
+   HeroSection - Orbit Matter Aesthetic
+   Full-screen hero with GSAP animations
+   Dark (#141414) + Gold (#FFD700) + SCHABO font
+   ================================================ */
+
+.heroSection {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--orbit-dark-200, #141414);
+}
+
+/* ================================================
+   Background Image + Gradient Overlay
+   ================================================ */
+
+.backgroundWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.backgroundImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.gradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 20, 0.85) 0%,
+    rgba(20, 20, 20, 0.7) 30%,
+    rgba(20, 20, 20, 0.4) 60%,
+    rgba(255, 215, 0, 0.08) 85%,
+    rgba(255, 215, 0, 0.12) 100%
+  );
+  z-index: 1;
+}
+
+/* ================================================
+   Content Container
+   ================================================ */
+
+.contentWrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+/* ================================================
+   Timer (Optional UTC Display)
+   ================================================ */
+
+.timer {
+  font-family: "Geist Mono", "DM Mono", monospace;
+  font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 215, 0, 0.6);
+  margin-bottom: 1rem;
+}
+
+/* ================================================
+   Typography
+   ================================================ */
+
+.title {
+  font-family: "SCHABO", "FK Screamer", sans-serif;
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--orbit-gold-100, #ffd700);
+  margin: 0;
+  will-change: clip-path;
+  text-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
+}
+
+.subtitle {
+  font-family: "Host Grotesk", "Inter", sans-serif;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: rgba(255, 215, 0, 0.85);
+  max-width: 800px;
+  margin: 0;
+}
+
+.description {
+  font-family: "Host Grotesk", "Inter", sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 215, 0, 0.7);
+  max-width: 700px;
+  margin: 0;
+}
+
+/* ================================================
+   Callout Badges (Stagger Animation)
+   ================================================ */
+
+.callouts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.08) 0%,
+    rgba(255, 215, 0, 0.04) 100%
+  );
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 2px;
+  font-family: "Geist Mono", "DM Mono", monospace;
+  font-size: clamp(0.75rem, 1vw, 0.85rem);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 215, 0, 0.9);
+  transition: all 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.badge:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.12) 0%,
+    rgba(255, 215, 0, 0.06) 100%
+  );
+  border-color: rgba(255, 215, 0, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.15);
+}
+
+.badgeIcon {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+.badgeText {
+  line-height: 1;
+}
+
+/* ================================================
+   Responsive Breakpoints
+   ================================================ */
+
+/* Large Desktop (1920px+) */
+@media (min-width: 1920px) {
+  .title {
+    font-size: 10rem;
+  }
+
+  .subtitle {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop (1366px-1919px) */
+@media (min-width: 1366px) and (max-width: 1919px) {
+  .title {
+    font-size: 7rem;
+  }
+}
+
+/* Small Desktop (1024px-1365px) */
+@media (min-width: 1024px) and (max-width: 1365px) {
+  .heroSection {
+    min-height: 650px;
+  }
+
+  .title {
+    font-size: 6rem;
+  }
+}
+
+/* Tablet (768px-1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .heroSection {
+    min-height: 600px;
+  }
+
+  .contentWrapper {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 5rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .callouts {
+    gap: 0.75rem;
+  }
+
+  .badge {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile (481px-767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .heroSection {
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .contentWrapper {
+    padding: 1rem;
+  }
+
+  .container {
+    gap: 1.5rem;
+  }
+
+  .timer {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  .callouts {
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* Small Mobile (320px-480px) */
+@media (max-width: 480px) {
+  .heroSection {
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .contentWrapper {
+    padding: 1rem 0.75rem;
+  }
+
+  .container {
+    gap: 1.25rem;
+  }
+
+  .timer {
+    font-size: 0.65rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 11vw, 3.5rem);
+    line-height: 1;
+  }
+
+  .subtitle {
+    font-size: clamp(1rem, 4vw, 1.15rem);
+    max-width: 95%;
+  }
+
+  .description {
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+    max-width: 95%;
+    line-height: 1.5;
+  }
+
+  .callouts {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .badge {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.5rem 1rem;
+    font-size: 0.65rem;
+    justify-content: center;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .heroSection {
+    min-height: 100vh;
+  }
+
+  .contentWrapper {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+  }
+
+  .container {
+    gap: 1rem;
+  }
+
+  .timer {
+    margin-bottom: 0.25rem;
+  }
+
+  .subtitle {
+    font-size: 1.15rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .callouts {
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* Touch Devices - Larger tap targets */
+@media (hover: none) and (pointer: coarse) {
+  .badge {
+    min-height: 44px;
+    padding: 0.75rem 1.25rem;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .title,
+  .subtitle,
+  .description,
+  .badge {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .badge:hover {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .title {
+    color: #ffd700;
+    text-shadow: none;
+  }
+
+  .subtitle,
+  .description {
+    color: #ffffff;
+  }
+
+  .badge {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: #ffd700;
+    color: #ffffff;
+  }
+
+  .gradientOverlay {
+    background: rgba(20, 20, 20, 0.9);
+  }
+}

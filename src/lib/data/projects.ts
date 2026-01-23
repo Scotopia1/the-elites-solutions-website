@@ -1,5 +1,37 @@
 import projectsData from '@/data/projects/projects.json';
 
+export interface LocalizedString {
+  en: string;
+  fr: string;
+  ar: string;
+}
+
+export interface InteractiveDemo {
+  type: 'url' | 'figma' | 'video';
+  url: string;
+  fallbackImage: string;
+  title: LocalizedString;
+}
+
+export interface ArchitectureHighlight {
+  label: LocalizedString;
+  description: LocalizedString;
+}
+
+export interface ArchitectureDiagram {
+  diagram: string;
+  caption: LocalizedString;
+  highlights: ArchitectureHighlight[];
+}
+
+export interface ProcessStep {
+  phase: LocalizedString;
+  title: LocalizedString;
+  description: LocalizedString;
+  details?: LocalizedString;
+  icon: string;
+}
+
 export interface Project {
   id: string;
   title: { en: string; fr: string; ar: string };
@@ -32,6 +64,11 @@ export interface Project {
   orderIndex: number;
   createdAt: string;
   updatedAt: string;
+  videoUrl?: string | null;
+  interactiveDemo?: InteractiveDemo | null;
+  architecture?: ArchitectureDiagram | null;
+  processSteps?: ProcessStep[] | null;
+  relatedSlugs?: string[] | null;
 }
 
 /**
@@ -47,6 +84,36 @@ export function getAllProjects(): Project[] {
 export function getProjectBySlug(slug: string): Project | null {
   const project = projectsData.find((p: any) => p.slug === slug);
   return project ? (project as Project) : null;
+}
+
+export function getNextProject(currentSlug: string): Project | null {
+  const projects = getAllProjects();
+  const currentIndex = projects.findIndex(p => p.slug === currentSlug);
+  if (currentIndex === -1) return null;
+  const nextIndex = (currentIndex + 1) % projects.length;
+  return projects[nextIndex];
+}
+
+export function getRelatedProjects(
+  currentSlug: string,
+  relatedSlugs?: string[] | null
+): Project[] {
+  const allProjects = getAllProjects();
+  const currentProject = getProjectBySlug(currentSlug);
+  if (!currentProject) return [];
+  
+  if (relatedSlugs && relatedSlugs.length > 0) {
+    return allProjects
+      .filter(p => relatedSlugs.includes(p.slug) && p.slug !== currentSlug)
+      .slice(0, 3);
+  }
+  
+  return allProjects
+    .filter(p =>
+      p.slug !== currentSlug &&
+      (p.category === currentProject.category || p.industry === currentProject.industry)
+    )
+    .slice(0, 3);
 }
 
 /**

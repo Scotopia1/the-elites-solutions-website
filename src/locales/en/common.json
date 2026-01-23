@@ -70,5 +70,26 @@
     "filter": "Filter",
     "sort": "Sort",
     "clear": "Clear"
+  },
+  "work": {
+    "interactiveDemo": {
+      "title": "Interactive Demo",
+      "viewDemo": "View Live Demo",
+      "loading": "Loading demo...",
+      "error": "Demo unavailable"
+    },
+    "architecture": {
+      "title": "Technical Architecture",
+      "zoomIn": "Click to zoom"
+    },
+    "process": {
+      "title": "Our Process",
+      "expand": "Read more",
+      "collapse": "Show less"
+    },
+    "related": {
+      "title": "Related Work",
+      "viewProject": "View Project"
+    }
   }
 }

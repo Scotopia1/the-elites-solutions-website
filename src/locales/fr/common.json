@@ -70,5 +70,26 @@
     "filter": "Filtrer",
     "sort": "Trier",
     "clear": "Effacer"
+  },
+  "work": {
+    "interactiveDemo": {
+      "title": "Démo Interactive",
+      "viewDemo": "Voir la Démo en Direct",
+      "loading": "Chargement de la démo...",
+      "error": "Démo indisponible"
+    },
+    "architecture": {
+      "title": "Architecture Technique",
+      "zoomIn": "Cliquer pour zoomer"
+    },
+    "process": {
+      "title": "Notre Processus",
+      "expand": "Lire plus",
+      "collapse": "Afficher moins"
+    },
+    "related": {
+      "title": "Travaux Connexes",
+      "viewProject": "Voir le Projet"
+    }
   }
 }

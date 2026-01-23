@@ -70,5 +70,26 @@
     "filter": "تصفية",
     "sort": "ترتيب",
     "clear": "مسح"
+  },
+  "work": {
+    "interactiveDemo": {
+      "title": "عرض تفاعلي",
+      "viewDemo": "عرض العرض المباشر",
+      "loading": "جاري التحميل...",
+      "error": "العرض غير متاح"
+    },
+    "architecture": {
+      "title": "الهندسة المعمارية التقنية",
+      "zoomIn": "انقر للتكبير"
+    },
+    "process": {
+      "title": "عمليتنا",
+      "expand": "اقرأ المزيد",
+      "collapse": "عرض أقل"
+    },
+    "related": {
+      "title": "أعمال ذات صلة",
+      "viewProject": "عرض المشروع"
+    }
   }
 }

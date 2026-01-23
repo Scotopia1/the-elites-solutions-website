@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getProjectBySlug, getAllProjects } from '@/lib/data/projects';
+import { getProjectBySlug, getAllProjects, getNextProject } from '@/lib/data/projects';
 import ClientLayoutWrapper from '@/components/layout/ClientLayoutWrapper';
 
 // Project components
@@ -123,7 +123,7 @@ export default function ProjectDetailPage({ params }: Props) {
 
   const testimonial = project.testimonial;
   const videoUrl = undefined;
-  const nextProject = undefined;
+  const nextProject = getNextProject(project.slug);
 
   return (
     <ClientLayoutWrapper>
@@ -168,10 +168,21 @@ export default function ProjectDetailPage({ params }: Props) {
         {results.length > 0 && <ResultsMetrics results={results} testimonial={testimonial} />}
 
         {/* Video Demo */}
-        {videoUrl && <VideoDemo videoUrl={videoUrl} />}
+        {videoUrl && (
+          <VideoDemo
+            videoUrl={videoUrl}
+            title={project.title}
+            locale={locale}
+          />
+        )}
 
         {/* Next Project Teaser */}
-        {nextProject && <NextProjectTeaser nextProjectSlug={nextProject} />}
+        {nextProject && (
+          <NextProjectTeaser
+            nextProject={nextProject}
+            locale={locale}
+          />
+        )}
       </div>
     </ClientLayoutWrapper>
   );

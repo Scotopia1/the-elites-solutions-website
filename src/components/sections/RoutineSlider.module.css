@@ -1,0 +1,313 @@
+.routineSection {
+  position: relative;
+  padding: 8rem 0;
+  background: linear-gradient(
+    180deg,
+    var(--orbit-dark-200, #141414) 0%,
+    var(--orbit-dark-300, #0a0a0a) 100%
+  );
+  overflow: hidden;
+}
+
+.routineSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(255, 215, 0, 0.03) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.header {
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+}
+
+.title {
+  font-family: var(--font-heading, 'SCHABO', sans-serif);
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  color: var(--orbit-gold-100, #FFD700);
+  margin: 0 0 2rem 0;
+  line-height: 0.9;
+  background: linear-gradient(
+    135deg,
+    #FFD700 0%,
+    #FFA500 50%,
+    #FFD700 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #FFD700 0%,
+    #FFA500 50%,
+    #FFD700 100%
+  );
+  transform: scaleX(0);
+  border-radius: 2px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.sliderWrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+.slider {
+  display: flex;
+  gap: 3rem;
+  will-change: transform;
+}
+
+.stepCard {
+  flex: 0 0 400px;
+  min-height: 500px;
+  padding: 3rem 2.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.03) 0%,
+    rgba(255, 215, 0, 0.01) 100%
+  );
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  border-radius: 16px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.stepCard::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.08) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.stepCard:hover {
+  border-color: rgba(255, 215, 0, 0.4);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 60px rgba(255, 215, 0, 0.2),
+    0 0 0 1px rgba(255, 215, 0, 0.1) inset;
+}
+
+.stepCard:hover::before {
+  opacity: 1;
+}
+
+.stepNumber {
+  font-family: var(--font-heading, 'SCHABO', sans-serif);
+  font-size: clamp(5rem, 8vw, 7rem);
+  font-weight: 500;
+  color: rgba(255, 215, 0, 0.08);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 215, 0, 0.15) 0%,
+    rgba(255, 215, 0, 0.03) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.iconContainer {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 215, 0, 0.2);
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.05) 0%,
+    rgba(255, 215, 0, 0.02) 100%
+  );
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stepCard:hover .iconContainer {
+  border-color: rgba(255, 215, 0, 0.5);
+  transform: rotate(10deg) scale(1.1);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+.icon {
+  font-size: 2rem;
+  filter: brightness(1.5);
+}
+
+.stepTitle {
+  font-family: var(--font-body, 'Geist Mono', monospace);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--orbit-gold-100, #FFD700);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.3;
+  position: relative;
+  z-index: 2;
+}
+
+.stepDescription {
+  font-family: var(--font-copy, 'Host Grotesk', sans-serif);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  color: rgba(255, 215, 0, 0.7);
+  line-height: 1.7;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile: Vertical Stack */
+@media (max-width: 768px) {
+  .routineSection {
+    padding: 5rem 0;
+  }
+
+  .header {
+    margin-bottom: 3rem;
+  }
+
+  .title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .progressTrack {
+    display: none; /* Hide progress bar on mobile */
+  }
+
+  .sliderWrapper {
+    padding: 0 1.5rem;
+  }
+
+  .slider {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .stepCard {
+    flex: 1;
+    min-height: auto;
+    padding: 2.5rem 2rem;
+  }
+
+  .stepNumber {
+    font-size: clamp(4rem, 12vw, 5rem);
+  }
+
+  .iconContainer {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1.5rem;
+  }
+
+  .icon {
+    font-size: 1.75rem;
+  }
+
+  .stepTitle {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+  }
+
+  .stepDescription {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .stepCard {
+    flex: 0 0 350px;
+    min-height: 450px;
+    padding: 2.5rem 2rem;
+  }
+
+  .slider {
+    gap: 2rem;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1600px) {
+  .stepCard {
+    flex: 0 0 450px;
+    min-height: 550px;
+  }
+
+  .slider {
+    gap: 4rem;
+  }
+}
+
+/* Snap scrolling hint for better UX */
+@media (min-width: 769px) {
+  .slider {
+    scroll-snap-type: x mandatory;
+  }
+
+  .stepCard {
+    scroll-snap-align: start;
+  }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .stepCard,
+  .iconContainer,
+  .progressBar {
+    transition: none;
+  }
+
+  .stepCard:hover {
+    transform: none;
+  }
+}

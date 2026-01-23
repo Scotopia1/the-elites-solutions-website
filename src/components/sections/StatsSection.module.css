@@ -1,0 +1,121 @@
+.statsSection {
+  padding: 8rem 0;
+  background-color: var(--orbit-dark-200, #141414);
+  position: relative;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.title {
+  font-family: var(--font-heading, 'SCHABO', sans-serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--orbit-gold-100, #FFD700);
+  margin: 0 0 1rem 0;
+}
+
+.description {
+  font-family: var(--font-copy, 'Host Grotesk', sans-serif);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: rgba(255, 215, 0, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+.statCard {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.02) 0%,
+    rgba(255, 215, 0, 0.05) 100%
+  );
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  border-color: rgba(255, 215, 0, 0.3);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.05) 0%,
+    rgba(255, 215, 0, 0.08) 100%
+  );
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+}
+
+.statValue {
+  font-family: var(--font-heading, 'SCHABO', sans-serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 500;
+  color: var(--orbit-gold-100, #FFD700);
+  line-height: 1;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.suffix {
+  font-size: 0.6em;
+  opacity: 0.8;
+}
+
+.statLabel {
+  font-family: var(--font-body, 'Geist Mono', monospace);
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 215, 0, 0.9);
+  margin: 0 0 0.5rem 0;
+}
+
+.statDescription {
+  font-family: var(--font-copy, 'Host Grotesk', sans-serif);
+  font-size: 0.9rem;
+  color: rgba(255, 215, 0, 0.6);
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .statsSection {
+    padding: 5rem 0;
+  }
+
+  .header {
+    margin-bottom: 3rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .statCard {
+    padding: 2rem 1rem;
+  }
+}

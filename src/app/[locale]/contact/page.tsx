@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'next/navigation';
-import { ReactLenis } from 'lenis/react';
-import { useLenisConfig } from '@/hooks/useLenisConfig';
 import { motion, useInView } from 'framer-motion';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -119,7 +119,6 @@ function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: strin
 export default function ContactPage() {
   const params = useParams();
   const locale = (params?.locale as string) || 'en';
-  const lenisOptions = useLenisConfig();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -180,57 +179,41 @@ export default function ContactPage() {
     }
   };
 
+  // FAQ data for contact page
+  const contactFaqs = [
+    {
+      question: "How quickly can you start my project?",
+      answer: "Most projects can start within 1-2 weeks after our initial consultation and contract signing. For urgent projects, we offer expedited onboarding within 3-5 business days.",
+    },
+    {
+      question: "What is your payment structure?",
+      answer: "We typically use a milestone-based payment structure: 30% upfront, 40% at midpoint, and 30% upon completion. For larger projects, we can customize a payment plan that works for your budget.",
+    },
+    {
+      question: "Do you offer maintenance and support after launch?",
+      answer: "Yes! We provide comprehensive maintenance packages including bug fixes, security updates, performance optimization, and feature enhancements. Support is available 24/7 for critical issues.",
+    },
+    {
+      question: "Can you work with our existing team?",
+      answer: "Absolutely. We integrate seamlessly with your existing development team, design team, or stakeholders. We use standard collaboration tools like Slack, Jira, and GitHub.",
+    },
+    {
+      question: "What makes The Elites Solutions different?",
+      answer: "We combine technical excellence with business understanding. Our team doesn't just build software—we create solutions that drive measurable business outcomes. Plus, we offer transparent communication, fixed-price guarantees, and ongoing support.",
+    },
+  ];
+
   return (
-    <ReactLenis root options={lenisOptions}>
-      {/* Background Layer */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#0a0a0a_0%,#1a1a1a_50%,#0a0a0a_100%)]" />
-        <div
-          className="absolute inset-0 opacity-[0.02] mix-blend-screen"
-          style={{
-            backgroundImage: "url('/textures/Gold.jpg')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="pt-40 pb-20 px-6 lg:px-20">
-          <div className="max-w-6xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <span className="font-heading text-gold-100 text-sm uppercase tracking-[0.3em] mb-6 block">
-                Get In Touch
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="font-heading text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-[0.9]"
-            >
-              Let&apos;s Build Something
-              <br />
-              <span className="text-gold-100">Extraordinary</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl text-white/60 max-w-2xl mx-auto"
-            >
-              Ready to transform your business? Let&apos;s discuss your project and explore how we can help you achieve your goals.
-            </motion.p>
-          </div>
-        </section>
+    <>
+      <HeroSection
+        title="Let's Build Something"
+        subtitle="Extraordinary"
+        description="Ready to transform your business? Let's discuss your project and explore how we can help you achieve your goals."
+        backgroundImage="/images/contact-hero.jpg"
+        ctaText="Scroll to Form"
+        ctaHref="#contact-form"
+        showTimer={false}
+      />
 
         {/* Contact Methods */}
         <section className="py-12 px-6 lg:px-20">
@@ -578,7 +561,15 @@ export default function ContactPage() {
             </motion.div>
           </div>
         </section>
-      </div>
-    </ReactLenis>
+
+        {/* FAQ Section */}
+        <section className="py-20">
+          <FAQAccordion
+            title="Frequently Asked Questions"
+            description="Everything you need to know about working with us"
+            items={contactFaqs}
+          />
+        </section>
+    </>
   );
 }

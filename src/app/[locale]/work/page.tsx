@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useMemo } from 'react';
 import { useParams } from 'next/navigation';
+import { HeroSection } from '@/components/sections/HeroSection';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, ArrowRight, Loader2 } from 'lucide-react';
@@ -125,22 +126,19 @@ export default function WorkPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-dark-500 via-dark-400 to-dark-500">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl md:text-6xl font-heading font-bold">
-              <span className="text-gold-gradient">Our Work</span>
-            </h1>
-            <p className="text-xl text-gray-300">
-              {locale === 'fr'
-                ? 'Découvrez notre portfolio de projets réussis'
-                : locale === 'ar'
-                ? 'استكشف محفظة مشاريعنا الناجحة'
-                : 'Explore our portfolio of successful projects'}
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title={locale === 'fr' ? 'Nos Réalisations' : locale === 'ar' ? 'أعمالنا' : 'Our Work'}
+        subtitle="Portfolio of Excellence"
+        description={locale === 'fr'
+          ? 'Découvrez notre portfolio de projets réussis qui ont transformé des entreprises'
+          : locale === 'ar'
+          ? 'استكشف محفظة مشاريعنا الناجحة التي غيرت الأعمال'
+          : 'Explore our portfolio of successful projects that have transformed businesses'}
+        backgroundImage="/images/work-hero.jpg"
+        ctaText={locale === 'fr' ? 'Voir Tous les Projets' : locale === 'ar' ? 'عرض جميع المشاريع' : 'View All Projects'}
+        ctaHref="#projects"
+        showTimer={false}
+      />
 
       {/* Search & Filters Section (Sticky) */}
       <section className="sticky top-0 z-30 py-8 bg-dark-400/95 backdrop-blur-md border-b border-dark-300">

@@ -99,6 +99,36 @@
     --base-200-light: #efece5;
     --base-300-dark: #0a0a0a;
 
+    /* ========================================
+       CGMWTNOV2025 - ORBIT MATTER (Primary Design System)
+       ======================================== */
+
+    /* Orbit Matter Core Colors */
+    --orbit-gold-100: #FFD700;     /* Primary gold - text & accents */
+    --orbit-gold-200: #F4C430;     /* Medium gold */
+    --orbit-gold-300: #B8860B;     /* Dark gold */
+
+    --orbit-dark-100: #1a1a1a;     /* Secondary dark */
+    --orbit-dark-200: #141414;     /* Primary dark - main background */
+    --orbit-dark-300: #0a0a0a;     /* Darkest - deep shadows */
+
+    /* Orbit Matter Effect Colors */
+    --orbit-glow: rgba(255, 215, 0, 0.05);         /* Subtle gold glow */
+    --orbit-glow-strong: rgba(255, 215, 0, 0.2);   /* Strong gold glow */
+    --orbit-border: rgba(255, 215, 0, 0.15);       /* Border color */
+    --orbit-border-hover: rgba(255, 215, 0, 0.4);  /* Border hover */
+
+    /* Orbit Matter Text Colors */
+    --orbit-text-primary: #FFD700;              /* Primary text */
+    --orbit-text-secondary: rgba(255, 215, 0, 0.9);  /* Secondary text */
+    --orbit-text-muted: rgba(255, 215, 0, 0.7);      /* Muted text */
+    --orbit-text-subtle: rgba(255, 215, 0, 0.5);     /* Very subtle text */
+
+    /* Typography System (Orbit Matter) */
+    --font-orbit-heading: 'SCHABO', 'FK Screamer', 'Montserrat', sans-serif;
+    --font-orbit-body: 'Geist Mono', 'DM Mono', monospace;
+    --font-orbit-copy: 'Host Grotesk', 'Inter', sans-serif;
+
     /* CGMWTNOV2025 - Orbit Matter (Hero, Footer, Interactive Grid) */
     --orbit-gold-100: #FFD700;    /* Primary text/accents */
     --orbit-gold-200: #F4C430;    /* Medium gold */

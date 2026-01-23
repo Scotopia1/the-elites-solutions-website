@@ -64,6 +64,7 @@ import { SessionProvider } from '@/components/providers/session-provider';
 import { LoadingProvider } from '@/components/providers/loading-provider';
 import { TransitionProvider } from '@/components/transitions';
 import { ReducedMotionProvider } from '@/components/providers/ReducedMotionProvider';
+import { SmoothScrollProvider } from '@/providers/SmoothScrollProvider';
 import { getOrganizationSchema } from '@/lib/seo/structured-data';
 
 export default function RootLayout({
@@ -87,14 +88,16 @@ export default function RootLayout({
         className={`${inter.variable} ${montserrat.variable} font-sans antialiased`}
       >
         <ReducedMotionProvider>
-          <SessionProvider>
-            <TransitionProvider>
-              <LoadingProvider>
-                {children}
-              </LoadingProvider>
-            </TransitionProvider>
-            <Toaster position="top-right" richColors />
-          </SessionProvider>
+          <SmoothScrollProvider>
+            <SessionProvider>
+              <TransitionProvider>
+                <LoadingProvider>
+                  {children}
+                </LoadingProvider>
+              </TransitionProvider>
+              <Toaster position="top-right" richColors />
+            </SessionProvider>
+          </SmoothScrollProvider>
         </ReducedMotionProvider>
       </body>
     </html>
