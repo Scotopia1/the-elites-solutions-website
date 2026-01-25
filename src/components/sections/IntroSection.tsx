@@ -10,7 +10,7 @@ export interface IntroSectionProps {
   title: string;
   content: string;
   imageSrc?: string;
-  imageAlt?: string;
+  imageAlt?: string; // Required when imageSrc is provided
   className?: string;
 }
 
@@ -26,6 +26,15 @@ export function IntroSection({
   const labelRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
+
+  // Validate imageAlt when image is provided
+  useEffect(() => {
+    if (imageSrc && !imageAlt) {
+      console.error(
+        "IntroSection: imageAlt is required when imageSrc is provided. Please provide meaningful alt text for accessibility."
+      );
+    }
+  }, [imageSrc, imageAlt]);
 
   useEffect(() => {
     const section = sectionRef.current;

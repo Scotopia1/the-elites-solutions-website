@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import styles from "./RoutineSlider.module.css";
 
@@ -26,6 +26,7 @@ export function RoutineSlider({
   const wrapperRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useGSAP(
     () => {
@@ -56,6 +57,7 @@ export function RoutineSlider({
           refreshPriority: -1,
           onUpdate: (self) => {
             const progress = self.progress;
+            setScrollProgress(Math.round(progress * 100));
 
             // Move slider horizontally
             gsap.set(slider, {
@@ -111,18 +113,31 @@ export function RoutineSlider({
                 ref={progressBarRef}
                 className={styles.progressBar}
                 style={{ transformOrigin: "left" }}
+                role="progressbar"
+                aria-valuenow={scrollProgress}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-label="Workflow progress"
               />
             </div>
           </div>
         )}
 
         <div ref={wrapperRef} className={styles.sliderWrapper}>
+          {/* Scroll hint for mobile */}
+          <div className={styles.scrollHint} aria-hidden="true">
+            <span>Scroll horizontally →</span>
+          </div>
+
           <div ref={sliderRef} className={styles.slider}>
             {steps.map((step, index) => (
               <div
                 key={index}
                 className={styles.stepCard}
                 data-step={index}
+                tabIndex={0}
+                role="article"
+                aria-label={`Step ${step.number}: ${step.title}`}
               >
                 <div className={styles.stepNumber}>{step.number}</div>
 

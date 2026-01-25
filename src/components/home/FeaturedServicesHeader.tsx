@@ -14,7 +14,7 @@ export interface FeaturedServicesHeaderProps {
   className?: string;
 }
 
-export default function FeaturedServicesHeader({
+export function FeaturedServicesHeader({
   title = "Our Services",
   pinDuration = 3,
   className = "",

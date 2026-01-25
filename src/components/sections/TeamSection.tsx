@@ -89,6 +89,9 @@ export function TeamSection({
       className={`relative overflow-hidden bg-[var(--orbit-dark-200)] py-24 ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={title}
     >
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-5">
@@ -108,6 +111,28 @@ export function TeamSection({
             {title}
           </h2>
         </motion.div>
+
+        {/* Pause/Play Button */}
+        {autoPlay && totalMembers > 1 && (
+          <motion.button
+            onClick={() => setIsPaused(!isPaused)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="absolute right-4 top-4 z-20 flex items-center gap-2 border border-[var(--orbit-gold-100)] bg-[var(--orbit-dark-200)]/80 px-4 py-2 text-sm uppercase tracking-wider text-[var(--orbit-gold-100)] backdrop-blur-sm transition-colors hover:bg-[var(--orbit-gold-100)] hover:text-[var(--orbit-dark-200)] md:right-8 md:top-8"
+            aria-label={isPaused ? "Play carousel" : "Pause carousel"}
+          >
+            {isPaused ? (
+              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            ) : (
+              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+              </svg>
+            )}
+            <span className="hidden md:inline">{isPaused ? "Play" : "Pause"}</span>
+          </motion.button>
+        )}
 
         {/* Counter Display */}
         <motion.div
@@ -148,6 +173,9 @@ export function TeamSection({
                 opacity: { duration: 0.3 },
               }}
               className="grid gap-8 md:grid-cols-2 md:gap-12"
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${currentIndex + 1} of ${totalMembers}`}
             >
               {/* Image Section */}
               <motion.div

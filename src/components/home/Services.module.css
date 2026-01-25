@@ -1,24 +1,33 @@
 /**
- * Services Styles
+ * Services Styles - Layered Depth Reveal (Concept 1)
  *
- * Port of CGMWTNOV2025 featured-missions section with gold/white palette.
- * Vertical card grid layout with centered single column.
- *
- * Source: CGMWTNOV2025\orbit-matter\css\home.css - featured-missions section
+ * Multi-layer card system with glassmorphism, ken burns effect, and scroll choreography.
+ * Colors: #1a1a1a (charcoal), #FFD700 (gold), white, with 10% opacity overlays
  */
 
-/* Services Header Section (full screen intro) */
-.servicesHeader {
+/* Main Container */
+.servicesContainer {
   position: relative;
   width: 100vw;
-  height: 100svh;
-  padding: 1.5rem;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  scroll-snap-type: y mandatory;
+}
+
+/* Section Header (visible at start) */
+.servicesHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  overflow: hidden;
-  z-index: 1;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .servicesHeader h1 {
@@ -31,147 +40,204 @@
   letter-spacing: clamp(-0.05rem, -1vw, -0.15rem);
 }
 
-/* Services Cards Section */
-.services {
+/* Layers Wrapper */
+.layersWrapper {
   position: relative;
   width: 100%;
-  padding: 7.5rem 1.5rem 15rem 1.5rem;
-  z-index: 2;
-  background-color: transparent;
+  height: 100%;
 }
 
-/* Services List Container (single column centered) */
-.servicesList {
-  width: 40%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 7.5rem;
-}
-
-/* Individual Service Card */
-.serviceCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 1.5rem;
-  background-color: #8c8a7f;
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  padding: 3rem 1.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.serviceCard:hover {
-  transform: scale(1.02);
-  border-color: rgba(255, 215, 0, 0.5);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
-}
-
-/* Card Typography */
-.serviceCard h3 {
-  font-family: 'FK Screamer', 'PP Editorial New', serif;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 500;
-  line-height: 1.1;
-  text-transform: uppercase;
-  color: #141414;
-  letter-spacing: clamp(-0.025rem, -0.5vw, -0.075rem);
-  margin: 0;
-}
-
-.serviceCard p {
-  font-family: 'Geist Mono', 'DM Mono', monospace;
-  font-size: clamp(0.8rem, 0.75vw, 0.85rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #141414;
-  letter-spacing: 0.05em;
-  margin: 0;
-}
-
-.serviceCard .serviceCategory {
-  color: #FFD700;
-  font-weight: 700;
-}
-
-/* Service Image Container */
-.serviceImage {
-  position: relative;
+/* Individual Service Layer */
+.serviceLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  aspect-ratio: 5 / 3;
+  height: 100vh;
   overflow: hidden;
-  border-radius: 0.5rem;
-  background: linear-gradient(135deg, rgba(100, 100, 100, 0.3) 0%, rgba(60, 60, 60, 0.5) 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s ease;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(100vh);
+  will-change: transform, opacity, z-index;
+  scroll-snap-align: start;
 }
 
-.serviceCard:hover .serviceImage {
-  transform: scale(1.05);
+.serviceLayer:focus {
+  outline: 2px solid #FFD700;
+  outline-offset: -4px;
 }
 
-.serviceImage img {
+.serviceLayer:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Gold Accent Line */
+.accentLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #FFD700 0%, rgba(255, 215, 0, 0.4) 100%);
+  transform-origin: top;
+  transform: scaleY(0);
+  z-index: 30;
+  will-change: transform;
+}
+
+/* Background Layer - Image with Ken Burns */
+.backgroundLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 10;
+  will-change: transform;
+}
+
+.backgroundLayer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0.3) 0%, rgba(26, 26, 26, 0.6) 100%);
+  z-index: 1;
+}
+
+.backgroundLayer img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(1);
+  will-change: transform;
+}
+
+/* Mid Layer - Glassmorphism Overlay */
+.midLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 30% 40%,
+    rgba(255, 215, 0, 0.05) 0%,
+    rgba(26, 26, 26, 0.1) 50%,
+    rgba(26, 26, 26, 0.2) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 20;
+}
+
+/* Foreground Layer - Typography */
+.foregroundLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 10vw;
+  z-index: 25;
+  pointer-events: none;
+}
+
+/* Typography Styles */
+.serviceNumber {
+  font-family: 'Geist Mono', 'DM Mono', monospace;
+  font-size: clamp(0.75rem, 0.8vw, 0.9rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #FFD700;
+  letter-spacing: 0.1em;
+  margin: 0 0 1rem 0;
+}
+
+.serviceTitle {
+  font-family: 'FK Screamer', 'PP Editorial New', serif;
+  font-size: clamp(3rem, 8vw, 10rem);
+  font-weight: 500;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: clamp(-0.05rem, -0.5vw, -0.1rem);
+  margin: 0 0 1.5rem 0;
+  max-width: 80%;
+}
+
+.serviceMetric {
+  font-family: 'Geist Mono', 'DM Mono', monospace;
+  font-size: clamp(0.9rem, 1vw, 1.1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FFD700;
+  letter-spacing: 0.05em;
+  margin: 0 0 2rem 0;
+}
+
+.serviceDescription {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: clamp(0.95rem, 1.1vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0;
+}
+
+/* Hover Effect */
+.serviceLayer:hover .accentLine {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.serviceLayer:hover .backgroundLayer img {
+  transform: scale(1.02);
+  transition: transform 0.4s ease-out;
 }
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
-  .servicesList {
-    width: 60%;
-  }
-
-  .services {
-    padding: 6rem 1.5rem 12rem 1.5rem;
-  }
-}
-
-@media (max-width: 1000px) {
   .servicesHeader h1 {
-    font-size: 25vw;
+    font-size: 22vw;
   }
 
-  .services {
-    padding: 8rem 1rem;
+  .foregroundLayer {
+    padding: 0 8vw;
   }
 
-  .servicesList {
-    width: 100%;
-    gap: 4.5rem;
-  }
-
-  .serviceCard {
-    padding: 2.5rem 1.5rem;
-  }
-
-  .serviceCard h3 {
-    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  .serviceTitle {
+    max-width: 90%;
   }
 }
 
 @media (max-width: 768px) {
-  .servicesHeader {
-    height: 80svh;
+  .servicesHeader h1 {
+    font-size: 25vw;
   }
 
-  .services {
-    padding: 6rem 1rem;
+  .foregroundLayer {
+    padding: 0 6vw;
   }
 
-  .servicesList {
-    gap: 3.5rem;
+  .serviceTitle {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    max-width: 100%;
   }
 
-  .serviceCard {
-    padding: 2rem 1.25rem;
-    gap: 1.25rem;
+  .serviceDescription {
+    max-width: 100%;
+  }
+
+  .accentLine {
+    width: 3px;
   }
 }
 
@@ -180,42 +246,55 @@
     font-size: 18vw;
   }
 
-  .services {
-    padding: 4rem 1rem;
+  .foregroundLayer {
+    padding: 0 5vw;
   }
 
-  .servicesList {
-    gap: 2.5rem;
+  .serviceTitle {
+    font-size: clamp(2rem, 12vw, 3rem);
   }
 
-  .serviceCard {
-    padding: 1.5rem 1rem;
-  }
-
-  .serviceCard h3 {
-    font-size: clamp(1.5rem, 7vw, 2rem);
-  }
-
-  .serviceCard p {
+  .serviceNumber,
+  .serviceMetric {
     font-size: 0.7rem;
+  }
+
+  .serviceDescription {
+    font-size: 0.9rem;
+  }
+
+  .accentLine {
+    width: 2px;
   }
 }
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-  .serviceCard {
-    transition: none;
+  .serviceLayer,
+  .backgroundLayer,
+  .backgroundLayer img,
+  .accentLine {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
   }
 
-  .serviceCard:hover {
+  .serviceLayer {
+    position: relative;
+    opacity: 1;
     transform: none;
+    margin-bottom: 2rem;
   }
 
-  .serviceImage {
-    transition: none;
+  .servicesContainer {
+    height: auto;
+    scroll-snap-type: none;
   }
 
-  .serviceCard:hover .serviceImage {
-    transform: none;
+  .layersWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
   }
 }

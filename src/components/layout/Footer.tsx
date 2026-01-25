@@ -149,12 +149,12 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-link"
-                    aria-label={social.label}
+                    aria-label={`Visit our ${social.label} page (opens in new tab)`}
                     whileHover={{ scale: 1.15, y: -3 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
-                    <Icon className="social-icon-svg" size={24} />
+                    <Icon className="social-icon-svg" size={24} aria-hidden="true" />
                   </motion.a>
                 );
               })}

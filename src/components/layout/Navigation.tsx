@@ -62,6 +62,54 @@ const Navigation = () => {
     };
   }, [isMenuOpen]);
 
+  // Keyboard accessibility: Close menu on Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [isMenuOpen]);
+
+  // Focus trap for mobile menu accessibility
+  useEffect(() => {
+    if (!isMenuOpen || !mobileMenuRef.current) return;
+
+    const menuElement = mobileMenuRef.current;
+    const focusableElements = menuElement.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    const handleTabKey = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+
+      if (e.shiftKey) {
+        // Shift + Tab: moving backwards
+        if (document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement?.focus();
+        }
+      } else {
+        // Tab: moving forwards
+        if (document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement?.focus();
+        }
+      }
+    };
+
+    // Focus first element when menu opens
+    firstElement?.focus();
+
+    document.addEventListener("keydown", handleTabKey);
+    return () => document.removeEventListener("keydown", handleTabKey);
+  }, [isMenuOpen]);
+
   // Initial mount animations
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "power4.out" } });

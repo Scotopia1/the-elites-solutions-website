@@ -8,7 +8,7 @@ import type { FAQItem, FAQAccordionProps } from "./FAQAccordion.types";
 
 export type { FAQItem, FAQAccordionProps };
 
-export default function FAQAccordion({
+export function FAQAccordion({
   title = "Frequently Asked Questions",
   faqs,
   className = "",

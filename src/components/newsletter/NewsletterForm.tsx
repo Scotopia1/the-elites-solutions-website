@@ -205,6 +205,7 @@ export default function NewsletterForm({ variant = 'simple', className = '', onS
                 required
                 disabled={loading}
                 className="w-full pl-10 pr-4 py-3 bg-neutral-900/50 border border-neutral-800 rounded-lg text-white placeholder-neutral-500 focus:outline-none focus:border-gold-400/50 focus:ring-2 focus:ring-gold-400/20 transition-all disabled:opacity-50"
+                autoComplete="email"
               />
             </div>
             <Button
@@ -224,31 +225,33 @@ export default function NewsletterForm({ variant = 'simple', className = '', onS
           </div>
 
           {/* Status Messages */}
-          <AnimatePresence>
-            {status === 'success' && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="flex items-center gap-2 p-3 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-sm"
-              >
-                <CheckCircle2 className="w-5 h-5" />
-                <p>{labels.successMessage}</p>
-              </motion.div>
-            )}
+          <div role="status" aria-live="polite" aria-atomic="true">
+            <AnimatePresence>
+              {status === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="flex items-center gap-2 p-3 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-sm"
+                >
+                  <CheckCircle2 className="w-5 h-5" />
+                  <p>{labels.successMessage}</p>
+                </motion.div>
+              )}
 
-            {status === 'error' && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm"
-              >
-                <AlertCircle className="w-5 h-5" />
-                <p>{errorMessage || labels.errorMessage}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+              {status === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm"
+                >
+                  <AlertCircle className="w-5 h-5" />
+                  <p>{errorMessage || labels.errorMessage}</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </form>
       </div>
     );
@@ -417,31 +420,33 @@ export default function NewsletterForm({ variant = 'simple', className = '', onS
           </Button>
 
           {/* Status Messages */}
-          <AnimatePresence>
-            {status === 'success' && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="flex items-center gap-3 p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400"
-              >
-                <CheckCircle2 className="w-6 h-6" />
-                <p>{labels.successMessage}</p>
-              </motion.div>
-            )}
+          <div role="status" aria-live="polite" aria-atomic="true">
+            <AnimatePresence>
+              {status === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="flex items-center gap-3 p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400"
+                >
+                  <CheckCircle2 className="w-6 h-6" />
+                  <p>{labels.successMessage}</p>
+                </motion.div>
+              )}
 
-            {status === 'error' && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="flex items-center gap-3 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400"
-              >
-                <AlertCircle className="w-6 h-6" />
-                <p>{errorMessage || labels.errorMessage}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+              {status === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="flex items-center gap-3 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400"
+                >
+                  <AlertCircle className="w-6 h-6" />
+                  <p>{errorMessage || labels.errorMessage}</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </form>
       </div>
     </div>

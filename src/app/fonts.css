@@ -123,7 +123,7 @@
 }
 
 /* Host Grotesk - Orbit Matter body font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+/* Note: Inter is already imported at the top of the file */
 
 @font-face {
   font-family: "Barlow Condensed";

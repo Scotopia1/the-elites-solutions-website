@@ -12,13 +12,14 @@ export interface HeroSectionProps {
   subtitle?: string;
   description?: string;
   imageSrc: string;
-  imageAlt: string;
+  imageAlt: string; // Required for accessibility
   showTimer?: boolean;
   callouts?: Array<{ icon?: string; text: string }>;
   className?: string;
+  priority?: boolean; // Control image loading priority (default: false)
 }
 
-export default function HeroSection({
+export function HeroSection({
   title,
   subtitle,
   description,
@@ -27,6 +28,7 @@ export default function HeroSection({
   showTimer = false,
   callouts = [],
   className = "",
+  priority = false,
 }: HeroSectionProps) {
   const heroRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -128,7 +130,7 @@ export default function HeroSection({
           src={imageSrc}
           alt={imageAlt}
           fill
-          priority
+          priority={priority}
           quality={90}
           className={styles.backgroundImage}
           sizes="100vw"
@@ -142,7 +144,11 @@ export default function HeroSection({
         <div className={styles.container}>
           {/* Optional Timer */}
           {showTimer && time && (
-            <div className={styles.timer} aria-live="polite">
+            <div
+              className={styles.timer}
+              aria-live="polite"
+              aria-label="Current UTC time"
+            >
               {time}
             </div>
           )}

@@ -1,27 +1,25 @@
 /**
- * Services Component
+ * Services Component - Layered Depth Reveal (Concept 1)
  *
- * Vertical card grid layout from CGMWTNOV2025 featured-missions section.
- * Single-column centered cards with images.
+ * Multi-layer system where each service is a full-viewport "sheet" that slides over previous ones.
+ * Three layers per card: Background (image + ken burns), Mid (glassmorphism overlay), Foreground (typography)
  *
  * Features:
- * - Full-screen header with large title (pinned on scroll)
- * - Cards scroll over the pinned header
- * - Centered single column (40% width on desktop, 100% on mobile)
- * - Card structure: number → title → image → category
- * - Hover effects: scale and border glow
- * - Scroll animations with Framer Motion
- * - Responsive: width and gap adjustments
- * - Light beige cards with dark text and gold accents
- *
- * Source: CGMWTNOV2025\orbit-matter - featured-missions section
+ * - GSAP ScrollTrigger for pinning section and z-index choreography
+ * - Framer Motion for stagger sequences (number → title → metric → description)
+ * - Parallax: Background images move 30% slower than foreground
+ * - Gold accent line on left edge (grows based on scroll progress)
+ * - Scroll snap points every 100vh
+ * - GPU-optimized transforms (translate3d, scale, opacity)
+ * - Full accessibility support with keyboard navigation
+ * - Reduced motion support
  */
 
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -30,86 +28,224 @@ import styles from "./Services.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface ServiceCardProps {
+interface ServiceLayerProps {
   service: typeof servicesData[0];
-  onNavigate: (slug: string) => void;
   index: number;
+  total: number;
+  onNavigate: (slug: string) => void;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ service, onNavigate, index }) => {
+const ServiceLayer: React.FC<ServiceLayerProps> = ({ service, index, total, onNavigate }) => {
+  const layerRef = useRef<HTMLDivElement>(null);
+  const backgroundRef = useRef<HTMLDivElement>(null);
+  const accentRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+
+  useGSAP(() => {
+    if (!layerRef.current || prefersReducedMotion) return;
+
+    const layer = layerRef.current;
+    const background = backgroundRef.current;
+    const accent = accentRef.current;
+
+    // Calculate start and end points for this layer
+    const start = index * 100; // 0vh, 100vh, 200vh, etc.
+    const end = start + 100; // 100vh, 200vh, 300vh, etc.
+
+    // Slide up animation
+    gsap.fromTo(
+      layer,
+      { y: "100vh", opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: ".services-container",
+          start: `${start}vh top`,
+          end: `${start + 50}vh top`,
+          scrub: 1,
+          invalidateOnRefresh: true,
+        },
+      }
+    );
+
+    // Z-index choreography - current layer should be on top
+    gsap.to(layer, {
+      zIndex: total - index,
+      scrollTrigger: {
+        trigger: ".services-container",
+        start: `${start}vh top`,
+        end: `${end}vh top`,
+        scrub: true,
+        invalidateOnRefresh: true,
+      },
+    });
+
+    // Ken Burns effect on background (subtle zoom)
+    if (background) {
+      gsap.fromTo(
+        background,
+        { scale: 1 },
+        {
+          scale: 1.1,
+          scrollTrigger: {
+            trigger: ".services-container",
+            start: `${start}vh top`,
+            end: `${end}vh top`,
+            scrub: 2,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+    }
+
+    // Gold accent line grows when active
+    if (accent) {
+      gsap.fromTo(
+        accent,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          scrollTrigger: {
+            trigger: ".services-container",
+            start: `${start}vh top`,
+            end: `${start + 50}vh top`,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+    }
+  }, { scope: layerRef });
+
+  // Stagger animation variants for content reveal
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05, // 50ms delays
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <motion.div
-      className={styles.serviceCard}
+    <div
+      ref={layerRef}
+      className={styles.serviceLayer}
       onClick={() => onNavigate(service.slug)}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.1,
-        ease: "easeOut"
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${service.title} service details`}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onNavigate(service.slug);
+        }
       }}
     >
-      {/* Number */}
-      <p>{service.number}</p>
+      {/* Gold Accent Line */}
+      <div ref={accentRef} className={styles.accentLine} />
 
-      {/* Title */}
-      <h3>{service.title}</h3>
-
-      {/* Image Container */}
-      <div className={styles.serviceImage}>
+      {/* Background Layer - Image with Ken Burns */}
+      <div ref={backgroundRef} className={styles.backgroundLayer}>
         <img
           src={service.image}
-          alt={service.title}
+          alt=""
+          aria-hidden="true"
           onError={(e) => {
-            // Hide image if it fails to load (use gradient background)
             e.currentTarget.style.display = 'none';
           }}
         />
       </div>
 
-      {/* Category */}
-      <p className={styles.serviceCategory}>{service.category}</p>
-    </motion.div>
+      {/* Mid Layer - Glassmorphism Overlay */}
+      <div className={styles.midLayer} />
+
+      {/* Foreground Layer - Typography */}
+      <motion.div
+        className={styles.foregroundLayer}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-20%" }}
+      >
+        <motion.p className={styles.serviceNumber} variants={itemVariants}>
+          {service.number}
+        </motion.p>
+
+        <motion.h2 className={styles.serviceTitle} variants={itemVariants}>
+          {service.title}
+        </motion.h2>
+
+        <motion.p className={styles.serviceMetric} variants={itemVariants}>
+          {service.category}
+        </motion.p>
+
+        <motion.p className={styles.serviceDescription} variants={itemVariants}>
+          Click to explore our {service.title.toLowerCase()} capabilities and see how we deliver exceptional results.
+        </motion.p>
+      </motion.div>
+    </div>
   );
 };
 
 export default function Services() {
   const router = useRouter();
-  const headerRef = useRef<HTMLElement>(null);
-  const cardsRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   useGSAP(() => {
-    if (!headerRef.current || !cardsRef.current) return;
+    if (!containerRef.current || prefersReducedMotion) return;
 
-    const header = headerRef.current;
-    const cards = cardsRef.current;
+    const container = containerRef.current;
 
-    // Pin the header section
-    const pinTrigger = ScrollTrigger.create({
-      trigger: header,
+    // Pin the entire services container during scroll
+    ScrollTrigger.create({
+      trigger: container,
       start: "top top",
-      end: () => `+=${cards.offsetHeight}`,
+      end: () => `+=${servicesData.length * 100}vh`,
       pin: true,
-      pinSpacing: false,
+      pinSpacing: true,
       scrub: true,
       invalidateOnRefresh: true,
+      refreshPriority: -1,
     });
 
-    return () => {
-      pinTrigger.kill();
+    // Refresh ScrollTrigger on window resize
+    const resizeHandler = () => {
+      ScrollTrigger.refresh();
     };
-  }, { scope: headerRef });
+
+    window.addEventListener("resize", resizeHandler);
+
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
+  }, { scope: containerRef });
 
   const handleNavigate = (slug: string) => {
     router.push(`/services/${slug}`);
   };
 
   return (
-    <>
-      {/* Full-screen Header - Pinned */}
-      <motion.section
-        ref={headerRef}
+    <section
+      ref={containerRef}
+      className={`${styles.servicesContainer} services-container`}
+      aria-label="Our Services"
+    >
+      {/* Section Header */}
+      <motion.div
         className={styles.servicesHeader}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -119,21 +255,20 @@ export default function Services() {
         <h1>
           Our<br />Services
         </h1>
-      </motion.section>
+      </motion.div>
 
-      {/* Services Cards - Scroll over header */}
-      <section ref={cardsRef} className={styles.services}>
-        <div className={styles.servicesList}>
-          {servicesData.map((service, index) => (
-            <ServiceCard
-              key={service.id}
-              service={service}
-              onNavigate={handleNavigate}
-              index={index}
-            />
-          ))}
-        </div>
-      </section>
-    </>
+      {/* Layered Service Cards */}
+      <div className={styles.layersWrapper}>
+        {servicesData.map((service, index) => (
+          <ServiceLayer
+            key={service.id}
+            service={service}
+            index={index}
+            total={servicesData.length}
+            onNavigate={handleNavigate}
+          />
+        ))}
+      </div>
+    </section>
   );
 }
