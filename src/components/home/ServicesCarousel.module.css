@@ -1,0 +1,168 @@
+/**
+ * ServicesCarousel Styles
+ * Adapted from codegrid-prototypestudio-scroll-animation/styles.css
+ */
+
+/* Section Base Styles */
+.intro,
+.spotlight {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  padding: 2rem;
+  overflow: hidden;
+  z-index: 1; /* Ensure proper stacking with subsequent sections */
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: transparent;
+  color: #fff;
+}
+
+/* Intro Title - Match Hero Font Styling */
+.intro h1 {
+  font-family: 'FK Screamer', 'PP Editorial New', serif;
+  font-size: clamp(3.5rem, 10vw, 10rem);
+  font-weight: 500;
+  line-height: 0.85;
+  text-transform: uppercase;
+  letter-spacing: clamp(-0.05rem, -1vw, -0.15rem);
+  color: #ffffff;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+}
+
+/* Spotlight Section */
+.spotlight {
+  background-color: transparent;
+  color: #fff;
+}
+
+/* Project Counter (Top-left) */
+.projectIndex {
+  position: relative;
+  z-index: 10;
+}
+
+.projectIndex h1 {
+  text-transform: uppercase;
+  font-size: clamp(3rem, 5vw, 7rem);
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+  will-change: transform;
+}
+
+/* Image Stack (Center) */
+.projectImages {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35%;
+  padding: 50svh 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: -1;
+  will-change: transform;
+}
+
+.projectImg {
+  width: 100%;
+  aspect-ratio: 16/9;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.projectImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Service Names (Bottom-right) */
+.projectNames {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.projectNames p {
+  color: #4a4a4a;
+  transition: color 0.3s ease;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.25;
+  will-change: transform, color;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1000px) {
+  .projectImages {
+    width: calc(100% - 4rem);
+    gap: 25svh;
+  }
+
+  .projectNames p {
+    color: #fff !important;
+  }
+
+  .projectIndex h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+
+  .intro h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+  }
+}
+
+/* Tablet Responsive */
+@media (max-width: 768px) {
+  .projectImages {
+    width: calc(100% - 2rem);
+    padding: 40svh 0;
+  }
+
+  .projectNames {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .projectNames p {
+    font-size: 1.25rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .intro,
+  .spotlight {
+    padding: 1rem;
+  }
+
+  .intro h1 {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+  }
+
+  .projectIndex h1 {
+    font-size: clamp(1.5rem, 10vw, 3rem);
+  }
+
+  .projectImages {
+    width: calc(100% - 1rem);
+    padding: 30svh 0;
+  }
+
+  .projectNames p {
+    font-size: 1rem;
+  }
+}

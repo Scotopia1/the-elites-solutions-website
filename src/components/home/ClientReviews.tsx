@@ -112,6 +112,7 @@ export default function ClientReviews() {
       pinSpacing: true,
       scrub: 1,
       invalidateOnRefresh: true,
+      refreshPriority: -2, // Calculate after ServicesCarousel (-1) for proper spacing
       onUpdate: (self) => {
         const progress = self.progress;
         const maxTranslateX = calculateMaxTranslate();

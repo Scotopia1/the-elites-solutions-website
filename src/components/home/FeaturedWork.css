@@ -3,6 +3,7 @@
   padding: 120px 0;
   background: transparent;
   overflow: hidden;
+  z-index: 2; /* Stack above ServicesCarousel sections */
 }
 
 /* Subtle gold texture overlay */
