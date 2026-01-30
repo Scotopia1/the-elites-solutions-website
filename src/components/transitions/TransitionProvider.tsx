@@ -9,8 +9,11 @@ import React, {
   ReactNode,
 } from 'react';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Easing } from 'framer-motion';
 import './PageTransition.css';
+
+// Custom easing function for smooth transitions
+const customEase: Easing = [0.76, 0, 0.24, 1] as any;
 
 interface TransitionContextType {
   isTransitioning: boolean;
@@ -76,14 +79,14 @@ export function TransitionProvider({ children }: TransitionProviderProps) {
       y: '0%',
       transition: {
         duration: 0.5,
-        ease: [0.76, 0, 0.24, 1],
+        ease: customEase,
       },
     },
     exit: {
       y: '-100%',
       transition: {
         duration: 0.5,
-        ease: [0.76, 0, 0.24, 1],
+        ease: customEase,
         delay: 0.1,
       },
     },
@@ -98,7 +101,7 @@ export function TransitionProvider({ children }: TransitionProviderProps) {
       y: '0%',
       transition: {
         duration: 0.5,
-        ease: [0.76, 0, 0.24, 1],
+        ease: customEase,
         delay: 0.05,
       },
     },
@@ -106,7 +109,7 @@ export function TransitionProvider({ children }: TransitionProviderProps) {
       y: '-100%',
       transition: {
         duration: 0.5,
-        ease: [0.76, 0, 0.24, 1],
+        ease: customEase,
         delay: 0.15,
       },
     },
@@ -123,7 +126,7 @@ export function TransitionProvider({ children }: TransitionProviderProps) {
       opacity: 1,
       transition: {
         duration: 0.4,
-        ease: [0.76, 0, 0.24, 1],
+        ease: customEase,
         delay: 0.2,
       },
     },
@@ -132,7 +135,7 @@ export function TransitionProvider({ children }: TransitionProviderProps) {
       opacity: 0,
       transition: {
         duration: 0.3,
-        ease: [0.76, 0, 0.24, 1],
+        ease: customEase,
       },
     },
   };
@@ -150,7 +153,7 @@ export function TransitionProvider({ children }: TransitionProviderProps) {
       opacity: 1,
       transition: {
         duration: 0.4,
-        ease: [0.76, 0, 0.24, 1],
+        ease: customEase,
         delay: 0.25,
       },
     },
@@ -160,7 +163,7 @@ export function TransitionProvider({ children }: TransitionProviderProps) {
       opacity: 0,
       transition: {
         duration: 0.3,
-        ease: [0.76, 0, 0.24, 1],
+        ease: customEase,
       },
     },
   };

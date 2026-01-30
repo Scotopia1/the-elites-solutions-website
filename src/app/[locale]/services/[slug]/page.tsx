@@ -142,7 +142,7 @@ export default function ServiceDetailPage({ params }: Props) {
         <WhatWeDoSection
           description={description}
           benefits={benefits}
-          techStack={service.techStack?.map(t => ({ name: t.name, icon: t.logo || '' })) || []}
+          techStack={service.techStack?.map((t: any) => ({ name: t.name, icon: t.logo || '' })) || []}
         />
 
         {/* Process Overview Grid with Deliverables */}
@@ -168,10 +168,7 @@ export default function ServiceDetailPage({ params }: Props) {
         {/* Floating CTA Pill (Sticky) */}
         <CTAFloatingPill
           serviceName={title}
-          ctaConfig={{
-            type: service.ctaType,
-            buttonText: service.ctaButtonText
-          }}
+          ctaConfig={service.ctaButtonText as any}
           locale={locale}
         />
       </div>

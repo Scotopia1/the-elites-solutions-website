@@ -40,7 +40,7 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
       filter: 'blur(0px)',
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as any,
         delay: 0.3,
       },
     },
@@ -50,7 +50,7 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
       filter: 'blur(5px)',
       transition: {
         duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: [0.25, 0.46, 0.45, 0.94] as any,
       },
     },
   };
@@ -65,7 +65,7 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
       transition: {
         duration: 1.2,
         times: [0, 0.4, 0.6, 1],
-        ease: [0.76, 0, 0.24, 1],
+        ease: [0.76, 0, 0.24, 1] as any,
       },
     },
   };
@@ -82,7 +82,7 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
       transition: {
         duration: 1.2,
         times: [0, 0.35, 0.65, 1],
-        ease: [0.76, 0, 0.24, 1],
+        ease: [0.76, 0, 0.24, 1] as any,
       },
     },
   };
@@ -121,7 +121,7 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
                 transition={{
                   duration: 1.2,
                   times: [0, 0.3, 0.7, 1],
-                  ease: [0.76, 0, 0.24, 1]
+                  ease: [0.76, 0, 0.24, 1] as any
                 }}
               />
             </div>

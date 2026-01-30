@@ -8,11 +8,11 @@
  * - Orbit Matter aesthetic
  */
 
-export { default as HeroSection } from './HeroSection';
+export { HeroSection } from './HeroSection';
 export type { HeroSectionProps } from './HeroSection';
 
-export { default as StatsSection } from './StatsSection';
-export { default as CTASection } from './CTASection';
+export { StatsSection } from './StatsSection';
+export { CTASection } from './CTASection';
 
 export { TeamSection } from './TeamSection';
 export type { TeamMember, TeamSectionProps } from './TeamSection';

@@ -12,7 +12,7 @@ export default function ProjectOverview({
   highlights,
 }: ProjectOverviewProps) {
   return (
-    <section className="py-20 bg-gradient-to-b from-black to-neutral-950">
+    <section className="py-20 bg-transparent">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Description */}

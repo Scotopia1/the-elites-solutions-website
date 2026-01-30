@@ -2,7 +2,7 @@
 import "./Footer.css";
 import { motion } from "motion/react";
 import { TransitionLink } from "@/components/transitions";
-import { FaLinkedinIn, FaInstagram, FaXTwitter, FaGithub } from "react-icons/fa6";
+import { FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa6";
 import NewsletterForm from "@/components/newsletter/NewsletterForm";
 
 const navigationLinks = [
@@ -35,9 +35,8 @@ const resourceLinks = [
 
 const socialLinks = [
   { href: "https://linkedin.com", label: "LinkedIn", Icon: FaLinkedinIn },
-  { href: "https://twitter.com", label: "Twitter", Icon: FaXTwitter },
   { href: "https://instagram.com", label: "Instagram", Icon: FaInstagram },
-  { href: "https://github.com", label: "GitHub", Icon: FaGithub },
+  { href: "https://facebook.com", label: "Facebook", Icon: FaFacebookF },
 ];
 
 const legalLinks = [

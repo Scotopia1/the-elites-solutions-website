@@ -1,4 +1,4 @@
-import FAQAccordion from "./FAQAccordion";
+import { FAQAccordion } from "./FAQAccordion";
 
 // Example usage for Contact page
 export default function ContactFAQExample() {

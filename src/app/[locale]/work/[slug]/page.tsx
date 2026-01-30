@@ -105,7 +105,7 @@ export default function ProjectDetailPage({ params }: Props) {
     highlights: [],
   };
 
-  const gallery = project.gallery?.map(img => ({
+  const gallery = project.gallery?.map((img: any) => ({
     url: img.url || img,
     alt: img.alt || title,
   })) || [];
@@ -153,13 +153,13 @@ export default function ProjectDetailPage({ params }: Props) {
         <QuickFactsBar facts={quickFacts} />
 
         {/* Project Overview */}
-        <ProjectOverview overview={overview} />
+        <ProjectOverview description={overview.description} highlights={overview.highlights} />
 
         {/* Visual Gallery */}
         {gallery.length > 0 && <VisualGallery images={gallery} />}
 
         {/* Tech Stack Grid */}
-        {techStack.length > 0 && <TechStackGrid stack={techStack} />}
+        {techStack.length > 0 && <TechStackGrid techStack={techStack} />}
 
         {/* Project Timeline */}
         {timeline.length > 0 && <ProjectTimeline timeline={timeline} />}

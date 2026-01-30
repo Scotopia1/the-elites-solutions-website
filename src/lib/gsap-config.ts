@@ -56,6 +56,8 @@ export interface AnimationConfig {
   scrubSmoothing: number;
   /** Stagger delay between animations */
   staggerDelay: number;
+  /** Viewport width < 768px */
+  isMobile: boolean;
 }
 
 // Cache device capabilities to avoid repeated detection
@@ -208,6 +210,7 @@ export function getAnimationConfig(): AnimationConfig {
     enableMouseTracking,
     scrubSmoothing,
     staggerDelay,
+    isMobile: device.isMobile,
   };
 
   return cachedConfig;

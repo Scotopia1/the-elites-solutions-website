@@ -1,405 +1,622 @@
 /**
- * ClientReviews Styles - Routine Section Design
+ * ClientReviews Styles - Gallery Installation Design
  *
- * Horizontal scrolling testimonials with CGMWTNOV2025 routine section design.
- * Exact card structure matching routine blocks.
+ * Awwwards-style testimonial section with:
+ * - Staggered asymmetric 3-column grid
+ * - Diagonal card rotations (rotateZ: -3deg to 3deg, rotateY: -5deg to 5deg)
+ * - Overlapping card placement
+ * - Giant decorative quotation mark watermark
+ * - 3D tilt hover effects
+ * - Gold accent theme (#FFD700)
  *
- * Card Structure (matching CGMWTNOV2025):
- * - Header: Number (left) + Company (right)
- * - Center: Testimonial quote (replacing icon)
- * - Footer: Client name (left) + Role (right)
- *
- * Source: CGMWTNOV2025\orbit-matter\observatory - routine section
+ * Performance: GPU-accelerated transforms only (transform, opacity)
  */
 
-/* Routine Section Container */
-.routine {
+/* ============================================
+   SECTION CONTAINER
+   ============================================ */
+.gallerySection {
   position: relative;
   width: 100%;
-  height: 100svh;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
+  padding: 8rem 2rem 12rem;
+  background-color: transparent;
   overflow: hidden;
-  z-index: 3; /* Stack above FeaturedWork section */
+  z-index: 3;
 }
 
-.routineContainer {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-/* Beveled Background with Clip-Path */
-.routineBg {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: #303030;
-  clip-path: polygon(
-    4rem 0px,
-    calc(50% - 15rem) 0px,
-    calc(50% - 13.5rem) 2.75rem,
-    calc(50% + 13.5rem) 2.75rem,
-    calc(50% + 15rem) 0px,
-    calc(100% - 4rem) 0px,
-    100% 4rem,
-    100% calc(100% - 4rem),
-    calc(100% - 4rem) 100%,
-    4rem 100%,
-    0px calc(100% - 4rem),
-    0px 4rem
-  );
-}
-
-/* Content Overlay */
-.routineCopy {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.container {
-  padding: 6rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Header - Split Titles */
-.routineHeader {
-  width: 100%;
-  display: flex;
-  justify-content: center; /* Center the titles */
-  align-items: center;
-  gap: 5rem; /* Increased spacing between Client and Reviews */
-}
-
-.routineHeader h3 {
-  font-family: 'FK Screamer', 'PP Editorial New', serif;
-  font-size: clamp(2.25rem, 4.5vw, 3.75rem); /* 150% larger (1.5x) */
-  font-weight: 500;
-  text-transform: uppercase;
-  color: #ffffff;
-  letter-spacing: 0.15em; /* Increased character spacing */
-  line-height: 1.1;
-  margin: 0;
-  text-align: center; /* Center text within element */
-}
-
-/* Progress Bar */
-.routineProgressBar {
-  position: relative;
-  width: 100%;
-  height: 0.25rem;
-  background-color: #3f3f3f;
-  margin: 1.5rem 0;
-  overflow: hidden;
-}
-
-.routineProgress {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #FFD700;
-  transform: scaleX(0);
-  transform-origin: left;
-  will-change: transform;
-}
-
-/* Horizontal Slider */
-.routineSlider {
-  width: 100%;
-  flex: 1;
-  overflow: hidden;
-  position: relative;
-}
-
-.routineSliderWrapper {
-  position: relative;
-  width: 350%;
-  height: 100%;
-  transform: translateX(0%);
-  display: flex;
-  gap: 1.5rem;
-  will-change: transform;
-}
-
-/* Testimonial Card (Routine Block) - EXACT STRUCTURE */
-.routineBlock {
-  position: relative;
-  flex: 0 0 auto; /* Don't grow or shrink */
-  width: 963.5px; /* Exact width specification */
-  height: 519px; /* Exact height specification */
-  background-color: #303030;
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Add subtle border */
-  border-radius: 0.75rem;
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Card Header (Number + Company) */
-.routineBlockHeader {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1rem; /* Add spacing below header */
-}
-
-.routineBlockHeader p {
-  font-family: 'Geist Mono', 'DM Mono', monospace;
-  font-size: clamp(0.85rem, 1vw, 1rem); /* Slightly larger */
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #ffffff;
-  letter-spacing: 0.05em;
-  margin: 0;
-}
-
-.routineBlockHeader p:nth-child(2) {
-  color: #6b6b6b; /* Darker muted color for better contrast */
-  text-align: right; /* Ensure right alignment */
-  max-width: 50%; /* Prevent overflow */
-}
-
-/* Card Center (Testimonial Quote - replacing routine-icon) */
-.routineQuote {
+/* ============================================
+   GIANT BACKGROUND QUOTATION MARK
+   ============================================ */
+.backgroundQuote {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 85%; /* Slightly wider */
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem; /* Reduced gap */
-}
-
-/* Quote Mark Decoration */
-.quoteIcon {
-  width: 2rem; /* Smaller icon */
-  height: 2rem;
-  opacity: 0.2; /* More subtle */
-  color: #FFD700;
-  flex-shrink: 0;
-}
-
-/* Testimonial Text */
-.testimonialText {
-  font-family: 'PP Editorial New', 'Playfair Display', serif;
-  font-size: clamp(0.9rem, 1.1vw, 1.15rem); /* Slightly larger */
+  font-family: 'PP Editorial New', 'Playfair Display', Georgia, serif;
+  font-size: clamp(400px, 50vw, 700px);
   font-weight: 400;
   font-style: italic;
-  line-height: 1.5; /* Tighter line height */
-  color: rgba(255, 255, 255, 0.9); /* More opaque */
-  margin: 0;
-  max-height: 65%;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 5; /* Reduced to 5 lines for more compact look */
-  -webkit-box-orient: vertical;
-}
-
-/* Card Footer (Client Name + Role) */
-.routineBlockFooter {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-top: 1rem; /* Add spacing above footer */
-  gap: 1rem; /* Add gap between elements */
-}
-
-.routineBlockFooter h3 {
-  font-family: 'FK Screamer', 'PP Editorial New', serif;
-  font-size: clamp(1.5rem, 2.2vw, 2.5rem); /* Larger footer title */
-  font-weight: 500;
-  text-transform: uppercase;
-  color: #ffffff;
-  letter-spacing: 0.1em; /* Increased spacing between characters */
   line-height: 1;
-  margin: 0;
-  flex: 1; /* Allow to take available space */
+  color: #FFD700;
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
 }
 
-.routineBlockFooter p {
-  font-family: 'Geist Mono', 'DM Mono', monospace;
-  font-size: clamp(0.75rem, 0.9vw, 0.95rem); /* Slightly larger */
+/* ============================================
+   DECORATIVE GOLD LINES
+   ============================================ */
+.decorativeLines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.line1 {
+  position: absolute;
+  top: 20%;
+  left: -5%;
+  width: 35%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #FFD700 50%, transparent 100%);
+  opacity: 0.15;
+  transform: rotate(-15deg);
+}
+
+.line2 {
+  position: absolute;
+  bottom: 25%;
+  right: -5%;
+  width: 40%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #FFD700 50%, transparent 100%);
+  opacity: 0.12;
+  transform: rotate(12deg);
+}
+
+/* ============================================
+   SECTION HEADER
+   ============================================ */
+.sectionHeader {
+  position: relative;
+  text-align: center;
+  margin-bottom: 6rem;
+  z-index: 2;
+}
+
+.headerLabel {
+  display: inline-block;
+  font-family: 'Geist Mono', 'DM Mono', 'Fira Code', monospace;
+  font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
-  color: #6b6b6b; /* Darker muted color matching header */
-  letter-spacing: 0.05em;
+  letter-spacing: 0.3em;
+  color: #FFD700;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 100px;
+}
+
+.headerTitle {
+  font-family: 'PP Editorial New', 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 400;
+  font-style: italic;
+  color: #ffffff;
+  margin: 0 0 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.headerSubtitle {
+  font-family: 'Geist', 'Inter', -apple-system, sans-serif;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 400;
+  color: #888888;
   margin: 0;
-  text-align: right;
-  white-space: nowrap; /* Prevent wrapping */
+  letter-spacing: 0.01em;
 }
 
-/* Responsive Styles */
-@media (max-width: 1024px) {
-  .container {
-    padding: 4rem 2rem;
+/* ============================================
+   STAGGERED GALLERY GRID
+   ============================================ */
+.galleryGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  z-index: 2;
+  perspective: 1500px;
+  will-change: transform;
+}
+
+/* ============================================
+   TESTIMONIAL CARD - BASE
+   ============================================ */
+.card {
+  position: relative;
+  background: linear-gradient(145deg, #1a1a1a 0%, #202020 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform-style: preserve-3d;
+  transform:
+    rotateZ(var(--card-rotate-z, 0deg))
+    rotateY(var(--card-rotate-y, 0deg))
+    translateX(var(--card-offset-x, 0px))
+    translateY(var(--card-offset-y, 0px));
+  transition: box-shadow 0.4s ease;
+  will-change: transform;
+  cursor: default;
+}
+
+.card:hover {
+  box-shadow:
+    0 0 0 1px rgba(255, 215, 0, 0.15),
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 80px -20px rgba(255, 215, 0, 0.15);
+}
+
+/* Hero cards are larger */
+.heroCard {
+  min-height: 380px;
+  padding: 3rem;
+}
+
+/* ============================================
+   CARD INNER CONTENT
+   ============================================ */
+.cardInner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  z-index: 2;
+}
+
+/* Decorative quote mark inside card */
+.cardQuoteMark {
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  font-family: 'PP Editorial New', 'Playfair Display', Georgia, serif;
+  font-size: 6rem;
+  font-style: italic;
+  line-height: 1;
+  color: #FFD700;
+  opacity: 0.08;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.heroCard .cardQuoteMark {
+  font-size: 8rem;
+  top: -1rem;
+  left: -0.75rem;
+}
+
+/* ============================================
+   QUOTE STYLING
+   ============================================ */
+.quote {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.quoteText {
+  font-family: 'PP Editorial New', 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  letter-spacing: 0.01em;
+  /* Text stroke effect for large quotes */
+  -webkit-font-smoothing: antialiased;
+}
+
+.heroCard .quoteText {
+  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+}
+
+/* Individual word spans for animation */
+.word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* ============================================
+   CITATION / AUTHOR INFO
+   ============================================ */
+.citation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-style: normal;
+}
+
+.author {
+  font-family: 'FK Screamer', 'Bebas Neue', 'Oswald', sans-serif;
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #FFD700;
+}
+
+.role {
+  font-family: 'Geist Mono', 'DM Mono', 'Fira Code', monospace;
+  font-size: clamp(0.7rem, 0.85vw, 0.85rem);
+  font-weight: 400;
+  color: #888888;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   CARD HOVER GLOW EFFECT
+   ============================================ */
+.cardGlow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 1.25rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.1) 0%,
+    transparent 50%,
+    rgba(255, 215, 0, 0.05) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cardGlowActive {
+  opacity: 1;
+}
+
+/* ============================================
+   INDIVIDUAL CARD POSITIONING
+   Staggered asymmetric placement
+   ============================================ */
+
+/* Card 1: Top left, slight tilt left */
+.card1 {
+  grid-column: 1;
+  grid-row: 1;
+  margin-top: 0;
+  z-index: 3;
+}
+
+/* Card 2: Top center, slight tilt right, pushed down */
+.card2 {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 4rem;
+  z-index: 2;
+}
+
+/* Card 3: Top right, overlapping card 2 */
+.card3 {
+  grid-column: 3;
+  grid-row: 1;
+  margin-top: 1.5rem;
+  margin-left: -1rem;
+  z-index: 4;
+}
+
+/* Card 4: Bottom left, overlapping upward */
+.card4 {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: -2rem;
+  z-index: 5;
+}
+
+/* Card 5: Bottom center */
+.card5 {
+  grid-column: 2;
+  grid-row: 2;
+  margin-top: 2rem;
+  z-index: 1;
+}
+
+/* Card 6: Bottom right, highest overlap */
+.card6 {
+  grid-column: 3;
+  grid-row: 2;
+  margin-top: -1rem;
+  margin-left: -0.5rem;
+  z-index: 6;
+}
+
+/* ============================================
+   RESPONSIVE: TABLET (768px - 1023px)
+   2-column simplified grid
+   ============================================ */
+@media (max-width: 1023px) {
+  .gallerySection {
+    padding: 6rem 1.5rem 8rem;
   }
 
-  .routineSliderWrapper {
-    width: 400%;
+  .sectionHeader {
+    margin-bottom: 4rem;
   }
 
-  .routineBlock {
-    width: 700px; /* Smaller on tablets */
-    height: 400px;
+  .galleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+    padding: 0 1rem;
   }
 
-  .routineQuote {
-    width: 85%;
+  .card {
+    min-height: 280px;
+    padding: 2rem;
+    /* Reduce rotation angles on tablet */
+    --card-rotate-z: calc(var(--card-rotate-z) * 0.6);
+    --card-rotate-y: calc(var(--card-rotate-y) * 0.5);
   }
 
-  .testimonialText {
-    font-size: 0.9rem;
-    -webkit-line-clamp: 5;
+  .heroCard {
+    min-height: 320px;
+    padding: 2.25rem;
+  }
+
+  /* Reposition cards for 2-column layout */
+  .card1 { grid-column: 1; grid-row: 1; margin-top: 0; margin-left: 0; }
+  .card2 { grid-column: 2; grid-row: 1; margin-top: 2rem; margin-left: 0; }
+  .card3 { grid-column: 1; grid-row: 2; margin-top: 0; margin-left: 0; }
+  .card4 { grid-column: 2; grid-row: 2; margin-top: 1.5rem; margin-left: 0; }
+  .card5 { grid-column: 1; grid-row: 3; margin-top: 0; margin-left: 0; }
+  .card6 { grid-column: 2; grid-row: 3; margin-top: 2rem; margin-left: 0; }
+
+  .backgroundQuote {
+    font-size: clamp(300px, 45vw, 500px);
+    opacity: 0.03;
+  }
+
+  .cardQuoteMark {
+    font-size: 5rem;
+  }
+
+  .heroCard .cardQuoteMark {
+    font-size: 6rem;
   }
 }
 
-@media (max-width: 768px) {
-  .routineBg {
-    clip-path: polygon(
-      2rem 0px,
-      calc(50% - 8rem) 0px,
-      calc(50% - 7rem) 1.5rem,
-      calc(50% + 7rem) 1.5rem,
-      calc(50% + 8rem) 0px,
-      calc(100% - 2rem) 0px,
-      100% 2rem,
-      100% calc(100% - 2rem),
-      calc(100% - 2rem) 100%,
-      2rem 100%,
-      0px calc(100% - 2rem),
-      0px 2rem
-    );
+/* ============================================
+   RESPONSIVE: MOBILE (<768px)
+   Single column stack
+   ============================================ */
+@media (max-width: 767px) {
+  .gallerySection {
+    padding: 5rem 1rem 6rem;
   }
 
-  .container {
-    padding: 3rem 1.5rem;
+  .sectionHeader {
+    margin-bottom: 3rem;
   }
 
-  .routineHeader {
-    flex-direction: column;
-    gap: 0.5rem;
+  .headerLabel {
+    font-size: 0.65rem;
+    padding: 0.4rem 1rem;
   }
 
-  .routineSliderWrapper {
-    width: 500%;
-    gap: 1rem;
+  .galleryGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0;
+    perspective: none;
   }
 
-  .routineBlock {
-    width: 366px; /* Exact mobile dimensions */
-    height: 628px;
-    padding: 1.25rem;
+  .card {
+    min-height: 260px;
+    padding: 1.75rem;
+    border-radius: 1rem;
+    /* Minimal rotation on mobile for touch-friendly experience */
+    transform:
+      rotateZ(calc(var(--card-rotate-z) * 0.3))
+      translateX(0)
+      translateY(0);
   }
 
-  .routineQuote {
-    width: 90%;
+  .heroCard {
+    min-height: 280px;
+    padding: 2rem;
   }
 
-  .quoteIcon {
-    width: 3.2rem; /* 80% of 4rem */
-    height: 3.2rem;
+  /* Stack all cards vertically, remove staggering */
+  .card1, .card2, .card3, .card4, .card5, .card6 {
+    grid-column: 1;
+    margin-top: 0;
+    margin-left: 0;
+    z-index: 1;
+  }
+  .card1 { grid-row: 1; }
+  .card2 { grid-row: 2; }
+  .card3 { grid-row: 3; }
+  .card4 { grid-row: 4; }
+  .card5 { grid-row: 5; }
+  .card6 { grid-row: 6; }
+
+  .backgroundQuote {
+    font-size: clamp(200px, 60vw, 350px);
+    opacity: 0.025;
   }
 
-  .testimonialText {
-    font-size: 1.28rem; /* 80% of 1.6rem */
-    line-height: 1.5;
-    -webkit-line-clamp: 8;
+  .quoteText {
+    font-size: 1.05rem;
+    line-height: 1.55;
   }
 
-  .routineBlockHeader p {
-    font-size: 1.36rem; /* 80% of 1.7rem */
+  .heroCard .quoteText {
+    font-size: 1.15rem;
   }
 
-  .routineBlockFooter h3 {
-    font-size: 2.4rem; /* 80% of 3rem */
-    letter-spacing: 0.1em; /* Increased spacing between characters */
+  .cardQuoteMark {
+    font-size: 4rem;
+    top: -0.25rem;
+    left: -0.25rem;
   }
 
-  .routineBlockFooter p {
-    font-size: 1.2rem; /* 80% of 1.5rem */
+  .heroCard .cardQuoteMark {
+    font-size: 5rem;
+  }
+
+  .citation {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+  }
+
+  .author {
+    font-size: 0.85rem;
+  }
+
+  .role {
+    font-size: 0.7rem;
+  }
+
+  .decorativeLines {
+    display: none;
   }
 }
 
-@media (max-width: 480px) {
-  .routineBg {
-    clip-path: polygon(
-      1rem 0px,
-      calc(50% - 5rem) 0px,
-      calc(50% - 4rem) 1rem,
-      calc(50% + 4rem) 1rem,
-      calc(50% + 5rem) 0px,
-      calc(100% - 1rem) 0px,
-      100% 1rem,
-      100% calc(100% - 1rem),
-      calc(100% - 1rem) 100%,
-      1rem 100%,
-      0px calc(100% - 1rem),
-      0px 1rem
-    );
+/* ============================================
+   RESPONSIVE: SMALL MOBILE (<480px)
+   ============================================ */
+@media (max-width: 479px) {
+  .gallerySection {
+    padding: 4rem 0.75rem 5rem;
   }
 
-  .container {
+  .card {
+    min-height: 240px;
+    padding: 1.5rem;
+    /* Remove all rotation on very small screens */
+    transform: none;
+  }
+
+  .heroCard {
+    min-height: 260px;
+  }
+
+  .quoteText {
+    font-size: 0.95rem;
+  }
+
+  .heroCard .quoteText {
+    font-size: 1.05rem;
+  }
+
+  .cardQuoteMark {
+    font-size: 3.5rem;
+    opacity: 0.06;
+  }
+
+  .headerTitle {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   Disable all animations for accessibility
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+
+  .card:hover {
+    box-shadow: 0 0 0 1px rgba(255, 215, 0, 0.2);
+  }
+
+  .word {
+    will-change: auto;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .galleryGrid {
+    will-change: auto;
+  }
+
+  .cardGlow {
+    transition: none;
+  }
+
+  .backgroundQuote {
+    opacity: 0.03;
+  }
+
+  /* Show static grid without staggering */
+  .card1, .card2, .card3, .card4, .card5, .card6 {
+    margin-top: 0;
+    margin-left: 0;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .gallerySection {
+    background: #ffffff;
     padding: 2rem 1rem;
   }
 
-  .routineSliderWrapper {
-    width: 600%;
+  .backgroundQuote,
+  .decorativeLines,
+  .cardGlow {
+    display: none;
   }
 
-  .routineBlock {
-    width: 366px; /* Exact mobile dimensions */
-    height: 628px;
+  .card {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    transform: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
-  .quoteIcon {
-    width: 3.2rem; /* 80% of 4rem */
-    height: 3.2rem;
+  .quoteText {
+    color: #000000;
   }
 
-  .testimonialText {
-    font-size: 1.28rem; /* 80% of 1.6rem */
-    -webkit-line-clamp: 8;
+  .author {
+    color: #333333;
   }
 
-  .routineBlockHeader p {
-    font-size: 1.36rem; /* 80% of 1.7rem */
+  .role {
+    color: #666666;
   }
 
-  .routineBlockFooter h3 {
-    font-size: 2.4rem; /* 80% of 3rem */
-    letter-spacing: 0.1em; /* Increased spacing between characters */
-  }
-
-  .routineBlockFooter p {
-    font-size: 1.2rem; /* 80% of 1.5rem */
-  }
-}
-
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-  .routineSliderWrapper {
-    transition: none;
-    will-change: auto;
-  }
-
-  .routineProgress {
-    transition: none;
-    will-change: auto;
+  .headerTitle {
+    color: #000000;
   }
 }

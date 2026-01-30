@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 
 const ContactSection = () => {
-  const screensaverRef = useRef(null);
+  const screensaverRef = useRef<HTMLDivElement | null>(null);
   const animationIdRef = useRef<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 

@@ -86,7 +86,7 @@ export function TeamSection({
 
   return (
     <section
-      className={`relative overflow-hidden bg-[var(--orbit-dark-200)] py-24 ${className}`}
+      className={`relative overflow-hidden bg-transparent py-24 ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       role="region"

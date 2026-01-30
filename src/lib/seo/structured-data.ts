@@ -1,4 +1,4 @@
-import { BlogPost } from '@/lib/blog/markdown';
+import { BlogPost, getAuthorBySlug } from '@/lib/blog/markdown';
 
 /**
  * Generate Organization JSON-LD schema
@@ -76,19 +76,29 @@ export function getLocalBusinessSchema() {
  * Used for blog posts to improve SEO and enable rich results
  */
 export function getArticleSchema(post: BlogPost, locale: string = 'en') {
+  // Get locale-specific strings
+  const localizedLocale = locale as 'en' | 'fr' | 'ar';
+  const title = post.title[localizedLocale];
+  const excerpt = post.excerpt[localizedLocale];
+
+  // Get author information
+  const author = getAuthorBySlug(post.author);
+  const authorName = author?.name[localizedLocale] || 'The Elites Team';
+  const authorSlug = author?.slug;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: post.title,
-    description: post.excerpt,
+    headline: title,
+    description: excerpt,
     image: post.heroImage || 'https://theelites.io/default-blog-image.jpg',
     datePublished: post.publishedAt,
     dateModified: post.updatedAt || post.publishedAt,
     author: {
       '@type': 'Person',
-      name: post.author?.name || 'The Elites Team',
-      url: post.author?.slug
-        ? `https://theelites.io/${locale}/blog/author/${post.author.slug}`
+      name: authorName,
+      url: authorSlug
+        ? `https://theelites.io/${locale}/blog/author/${authorSlug}`
         : undefined,
     },
     publisher: {

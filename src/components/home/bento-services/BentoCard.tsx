@@ -102,7 +102,7 @@ const BentoCard = forwardRef<HTMLDivElement, BentoCardProps>(
         y: 0,
         scale: 1,
         transition: {
-          type: 'spring',
+          type: 'spring' as const,
           stiffness: 100,
           damping: 15,
           delay: staggerDelay,
@@ -114,12 +114,13 @@ const BentoCard = forwardRef<HTMLDivElement, BentoCardProps>(
       <motion.article
         ref={(node) => {
           // Handle both refs
+          const divNode = node as HTMLDivElement | null;
           if (typeof forwardedRef === 'function') {
-            forwardedRef(node);
+            forwardedRef(divNode);
           } else if (forwardedRef) {
-            forwardedRef.current = node;
+            forwardedRef.current = divNode;
           }
-          (magneticRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
+          (magneticRef as React.MutableRefObject<HTMLDivElement | null>).current = divNode;
         }}
         className={`bento-card ${cardState} ${isFeatured ? 'bento-card--featured' : ''} ${isWide ? 'bento-card--wide' : ''} ${showInlineExpansion ? 'bento-card--inline-expanded' : ''}`}
         data-index={index}
@@ -148,7 +149,7 @@ const BentoCard = forwardRef<HTMLDivElement, BentoCardProps>(
           '--col-end-desktop': card.gridPosition.desktop.colEnd,
           '--row-start-desktop': card.gridPosition.desktop.rowStart,
           '--row-end-desktop': card.gridPosition.desktop.rowEnd,
-        } as React.CSSProperties}
+        } as any}
         variants={cardVariants}
         initial="hidden"
         whileInView="visible"

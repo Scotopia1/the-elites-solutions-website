@@ -1,11 +1,7 @@
 .routineSection {
   position: relative;
   padding: 8rem 0;
-  background: linear-gradient(
-    180deg,
-    var(--orbit-dark-200, #141414) 0%,
-    var(--orbit-dark-300, #0a0a0a) 100%
-  );
+  background: transparent;
   overflow: hidden;
 }
 

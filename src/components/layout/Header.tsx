@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import VanguardMenu from "./menu/VanguardMenu";
+import CleanMenu from "./menu/CleanMenu";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <>
-      <VanguardMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
+      <CleanMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
     </>
   );
 }

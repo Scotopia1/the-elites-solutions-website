@@ -38,7 +38,7 @@ export default function QuickFactsBar({ facts }: QuickFactsBarProps) {
   }, []);
 
   return (
-    <div ref={barRef} className="sticky top-0 z-40 bg-black/80 backdrop-blur-lg border-b border-gold-400/20">
+    <div ref={barRef} className="sticky top-0 z-40 bg-transparent backdrop-blur-lg border-b border-gold-400/20">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex flex-wrap items-center justify-between gap-4">
           {/* Facts */}

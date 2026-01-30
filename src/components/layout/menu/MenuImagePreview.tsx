@@ -16,8 +16,8 @@ interface MenuImagePreviewProps {
 
 const MenuImagePreview = forwardRef<HTMLDivElement, MenuImagePreviewProps>(
   ({ activeImage, mousePosition }, ref) => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const glitchRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement | null>(null);
+    const glitchRef = useRef<HTMLDivElement | null>(null);
 
     // Parallax effect on mouse movement
     useGSAP(() => {
@@ -81,7 +81,7 @@ const MenuImagePreview = forwardRef<HTMLDivElement, MenuImagePreviewProps>(
         filter: 'blur(0px) brightness(1)',
         transition: {
           duration: 0.5,
-          ease: [0.76, 0, 0.24, 1],
+          ease: [0.76, 0, 0.24, 1] as any,
         },
       },
       exit: {
@@ -90,7 +90,7 @@ const MenuImagePreview = forwardRef<HTMLDivElement, MenuImagePreviewProps>(
         filter: 'blur(10px) brightness(0.8)',
         transition: {
           duration: 0.3,
-          ease: [0.76, 0, 0.24, 1],
+          ease: [0.76, 0, 0.24, 1] as any,
         },
       },
     };
@@ -98,8 +98,11 @@ const MenuImagePreview = forwardRef<HTMLDivElement, MenuImagePreviewProps>(
     return (
       <div
         ref={(el) => {
-          if (typeof ref === 'function') ref(el);
-          else if (ref) ref.current = el;
+          if (typeof ref === 'function') {
+            ref(el);
+          } else if (ref && 'current' in ref) {
+            (ref as React.MutableRefObject<HTMLDivElement | null>).current = el;
+          }
           containerRef.current = el;
         }}
         className="menu-image-preview"

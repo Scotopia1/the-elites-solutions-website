@@ -18,7 +18,7 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
       gestureOrientation: "vertical",
       smoothWheel: true,
       wheelMultiplier: 1,
-      smoothTouch: false,
+      // smoothTouch: false, // Removed - not available in current Lenis version
       touchMultiplier: 2,
       infinite: false,
     });

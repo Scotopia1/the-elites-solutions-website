@@ -25,7 +25,7 @@ export default function VideoDemo({ videoUrl, title, locale = 'en' }: VideoDemoP
   const embedUrl = getYouTubeEmbedUrl(videoUrl);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black to-neutral-950">
+    <section className="py-20 bg-transparent">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-white mb-12 text-center"

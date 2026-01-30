@@ -1,28 +1,23 @@
 /**
- * ClientReviews Component - Routine Section Design
+ * ClientReviews Component - Gallery Installation Design
  *
- * Horizontal scrolling testimonials with CGMWTNOV2025 routine section design.
- * Exact card structure matching routine blocks.
+ * Awwwards-style testimonial section with staggered asymmetric grid,
+ * 3D tilt effects, and cinematic scroll animations.
  *
- * Card Structure (matching CGMWTNOV2025):
- * - Header: Number (01) + Company name
- * - Center: Quote icon + Testimonial text (centered, replacing routine icon)
- * - Footer: Client name + Role/title
+ * Design Features:
+ * - Staggered asymmetric grid with diagonal card rotations
+ * - Giant decorative quotation mark watermark
+ * - Word-by-word quote reveal animations
+ * - 3D mouse-follow tilt on hover
+ * - Gold accent theme (#FFD700)
  *
- * Features:
- * - Beveled background container (clip-path polygon)
- * - Split header titles (Client / Reviews)
- * - Progress bar animation (scaleX based on scroll)
- * - Horizontal scroll cards (GSAP translateX)
- * - Dark cards (#303030) with routine layout
- * - Pinned section with 5x viewport height scroll distance
- *
- * Source: CGMWTNOV2025\orbit-matter\observatory - routine section
+ * Animations: GSAP ScrollTrigger with useGSAP hook
+ * Performance: GPU-accelerated transforms only
  */
 
 "use client";
 
-import { useRef } from "react";
+import { useRef, useCallback, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -30,172 +25,340 @@ import styles from "./ClientReviews.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const clientTestimonials = [
+interface Testimonial {
+  id: number;
+  quote: string;
+  author: string;
+  role: string;
+  company: string;
+}
+
+const testimonials: Testimonial[] = [
   {
     id: 1,
-    copy: "The Elites transformed our outdated web presence into a modern, high-converting platform that tripled our lead generation in just 3 months. Their technical expertise and strategic approach exceeded all expectations.",
+    quote:
+      "The Elites transformed our outdated web presence into a modern, high-converting platform that tripled our lead generation in just 3 months.",
     author: "Sarah Mitchell",
     role: "CEO",
     company: "TechVision Solutions",
   },
   {
     id: 2,
-    copy: "Working with The Elites was a game-changer for our brand. They didn't just build a website — they crafted a digital experience that authentically represents who we are and resonates with our audience.",
+    quote:
+      "They didn't just build a website — they crafted a digital experience that authentically represents who we are and resonates with our audience.",
     author: "Marcus Chen",
     role: "Founder",
     company: "Apex Digital",
   },
   {
     id: 3,
-    copy: "From concept to launch, The Elites demonstrated unparalleled professionalism and innovation. Their ability to blend cutting-edge design with flawless functionality resulted in a product that truly stands out.",
+    quote:
+      "Their ability to blend cutting-edge design with flawless functionality resulted in a product that truly stands out in our industry.",
     author: "Elena Rodriguez",
     role: "CMO",
     company: "Quantum Innovations",
   },
   {
     id: 4,
-    copy: "The Elites brought our vision to life with precision and creativity. Their seamless integration of complex systems and intuitive user experience design delivered results that exceeded our ambitious goals.",
+    quote:
+      "The Elites brought our vision to life with precision and creativity. The seamless integration exceeded our ambitious goals.",
     author: "David Park",
     role: "CTO",
     company: "NexGen Systems",
   },
   {
     id: 5,
-    copy: "Partnering with The Elites elevated our entire digital strategy. Their deep understanding of both technology and business objectives resulted in a platform that drives real value and measurable growth.",
+    quote:
+      "Their deep understanding of both technology and business objectives resulted in a platform that drives real value and measurable growth.",
     author: "Jennifer Clarke",
     role: "VP of Operations",
     company: "Frontier Labs",
   },
   {
     id: 6,
-    copy: "The Elites delivered excellence at every stage. Their commitment to quality, attention to detail, and ability to solve complex challenges made them an invaluable partner in our digital transformation journey.",
+    quote:
+      "Excellence at every stage. Their commitment to quality made them an invaluable partner in our digital transformation journey.",
     author: "Michael Torres",
     role: "Director",
     company: "Summit Ventures",
   },
 ];
 
-export default function ClientReviews() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const sliderWrapperRef = useRef<HTMLDivElement>(null);
-  const progressBarRef = useRef<HTMLDivElement>(null);
+// Card configurations for staggered layout
+const cardConfigs = [
+  { rotateZ: -2, rotateY: 3, offsetX: 0, offsetY: 0, size: "hero", delay: 0 },
+  { rotateZ: 1.5, rotateY: -2, offsetX: 20, offsetY: 40, size: "normal", delay: 0.1 },
+  { rotateZ: -1, rotateY: 4, offsetX: -15, offsetY: 20, size: "normal", delay: 0.2 },
+  { rotateZ: 2.5, rotateY: -3, offsetX: 10, offsetY: -30, size: "hero", delay: 0.15 },
+  { rotateZ: -1.5, rotateY: 2, offsetX: -25, offsetY: 50, size: "normal", delay: 0.25 },
+  { rotateZ: 1, rotateY: -4, offsetX: 30, offsetY: 10, size: "normal", delay: 0.3 },
+];
 
-  useGSAP(() => {
-    if (!sectionRef.current || !sliderWrapperRef.current || !progressBarRef.current) return;
+interface CardProps {
+  testimonial: Testimonial;
+  config: (typeof cardConfigs)[0];
+  index: number;
+}
 
-    const sliderWrapper = sliderWrapperRef.current;
-    const progressBar = progressBarRef.current;
-    const sliderContainer = sliderWrapper.parentElement;
+function TestimonialCard({ testimonial, config, index }: CardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const quoteRef = useRef<HTMLQuoteElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
-    if (!sliderContainer) return;
+  // 3D tilt effect on mouse move
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!cardRef.current || !isHovered) return;
 
-    // Calculate maximum translateX distance
-    function calculateMaxTranslate() {
-      const containerWidth = sliderContainer.offsetWidth;
-      const wrapperWidth = sliderWrapper.offsetWidth;
-      return -(wrapperWidth - containerWidth);
+      const rect = cardRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // Calculate rotation based on mouse position (max 8 degrees)
+      const rotateX = ((y - centerY) / centerY) * -8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+
+      gsap.to(cardRef.current, {
+        rotateX: rotateX + config.rotateZ,
+        rotateY: rotateY + config.rotateY,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    },
+    [isHovered, config.rotateZ, config.rotateY]
+  );
+
+  const handleMouseEnter = useCallback(() => {
+    setIsHovered(true);
+    if (cardRef.current) {
+      gsap.to(cardRef.current, {
+        scale: 1.02,
+        duration: 0.3,
+        ease: "power2.out",
+      });
     }
+  }, []);
 
-    // Calculate scroll distance based on content width
-    function calculateScrollDistance() {
-      const maxTranslate = Math.abs(calculateMaxTranslate());
-      // Scale the scroll distance: more content = longer scroll
-      // Using a 1:1 ratio so animation ends exactly when last card is reached
-      return maxTranslate;
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+    if (cardRef.current) {
+      gsap.to(cardRef.current, {
+        rotateX: 0,
+        rotateY: config.rotateY,
+        rotateZ: config.rotateZ,
+        scale: 1,
+        duration: 0.5,
+        ease: "power2.out",
+      });
     }
+  }, [config.rotateY, config.rotateZ]);
 
-    const trigger = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top top",
-      end: () => `+=${calculateScrollDistance()}px`,
-      pin: true,
-      pinSpacing: true,
-      scrub: 1,
-      invalidateOnRefresh: true,
-      refreshPriority: -2, // Calculate after ServicesCarousel (-1) for proper spacing
-      onUpdate: (self) => {
-        const progress = self.progress;
-        const maxTranslateX = calculateMaxTranslate();
-
-        // Horizontal scroll animation
-        gsap.set(sliderWrapper, { x: progress * maxTranslateX });
-
-        // Progress bar animation
-        gsap.set(progressBar, { scaleX: progress });
-      },
-    });
-
-    return () => {
-      trigger.kill();
-    };
-  }, { scope: sectionRef });
+  // Split quote into words for animation
+  const words = testimonial.quote.split(" ");
 
   return (
-    <section ref={sectionRef} className={styles.routine}>
-      <div className={styles.routineContainer}>
-        {/* Beveled Background */}
-        <div className={styles.routineBg} />
+    <div
+      ref={cardRef}
+      className={`${styles.card} ${styles[`card${index + 1}`]} ${config.size === "hero" ? styles.heroCard : ""}`}
+      style={
+        {
+          "--card-rotate-z": `${config.rotateZ}deg`,
+          "--card-rotate-y": `${config.rotateY}deg`,
+          "--card-offset-x": `${config.offsetX}px`,
+          "--card-offset-y": `${config.offsetY}px`,
+        } as React.CSSProperties
+      }
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      data-card-index={index}
+    >
+      <div className={styles.cardInner}>
+        {/* Decorative quote mark inside card */}
+        <span className={styles.cardQuoteMark} aria-hidden="true">
+          &ldquo;
+        </span>
 
-        {/* Content Overlay */}
-        <div className={styles.routineCopy}>
-          <div className={styles.container}>
-            {/* Header - Split Titles */}
-            <div className={styles.routineHeader}>
-              <h3>Client</h3>
-              <h3>Reviews</h3>
-            </div>
+        <blockquote ref={quoteRef} className={styles.quote}>
+          <p className={styles.quoteText}>
+            {words.map((word, wordIndex) => (
+              <span key={wordIndex} className={styles.word} style={{ "--word-index": wordIndex } as React.CSSProperties}>
+                {word}{" "}
+              </span>
+            ))}
+          </p>
+        </blockquote>
 
-            {/* Progress Bar */}
-            <div className={styles.routineProgressBar}>
-              <div ref={progressBarRef} className={styles.routineProgress} />
-            </div>
+        <cite className={styles.citation}>
+          <span className={styles.author}>{testimonial.author}</span>
+          <span className={styles.role}>
+            {testimonial.role}, {testimonial.company}
+          </span>
+        </cite>
+      </div>
 
-            {/* Horizontal Slider */}
-            <div className={styles.routineSlider}>
-              <div ref={sliderWrapperRef} className={styles.routineSliderWrapper}>
-                {clientTestimonials.map((testimonial, index) => (
-                  <div key={testimonial.id} className={styles.routineBlock}>
-                    {/* Card Header - Number + Company (matching routine structure) */}
-                    <div className={styles.routineBlockHeader}>
-                      <p>{String(index + 1).padStart(2, "0")}</p>
-                      <p>{testimonial.company}</p>
-                    </div>
+      {/* Hover glow effect */}
+      <div className={`${styles.cardGlow} ${isHovered ? styles.cardGlowActive : ""}`} aria-hidden="true" />
+    </div>
+  );
+}
 
-                    {/* Card Center - Quote (replacing routine-icon position) */}
-                    <div className={styles.routineQuote}>
-                      {/* Quote Icon */}
-                      <svg
-                        className={styles.quoteIcon}
-                        viewBox="0 0 64 64"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M12 44C12 37.3726 17.3726 32 24 32V24C12.9543 24 4 32.9543 4 44C4 50.6274 9.37258 56 16 56H24V44H12Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M40 44C40 37.3726 45.3726 32 52 32V24C40.9543 24 32 32.9543 32 44C32 50.6274 37.3726 56 44 56H52V44H40Z"
-                          fill="currentColor"
-                        />
-                      </svg>
+export default function ClientReviews() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-                      {/* Testimonial Text */}
-                      <p className={styles.testimonialText}>{testimonial.copy}</p>
-                    </div>
+  // Check for reduced motion preference
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
 
-                    {/* Card Footer - Client Name + Role (matching routine structure) */}
-                    <div className={styles.routineBlockFooter}>
-                      <h3>{testimonial.author}</h3>
-                      <p>{testimonial.role}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
+  useGSAP(
+    () => {
+      if (!sectionRef.current || !gridRef.current || prefersReducedMotion) return;
+
+      const cards = gridRef.current.querySelectorAll(`.${styles.card}`);
+      const header = headerRef.current;
+
+      // Header animation
+      if (header) {
+        gsap.fromTo(
+          header,
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 80%",
+              end: "top 40%",
+              scrub: false,
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+
+      // Staggered card entrance animations
+      cards.forEach((card, index) => {
+        const config = cardConfigs[index];
+        const direction = index % 3; // 0: left, 1: bottom, 2: right
+
+        let fromX = 0;
+        let fromY = 100;
+
+        if (direction === 0) {
+          fromX = -150;
+          fromY = 50;
+        } else if (direction === 2) {
+          fromX = 150;
+          fromY = 50;
+        }
+
+        gsap.fromTo(
+          card,
+          {
+            opacity: 0,
+            x: fromX,
+            y: fromY,
+            rotateZ: config.rotateZ * 2,
+            rotateY: config.rotateY * 2,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            rotateZ: config.rotateZ,
+            rotateY: config.rotateY,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              end: "top 60%",
+              scrub: false,
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        // Word-by-word reveal for quotes
+        const words = card.querySelectorAll(`.${styles.word}`);
+        gsap.fromTo(
+          words,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            stagger: 0.03,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              end: "top 55%",
+              scrub: false,
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Parallax effect on scroll for the entire grid
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1,
+        invalidateOnRefresh: true,
+        refreshPriority: -2,
+        onUpdate: (self) => {
+          if (!gridRef.current) return;
+          const yMove = self.progress * 50 - 25;
+          gsap.set(gridRef.current, { y: yMove });
+        },
+      });
+    },
+    { scope: sectionRef, dependencies: [prefersReducedMotion] }
+  );
+
+  return (
+    <section ref={sectionRef} className={styles.gallerySection} aria-labelledby="client-reviews-heading">
+      {/* Giant background quotation mark */}
+      <div className={styles.backgroundQuote} aria-hidden="true">
+        &ldquo;
+      </div>
+
+      {/* Decorative gold lines */}
+      <div className={styles.decorativeLines} aria-hidden="true">
+        <div className={styles.line1} />
+        <div className={styles.line2} />
+      </div>
+
+      {/* Section header */}
+      <div ref={headerRef} className={styles.sectionHeader}>
+        <span className={styles.headerLabel}>Testimonials</span>
+        <h2 id="client-reviews-heading" className={styles.headerTitle}>
+          What Our Clients Say
+        </h2>
+        <p className={styles.headerSubtitle}>Stories of transformation and success</p>
+      </div>
+
+      {/* Staggered testimonial grid */}
+      <div ref={gridRef} className={styles.galleryGrid}>
+        {testimonials.map((testimonial, index) => (
+          <TestimonialCard key={testimonial.id} testimonial={testimonial} config={cardConfigs[index]} index={index} />
+        ))}
       </div>
     </section>
   );

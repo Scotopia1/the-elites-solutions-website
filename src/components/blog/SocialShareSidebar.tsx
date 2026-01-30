@@ -45,7 +45,7 @@ export default function SocialShareSidebar({
         <ShareButtons
           url={url}
           title={title}
-          variant="vertical"
+          orientation="vertical"
           className="flex-col gap-3"
         />
 

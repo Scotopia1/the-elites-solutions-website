@@ -19,6 +19,7 @@ export interface BlogPost {
   category: string | null;
   tags: string[];
   featuredImage: string | null;
+  heroImage?: string | null; // Alias for featuredImage, used in metadata
   featuredImageAlt?: { en: string; fr: string; ar: string };
   publishedAt: string;
   updatedAt: string;
@@ -93,11 +94,18 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
           // Parse multilingual content
           const contentSections = parseMultilingualContent(content);
 
-          return {
+          const post = {
             slug,
             ...data,
             content: contentSections,
           } as BlogPost;
+
+          // Set heroImage from featuredImage if not already set
+          if (!post.heroImage && post.featuredImage) {
+            post.heroImage = post.featuredImage;
+          }
+
+          return post;
         })
     );
 
@@ -134,7 +142,7 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
       remark().use(gfm).use(html).process(contentSections.ar),
     ]);
 
-    return {
+    const post = {
       slug,
       ...data,
       content: {
@@ -143,6 +151,13 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
         ar: processedContent[2].toString(),
       },
     } as BlogPost;
+
+    // Set heroImage from featuredImage if not already set
+    if (!post.heroImage && post.featuredImage) {
+      post.heroImage = post.featuredImage;
+    }
+
+    return post;
   } catch (error) {
     console.error(`Error loading blog post ${slug}:`, error);
     return null;

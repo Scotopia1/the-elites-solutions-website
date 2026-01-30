@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, Clock, Hash, ArrowRight } from 'lucide-react';
-import { getBlogPostsByTag, getTagBySlug, getAllTags } from '@/lib/blog/markdown';
+import { getBlogPostsByTag, getTagBySlug, getAllTags, getAuthorBySlug } from '@/lib/blog/markdown';
 import LenisWrapper from '@/components/services/LenisWrapper';
 
 interface Props {
@@ -150,14 +150,21 @@ export default async function TagPage({ params }: Props) {
           <div className="max-w-6xl mx-auto">
             {posts.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {posts.map((post) => (
+                {posts.map((post) => {
+                  const localizedLocale = locale as 'en' | 'fr' | 'ar';
+                  const postTitle = post.title[localizedLocale];
+                  const postExcerpt = post.excerpt[localizedLocale];
+                  const author = getAuthorBySlug(post.author);
+                  const authorName = author?.name[localizedLocale] || 'The Elites Team';
+
+                  return (
                   <article key={post.slug} className="group">
                     <Link href={`/${locale}/blog/${post.slug}`} className="block">
                       <div className="relative aspect-[16/10] rounded-xl overflow-hidden mb-4">
                         {post.heroImage ? (
                           <img
                             src={post.heroImage}
-                            alt={post.title}
+                            alt={postTitle}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         ) : (
@@ -181,24 +188,23 @@ export default async function TagPage({ params }: Props) {
                       </div>
 
                       <h2 className="font-heading text-xl text-white mb-2 group-hover:text-gold-100 transition-colors line-clamp-2">
-                        {post.title}
+                        {postTitle}
                       </h2>
 
-                      {post.excerpt && (
-                        <p className="text-white/60 text-sm line-clamp-2 mb-4">{post.excerpt}</p>
+                      {postExcerpt && (
+                        <p className="text-white/60 text-sm line-clamp-2 mb-4">{postExcerpt}</p>
                       )}
 
                       <div className="flex items-center justify-between">
-                        {post.author?.name && (
-                          <span className="text-sm text-white/50">by {post.author.name}</span>
-                        )}
+                        <span className="text-sm text-white/50">by {authorName}</span>
                         <span className="text-gold-100 text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
                           {t.readMore} <ArrowRight size={14} />
                         </span>
                       </div>
                     </Link>
                   </article>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="text-center py-20">

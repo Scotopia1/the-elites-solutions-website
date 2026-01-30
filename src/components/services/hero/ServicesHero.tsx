@@ -1,8 +1,11 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, Easing } from 'framer-motion';
 import './ServicesHero.css';
+
+// Easing constant for animations
+const customEase: Easing = [0.22, 1, 0.36, 1] as any;
 
 // Gold Particle System (simplified from CinematicHero)
 function GoldParticles() {
@@ -156,7 +159,7 @@ export default function ServicesHero() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
+        ease: customEase,
       },
     },
   };
@@ -167,7 +170,7 @@ export default function ServicesHero() {
       scaleX: 1,
       transition: {
         duration: 1.2,
-        ease: [0.22, 1, 0.36, 1],
+        ease: customEase,
         delay: 0.6,
       },
     },

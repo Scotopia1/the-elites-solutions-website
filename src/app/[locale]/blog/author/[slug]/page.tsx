@@ -230,14 +230,19 @@ export default async function AuthorPage({ params }: Props) {
 
             {posts.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {posts.map((post) => (
+                {posts.map((post) => {
+                  const localizedLocale = locale as 'en' | 'fr' | 'ar';
+                  const postTitle = post.title[localizedLocale];
+                  const postExcerpt = post.excerpt[localizedLocale];
+
+                  return (
                   <article key={post.slug} className="group">
                     <Link href={`/${locale}/blog/${post.slug}`} className="block">
                       <div className="relative aspect-[16/10] rounded-xl overflow-hidden mb-4">
                         {post.heroImage ? (
                           <img
                             src={post.heroImage}
-                            alt={post.title}
+                            alt={postTitle}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         ) : (
@@ -266,11 +271,11 @@ export default async function AuthorPage({ params }: Props) {
                       </div>
 
                       <h2 className="font-heading text-xl text-white mb-2 group-hover:text-gold-100 transition-colors line-clamp-2">
-                        {post.title}
+                        {postTitle}
                       </h2>
 
-                      {post.excerpt && (
-                        <p className="text-white/60 text-sm line-clamp-2 mb-4">{post.excerpt}</p>
+                      {postExcerpt && (
+                        <p className="text-white/60 text-sm line-clamp-2 mb-4">{postExcerpt}</p>
                       )}
 
                       <span className="text-gold-100 text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
@@ -278,7 +283,8 @@ export default async function AuthorPage({ params }: Props) {
                       </span>
                     </Link>
                   </article>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="text-center py-20">

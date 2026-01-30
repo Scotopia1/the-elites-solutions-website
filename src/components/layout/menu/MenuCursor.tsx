@@ -12,8 +12,8 @@ interface MenuCursorProps {
 
 const MenuCursor = forwardRef<HTMLDivElement, MenuCursorProps>(
   ({ isActive, isOpen }, ref) => {
-    const cursorRef = useRef<HTMLDivElement>(null);
-    const ringRef = useRef<HTMLDivElement>(null);
+    const cursorRef = useRef<HTMLDivElement | null>(null);
+    const ringRef = useRef<HTMLDivElement | null>(null);
     const trailRefs = useRef<(HTMLDivElement | null)[]>([]);
     const rotationRef = useRef<number>(0);
 
@@ -170,8 +170,11 @@ const MenuCursor = forwardRef<HTMLDivElement, MenuCursorProps>(
         {/* Inner cursor */}
         <div
           ref={(el) => {
-            if (typeof ref === 'function') ref(el);
-            else if (ref) ref.current = el;
+            if (typeof ref === 'function') {
+              ref(el);
+            } else if (ref && 'current' in ref) {
+              (ref as React.MutableRefObject<HTMLDivElement | null>).current = el;
+            }
             cursorRef.current = el;
           }}
           className={`cursor-inner ${isActive ? 'active' : ''}`}

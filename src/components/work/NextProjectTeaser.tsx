@@ -21,7 +21,7 @@ export default function NextProjectTeaser({ nextProject, locale }: NextProjectTe
                           nextProject.challenge.en;
 
   return (
-    <section className="py-20 bg-black border-t border-gold-400/20">
+    <section className="py-20 bg-transparent border-t border-gold-400/20">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-12"

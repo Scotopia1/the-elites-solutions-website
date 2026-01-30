@@ -222,7 +222,7 @@ const DynamicBackground = ({ logoPath = "/images/logos/logo_light.png" }) => {
     };
 
     function initParticleSystem(pixels: Uint8ClampedArray, width: number, height: number) {
-      if (isCleanedUpRef.current || !gl) return;
+      if (isCleanedUpRef.current || !gl || !canvas) return;
 
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;

@@ -107,7 +107,7 @@ export default function VisualGallery({ images }: VisualGalleryProps) {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center bg-neutral-950 overflow-hidden"
+      className="relative min-h-screen flex items-center bg-transparent overflow-hidden"
       aria-label="Visual showcase gallery, scroll to explore"
     >
       <div className="max-w-full mx-auto px-6 w-full">

@@ -123,9 +123,6 @@ export default function AboutPage() {
         title="About The Elites"
         subtitle="Transforming Ideas Into Reality"
         description="Since 2019, we've been helping businesses leverage technology to achieve their goals. Our team combines technical expertise with creative thinking to deliver solutions that make a real impact."
-        backgroundImage="/images/about-hero.jpg"
-        ctaText="Work With Us"
-        ctaHref="/contact"
         showTimer={false}
       />
 
@@ -137,20 +134,17 @@ export default function AboutPage() {
 
       <RoutineSlider
         title="Our Process"
-        description="A proven methodology that delivers results"
         steps={workflowSteps}
       />
 
       <TeamSection
         title="Meet Our Team"
-        description="The talented people behind our success"
         members={teamMembers}
       />
 
       <FAQAccordion
         title="Frequently Asked Questions"
-        description="Everything you need to know about working with us"
-        items={faqItems}
+        faqs={faqItems}
       />
     </>
   );

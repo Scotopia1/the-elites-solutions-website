@@ -7,7 +7,7 @@
 
 "use client";
 
-import FeaturedServicesHeader from "./FeaturedServicesHeader";
+import { FeaturedServicesHeader } from "./FeaturedServicesHeader";
 import Services from "./Services";
 
 export default function HomePageServicesSection() {

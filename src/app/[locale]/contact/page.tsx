@@ -9,16 +9,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import { Mail, Phone, MapPin, Send, Trophy, Clock, Star, Shield, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
-import NewsletterForm from '@/components/newsletter/NewsletterForm';
 
 // Trust signals data
 const trustSignals = [
@@ -51,34 +43,6 @@ const contactMethods = [
     href: null,
     description: 'Remote-first team',
   },
-];
-
-// Service options
-const serviceOptions = [
-  { value: 'web-development', label: 'Web Development' },
-  { value: 'mobile-apps', label: 'Mobile Applications' },
-  { value: 'custom-software', label: 'Custom Software' },
-  { value: 'process-automation', label: 'Process Automation' },
-  { value: 'consulting', label: 'Technical Consulting' },
-  { value: 'other', label: 'Other' },
-];
-
-// Budget options
-const budgetOptions = [
-  { value: 'under-5k', label: 'Under $5,000' },
-  { value: '5k-15k', label: '$5,000 - $15,000' },
-  { value: '15k-50k', label: '$15,000 - $50,000' },
-  { value: 'over-50k', label: '$50,000+' },
-  { value: 'not-sure', label: 'Not Sure Yet' },
-];
-
-// Timeline options
-const timelineOptions = [
-  { value: 'asap', label: 'ASAP' },
-  { value: '1-3-months', label: '1-3 Months' },
-  { value: '3-6-months', label: '3-6 Months' },
-  { value: '6-plus-months', label: '6+ Months' },
-  { value: 'flexible', label: 'Flexible' },
 ];
 
 // Animated Counter Component
@@ -123,14 +87,11 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
-    phone: '',
     company: '',
-    service: '',
-    budget: '',
-    timeline: '',
-    message: '',
+    description: '',
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -142,12 +103,11 @@ export default function ContactPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: formData.name,
+          name: `${formData.firstName} ${formData.lastName}`,
           email: formData.email,
-          phone: formData.phone || undefined,
           company: formData.company || undefined,
-          message: `Service: ${formData.service}\nBudget: ${formData.budget}\nTimeline: ${formData.timeline}\n\n${formData.message}`,
-          type: 'project',
+          message: formData.description,
+          type: 'contact',
           sourcePage: '/contact',
           locale,
         }),
@@ -159,14 +119,11 @@ export default function ContactPage() {
         setIsSuccess(true);
         toast.success("Message sent successfully! We'll get back to you soon.");
         setFormData({
-          name: '',
+          firstName: '',
+          lastName: '',
           email: '',
-          phone: '',
           company: '',
-          service: '',
-          budget: '',
-          timeline: '',
-          message: '',
+          description: '',
         });
       } else {
         toast.error(result.message || 'Failed to send message. Please try again.');
@@ -209,9 +166,6 @@ export default function ContactPage() {
         title="Let's Build Something"
         subtitle="Extraordinary"
         description="Ready to transform your business? Let's discuss your project and explore how we can help you achieve your goals."
-        backgroundImage="/images/contact-hero.jpg"
-        ctaText="Scroll to Form"
-        ctaHref="#contact-form"
         showTimer={false}
       />
 
@@ -309,18 +263,34 @@ export default function ContactPage() {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="name" className="text-white/80 font-heading text-sm uppercase tracking-wide">
-                          Full Name *
+                        <Label htmlFor="firstName" className="text-white/80 font-heading text-sm uppercase tracking-wide">
+                          First Name *
                         </Label>
                         <Input
-                          id="name"
+                          id="firstName"
                           required
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          value={formData.firstName}
+                          onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                           className="bg-dark-300/50 border-white/10 text-white h-12 focus:border-gold-100/50"
-                          placeholder="John Doe"
+                          placeholder="John"
                         />
                       </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="lastName" className="text-white/80 font-heading text-sm uppercase tracking-wide">
+                          Last Name *
+                        </Label>
+                        <Input
+                          id="lastName"
+                          required
+                          value={formData.lastName}
+                          onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                          className="bg-dark-300/50 border-white/10 text-white h-12 focus:border-gold-100/50"
+                          placeholder="Doe"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label htmlFor="email" className="text-white/80 font-heading text-sm uppercase tracking-wide">
                           Email *
@@ -333,22 +303,6 @@ export default function ContactPage() {
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="bg-dark-300/50 border-white/10 text-white h-12 focus:border-gold-100/50"
                           placeholder="john@company.com"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="phone" className="text-white/80 font-heading text-sm uppercase tracking-wide">
-                          Phone
-                        </Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="bg-dark-300/50 border-white/10 text-white h-12 focus:border-gold-100/50"
-                          placeholder="+1 (234) 567-890"
                         />
                       </div>
                       <div className="space-y-2">
@@ -365,94 +319,16 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-6">
-                      <div className="space-y-2">
-                        <Label className="text-white/80 font-heading text-sm uppercase tracking-wide">
-                          Service Interest *
-                        </Label>
-                        <Select
-                          value={formData.service}
-                          onValueChange={(value) => setFormData({ ...formData, service: value })}
-                          required
-                        >
-                          <SelectTrigger className="bg-dark-300/50 border-white/10 text-white h-12">
-                            <SelectValue placeholder="Select service" />
-                          </SelectTrigger>
-                          <SelectContent className="bg-dark-300 border-white/10">
-                            {serviceOptions.map((option) => (
-                              <SelectItem
-                                key={option.value}
-                                value={option.value}
-                                className="text-white hover:bg-dark-200"
-                              >
-                                {option.label}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label className="text-white/80 font-heading text-sm uppercase tracking-wide">
-                          Budget Range
-                        </Label>
-                        <Select
-                          value={formData.budget}
-                          onValueChange={(value) => setFormData({ ...formData, budget: value })}
-                        >
-                          <SelectTrigger className="bg-dark-300/50 border-white/10 text-white h-12">
-                            <SelectValue placeholder="Select budget" />
-                          </SelectTrigger>
-                          <SelectContent className="bg-dark-300 border-white/10">
-                            {budgetOptions.map((option) => (
-                              <SelectItem
-                                key={option.value}
-                                value={option.value}
-                                className="text-white hover:bg-dark-200"
-                              >
-                                {option.label}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label className="text-white/80 font-heading text-sm uppercase tracking-wide">
-                          Timeline
-                        </Label>
-                        <Select
-                          value={formData.timeline}
-                          onValueChange={(value) => setFormData({ ...formData, timeline: value })}
-                        >
-                          <SelectTrigger className="bg-dark-300/50 border-white/10 text-white h-12">
-                            <SelectValue placeholder="Select timeline" />
-                          </SelectTrigger>
-                          <SelectContent className="bg-dark-300 border-white/10">
-                            {timelineOptions.map((option) => (
-                              <SelectItem
-                                key={option.value}
-                                value={option.value}
-                                className="text-white hover:bg-dark-200"
-                              >
-                                {option.label}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-
                     <div className="space-y-2">
-                      <Label htmlFor="message" className="text-white/80 font-heading text-sm uppercase tracking-wide">
-                        Project Details *
+                      <Label htmlFor="description" className="text-white/80 font-heading text-sm uppercase tracking-wide">
+                        Description *
                       </Label>
                       <Textarea
-                        id="message"
+                        id="description"
                         required
                         rows={6}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        value={formData.description}
+                        onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                         placeholder="Tell us about your project, goals, and any specific requirements..."
                         className="bg-dark-300/50 border-white/10 text-white resize-none focus:border-gold-100/50"
                       />
@@ -527,38 +403,8 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Free Consultation CTA */}
-                <div className="p-8 bg-gradient-to-br from-gold-100/20 via-gold-100/10 to-transparent rounded-2xl border border-gold-100/20">
-                  <h3 className="font-heading text-xl text-white mb-3">
-                    Free Consultation
-                  </h3>
-                  <p className="text-white/60 text-sm mb-6">
-                    Schedule a 30-minute call with our team to discuss your project requirements and get expert advice.
-                  </p>
-                  <Button
-                    variant="outline"
-                    className="w-full border-gold-100/30 text-gold-100 hover:bg-gold-100/10"
-                  >
-                    Schedule Call
-                  </Button>
-                </div>
               </motion.div>
             </div>
-          </div>
-        </section>
-
-        {/* Newsletter Subscription Section */}
-        <section className="py-20 px-6 lg:px-20">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="p-12 bg-gradient-to-br from-dark-200/80 to-dark-300/50 rounded-3xl border border-white/5"
-            >
-              <NewsletterForm variant="full" />
-            </motion.div>
           </div>
         </section>
 
@@ -566,8 +412,7 @@ export default function ContactPage() {
         <section className="py-20">
           <FAQAccordion
             title="Frequently Asked Questions"
-            description="Everything you need to know about working with us"
-            items={contactFaqs}
+            faqs={contactFaqs}
           />
         </section>
     </>

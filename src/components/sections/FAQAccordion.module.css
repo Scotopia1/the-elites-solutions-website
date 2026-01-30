@@ -1,6 +1,6 @@
 .faqSection {
   padding: 8rem 0;
-  background-color: var(--orbit-dark-200, #141414);
+  background-color: transparent;
   position: relative;
   overflow: hidden;
 }
@@ -57,14 +57,14 @@
   display: flex;
   flex-direction: column;
   gap: 1px;
-  background: rgba(255, 215, 0, 0.1);
+  background: transparent;
   border: 1px solid rgba(255, 215, 0, 0.2);
   border-radius: 2px;
   overflow: hidden;
 }
 
 .item {
-  background: var(--orbit-dark-200, #141414);
+  background: transparent;
   border-bottom: 1px solid rgba(255, 215, 0, 0.1);
   transition: background-color 0.3s ease;
 }
@@ -74,11 +74,11 @@
 }
 
 .item:hover {
-  background: var(--orbit-dark-100, #1a1a1a);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .item.active {
-  background: rgba(255, 215, 0, 0.02);
+  background: rgba(255, 215, 0, 0.01);
 }
 
 .question {

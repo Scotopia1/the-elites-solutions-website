@@ -41,9 +41,28 @@ export function RoutineSlider({
       const mm = gsap.matchMedia();
 
       mm.add("(min-width: 769px)", () => {
-        const sliderWidth = slider.scrollWidth;
+        const stepCards = slider.querySelectorAll("[data-step]");
+        const firstCard = stepCards[0] as HTMLElement;
+        const lastCard = stepCards[stepCards.length - 1] as HTMLElement;
+
+        if (!firstCard || !lastCard) return;
+
         const wrapperWidth = wrapper.offsetWidth;
-        const moveDistance = -(sliderWidth - wrapperWidth);
+        const cardWidth = firstCard.offsetWidth;
+        const cardGap = 32; // Gap between cards (2rem)
+
+        // Calculate offset to center first card at start
+        const firstCardCenterOffset = (wrapperWidth - cardWidth) / 2;
+
+        // Calculate offset to center last card at end
+        const lastCardLeft = lastCard.offsetLeft;
+        const lastCardCenterOffset = (wrapperWidth - cardWidth) / 2 - lastCardLeft;
+
+        // Total move distance (from first centered to last centered)
+        const moveDistance = lastCardCenterOffset - firstCardCenterOffset;
+
+        // Set initial position (first card centered)
+        gsap.set(slider, { x: firstCardCenterOffset });
 
         // Horizontal scroll animation
         const scrollTrigger = ScrollTrigger.create({
@@ -59,9 +78,9 @@ export function RoutineSlider({
             const progress = self.progress;
             setScrollProgress(Math.round(progress * 100));
 
-            // Move slider horizontally
+            // Move slider from first card centered to last card centered
             gsap.set(slider, {
-              x: progress * moveDistance,
+              x: firstCardCenterOffset + (progress * moveDistance),
             });
 
             // Update progress bar

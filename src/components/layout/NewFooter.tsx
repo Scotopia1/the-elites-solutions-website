@@ -21,10 +21,7 @@ import { GooeyFilter } from "@/components/shared/GooeyFilter";
 const socialLinks = [
   { href: "https://linkedin.com", label: "LinkedIn" },
   { href: "https://instagram.com", label: "Instagram" },
-  { href: "https://twitter.com", label: "Twitter" },
-  { href: "https://dribbble.com", label: "Dribbble" },
-  { href: "https://github.com/theelites", label: "GitHub" },
-  { href: "https://behance.net", label: "Behance" },
+  { href: "https://facebook.com", label: "Facebook" },
 ];
 
 export function NewFooter() {

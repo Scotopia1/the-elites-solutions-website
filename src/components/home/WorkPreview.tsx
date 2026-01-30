@@ -59,7 +59,7 @@ const WorkPreview = () => {
     const workHeaderSection = stickyWorkHeaderRef.current;
     const homeWorkSection = homeWorkRef.current;
 
-    let workHeaderPinTrigger;
+    let workHeaderPinTrigger: ScrollTrigger | undefined;
     if (workHeaderSection && homeWorkSection) {
       workHeaderPinTrigger = ScrollTrigger.create({
         trigger: workHeaderSection,

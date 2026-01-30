@@ -17,16 +17,14 @@ interface Project {
   id: string;
   slug: string;
   title: Record<string, string>;
-  description: Record<string, string>;
-  shortDescription: Record<string, string>;
+  shortDescription?: Record<string, string>;
   category: string;
-  featuredImageUrl: string | null;
-  heroImage: string | null;
+  featuredImageUrl?: string | null;
+  heroImage?: string | null;
   technologies: string[];
-  clientName: string | null;
-  projectUrl: string | null;
-  completedAt: string | null;
-  resultsMetrics: Array<{ metric: string; description: string }> | null;
+  clientName?: string | null;
+  projectUrl?: string | null;
+  resultsMetrics?: Array<{ metric: string; description: string }> | null;
 }
 
 interface Pagination {
@@ -70,7 +68,7 @@ export default function WorkPage() {
       const searchLower = filters.search.toLowerCase();
       filtered = filtered.filter((project) => {
         const title = project.title?.[locale] || project.title?.en || '';
-        const description = project.description?.[locale] || project.description?.en || '';
+        const description = project.shortDescription?.[locale] || project.shortDescription?.en || '';
         const clientName = project.clientName || '';
         const technologies = project.technologies?.join(' ') || '';
 
@@ -134,14 +132,11 @@ export default function WorkPage() {
           : locale === 'ar'
           ? 'استكشف محفظة مشاريعنا الناجحة التي غيرت الأعمال'
           : 'Explore our portfolio of successful projects that have transformed businesses'}
-        backgroundImage="/images/work-hero.jpg"
-        ctaText={locale === 'fr' ? 'Voir Tous les Projets' : locale === 'ar' ? 'عرض جميع المشاريع' : 'View All Projects'}
-        ctaHref="#projects"
         showTimer={false}
       />
 
       {/* Search & Filters Section (Sticky) */}
-      <section className="sticky top-0 z-30 py-8 bg-dark-400/95 backdrop-blur-md border-b border-dark-300">
+      <section className="sticky top-0 z-30 py-8 bg-transparent backdrop-blur-md border-b border-dark-300">
         <div className="container-custom space-y-6">
           {/* Search Bar */}
           <ProjectSearch
@@ -167,7 +162,7 @@ export default function WorkPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-20 bg-dark-500">
+      <section className="py-20 bg-transparent">
         <div className="container-custom">
           {loading ? (
             <div className="flex items-center justify-center py-20">
@@ -220,7 +215,7 @@ export default function WorkPage() {
                           {project.title?.[locale] || project.title?.en || 'Untitled Project'}
                         </h3>
                         <p className="text-sm text-gray-400 line-clamp-3">
-                          {project.shortDescription?.[locale] || project.shortDescription?.en || project.description?.[locale] || project.description?.en || 'No description available'}
+                          {project.shortDescription?.[locale] || project.shortDescription?.en || 'No description available'}
                         </p>
                       </div>
 
@@ -304,7 +299,7 @@ export default function WorkPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-dark-400">
+      <section className="py-20 bg-transparent">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-3xl md:text-5xl font-heading font-bold text-white">

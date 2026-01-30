@@ -17,7 +17,7 @@ export default function NotFound() {
     transition: {
       duration: 3,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: "easeInOut" as const
     }
   };
 
@@ -27,7 +27,7 @@ export default function NotFound() {
     transition: {
       duration: 2,
       repeat: Infinity,
-      ease: "easeInOut"
+      ease: "easeInOut" as const
     }
   };
 

@@ -250,23 +250,26 @@ export default function ProjectFiltersComponent({
       {/* Active Filter Tags */}
       {activeFilters.length > 0 && (
         <div className="flex flex-wrap gap-2">
-          {activeFilters.map((filter, index) => (
-            <motion.div
-              key={`${filter.type}-${filter.value || filter.label}-${index}`}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              className="flex items-center gap-2 px-3 py-1 bg-gold-400/10 border border-gold-400/30 rounded-full text-sm text-gold-400"
-            >
-              <span>{filter.label}</span>
-              <button
-                onClick={() => removeFilter(filter.type, filter.value)}
-                className="hover:text-gold-300 transition-colors"
+          {activeFilters.map((filter, index) => {
+            const filterValue = 'value' in filter ? filter.value : undefined;
+            return (
+              <motion.div
+                key={`${filter.type}-${filterValue || filter.label}-${index}`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                className="flex items-center gap-2 px-3 py-1 bg-gold-400/10 border border-gold-400/30 rounded-full text-sm text-gold-400"
               >
-                <X className="w-3 h-3" />
-              </button>
-            </motion.div>
-          ))}
+                <span>{filter.label}</span>
+                <button
+                  onClick={() => removeFilter(filter.type, filterValue)}
+                  className="hover:text-gold-300 transition-colors"
+                >
+                  <X className="w-3 h-3" />
+                </button>
+              </motion.div>
+            );
+          })}
         </div>
       )}
     </div>

@@ -11,7 +11,7 @@ const techLogos = [
   { name: "Docker", icon: "docker" },
 ];
 
-const SVGIcon = ({ icon, ...props }) => {
+const SVGIcon = ({ icon, ...props }: { icon: string; [key: string]: any }) => {
     switch (icon) {
       case "react":
         return (
@@ -55,7 +55,7 @@ const itemVariants = {
     y: 0,
     opacity: 0.6,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 100,
       damping: 10,
       duration: 0.5,

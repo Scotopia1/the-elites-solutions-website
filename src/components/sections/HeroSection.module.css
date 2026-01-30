@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: var(--orbit-dark-200, #141414);
+  background-color: transparent;
 }
 
 /* ================================================
@@ -45,8 +45,8 @@
     rgba(20, 20, 20, 0.85) 0%,
     rgba(20, 20, 20, 0.7) 30%,
     rgba(20, 20, 20, 0.4) 60%,
-    rgba(255, 215, 0, 0.08) 85%,
-    rgba(255, 215, 0, 0.12) 100%
+    rgba(20, 20, 20, 0.2) 85%,
+    transparent 100%
   );
   z-index: 1;
 }

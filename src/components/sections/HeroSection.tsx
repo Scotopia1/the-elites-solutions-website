@@ -11,8 +11,8 @@ export interface HeroSectionProps {
   title: string;
   subtitle?: string;
   description?: string;
-  imageSrc: string;
-  imageAlt: string; // Required for accessibility
+  imageSrc?: string; // Optional - hero will have no background image if not provided
+  imageAlt?: string; // Required for accessibility when imageSrc is provided
   showTimer?: boolean;
   callouts?: Array<{ icon?: string; text: string }>;
   className?: string;
@@ -124,20 +124,22 @@ export function HeroSection({
       className={`${styles.heroSection} ${className}`}
       aria-label="Hero section"
     >
-      {/* Background Image */}
-      <div className={styles.backgroundWrapper}>
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          fill
-          priority={priority}
-          quality={90}
-          className={styles.backgroundImage}
-          sizes="100vw"
-        />
-        {/* Gradient Overlay */}
-        <div ref={overlayRef} className={styles.gradientOverlay} />
-      </div>
+      {/* Background Image (optional) */}
+      {imageSrc && (
+        <div className={styles.backgroundWrapper}>
+          <Image
+            src={imageSrc}
+            alt={imageAlt || ''}
+            fill
+            priority={priority}
+            quality={90}
+            className={styles.backgroundImage}
+            sizes="100vw"
+          />
+          {/* Gradient Overlay */}
+          <div ref={overlayRef} className={styles.gradientOverlay} />
+        </div>
+      )}
 
       {/* Content Container */}
       <div className={styles.contentWrapper}>

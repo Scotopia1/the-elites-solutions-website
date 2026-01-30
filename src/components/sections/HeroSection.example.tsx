@@ -5,7 +5,7 @@
  * Copy these examples into your page components.
  */
 
-import HeroSection from "./HeroSection";
+import { HeroSection } from "./HeroSection";
 
 // ================================================
 // Example 1: Full-Featured Hero

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getBlogPostBySlug, getAllBlogPosts } from '@/lib/blog/markdown';
+import { getBlogPostBySlug, getAllBlogPosts, getAuthorBySlug } from '@/lib/blog/markdown';
 import ClientLayoutWrapper from '@/components/layout/ClientLayoutWrapper';
 
 // Blog components
@@ -31,29 +31,39 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       };
     }
 
+    // Get locale-specific strings
+    const localizedLocale = locale as 'en' | 'fr' | 'ar';
+    const title = post.title[localizedLocale];
+    const excerpt = post.excerpt[localizedLocale];
+    const imageAlt = post.featuredImageAlt?.[localizedLocale] || title;
+
+    // Get author information
+    const author = getAuthorBySlug(post.author);
+    const authorName = author?.name[localizedLocale] || 'The Elites Solutions';
+
     return {
-      title: `${post.title} | The Elites Solutions Blog`,
-      description: post.excerpt,
+      title: `${title} | The Elites Solutions Blog`,
+      description: excerpt,
       openGraph: {
-        title: post.title,
-        description: post.excerpt,
+        title,
+        description: excerpt,
         type: 'article',
         publishedTime: post.publishedAt,
         modifiedTime: post.updatedAt || post.publishedAt,
-        authors: [post.author.name],
+        authors: [authorName],
         images: post.heroImage ? [
           {
             url: post.heroImage,
             width: 1200,
             height: 630,
-            alt: post.title,
+            alt: imageAlt,
           },
         ] : [],
       },
       twitter: {
         card: 'summary_large_image',
-        title: post.title,
-        description: post.excerpt,
+        title,
+        description: excerpt,
         images: post.heroImage ? [post.heroImage] : [],
       },
       alternates: {
@@ -94,6 +104,27 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
+  // Get locale-specific values
+  const localizedLocale = locale as 'en' | 'fr' | 'ar';
+  const title = post.title[localizedLocale];
+  const excerpt = post.excerpt[localizedLocale];
+  const content = post.content[localizedLocale];
+  const imageAlt = post.featuredImageAlt?.[localizedLocale] || title;
+
+  // Get author information
+  const author = getAuthorBySlug(post.author);
+  const authorData = author ? {
+    name: author.name[localizedLocale],
+    avatar: author.avatarUrl || '/images/default-avatar.png',
+    title: author.role?.[localizedLocale] || 'Author',
+    bio: author.bio?.[localizedLocale] || '',
+  } : {
+    name: 'The Elites Team',
+    avatar: '/images/default-avatar.png',
+    title: 'Author',
+    bio: '',
+  };
+
   // Construct full URL for sharing (will be handled client-side in SocialShareSidebar)
   const currentUrl = `https://theelites.io/${locale}/blog/${slug}`;
 
@@ -116,31 +147,31 @@ export default async function BlogPostPage({ params }: Props) {
       <ReadingProgressBar />
 
       {/* Social Share Sidebar (Desktop Only) */}
-      <SocialShareSidebar title={post.title} url={currentUrl} />
+      <SocialShareSidebar title={title} url={currentUrl} />
 
       {/* Content */}
       <div className="relative z-10">
         {/* Hero Section */}
         <BlogHeroImage
-          image={post.heroImage}
-          alt={post.title}
-          title={post.title}
-          subtitle={post.excerpt}
-          category={post.category}
-          author={post.author}
+          image={post.heroImage || ''}
+          alt={imageAlt}
+          title={title}
+          subtitle={excerpt}
+          category={post.category || ''}
+          author={authorData}
           publishedDate={post.publishedAt}
-          readingTime={post.readingTime}
+          readingTime={post.readingTime.toString()}
           tags={post.tags}
         />
 
         {/* Article Content (Markdown Rendered to HTML) */}
-        <ArticleContent content={post.content} />
+        <ArticleContent content={content} />
 
         {/* Author Bio */}
-        <AuthorBio author={post.author} />
+        <AuthorBio author={authorData} />
 
         {/* Related Posts */}
-        <RelatedPosts relatedSlugs={post.relatedPosts || []} />
+        <RelatedPosts relatedSlugs={[]} />
       </div>
     </ClientLayoutWrapper>
   );

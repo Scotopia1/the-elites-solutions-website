@@ -125,7 +125,7 @@ export function JourneyTimeline() {
             <div
               ref={lineRef}
               className="w-full h-full bg-gradient-to-b from-gold-400 via-gold-400 to-gold-400/20 origin-top"
-              style={{ scaleY: prefersReducedMotion ? 1 : 0 }}
+              style={{ transform: `scaleY(${prefersReducedMotion ? 1 : 0})` }}
             />
           </div>
 

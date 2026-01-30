@@ -42,9 +42,6 @@ export default function ServicesPage() {
         title="Our Services"
         subtitle="Comprehensive Solutions for Modern Businesses"
         description="From web development to business automation, we provide end-to-end solutions that drive growth and efficiency. Discover how we can help transform your business with cutting-edge technology."
-        backgroundImage="/images/services-hero.jpg"
-        ctaText="Get Started"
-        ctaHref="/contact"
         showTimer={false}
       />
 
@@ -52,8 +49,7 @@ export default function ServicesPage() {
 
       <FAQAccordion
         title="Service FAQs"
-        description="Common questions about our services"
-        items={faqItems}
+        faqs={faqItems}
       />
 
       <CTASection

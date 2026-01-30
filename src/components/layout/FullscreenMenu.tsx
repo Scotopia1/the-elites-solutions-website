@@ -43,7 +43,7 @@ const FullscreenMenu = ({ isOpen, setIsOpen }: FullscreenMenuProps) => {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
-  const menuTriggerRef = useRef<HTMLDivElement>(null);
+  const menuTriggerRef = useRef<HTMLButtonElement>(null);
 
   const router = useRouter();
   const pathname = usePathname();

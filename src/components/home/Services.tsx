@@ -19,12 +19,15 @@
 
 import { useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, Easing } from "motion/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { servicesData } from "./servicesData";
 import styles from "./Services.module.css";
+
+// Easing constants for animations
+const easeOut: Easing = "easeOut" as any;
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -135,7 +138,7 @@ const ServiceLayer: React.FC<ServiceLayerProps> = ({ service, index, total, onNa
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.6, ease: easeOut },
     },
   };
 
@@ -250,7 +253,7 @@ export default function Services() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: easeOut }}
       >
         <h1>
           Our<br />Services

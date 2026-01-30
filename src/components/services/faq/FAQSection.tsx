@@ -1,8 +1,11 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { motion, useInView, AnimatePresence, Easing } from 'framer-motion';
 import './FAQSection.css';
+
+// Easing constant for animations
+const customEase: Easing = [0.22, 1, 0.36, 1] as any;
 
 interface FAQItem {
   id: string;
@@ -34,7 +37,7 @@ function FAQAccordionItem({
       y: 0,
       transition: {
         duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
+        ease: customEase,
         delay: index * 0.1,
       },
     },
@@ -55,7 +58,7 @@ function FAQAccordionItem({
         <motion.span
           className="faq-item__icon"
           animate={{ rotate: isOpen ? 45 : 0 }}
-          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as any }}
         >
           <svg
             width="20"
@@ -79,7 +82,7 @@ function FAQAccordionItem({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as any }}
           >
             <div className="faq-item__answer">
               <p>{item.answer}</p>
@@ -125,7 +128,7 @@ export default function FAQSection({
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
+        ease: customEase,
       },
     },
   };

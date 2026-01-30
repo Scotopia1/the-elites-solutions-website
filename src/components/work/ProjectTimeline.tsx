@@ -52,7 +52,7 @@ export default function ProjectTimeline({ timeline }: ProjectTimelineProps) {
   return (
     <section
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-neutral-950 to-black"
+      className="py-20 bg-transparent"
     >
       <div className="max-w-4xl mx-auto px-6">
         <motion.h2

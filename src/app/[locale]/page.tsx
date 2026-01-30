@@ -8,6 +8,7 @@ import ServicesCarousel from '@/components/home/ServicesCarousel';
 import FeaturedWork from '@/components/home/FeaturedWork';
 import IntroStats from '@/components/home/IntroStats';
 import CTA from '@/components/home/CTA';
+import ClientReviews from '@/components/home/ClientReviews';
 
 export default function HomePage() {
   const lenisOptions = useLenisConfig();
@@ -18,6 +19,7 @@ export default function HomePage() {
         <CGMWTNOV2025Hero />
         <IntroStats />
         <ServicesCarousel />
+        <ClientReviews />
         <FeaturedWork />
         <CTA />
       </ParallaxProvider>

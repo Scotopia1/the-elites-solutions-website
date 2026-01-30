@@ -1,3 +1,8 @@
+// New clean menu (default export)
+export { default as CleanMenu } from './CleanMenu';
+export { useCleanMenuAnimation } from './useCleanMenuAnimation';
+
+// Legacy exports (kept for rollback capability)
 export { default as VanguardMenu } from './VanguardMenu';
 export { default as MenuBackground } from './MenuBackground';
 export { default as MenuGeometrics } from './MenuGeometrics';

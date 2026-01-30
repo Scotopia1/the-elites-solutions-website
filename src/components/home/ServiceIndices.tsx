@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { indicesData } from "./servicesData";
+import { servicesData } from "./servicesData";
 
 interface IndicesProps {
   setIndicesRef: (el: HTMLDivElement | null, index: number) => void;
@@ -8,7 +8,7 @@ interface IndicesProps {
 const Indices = forwardRef<HTMLDivElement, IndicesProps>(
   ({ setIndicesRef }, ref) => (
     <div className="indices" ref={ref}>
-      {indicesData.map((index, i) => (
+      {servicesData.map((index: any, i: number) => (
         <div
           key={index.id}
           className="index"
