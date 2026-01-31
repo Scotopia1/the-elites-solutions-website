@@ -1,0 +1,324 @@
+/* ============================================
+   CleanMenu - High Performance Fullscreen Overlay
+   Premium dark + gold aesthetic, 60fps animations
+   ============================================ */
+
+/* Trigger */
+.clean-menu-trigger {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.clean-trigger-logo {
+  width: 234px; /* Base mobile size */
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.clean-menu-trigger:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+.clean-menu-trigger:hover .clean-trigger-logo {
+  filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.6));
+}
+
+.clean-menu-trigger:focus {
+  outline: 2px solid #D4AF37;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Overlay */
+.clean-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(10, 10, 10, 0.95);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 40px 40px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Close Button */
+.clean-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  opacity: 0;
+  line-height: 1;
+}
+
+.clean-close-btn:hover {
+  color: #D4AF37;
+  transform: scale(1.1);
+}
+
+.clean-close-btn:focus {
+  outline: 2px solid #D4AF37;
+  outline-offset: 4px;
+}
+
+.close-icon {
+  display: block;
+}
+
+/* Navigation */
+.clean-menu-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clean-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.clean-menu-item {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 16px;
+  opacity: 0;
+}
+
+.item-number {
+  font-size: 14px;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  color: #666;
+  transition: color 0.2s ease;
+  min-width: 28px;
+}
+
+.item-link {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.clean-menu-item:hover .item-number,
+.clean-menu-item:hover .item-link {
+  color: #D4AF37;
+}
+
+.item-link:focus {
+  outline: none;
+  color: #D4AF37;
+}
+
+/* Footer */
+.clean-menu-footer {
+  opacity: 0;
+  padding-top: 20px;
+}
+
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #333, transparent);
+  margin-bottom: 24px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-social a {
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social a:hover {
+  color: #D4AF37;
+  transform: translateY(-2px);
+}
+
+.footer-social a:focus {
+  outline: 2px solid #D4AF37;
+  outline-offset: 4px;
+}
+
+.footer-contact {
+  color: #888;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+.footer-copyright {
+  color: #555;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .clean-menu-item,
+  .clean-menu-overlay,
+  .clean-menu-trigger,
+  .clean-close-btn,
+  .item-number,
+  .item-link,
+  .footer-social a {
+    transition: none !important;
+  }
+}
+
+/* Small Mobile and up (≥ 480px) */
+@media (min-width: 480px) {
+  .clean-trigger-logo {
+    width: 286px; /* 130% of 220px */
+  }
+}
+
+/* Tablet and up (≥ 768px) */
+@media (min-width: 768px) {
+  .clean-trigger-logo {
+    width: 380px;
+  }
+
+  .clean-menu-trigger {
+    top: 20px;
+  }
+
+  .clean-close-btn {
+    top: 2rem;
+    right: 2rem;
+  }
+}
+
+/* Mobile Responsive (max-width) */
+@media (max-width: 768px) {
+  .clean-menu-overlay {
+    padding: 60px 24px 24px;
+  }
+
+  .clean-close-btn {
+    top: 16px;
+    right: 16px;
+    font-size: 28px;
+  }
+
+  .item-link {
+    font-size: 36px;
+  }
+
+  .item-number {
+    font-size: 12px;
+    min-width: 24px;
+  }
+
+  .clean-menu-item {
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .footer-social {
+    gap: 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .item-link {
+    font-size: 28px;
+  }
+
+  .clean-menu-overlay {
+    padding: 50px 16px 20px;
+  }
+}
+
+/* Touch targets - ensure minimum 44px */
+@media (pointer: coarse) {
+  .clean-close-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .footer-social a {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .item-link {
+    padding: 8px 0;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .clean-menu-overlay {
+    background: #000;
+  }
+
+  .item-link {
+    color: #fff;
+  }
+
+  .item-number {
+    color: #aaa;
+  }
+
+  .clean-menu-item:hover .item-number,
+  .clean-menu-item:hover .item-link {
+    color: #FFD700;
+  }
+}
+
+/* GPU acceleration - only during animations to save memory */
+.clean-menu-overlay[style*="visible"],
+.clean-menu-overlay.is-animating,
+.clean-menu-item.is-animating {
+  will-change: opacity, transform;
+}
+
+/* Force GPU layer for smooth animations */
+.clean-menu-overlay,
+.clean-menu-item,
+.clean-close-btn {
+  transform: translateZ(0);
+}

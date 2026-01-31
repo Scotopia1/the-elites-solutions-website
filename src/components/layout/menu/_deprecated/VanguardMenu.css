@@ -1,0 +1,917 @@
+/* ========================================
+   Vanguard Menu v2 - Centered Overlay
+   Elegant & Smooth with 3D Perspective
+   ======================================== */
+
+/* CSS Custom Properties */
+:root {
+  --vm-bg-primary: #000000;
+  --vm-bg-secondary: #0a0a0a;
+  --vm-bg-tertiary: #0f0f0f;
+
+  --vm-gold-primary: #ffd700;
+  --vm-gold-secondary: #daa520;
+  --vm-gold-glow: rgba(255, 215, 0, 0.5);
+  --vm-gold-subtle: rgba(255, 215, 0, 0.1);
+  --vm-gold-muted: rgba(255, 215, 0, 0.3);
+
+  --vm-text-primary: rgba(255, 255, 255, 0.95);
+  --vm-text-secondary: rgba(255, 255, 255, 0.6);
+  --vm-text-muted: rgba(255, 255, 255, 0.3);
+
+  /* Using Barlow Condensed for compact, elegant menu text */
+  --vm-font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --vm-font-mono: 'DM Mono', 'SF Mono', monospace;
+}
+
+/* ========================================
+   Menu Wrapper & Trigger
+   ======================================== */
+
+.vanguard-menu-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.vanguard-menu-trigger {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 101;
+  transition: transform 0.3s ease;
+}
+
+.vanguard-menu-trigger:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+.vanguard-menu-trigger:focus-visible {
+  outline: 2px solid var(--vm-gold-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.vanguard-trigger-logo {
+  height: auto;
+  filter: drop-shadow(0 0 10px var(--vm-gold-muted));
+  transition: filter 0.3s ease;
+}
+
+.vanguard-menu-trigger:hover .vanguard-trigger-logo {
+  filter: drop-shadow(0 0 25px var(--vm-gold-glow));
+}
+
+.trigger-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, var(--vm-gold-subtle) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.vanguard-menu-trigger:hover .trigger-glow {
+  opacity: 1;
+}
+
+/* ========================================
+   Fullscreen Overlay
+   ======================================== */
+
+.vanguard-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--vm-bg-primary);
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+  cursor: none;
+  overflow: hidden;
+}
+
+/* ========================================
+   Menu Background
+   ======================================== */
+
+.menu-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.menu-grid-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.menu-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.menu-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.02;
+  mix-blend-mode: overlay;
+}
+
+/* Enhanced vignette for center focus */
+.menu-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 30%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+/* Centered radial glow behind menu (blur removed for performance) */
+.menu-center-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 60%;
+  background: radial-gradient(
+    ellipse at center,
+    var(--vm-gold-subtle) 0%,
+    rgba(255, 215, 0, 0.05) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+/* Secondary ambient glow for depth (blur removed for performance) */
+.menu-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 80%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 215, 0, 0.03) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.menu-edge-glow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--vm-gold-muted) 30%,
+    var(--vm-gold-primary) 50%,
+    var(--vm-gold-muted) 70%,
+    transparent 100%
+  );
+  opacity: 0.4;
+}
+
+.menu-edge-glow-top {
+  top: 0;
+}
+
+.menu-edge-glow-bottom {
+  bottom: 0;
+}
+
+/* ========================================
+   Menu Geometrics (Simplified)
+   ======================================== */
+
+.menu-geometrics {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  color: var(--vm-gold-primary);
+}
+
+/* Hide corner brackets for elegant look */
+.corner-bracket {
+  display: none;
+}
+
+/* Keep subtle decorative shapes */
+.geometric-shape {
+  position: absolute;
+  color: var(--vm-gold-primary);
+  pointer-events: none;
+  opacity: 0.05;
+}
+
+.hex-shape-1 {
+  top: 10%;
+  right: 8%;
+}
+
+.hex-shape-2 {
+  bottom: 15%;
+  left: 5%;
+}
+
+.tri-shape-1 {
+  display: none;
+}
+
+.edge-tracer {
+  display: none;
+}
+
+.data-dots {
+  display: none;
+}
+
+/* ========================================
+   Close Button
+   ======================================== */
+
+.vanguard-close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  border: 1px solid var(--vm-text-muted);
+  color: var(--vm-text-secondary);
+  font-family: var(--vm-font-display);
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 10;
+}
+
+.vanguard-close-btn:hover {
+  color: var(--vm-gold-primary);
+  border-color: var(--vm-gold-primary);
+  background: var(--vm-gold-subtle);
+  box-shadow: 0 0 30px var(--vm-gold-subtle);
+  transform: scale(1.02);
+}
+
+.vanguard-close-btn:focus-visible {
+  outline: 2px solid var(--vm-gold-primary);
+  outline-offset: 2px;
+}
+
+.close-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================
+   Menu Content - CENTERED LAYOUT
+   ======================================== */
+
+.vanguard-menu-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.vanguard-menu-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  perspective: 1000px;
+  max-height: 70vh;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* ========================================
+   Menu Item - 3D Perspective & Animations
+   ======================================== */
+
+.menu-item {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.menu-item-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.menu-item-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+}
+
+/* Number styling */
+.menu-item-number {
+  position: relative;
+  font-family: var(--vm-font-mono);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--vm-text-muted);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.number-glow {
+  position: absolute;
+  inset: -15px;
+  background: radial-gradient(circle, var(--vm-gold-glow), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.menu-item.active .number-glow {
+  opacity: 1;
+}
+
+.menu-item.active .menu-item-number,
+.menu-item:hover .menu-item-number {
+  color: var(--vm-gold-primary);
+  text-shadow: 0 0 20px var(--vm-gold-glow);
+}
+
+/* Title with mask reveal effect */
+.menu-item-title {
+  position: relative;
+  font-family: var(--vm-font-display);
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 500;
+  color: var(--vm-text-primary);
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  overflow: hidden;
+}
+
+/* Text mask reveal effect */
+.menu-item-title-text {
+  display: inline-block;
+  position: relative;
+}
+
+.menu-item-title-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--vm-gold-primary);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-shadow: 0 0 30px var(--vm-gold-muted);
+  will-change: clip-path;
+}
+
+.menu-item.active .menu-item-title-text::before,
+.menu-item:hover .menu-item-title-text::before {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Gradient underline from center */
+.menu-item-underline {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--vm-gold-primary),
+    var(--vm-gold-secondary),
+    var(--vm-gold-primary),
+    transparent
+  );
+  transform: translateX(-50%);
+  transform-origin: center;
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 0 20px var(--vm-gold-glow);
+  will-change: width;
+}
+
+.menu-item.active .menu-item-underline,
+.menu-item:hover .menu-item-underline {
+  width: 100%;
+}
+
+/* Arrow indicator */
+.menu-item-arrow {
+  position: absolute;
+  right: -40px;
+  opacity: 0;
+  transform: translateX(-10px);
+  color: var(--vm-gold-primary);
+  filter: drop-shadow(0 0 8px var(--vm-gold-glow));
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.menu-item.active .menu-item-arrow,
+.menu-item:hover .menu-item-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.menu-item-ripple {
+  display: none;
+}
+
+/* Hover glow effect behind menu item (blur removed for performance) */
+.menu-item-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+    ellipse at center,
+    var(--vm-gold-subtle) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.menu-item.active .menu-item-glow {
+  opacity: 0.3;
+}
+
+/* ========================================
+   Menu Cursor (Simplified)
+   ======================================== */
+
+.cursor-trail {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: var(--vm-gold-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  z-index: 9999;
+  border: 1px solid var(--vm-gold-muted);
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, width, height;
+}
+
+.cursor-ring.active {
+  width: 100px;
+  height: 100px;
+  border-color: var(--vm-gold-primary);
+  box-shadow: 0 0 20px var(--vm-gold-subtle);
+}
+
+.cursor-ring svg {
+  display: none;
+}
+
+.cursor-inner {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--vm-gold-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px var(--vm-gold-glow);
+  transition: all 0.2s ease;
+  will-change: transform, width, height;
+}
+
+.cursor-inner.active {
+  width: 50px;
+  height: 50px;
+}
+
+.cursor-inner .cursor-dot {
+  display: none;
+}
+
+.cursor-text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--vm-bg-primary);
+  font-family: var(--vm-font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.cursor-glow {
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, var(--vm-gold-subtle) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9997;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.cursor-glow.active {
+  opacity: 0.5;
+}
+
+/* ========================================
+   Image Preview (Hidden in centered layout)
+   ======================================== */
+
+.menu-image-preview {
+  display: none;
+}
+
+/* ========================================
+   Footer - Centered
+   ======================================== */
+
+.vanguard-menu-footer {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+  text-align: center;
+  max-width: 90%;
+}
+
+.footer-tagline {
+  font-family: var(--vm-font-display);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--vm-gold-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 15px var(--vm-gold-muted);
+}
+
+.footer-cta {
+  font-size: 0.7rem;
+  color: var(--vm-text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: var(--vm-text-muted);
+  border: 1px solid var(--vm-text-muted);
+  border-radius: 50%;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.social-link:hover {
+  color: var(--vm-gold-primary);
+  border-color: var(--vm-gold-primary);
+  background: var(--vm-gold-subtle);
+  box-shadow: 0 0 20px var(--vm-gold-subtle);
+  transform: translateY(-3px);
+}
+
+/* ========================================
+   Status Bar (Hidden)
+   ======================================== */
+
+.vanguard-status-bar {
+  display: none;
+}
+
+/* ========================================
+   Responsive Styles - MOBILE FIRST
+   ======================================== */
+
+/* Base Mobile Styles (< 480px) */
+.vanguard-trigger-logo {
+  width: 234px; /* 130% of 180px */
+}
+
+.vanguard-menu-trigger {
+  top: 10px;
+}
+
+.vanguard-close-btn {
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+}
+
+.close-text {
+  display: none;
+}
+
+.vanguard-menu-nav {
+  gap: 0.1rem;
+  width: 100%;
+  padding: 0 0.5rem;
+  max-height: 60vh;
+}
+
+.menu-item-link {
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.menu-item-number {
+  font-size: 0.65rem;
+}
+
+.menu-item-title {
+  font-size: clamp(1rem, 5.5vw, 1.5rem);
+}
+
+.menu-item-underline {
+  height: 2px;
+  bottom: 0.25rem;
+}
+
+.menu-item-arrow {
+  display: none;
+}
+
+/* Hide cursor on mobile */
+.cursor-inner,
+.cursor-ring,
+.cursor-trail,
+.cursor-glow,
+.hex-shape-1,
+.hex-shape-2 {
+  display: none !important;
+}
+
+.vanguard-menu-overlay {
+  cursor: auto;
+}
+
+.vanguard-menu-footer {
+  bottom: 1rem;
+  padding: 0 1rem;
+}
+
+.footer-tagline {
+  font-size: 0.75rem;
+}
+
+.footer-cta {
+  font-size: 0.65rem;
+}
+
+.footer-social {
+  gap: 0.5rem;
+}
+
+.social-link {
+  width: 32px;
+  height: 32px;
+}
+
+/* Small Mobile and up (≥ 480px) */
+@media (min-width: 480px) {
+  .vanguard-trigger-logo {
+    width: 286px; /* 130% of 220px */
+  }
+
+  .vanguard-menu-nav {
+    gap: 0.15rem;
+    max-height: 65vh;
+  }
+
+  .menu-item-link {
+    gap: 0.75rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .menu-item-number {
+    font-size: 0.7rem;
+  }
+
+  .menu-item-title {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+  }
+
+  .menu-item-underline {
+    height: 3px;
+    bottom: 0.5rem;
+  }
+
+  .vanguard-menu-footer {
+    bottom: 1.5rem;
+    padding: 0;
+  }
+
+  .footer-social {
+    gap: 0.75rem;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Tablet and up (≥ 768px) */
+@media (min-width: 768px) {
+  .vanguard-trigger-logo {
+    width: 380px;
+  }
+
+  .vanguard-menu-trigger {
+    top: 20px;
+  }
+
+  .vanguard-close-btn {
+    top: 2rem;
+    right: 2rem;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .close-text {
+    display: inline;
+  }
+
+  .vanguard-menu-nav {
+    gap: 0.25rem;
+    max-width: 600px;
+    max-height: 70vh;
+    padding: 0;
+  }
+
+  .menu-item-link {
+    gap: 1rem;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .menu-item-number {
+    font-size: 0.875rem;
+  }
+
+  .menu-item-title {
+    font-size: clamp(1.75rem, 5vw, 3rem);
+  }
+
+  .menu-item-arrow {
+    display: block;
+  }
+
+  /* Show cursor on desktop */
+  .cursor-inner,
+  .cursor-ring,
+  .cursor-trail,
+  .cursor-glow,
+  .hex-shape-1,
+  .hex-shape-2 {
+    display: block !important;
+  }
+
+  .vanguard-menu-overlay {
+    cursor: none;
+  }
+
+  .vanguard-menu-footer {
+    bottom: 2rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+  }
+
+  .footer-cta {
+    font-size: 0.7rem;
+  }
+}
+
+/* Desktop and up (≥ 1024px) */
+@media (min-width: 1024px) {
+  .vanguard-menu-nav {
+    gap: 0.25rem;
+  }
+
+  .menu-item-link {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .menu-item-title {
+    font-size: clamp(1.75rem, 5vw, 3rem);
+  }
+}
+
+/* Large Desktop (≥ 1280px) */
+@media (min-width: 1280px) {
+  .menu-item-link {
+    padding: 0.6rem 2rem;
+  }
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-scanlines,
+  .cursor-ring,
+  .cursor-trail,
+  .cursor-glow {
+    animation: none;
+  }
+
+  .menu-item,
+  .menu-item-inner,
+  .menu-item-title,
+  .menu-item-number,
+  .menu-item-title-text::before,
+  .menu-item-underline {
+    transition: none;
+  }
+}
+
+/* ========================================
+   Focus States for Accessibility
+   ======================================== */
+
+.menu-item-link:focus-visible {
+  outline: 2px solid var(--vm-gold-primary);
+  outline-offset: 8px;
+  border-radius: 4px;
+}
+
+.social-link:focus-visible {
+  outline: 2px solid var(--vm-gold-primary);
+  outline-offset: 2px;
+}

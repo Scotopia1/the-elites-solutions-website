@@ -2,10 +2,14 @@
   display: grid;
   gap: 2rem;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .cols2 {
   grid-template-columns: repeat(2, 1fr);
+  max-width: 900px;
 }
 
 .cols3 {
@@ -83,6 +87,12 @@
   color: var(--orbit-gold-100, #FFD700);
 }
 
+.iconImage {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) saturate(100%) invert(83%) sepia(43%) saturate(1000%) hue-rotate(359deg) brightness(103%) contrast(104%);
+}
+
 .title {
   font-family: var(--font-heading, 'SCHABO', sans-serif);
   font-size: clamp(1.5rem, 2.5vw, 2rem);
@@ -123,10 +133,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  .cols2 {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+}
+
 @media (max-width: 640px) {
   .servicesGrid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    padding: 1rem;
   }
 
   .content {

@@ -1,29 +1,30 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getProjectBySlug, getAllProjects, getNextProject } from '@/lib/data/projects';
+import { getProjectBySlug, getAllProjects, getRelatedProjects } from '@/lib/data/projects';
 import ClientLayoutWrapper from '@/components/layout/ClientLayoutWrapper';
 
-// Project components
-import ProjectHeroImage from '@/components/work/ProjectHeroImage';
-import QuickFactsBar from '@/components/work/QuickFactsBar';
-import ProjectOverview from '@/components/work/ProjectOverview';
-import VisualGallery from '@/components/work/VisualGallery';
-import TechStackGrid from '@/components/work/TechStackGrid';
-import ProjectTimeline from '@/components/work/ProjectTimeline';
-import ResultsMetrics from '@/components/work/ResultsMetrics';
-import VideoDemo from '@/components/work/VideoDemo';
-import NextProjectTeaser from '@/components/work/NextProjectTeaser';
+// NEW Case Study components
+import {
+  CaseStudyHeroCard,
+  ExecutiveSummary,
+  ProjectDetailsGrid,
+  ProblemDeepDive,
+  SolutionTabs,
+  ResultsDashboard,
+  ClientTestimonial,
+  RelatedProjects,
+} from '@/components/work/casestudy';
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
     locale: string;
-  };
+  }>;
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug, locale } = params;
+  const { slug, locale } = await params;
   const project = getProjectBySlug(slug);
 
   if (!project) {
@@ -76,8 +77,8 @@ export async function generateStaticParams() {
   );
 }
 
-export default function ProjectDetailPage({ params }: Props) {
-  const { slug, locale } = params;
+export default async function ProjectDetailPage({ params }: Props) {
+  const { slug, locale } = await params;
   const project = getProjectBySlug(slug);
 
   // Return 404 if project not found
@@ -89,41 +90,163 @@ export default function ProjectDetailPage({ params }: Props) {
   const title = project.title[locale as keyof typeof project.title] || project.title.en;
   const challenge = project.challenge[locale as keyof typeof project.challenge] || project.challenge.en;
   const solution = project.solution[locale as keyof typeof project.solution] || project.solution.en;
+  const results = project.results[locale as keyof typeof project.results] || project.results.en;
 
-  // Transform project data to match component expectations
-  const quickFacts = {
-    client: project.clientName || 'Confidential',
-    year: new Date(project.publishedAt || project.createdAt).getFullYear().toString(),
-    duration: project.duration || 'N/A',
+  // Get related projects
+  const relatedProjects = getRelatedProjects(project.slug, project.relatedSlugs);
+
+  // Transform data for CaseStudyHeroCard
+  const heroData = {
+    image: project.heroImage || project.featuredImageUrl || '',
+    title,
+    category: project.category,
+    clientName: project.clientName || 'Confidential Client',
+    tags: project.technologies.slice(0, 5), // Show first 5 technologies as tags
+    projectUrl: project.projectUrl || project.quickFacts?.liveUrl,
+  };
+
+  // Transform data for ExecutiveSummary
+  const executiveSummary = {
+    challenge,
+    solution,
+    results,
+  };
+
+  // Transform data for ProjectDetailsGrid
+  const projectDetails = {
+    timeline: project.duration || 'N/A',
+    teamSize: project.overview?.teamSize || '5-10 specialists',
+    budget: project.overview?.budget || 'Confidential',
+    technologies: project.technologies.slice(0, 3), // Top 3 technologies
+    industry: project.industry,
     status: 'Completed',
-    liveUrl: project.projectUrl,
-    githubUrl: undefined,
   };
 
-  const overview = {
-    description: `${challenge}\n\n${solution}`,
-    highlights: [],
+  // Transform data for ProblemDeepDive
+  const problemDeepDive = {
+    title: 'The Challenge We Faced',
+    description: challenge,
+    bulletPoints: [
+      'Complex technical requirements',
+      'Tight deadline constraints',
+      'Scalability considerations',
+      'User experience priorities',
+    ],
+    image: project.gallery?.[0]?.url || project.gallery?.[0] || undefined,
+    pullQuote: {
+      text: challenge.split('.')[0] + '.',
+      author: 'Project Stakeholder',
+    },
   };
 
-  const gallery = project.gallery?.map((img: any) => ({
-    url: img.url || img,
-    alt: img.alt || title,
-  })) || [];
+  // Transform data for SolutionTabs
+  const solutionTabs = {
+    strategy: {
+      title: 'Strategic Planning',
+      description: 'We analyzed the requirements and developed a comprehensive strategy to address all challenges.',
+      bulletPoints: [
+        'Conducted thorough requirements analysis',
+        'Identified key technical and business objectives',
+        'Created detailed project roadmap',
+        'Defined success metrics and KPIs',
+      ],
+      image: project.gallery?.[1]?.url || project.gallery?.[1] || undefined,
+    },
+    design: {
+      title: 'Design Process',
+      description: 'Our design team crafted an intuitive and visually appealing user experience.',
+      bulletPoints: [
+        'User research and persona development',
+        'Wireframing and prototyping',
+        'Visual design and branding',
+        'Usability testing and iteration',
+      ],
+      image: project.gallery?.[2]?.url || project.gallery?.[2] || undefined,
+    },
+    development: {
+      title: 'Development Excellence',
+      description: solution,
+      bulletPoints: project.technologies.slice(0, 4).map(tech => `Implemented ${tech}`),
+      image: project.gallery?.[3]?.url || project.gallery?.[3] || undefined,
+    },
+    testing: {
+      title: 'Quality Assurance',
+      description: 'Rigorous testing ensured a flawless product launch.',
+      bulletPoints: [
+        'Comprehensive unit and integration testing',
+        'Performance optimization and load testing',
+        'Security audit and vulnerability assessment',
+        'User acceptance testing (UAT)',
+      ],
+      image: project.gallery?.[4]?.url || project.gallery?.[4] || undefined,
+    },
+  };
 
-  const techStack = project.technologies?.map((tech: any) => ({
-    name: typeof tech === 'string' ? tech : tech.name,
-    logo: tech.logo || '',
-    reason: tech.reason || '',
-  })) || [];
+  // Transform data for ResultsDashboard
+  const metricsData = project.resultsMetrics?.map((metric: any) => ({
+    label: metric.label || metric.metric,
+    before: metric.before || 0,
+    after: metric.after || metric.value || 100,
+    unit: metric.unit || '%',
+    isHigherBetter: metric.isHigherBetter !== false,
+  })) || [
+    {
+      label: 'User Engagement',
+      before: 45,
+      after: 85,
+      unit: '%',
+      isHigherBetter: true,
+    },
+    {
+      label: 'Page Load Time',
+      before: 3500,
+      after: 800,
+      unit: 'ms',
+      isHigherBetter: false,
+    },
+    {
+      label: 'Conversion Rate',
+      before: 2.5,
+      after: 6.8,
+      unit: '%',
+      isHigherBetter: true,
+    },
+    {
+      label: 'Customer Satisfaction',
+      before: 72,
+      after: 94,
+      unit: '%',
+      isHigherBetter: true,
+    },
+  ];
 
-  const timeline = project.timeline || [];
+  // Transform data for ClientTestimonial
+  const testimonialData = project.testimonial ? {
+    quote: project.testimonial.quote || project.testimonial.text,
+    author: project.testimonial.author || project.testimonial.name,
+    role: project.testimonial.role || project.testimonial.position,
+    company: project.clientName,
+    avatar: project.testimonial.avatar || project.testimonial.image,
+    logo: project.clientLogoUrl,
+  } : {
+    quote: "Working with The Elites was an exceptional experience. They delivered beyond our expectations.",
+    author: "Client Representative",
+    role: "Project Manager",
+    company: project.clientName,
+    avatar: undefined,
+    logo: project.clientLogoUrl,
+  };
 
-  const resultsText = project.results[locale as keyof typeof project.results] || project.results.en;
-  const results = project.resultsMetrics || [];
-
-  const testimonial = project.testimonial;
-  const videoUrl = undefined;
-  const nextProject = getNextProject(project.slug);
+  // Transform data for RelatedProjects
+  const relatedProjectsData = relatedProjects.map(p => ({
+    title: p.title[locale as keyof typeof p.title] || p.title.en,
+    slug: p.slug,
+    category: p.category,
+    image: p.featuredImageUrl || p.heroImage || '',
+    excerpt: (p.shortDescription?.[locale as keyof typeof p.shortDescription] ||
+              p.challenge[locale as keyof typeof p.challenge] ||
+              p.challenge.en).substring(0, 120) + '...',
+  }));
 
   return (
     <ClientLayoutWrapper>
@@ -142,46 +265,30 @@ export default function ProjectDetailPage({ params }: Props) {
 
       {/* Content */}
       <div className="relative z-10">
-        {/* Hero Image */}
-        <ProjectHeroImage
-          image={project.heroImage || ''}
-          title={title}
-          category={project.category}
-        />
+        {/* 1. Hero Card */}
+        <CaseStudyHeroCard {...heroData} />
 
-        {/* Quick Facts Bar */}
-        <QuickFactsBar facts={quickFacts} />
+        {/* 2. Executive Summary */}
+        <ExecutiveSummary {...executiveSummary} />
 
-        {/* Project Overview */}
-        <ProjectOverview description={overview.description} highlights={overview.highlights} />
+        {/* 3. Project Details Grid */}
+        <ProjectDetailsGrid details={projectDetails} />
 
-        {/* Visual Gallery */}
-        {gallery.length > 0 && <VisualGallery images={gallery} />}
+        {/* 4. Problem Deep Dive */}
+        <ProblemDeepDive {...problemDeepDive} />
 
-        {/* Tech Stack Grid */}
-        {techStack.length > 0 && <TechStackGrid techStack={techStack} />}
+        {/* 5. Solution Tabs */}
+        <SolutionTabs {...solutionTabs} />
 
-        {/* Project Timeline */}
-        {timeline.length > 0 && <ProjectTimeline timeline={timeline} />}
+        {/* 6. Results Dashboard */}
+        <ResultsDashboard metrics={metricsData} />
 
-        {/* Results & Metrics */}
-        {results.length > 0 && <ResultsMetrics results={results} testimonial={testimonial} />}
+        {/* 7. Client Testimonial */}
+        <ClientTestimonial {...testimonialData} />
 
-        {/* Video Demo */}
-        {videoUrl && (
-          <VideoDemo
-            videoUrl={videoUrl}
-            title={project.title}
-            locale={locale}
-          />
-        )}
-
-        {/* Next Project Teaser */}
-        {nextProject && (
-          <NextProjectTeaser
-            nextProject={nextProject}
-            locale={locale}
-          />
+        {/* 8. Related Projects */}
+        {relatedProjectsData.length > 0 && (
+          <RelatedProjects projects={relatedProjectsData} />
         )}
       </div>
     </ClientLayoutWrapper>

@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
+import projectsData from "@/data/projects/projects.json";
 
 interface CaseStudiesCarouselProps {
   caseStudySlugs: string[];
@@ -12,15 +13,28 @@ export default function CaseStudiesCarousel({
   caseStudySlugs,
 }: CaseStudiesCarouselProps) {
   const router = useRouter();
+  const params = useParams();
+  const locale = (params?.locale as string) || "en";
   const constraintsRef = useRef<HTMLDivElement>(null);
 
-  // Mock project data - in production, fetch from actual project data
-  const projects = caseStudySlugs.map((slug, index) => ({
-    slug,
-    title: `Project ${index + 1}`,
-    description: "A stunning example of our work",
-    image: `/images/projects/${slug}.jpg`,
-  }));
+  // Get actual project data from the data layer
+  const projects = caseStudySlugs.map((slug) => {
+    const projectData = projectsData.find((p) => p.slug === slug);
+    if (projectData) {
+      return {
+        slug: projectData.slug,
+        title: typeof projectData.title === 'object' ? projectData.title[locale as keyof typeof projectData.title] || projectData.title.en : projectData.title,
+        description: typeof projectData.shortDescription === 'object' ? projectData.shortDescription[locale as keyof typeof projectData.shortDescription] || projectData.shortDescription.en : projectData.shortDescription,
+        image: projectData.featuredImageUrl,
+      };
+    }
+    return {
+      slug,
+      title: slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+      description: "A stunning example of our work",
+      image: `/images/projects/${slug}.jpg`,
+    };
+  });
 
   if (projects.length === 0) {
     return null;
@@ -49,7 +63,7 @@ export default function CaseStudiesCarousel({
               <motion.div
                 key={project.slug}
                 className="flex-shrink-0 w-[300px] md:w-[400px] h-[400px] md:h-[500px] bg-neutral-900 rounded-xl overflow-hidden border border-gold-400/20 hover:border-gold-400/40 transition-colors group cursor-pointer"
-                onClick={() => router.push(`/work/${project.slug}`)}
+                onClick={() => router.push(`/${locale}/work/${project.slug}`)}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >

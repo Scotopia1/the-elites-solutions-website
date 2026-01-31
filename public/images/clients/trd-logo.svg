@@ -1,0 +1,26 @@
+<svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .trd-main {
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        font-size: 42px;
+        font-weight: 700;
+        fill: #60a5fa;
+        letter-spacing: 8px;
+      }
+      .trd-subtitle {
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        font-size: 8px;
+        font-weight: 500;
+        fill: #93c5fd;
+        letter-spacing: 2px;
+      }
+    </style>
+  </defs>
+
+  <!-- Background accent -->
+  <rect x="15" y="15" width="5" height="30" fill="#1a365d" opacity="0.8"/>
+
+  <text x="100" y="38" text-anchor="middle" class="trd-main">TRD</text>
+  <text x="100" y="52" text-anchor="middle" class="trd-subtitle">STRUCTURAL REMEDIATION</text>
+</svg>

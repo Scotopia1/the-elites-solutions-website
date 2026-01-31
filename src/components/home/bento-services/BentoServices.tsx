@@ -26,7 +26,7 @@ const servicesData: BentoServiceData[] = [
     ],
     cta: {
       label: 'Learn More',
-      href: '/services#web-development',
+      href: '/services/web-development',
     },
     accentColor: '#ffd700',
     gridPosition: {
@@ -51,7 +51,7 @@ const servicesData: BentoServiceData[] = [
     ],
     cta: {
       label: 'Learn More',
-      href: '/services#mobile-apps',
+      href: '/services/mobile-apps',
     },
     accentColor: '#c9c9c9',
     gridPosition: {
@@ -76,7 +76,7 @@ const servicesData: BentoServiceData[] = [
     ],
     cta: {
       label: 'Learn More',
-      href: '/services#automation',
+      href: '/services/automation',
     },
     accentColor: '#ffd700',
     gridPosition: {
@@ -101,7 +101,7 @@ const servicesData: BentoServiceData[] = [
     ],
     cta: {
       label: 'Learn More',
-      href: '/services#enterprise',
+      href: '/services/enterprise',
     },
     accentColor: '#9a9a9a',
     gridPosition: {

@@ -14,10 +14,10 @@ const navigationLinks = [
 ];
 
 const serviceLinks = [
-  { href: "/services#web", label: "Web Development" },
-  { href: "/services#mobile", label: "Mobile Apps" },
-  { href: "/services#software", label: "Custom Software" },
-  { href: "/services#automation", label: "Process Automation" },
+  { href: "/services/web-development", label: "Web Development" },
+  { href: "/services/mobile-apps", label: "Mobile Apps" },
+  { href: "/services/enterprise", label: "Custom Software" },
+  { href: "/services/automation", label: "Process Automation" },
 ];
 
 const companyLinks = [

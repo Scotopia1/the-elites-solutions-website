@@ -82,13 +82,13 @@
       "title": "Luxury Hospitality",
       "avatar": "/images/testimonials/natlaupa.jpg"
     },
-    "heroImage": "/images/projects/natlaupa-hero.jpg",
-    "featuredImageUrl": "/images/projects/natlaupa-featured.jpg",
+    "heroImage": "/images/projects/natlaupa-hero.png",
+    "featuredImageUrl": "/images/projects/natlaupa-featured.png",
     "gallery": [
-      { "url": "/images/projects/natlaupa-1.jpg", "alt": "Homepage with trending hotels" },
-      { "url": "/images/projects/natlaupa-2.jpg", "alt": "AI-powered hotel recommendations" },
-      { "url": "/images/projects/natlaupa-3.jpg", "alt": "Interactive Mapbox destination view" },
-      { "url": "/images/projects/natlaupa-4.jpg", "alt": "Admin dashboard interface" }
+      { "url": "/images/projects/natlaupa-1.png", "alt": "Homepage with trending hotels" },
+      { "url": "/images/projects/natlaupa-2.png", "alt": "AI-powered hotel recommendations" },
+      { "url": "/images/projects/natlaupa-3.png", "alt": "Interactive Mapbox destination view" },
+      { "url": "/images/projects/natlaupa-4.png", "alt": "Admin dashboard interface" }
     ],
     "projectUrl": "https://natlaupa.com",
     "isFeatured": true,
@@ -185,13 +185,13 @@
       "title": "Structural Remediation Experts",
       "avatar": "/images/testimonials/trd.jpg"
     },
-    "heroImage": "/images/projects/trd-hero.jpg",
-    "featuredImageUrl": "/images/projects/trd-featured.jpg",
+    "heroImage": "/images/projects/trd-hero.png",
+    "featuredImageUrl": "/images/projects/trd-featured.png",
     "gallery": [
-      { "url": "/images/projects/trd-1.jpg", "alt": "3D building visualization with service hotspots" },
-      { "url": "/images/projects/trd-2.jpg", "alt": "Interactive case study timeline" },
-      { "url": "/images/projects/trd-3.jpg", "alt": "Before/after comparison slider" },
-      { "url": "/images/projects/trd-4.jpg", "alt": "Stress analysis 3D overlay" }
+      { "url": "/images/projects/trd-1.png", "alt": "3D building visualization with service hotspots" },
+      { "url": "/images/projects/trd-2.png", "alt": "Interactive case study timeline" },
+      { "url": "/images/projects/trd-3.png", "alt": "Before/after comparison slider" },
+      { "url": "/images/projects/trd-4.png", "alt": "Stress analysis 3D overlay" }
     ],
     "projectUrl": "https://trd-remedial-website.vercel.app",
     "isFeatured": true,
@@ -282,13 +282,13 @@
       "title": "Luxury Perfumery",
       "avatar": "/images/testimonials/michelyammine.jpg"
     },
-    "heroImage": "/images/projects/michelyammine-hero.jpg",
-    "featuredImageUrl": "/images/projects/michelyammine-featured.jpg",
+    "heroImage": "/images/projects/michelyammine-hero.png",
+    "featuredImageUrl": "/images/projects/michelyammine-featured.png",
     "gallery": [
-      { "url": "/images/projects/michelyammine-1.jpg", "alt": "Homepage with featured fragrances" },
-      { "url": "/images/projects/michelyammine-2.jpg", "alt": "Product catalog with filters" },
-      { "url": "/images/projects/michelyammine-3.jpg", "alt": "AI scent quiz interface" },
-      { "url": "/images/projects/michelyammine-4.jpg", "alt": "Product detail page" }
+      { "url": "/images/projects/michelyammine-1.png", "alt": "Homepage with featured fragrances" },
+      { "url": "/images/projects/michelyammine-2.png", "alt": "Product catalog with filters" },
+      { "url": "/images/projects/michelyammine-3.png", "alt": "AI scent quiz interface" },
+      { "url": "/images/projects/michelyammine-4.png", "alt": "Product detail page" }
     ],
     "projectUrl": "https://michelyammine.com",
     "isFeatured": true,
@@ -299,193 +299,6 @@
   },
   {
     "id": "proj-004",
-    "slug": "francis-legacy-heritage",
-    "title": {
-      "en": "Francis Legacy Heritage Website",
-      "fr": "Site Patrimoine Francis Legacy",
-      "ar": "موقع تراث فرانسيس ليجاسي"
-    },
-    "category": "Web Development",
-    "industry": "Family Heritage",
-    "projectScale": "medium",
-    "clientName": "Francis Family",
-    "clientLogoUrl": "/images/clients/francis-logo.svg",
-    "shortDescription": {
-      "en": "Modern family heritage website preserving generational stories with interactive timelines and elegant documentation.",
-      "fr": "Site web moderne de patrimoine familial préservant les histoires générationnelles avec des chronologies interactives.",
-      "ar": "موقع تراث عائلي حديث يحافظ على قصص الأجيال مع جداول زمنية تفاعلية."
-    },
-    "challenge": {
-      "en": "The Francis family wanted to preserve their generational heritage in a modern, accessible format that could be shared across family members worldwide while maintaining an elegant, respectful presentation.",
-      "fr": "La famille Francis souhaitait préserver son patrimoine générationnel dans un format moderne et accessible pouvant être partagé entre les membres de la famille dans le monde entier.",
-      "ar": "أرادت عائلة فرانسيس الحفاظ على تراثهم العائلي في شكل حديث وسهل الوصول يمكن مشاركته بين أفراد العائلة في جميع أنحاء العالم."
-    },
-    "solution": {
-      "en": "We built a modern heritage website using Vite, React, and TypeScript with shadcn/ui components for an elegant interface. The site features interactive family timelines, photo galleries, and story documentation with smooth animations.",
-      "fr": "Nous avons construit un site web de patrimoine moderne utilisant Vite, React et TypeScript avec des composants shadcn/ui pour une interface élégante.",
-      "ar": "قمنا ببناء موقع تراث حديث باستخدام Vite و React و TypeScript مع مكونات shadcn/ui لواجهة أنيقة."
-    },
-    "results": {
-      "en": "The website now serves as the family's digital archive, accessible to members worldwide. The elegant design honors the family's legacy while the modern tech stack ensures long-term maintainability.",
-      "fr": "Le site web sert maintenant d'archive numérique familiale, accessible aux membres dans le monde entier.",
-      "ar": "يعمل الموقع الآن كأرشيف رقمي للعائلة، متاح للأعضاء في جميع أنحاء العالم."
-    },
-    "overview": {
-      "description": {
-        "en": "A digital family heritage platform preserving stories, photos, and memories across generations.",
-        "fr": "Une plateforme de patrimoine familial numérique préservant les histoires et souvenirs à travers les générations.",
-        "ar": "منصة تراث عائلي رقمية تحافظ على القصص والصور والذكريات عبر الأجيال."
-      },
-      "highlights": [
-        "Interactive family timelines",
-        "Photo gallery with lightbox",
-        "Story documentation system",
-        "Elegant shadcn/ui design",
-        "Deployed on Vercel"
-      ]
-    },
-    "quickFacts": {
-      "client": "Francis Family",
-      "year": "2025",
-      "duration": "6 weeks",
-      "status": "Completed"
-    },
-    "technologies": ["Vite", "React", "TypeScript", "TailwindCSS", "shadcn/ui"],
-    "techStack": [
-      { "name": "Vite", "logo": "/icons/tech/vite.svg", "reason": "Fast build tooling and HMR" },
-      { "name": "React", "logo": "/icons/tech/react.svg", "reason": "Component-based UI architecture" },
-      { "name": "TypeScript", "logo": "/icons/tech/typescript.svg", "reason": "Type safety for content management" },
-      { "name": "shadcn/ui", "logo": "/icons/tech/shadcn.svg", "reason": "Elegant pre-built components" },
-      { "name": "TailwindCSS", "logo": "/icons/tech/tailwind.svg", "reason": "Responsive design system" }
-    ],
-    "servicesUsed": ["web-development"],
-    "timeline": [
-      { "phase": "Planning & Design", "date": "Week 1-2", "description": "Family consultation, content gathering, UI design" },
-      { "phase": "Development", "date": "Week 3-5", "description": "Timeline features, galleries, content integration" },
-      { "phase": "Launch", "date": "Week 6", "description": "Final review, Vercel deployment, family handoff" }
-    ],
-    "duration": "6 weeks",
-    "resultsMetrics": [
-      { "metric": "100%", "label": "Family Coverage", "description": "Complete generational documentation" },
-      { "metric": "Global", "label": "Access", "description": "Available to family worldwide" },
-      { "metric": "Fast", "label": "Performance", "description": "Vite-powered instant loads" },
-      { "metric": "Elegant", "label": "Design", "description": "shadcn/ui premium aesthetics" }
-    ],
-    "testimonial": {
-      "quote": "The Elites created a beautiful digital home for our family's history. Future generations will be able to explore our legacy in a way that was never possible before.",
-      "author": "Francis Family",
-      "title": "Heritage Project",
-      "avatar": "/images/testimonials/francis.jpg"
-    },
-    "heroImage": "/images/projects/francis-hero.jpg",
-    "featuredImageUrl": "/images/projects/francis-featured.jpg",
-    "gallery": [
-      { "url": "/images/projects/francis-1.jpg", "alt": "Interactive family timeline" },
-      { "url": "/images/projects/francis-2.jpg", "alt": "Photo gallery view" },
-      { "url": "/images/projects/francis-3.jpg", "alt": "Story documentation" },
-      { "url": "/images/projects/francis-4.jpg", "alt": "Mobile responsive design" }
-    ],
-    "isFeatured": false,
-    "publishedAt": "2025-09-01T00:00:00.000Z",
-    "orderIndex": 4,
-    "createdAt": "2025-07-15T00:00:00.000Z",
-    "updatedAt": "2026-01-20T00:00:00.000Z"
-  },
-  {
-    "id": "proj-005",
-    "slug": "mr5-pos-system",
-    "title": {
-      "en": "Mr5 Point-of-Sale System",
-      "fr": "Système de Point de Vente Mr5",
-      "ar": "نظام نقاط البيع Mr5"
-    },
-    "category": "Desktop Application",
-    "industry": "Retail & Hospitality",
-    "projectScale": "large",
-    "clientName": "Mr5 Restaurant Group",
-    "clientLogoUrl": "/images/clients/mr5-logo.svg",
-    "shortDescription": {
-      "en": "Full-featured Electron.js Point-of-Sale system with modern desktop interface for restaurant and retail operations management.",
-      "fr": "Système de point de vente complet basé sur Electron.js avec interface desktop moderne pour la gestion des opérations de restauration et de vente au détail.",
-      "ar": "نظام نقاط بيع متكامل قائم على Electron.js مع واجهة سطح مكتب حديثة لإدارة عمليات المطاعم والبيع بالتجزئة."
-    },
-    "challenge": {
-      "en": "Mr5 Restaurant Group needed a robust, offline-capable POS system that could handle high-volume transactions, manage inventory, track sales analytics, and integrate with their kitchen display systems across multiple locations.",
-      "fr": "Mr5 Restaurant Group avait besoin d'un système POS robuste, capable de fonctionner hors ligne, pour gérer des transactions à haut volume, l'inventaire et l'analyse des ventes.",
-      "ar": "احتاجت مجموعة مطاعم Mr5 إلى نظام نقاط بيع قوي قادر على العمل دون اتصال للتعامل مع المعاملات ذات الحجم الكبير وإدارة المخزون."
-    },
-    "solution": {
-      "en": "We developed a comprehensive Electron.js-based POS system with a modern, responsive desktop UI. Features include user authentication, real-time inventory tracking, sales reporting, receipt printing, and multi-terminal synchronization with cross-platform deployment capability.",
-      "fr": "Nous avons développé un système POS complet basé sur Electron.js avec une interface desktop moderne et réactive avec authentification, suivi d'inventaire et rapports de ventes.",
-      "ar": "قمنا بتطوير نظام نقاط بيع شامل قائم على Electron.js لواجهة سطح مكتب حديثة مع المصادقة وتتبع المخزون وتقارير المبيعات."
-    },
-    "results": {
-      "en": "The POS system now handles daily operations across multiple restaurant locations with reliable offline capability, streamlined checkout processes, and comprehensive sales analytics for business decision-making.",
-      "fr": "Le système POS gère maintenant les opérations quotidiennes dans plusieurs emplacements avec une capacité hors ligne fiable et des analyses de ventes complètes.",
-      "ar": "يتعامل نظام نقاط البيع الآن مع العمليات اليومية عبر مواقع متعددة مع قدرة موثوقة على العمل دون اتصال."
-    },
-    "overview": {
-      "description": {
-        "en": "A professional Point-of-Sale system built with Electron.js for cross-platform restaurant and retail operations.",
-        "fr": "Un système de point de vente professionnel construit avec Electron.js pour les opérations de restauration multiplateforme.",
-        "ar": "نظام نقاط بيع احترافي مبني باستخدام Electron.js لعمليات المطاعم والبيع بالتجزئة متعددة المنصات."
-      },
-      "highlights": [
-        "Electron.js cross-platform desktop app",
-        "Offline-capable operation",
-        "Real-time inventory tracking",
-        "Sales analytics and reporting",
-        "Multi-terminal synchronization"
-      ]
-    },
-    "quickFacts": {
-      "client": "Mr5 Restaurant Group",
-      "year": "2025",
-      "duration": "4 months",
-      "status": "Live"
-    },
-    "technologies": ["Electron.js", "JavaScript", "Node.js", "SQLite", "HTML", "CSS"],
-    "techStack": [
-      { "name": "Electron.js", "logo": "/icons/tech/electron.svg", "reason": "Cross-platform desktop application framework" },
-      { "name": "JavaScript", "logo": "/icons/tech/javascript.svg", "reason": "Core application logic and UI interactions" },
-      { "name": "Node.js", "logo": "/icons/tech/nodejs.svg", "reason": "Backend processes and system integration" },
-      { "name": "SQLite", "logo": "/icons/tech/sqlite.svg", "reason": "Lightweight embedded database for offline capability" }
-    ],
-    "servicesUsed": ["web-development", "automation"],
-    "timeline": [
-      { "phase": "Requirements & Design", "date": "Month 1", "description": "Business process analysis, UI/UX design for touch screens" },
-      { "phase": "Core Development", "date": "Month 2-3", "description": "Transaction processing, inventory, user management" },
-      { "phase": "Testing & Deployment", "date": "Month 4", "description": "Multi-location testing, staff training, rollout" }
-    ],
-    "duration": "4 months",
-    "resultsMetrics": [
-      { "metric": "100%", "label": "Offline", "description": "Fully operational without internet" },
-      { "metric": "Fast", "label": "Transactions", "description": "Sub-second checkout processing" },
-      { "metric": "Real-time", "label": "Inventory", "description": "Live stock tracking" },
-      { "metric": "Multi", "label": "Terminal", "description": "Synchronized across locations" }
-    ],
-    "testimonial": {
-      "quote": "The POS system has transformed our restaurant operations. The offline capability means we never miss a sale, and the inventory tracking has reduced our waste significantly.",
-      "author": "Mr5 Team",
-      "title": "Restaurant Operations",
-      "avatar": "/images/testimonials/mr5.jpg"
-    },
-    "heroImage": "/images/projects/mr5pos-hero.jpg",
-    "featuredImageUrl": "/images/projects/mr5pos-featured.jpg",
-    "gallery": [
-      { "url": "/images/projects/mr5pos-1.jpg", "alt": "Login screen interface" },
-      { "url": "/images/projects/mr5pos-2.jpg", "alt": "Main POS terminal view" },
-      { "url": "/images/projects/mr5pos-3.jpg", "alt": "Inventory management" },
-      { "url": "/images/projects/mr5pos-4.jpg", "alt": "Sales analytics dashboard" }
-    ],
-    "isFeatured": false,
-    "publishedAt": "2025-06-20T00:00:00.000Z",
-    "orderIndex": 5,
-    "createdAt": "2025-02-01T00:00:00.000Z",
-    "updatedAt": "2026-01-20T00:00:00.000Z"
-  },
-  {
-    "id": "proj-006",
     "slug": "mr5-digital-menu",
     "title": {
       "en": "Mr5 Digital Menu System",
@@ -536,7 +349,7 @@
       "year": "2025",
       "duration": "4 weeks",
       "status": "Live",
-      "liveUrl": "https://mr5-menu.vercel.app"
+      "liveUrl": "https://mrcinq.theelitessolutions.com"
     },
     "technologies": ["React", "TypeScript", "Vite", "TailwindCSS", "shadcn/ui"],
     "techStack": [
@@ -573,11 +386,101 @@
       { "url": "/images/projects/mr5menu-3.jpg", "alt": "Menu item details" },
       { "url": "/images/projects/mr5menu-4.jpg", "alt": "Mobile responsive view" }
     ],
-    "projectUrl": "https://mr5-menu.vercel.app",
+    "projectUrl": "https://mrcinq.theelitessolutions.com",
     "isFeatured": false,
     "publishedAt": "2025-06-24T00:00:00.000Z",
-    "orderIndex": 6,
+    "orderIndex": 4,
     "createdAt": "2025-05-20T00:00:00.000Z",
     "updatedAt": "2026-01-20T00:00:00.000Z"
+  },
+  {
+    "id": "proj-005",
+    "slug": "zpulse-wellbeing-consultancy",
+    "title": {
+      "en": "Z'Pulse Educational & Wellbeing Consultancy",
+      "fr": "Z'Pulse Consultance Éducative et Bien-être",
+      "ar": "زي بالس للاستشارات التعليمية والرفاهية"
+    },
+    "category": "Web Development",
+    "industry": "Healthcare / Wellness Services",
+    "projectScale": "medium",
+    "clientName": "Z'Pulse",
+    "shortDescription": {
+      "en": "Global educational and wellbeing consultancy providing evidence-based counseling and support services for children, adolescents, and parents.",
+      "fr": "Consultance éducative et de bien-être mondiale offrant des services de conseil et de soutien basés sur des preuves.",
+      "ar": "استشارات تعليمية ورفاهية عالمية تقدم خدمات إرشادية ودعم قائمة على الأدلة."
+    },
+    "challenge": {
+      "en": "Families and individuals worldwide struggle with accessing compassionate, professional mental health support for issues including anxiety, behavioral problems, and emotional wellbeing across different life stages.",
+      "fr": "Les familles et les individus du monde entier ont du mal à accéder à un soutien en santé mentale professionnel et compatissant.",
+      "ar": "تكافح العائلات والأفراد في جميع أنحاء العالم للوصول إلى دعم الصحة النفسية المهني والرحيم."
+    },
+    "solution": {
+      "en": "We built a modern consultancy website with Next.js featuring telecounseling booking integration, multilingual support (English, Arabic, French), and professional service showcases with evidence-based therapeutic approach presentation.",
+      "fr": "Nous avons construit un site web de consultance moderne avec Next.js avec intégration de réservation de téléconsultation.",
+      "ar": "قمنا ببناء موقع استشارات حديث باستخدام Next.js مع تكامل حجز الاستشارات عن بعد."
+    },
+    "results": {
+      "en": "The platform now serves clients across 3+ global regions with a 4.9/5 client rating. Verified expert designation with 5+ years of combined professional experience.",
+      "fr": "La plateforme sert maintenant des clients dans plus de 3 régions mondiales avec une note client de 4,9/5.",
+      "ar": "تخدم المنصة الآن العملاء عبر أكثر من 3 مناطق عالمية مع تقييم عملاء 4.9/5."
+    },
+    "technologies": ["Next.js", "Tailwind CSS", "TypeScript", "Responsive Design"],
+    "heroImage": "/images/projects/zpulse-hero.jpg",
+    "featuredImageUrl": "/images/projects/zpulse-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/zpulse-1.jpg", "alt": "Homepage with service overview" },
+      { "url": "/images/projects/zpulse-2.jpg", "alt": "Services section" },
+      { "url": "/images/projects/zpulse-3.jpg", "alt": "About and expertise" },
+      { "url": "/images/projects/zpulse-4.jpg", "alt": "Contact and booking" }
+    ],
+    "projectUrl": "https://www.zpulse.co/",
+    "isFeatured": false,
+    "orderIndex": 5
+  },
+  {
+    "id": "proj-006",
+    "slug": "topcab-joinery",
+    "title": {
+      "en": "TopCab Kitchens & Joinery",
+      "fr": "TopCab Cuisines & Menuiserie",
+      "ar": "توب كاب للمطابخ والنجارة"
+    },
+    "category": "Web Development",
+    "industry": "Manufacturing / Craftsmanship",
+    "projectScale": "medium",
+    "clientName": "TopCab Joinery",
+    "shortDescription": {
+      "en": "Full-service joinery company website showcasing custom kitchen design, bathroom renovations, and comprehensive residential joinery solutions across Sydney.",
+      "fr": "Site web d'une entreprise de menuiserie complète présentant la conception de cuisines personnalisées et les rénovations de salles de bains.",
+      "ar": "موقع شركة نجارة متكاملة الخدمات يعرض تصميم المطابخ المخصصة وتجديدات الحمامات."
+    },
+    "challenge": {
+      "en": "Homeowners struggle to maximize their living spaces and achieve cohesive, high-quality renovations across kitchens, bathrooms, and storage areas without coordinating multiple contractors.",
+      "fr": "Les propriétaires ont du mal à maximiser leurs espaces de vie et à réaliser des rénovations cohérentes et de haute qualité.",
+      "ar": "يكافح أصحاب المنازل لتحقيق أقصى استفادة من مساحات معيشتهم وتحقيق تجديدات متماسكة وعالية الجودة."
+    },
+    "solution": {
+      "en": "We developed a modern React-based website with comprehensive service showcases, project galleries, and integrated contact systems to help TopCab present their full-service joinery offerings effectively.",
+      "fr": "Nous avons développé un site web moderne basé sur React avec des vitrines de services complètes.",
+      "ar": "قمنا بتطوير موقع ويب حديث قائم على React مع عروض خدمات شاملة."
+    },
+    "results": {
+      "en": "Successfully delivers comprehensive joinery solutions across Sydney, with expertise spanning residential kitchens, bathrooms, wardrobes, and custom storage solutions.",
+      "fr": "Fournit avec succès des solutions de menuiserie complètes à travers Sydney.",
+      "ar": "يقدم بنجاح حلول نجارة شاملة عبر سيدني."
+    },
+    "technologies": ["React", "TypeScript", "Tailwind CSS", "Responsive Design"],
+    "heroImage": "/images/projects/topcab-hero.jpg",
+    "featuredImageUrl": "/images/projects/topcab-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/topcab-1.jpg", "alt": "Custom kitchen showcase" },
+      { "url": "/images/projects/topcab-2.jpg", "alt": "Services overview" },
+      { "url": "/images/projects/topcab-3.jpg", "alt": "About and expertise" },
+      { "url": "/images/projects/topcab-4.jpg", "alt": "Contact and consultation" }
+    ],
+    "projectUrl": "https://topcabjoinery.com.au/",
+    "isFeatured": false,
+    "orderIndex": 6
   }
 ]

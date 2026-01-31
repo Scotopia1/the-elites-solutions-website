@@ -3,25 +3,26 @@ import { notFound } from 'next/navigation';
 import { getServiceBySlug, getAllServices } from '@/lib/data/services';
 import ClientLayoutWrapper from '@/components/layout/ClientLayoutWrapper';
 
-// Service components
-import CinematicServiceHero from '@/components/services/CinematicServiceHero';
-import WhatWeDoSection from '@/components/services/WhatWeDoSection';
-import ProcessOverviewGrid from '@/components/services/ProcessOverviewGrid';
-import MethodologyCards from '@/components/services/MethodologyCards';
-import SocialProofBanner from '@/components/services/SocialProofBanner';
-import CTAFloatingPill from '@/components/services/CTAFloatingPill';
-import ServiceFAQ from '@/components/services/ServiceFAQ';
+// NEW Cinematic components
+import {
+  CinematicStoryHero,
+  BentoChallengeSolution,
+  HorizontalProcessJourney,
+  ResultsTheater,
+  TestimonialSpotlight,
+  CTAReveal,
+} from '@/components/services/cinematic';
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
     locale: string;
-  };
+  }>;
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug, locale } = params;
+  const { slug, locale } = await params;
   const service = getServiceBySlug(slug);
 
   if (!service) {
@@ -74,8 +75,8 @@ export async function generateStaticParams() {
   );
 }
 
-export default function ServiceDetailPage({ params }: Props) {
-  const { slug, locale } = params;
+export default async function ServiceDetailPage({ params }: Props) {
+  const { slug, locale } = await params;
   const service = getServiceBySlug(slug);
 
   // Return 404 if service not found
@@ -88,90 +89,166 @@ export default function ServiceDetailPage({ params }: Props) {
   const tagline = service.shortDescription?.[locale as keyof typeof service.shortDescription] || '';
   const description = service.description[locale as keyof typeof service.description] || service.description.en;
 
-  // Transform features to legacy format for WhatWeDoSection
-  const benefits = service.features?.map(f => {
+  // Transform data for cinematic components
+
+  // BentoChallengeSolution: Hero statement and items
+  const heroStatement = {
+    challenge: `Businesses struggle with outdated ${title.toLowerCase()} systems that limit growth.`,
+    solution: `We deliver modern ${title.toLowerCase()} solutions that unlock your full potential.`,
+  };
+
+  // Derive solution descriptions from service features
+  const featureDescriptions = service.features?.slice(0, 4).map((f) => {
     const text = f[locale as keyof typeof f] || f.en;
-    const [benefitTitle, ...rest] = text.split(':');
+    const [featureTitle, ...rest] = text.split(':');
     return {
-      title: benefitTitle.trim(),
-      description: rest.join(':').trim() || benefitTitle
+      title: featureTitle.trim(),
+      description: rest.join(':').trim() || text,
     };
   }) || [];
 
-  // Placeholder FAQ (should be added to database schema in future)
-  const faq = [
+  const bentoItems = [
     {
-      question: 'How long does a typical project take?',
-      answer: 'Project timelines vary based on scope and complexity. Most projects are completed within 2-3 months from kickoff to launch.'
+      id: "time",
+      challenge: {
+        title: "Time-Consuming Processes",
+        description: "Manual workflows slow down your team and create bottlenecks",
+        icon: "clock" as const,
+      },
+      solution: {
+        title: featureDescriptions[0]?.title || "Streamlined Automation",
+        description: featureDescriptions[0]?.description || "Automated systems that work 24/7, freeing your team to focus on growth",
+        icon: "zap" as const,
+        stat: "10x Faster",
+      },
+      size: "medium" as const,
     },
     {
-      question: 'What is your development process?',
-      answer: 'We follow an agile methodology with regular check-ins, iterative development, and continuous feedback to ensure alignment with your goals.'
+      id: "cost",
+      challenge: {
+        title: "Rising Operational Costs",
+        description: "Inefficient systems drain resources and limit your potential",
+        icon: "dollar" as const,
+      },
+      solution: {
+        title: featureDescriptions[1]?.title || "Cost-Efficient Solutions",
+        description: featureDescriptions[1]?.description || "Optimized processes that reduce overhead while increasing output",
+        icon: "rocket" as const,
+        stat: "50% Savings",
+      },
+      size: "medium" as const,
     },
     {
-      question: 'Do you provide ongoing support?',
-      answer: 'Yes, we offer various support packages including maintenance, updates, and technical assistance to ensure your solution continues to perform optimally.'
-    }
+      id: "scale",
+      challenge: {
+        title: "Limited Scalability",
+        description: "Current infrastructure can't keep pace with your ambitions",
+        icon: "trending" as const,
+      },
+      solution: {
+        title: featureDescriptions[2]?.title || "Built for Growth",
+        description: featureDescriptions[2]?.description || "Flexible architecture that scales seamlessly with your business",
+        icon: "chart" as const,
+        stat: "Unlimited Scale",
+      },
+      size: "small" as const,
+    },
+    {
+      id: "insight",
+      challenge: {
+        title: "Lack of Insights",
+        description: "Decisions made without data lead to missed opportunities",
+        icon: "search" as const,
+      },
+      solution: {
+        title: featureDescriptions[3]?.title || "Data-Driven Clarity",
+        description: featureDescriptions[3]?.description || "Real-time analytics and insights that drive informed decisions",
+        icon: "shield" as const,
+        stat: "100% Visibility",
+      },
+      size: "small" as const,
+    },
   ];
+
+  // ProcessCinema: Transform process data
+  const processSteps = service.process?.map((p: any) => ({
+    step: p.step,
+    title: typeof p.title === 'object' ? (p.title[locale] || p.title.en) : p.title,
+    description: typeof p.description === 'object' ? (p.description[locale] || p.description.en) : p.description,
+    icon: p.icon || '📋',
+    duration: typeof p.duration === 'object' ? (p.duration[locale] || p.duration.en) : p.duration,
+  })) || [];
+
+  // TechOrbit removed
+
+  // ResultsTheater: Transform metrics
+  const metrics = service.metrics ? [
+    { label: 'Projects Completed', value: `${service.metrics.projectsCompleted || 0}+`, suffix: '' },
+    { label: 'Client Satisfaction', value: `${service.metrics.averageRating || 0}`, suffix: '/5' },
+    { label: 'Average Delivery', value: service.metrics.averageDeliveryTime || 'N/A', suffix: '' },
+    { label: 'Success Rate', value: '99', suffix: '%' },
+  ] : [];
+
+  // TestimonialSpotlight: Use featured testimonials
+  const testimonials = service.featuredTestimonials || [];
+
+  // CTAReveal: CTA configuration
+  const ctaHeadline = `Ready to Transform Your ${title}?`;
+  const ctaSubheadline = `Join hundreds of satisfied clients who have revolutionized their business with our ${title.toLowerCase()} solutions.`;
+  const primaryCTA = {
+    text: service.ctaButtonText?.[locale as keyof typeof service.ctaButtonText] || 'Get Started',
+    href: `/contact?service=${service.slug}`
+  };
+  const secondaryCTA = {
+    text: 'View Case Studies',
+    href: '/work'
+  };
 
   return (
     <ClientLayoutWrapper>
-      {/* Background Layer */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#0a0a0a_0%,#1a1a1a_50%,#0a0a0a_100%)]" />
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle, #FFD700 1px, transparent 1px)`,
-            backgroundSize: '30px 30px',
-            opacity: 0.07,
-          }}
+      {/* 1. Cinematic Hero */}
+      <CinematicStoryHero
+        title={title}
+        subtitle={description}
+        tagline={tagline}
+      />
+
+      {/* 2. Bento Challenge & Solution */}
+      <BentoChallengeSolution
+        sectionTitle="Challenge & Solution"
+        subtitle={`Transform your ${title.toLowerCase()} challenges into competitive advantages`}
+        heroStatement={heroStatement}
+        items={bentoItems}
+      />
+
+      {/* 3. Horizontal Process Journey */}
+      {processSteps.length > 0 && (
+        <HorizontalProcessJourney
+          steps={processSteps}
+          sectionTitle="Our Process"
+          subtitle={`How we deliver exceptional ${title.toLowerCase()} solutions`}
         />
-      </div>
+      )}
 
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Cinematic Hero */}
-        <CinematicServiceHero
-          title={title}
-          tagline={tagline}
-          icon={service.icon}
-        />
+      {/* 4. Tech Orbit - removed */}
 
-        {/* What We Do Section */}
-        <WhatWeDoSection
-          description={description}
-          benefits={benefits}
-          techStack={service.techStack?.map((t: any) => ({ name: t.name, icon: t.logo || '' })) || []}
-        />
+      {/* 5. Results Theater */}
+      {metrics.length > 0 && (
+        <ResultsTheater metrics={metrics} />
+      )}
 
-        {/* Process Overview Grid with Deliverables */}
-        {service.process && service.process.length > 0 && (
-          <ProcessOverviewGrid process={service.process} />
-        )}
+      {/* 6. Testimonial Spotlight */}
+      {testimonials.length > 0 && (
+        <TestimonialSpotlight testimonials={testimonials} />
+      )}
 
-        {/* Methodology Cards (4-card layout) */}
-        <MethodologyCards
-          methodology={service.methodology}
-          techStack={service.techStack}
-        />
-
-        {/* Social Proof Banner (Metrics + Testimonials) */}
-        <SocialProofBanner
-          metrics={service.metrics}
-          testimonials={service.featuredTestimonials}
-        />
-
-        {/* FAQ + CTA */}
-        <ServiceFAQ faq={faq} serviceName={title} />
-
-        {/* Floating CTA Pill (Sticky) */}
-        <CTAFloatingPill
-          serviceName={title}
-          ctaConfig={service.ctaButtonText as any}
-          locale={locale}
-        />
-      </div>
+      {/* 7. CTA Reveal */}
+      <CTAReveal
+        headline={ctaHeadline}
+        subheadline={ctaSubheadline}
+        primaryCTA={primaryCTA}
+        secondaryCTA={secondaryCTA}
+      />
     </ClientLayoutWrapper>
   );
 }

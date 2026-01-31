@@ -18,7 +18,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { motion, useReducedMotion, Easing } from "motion/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -205,6 +205,8 @@ const ServiceLayer: React.FC<ServiceLayerProps> = ({ service, index, total, onNa
 
 export default function Services() {
   const router = useRouter();
+  const params = useParams();
+  const locale = (params?.locale as string) || "en";
   const containerRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
@@ -238,7 +240,7 @@ export default function Services() {
   }, { scope: containerRef });
 
   const handleNavigate = (slug: string) => {
-    router.push(`/services/${slug}`);
+    router.push(`/${locale}/services/${slug}`);
   };
 
   return (

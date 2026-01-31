@@ -1,7 +1,7 @@
 export const servicesData = [
   {
     id: "1",
-    number: "01 / 06",
+    number: "01 / 04",
     title: "Web Development",
     image: "/services/web-development.jpg",
     category: "[ 45% Higher Conversions ]",
@@ -9,7 +9,7 @@ export const servicesData = [
   },
   {
     id: "2",
-    number: "02 / 06",
+    number: "02 / 04",
     title: "Mobile Applications",
     image: "/services/mobile-apps.jpg",
     category: "[ 4.8 Avg Store Rating ]",
@@ -17,7 +17,7 @@ export const servicesData = [
   },
   {
     id: "3",
-    number: "03 / 06",
+    number: "03 / 04",
     title: "Process Automation",
     image: "/services/automation.jpg",
     category: "[ 80% Task Reduction ]",
@@ -25,26 +25,10 @@ export const servicesData = [
   },
   {
     id: "4",
-    number: "04 / 06",
+    number: "04 / 04",
     title: "Enterprise Solutions",
     image: "/services/enterprise.jpg",
     category: "[ 500+ Active Workflows ]",
     slug: "enterprise",
-  },
-  {
-    id: "5",
-    number: "05 / 06",
-    title: "Cloud Infrastructure",
-    image: "/services/cloud-infrastructure.jpg",
-    category: "[ 99.9% Uptime ]",
-    slug: "cloud-infrastructure",
-  },
-  {
-    id: "6",
-    number: "06 / 06",
-    title: "API Development",
-    image: "/services/api-development.jpg",
-    category: "[ Sub-100ms Response ]",
-    slug: "api-development",
   },
 ];

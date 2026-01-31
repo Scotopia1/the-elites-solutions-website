@@ -1,0 +1,36 @@
+<svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .my-monogram {
+        font-family: 'Georgia', 'Palatino', serif;
+        font-size: 38px;
+        font-weight: 400;
+        font-style: italic;
+        fill: #c9a227;
+        letter-spacing: 2px;
+      }
+      .my-name {
+        font-family: 'Georgia', 'Palatino', serif;
+        font-size: 11px;
+        font-weight: 300;
+        fill: #e5c158;
+        letter-spacing: 3px;
+      }
+      .my-tagline {
+        font-family: 'Georgia', 'Palatino', serif;
+        font-size: 7px;
+        font-weight: 300;
+        fill: #c9a227;
+        letter-spacing: 2px;
+        opacity: 0.7;
+      }
+    </style>
+  </defs>
+
+  <!-- Decorative flourish -->
+  <path d="M 75 12 Q 85 8, 95 12" stroke="#c9a227" stroke-width="0.5" fill="none" opacity="0.5"/>
+  <path d="M 105 12 Q 115 8, 125 12" stroke="#c9a227" stroke-width="0.5" fill="none" opacity="0.5"/>
+
+  <text x="100" y="35" text-anchor="middle" class="my-monogram">MY</text>
+  <text x="100" y="48" text-anchor="middle" class="my-tagline">PARFUMERIE</text>
+</svg>

@@ -15,7 +15,7 @@ interface CTASectionProps {
   description?: string;
   buttonText?: string;
   buttonHref: string;
-  images: CTAImage[];
+  images?: CTAImage[];
   logoSrc?: string;
   className?: string;
 }
@@ -25,7 +25,7 @@ export function CTASection({
   description,
   buttonText = "Get Started",
   buttonHref,
-  images,
+  images = [],
   logoSrc,
   className = "",
 }: CTASectionProps) {
@@ -47,23 +47,25 @@ export function CTASection({
           </Link>
         </ScrollReveal>
 
-        <div className={styles.imageGrid}>
-          {images.slice(0, 6).map((image, index) => (
-            <ScrollReveal
-              key={index}
-              delay={index * 0.1}
-              className={styles.imageWrapper}
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className={styles.image}
-                sizes="(max-width: 768px) 50vw, 33vw"
-              />
-            </ScrollReveal>
-          ))}
-        </div>
+        {images.length > 0 && (
+          <div className={styles.imageGrid}>
+            {images.slice(0, 6).map((image, index) => (
+              <ScrollReveal
+                key={index}
+                delay={index * 0.1}
+                className={styles.imageWrapper}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className={styles.image}
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                />
+              </ScrollReveal>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

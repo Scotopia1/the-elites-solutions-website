@@ -45,10 +45,10 @@ const StatCard: React.FC<StatCardProps> = ({ label, count }) => {
 };
 
 const stats = [
-  { label: "Projects Completed", count: "50+" },
-  { label: "Years Experience", count: "5+" },
-  { label: "Client Satisfaction", count: "98%" },
-  { label: "Team Members", count: "12+" },
+  { label: "Projects Completed", count: "10+" },
+  { label: "Years Experience", count: "3+" },
+  { label: "Client Satisfaction", count: "100%" },
+  { label: "Co-Founders", count: "3" },
 ];
 
 export default function IntroStats() {
@@ -134,8 +134,9 @@ export default function IntroStats() {
         <div className={styles.introCopy}>
           <div ref={copyRef} className={styles.introCopyWrapper}>
             <h3>
-              TechMart: $2M revenue boost. NeoBank: 100K downloads in 3 months.
-              Enterprise Corp: 80% task reduction. Your business could be next.
+              From luxury e-commerce to award-worthy 3D experiences.
+              From AI-powered platforms to digital transformation.
+              Your business could be next.
             </h3>
           </div>
         </div>

@@ -7,44 +7,34 @@ import { motion, useInView } from "framer-motion";
 const teamMembers = [
   {
     id: 1,
-    name: "Leadership",
-    role: "Vision & Strategy",
-    quote: "Excellence is not a destination, it's a continuous journey.",
-    initials: "TE",
+    name: "Joe Jneid",
+    role: "Co-Founder",
+    quote: "AI is not replacing developers—it's amplifying them.",
+    initials: "JJ",
     color: "#d4af37",
-    bio: "Driving the strategic vision of The Elites, ensuring every project aligns with our core mission of digital excellence.",
-    social: ["LinkedIn", "Twitter"]
+    bio: "AI Tools & Research Specialist. Software developer with expertise in leveraging artificial intelligence to accelerate development workflows and research processes.",
+    social: ["LinkedIn", "GitHub"]
   },
   {
     id: 2,
-    name: "Design Team",
-    role: "Creative Direction",
-    quote: "Every pixel tells a story. We make sure it's a compelling one.",
-    initials: "DT",
+    name: "Johnny Jneid",
+    role: "Co-Founder",
+    quote: "Great products start with understanding what people truly need.",
+    initials: "JJ",
     color: "#c0a030",
-    bio: "Crafting immersive visual experiences that captivate audiences and elevate brand identities through pixel-perfect design.",
-    social: ["Dribbble", "Behance"]
+    bio: "Marketing & Business Development Expert. Software developer focused on bridging the gap between technical excellence and market success.",
+    social: ["LinkedIn", "Twitter"]
   },
   {
     id: 3,
-    name: "Development",
-    role: "Technical Excellence",
-    quote: "Clean code, scalable solutions, exceptional performance.",
-    initials: "DV",
+    name: "Charbel Tamer",
+    role: "Co-Founder",
+    quote: "Clean architecture is the foundation of scalable systems.",
+    initials: "CT",
     color: "#a89028",
-    bio: "Architecting robust, scalable digital solutions using cutting-edge technologies to ensure flawless performance.",
-    social: ["GitHub", "StackOverflow"]
-  },
-  {
-    id: 4,
-    name: "Strategy",
-    role: "Growth & Innovation",
-    quote: "Data-driven decisions, human-centered results.",
-    initials: "ST",
-    color: "#907820",
-    bio: "Analyzing market trends and user behavior to create data-driven strategies that guarantee measurable growth.",
-    social: ["LinkedIn", "Medium"]
-  },
+    bio: "Lead Software Engineer. Full-stack developer specializing in building robust, scalable applications with modern technologies.",
+    social: ["LinkedIn", "GitHub"]
+  }
 ];
 
 export default function TeamSpotlight() {
@@ -69,7 +59,7 @@ export default function TeamSpotlight() {
         </motion.div>
 
         {/* Team Grid - Card Flip Design */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.id}

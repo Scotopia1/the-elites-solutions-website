@@ -260,9 +260,9 @@
         "ar": "صفر أخطاء يدوية"
       },
       {
-        "en": "50+ App Integrations",
-        "fr": "50+ Intégrations d'Apps",
-        "ar": "أكثر من 50 تكامل مع التطبيقات"
+        "en": "Extensive App Integrations",
+        "fr": "Intégrations d'Apps Étendues",
+        "ar": "تكاملات تطبيقات واسعة"
       },
       {
         "en": "Real-time Monitoring",
@@ -329,8 +329,8 @@
     ],
     "metrics": {
       "workflowsBuilt": 500,
-      "timeSaved": "10,000+ hours/month",
-      "costSavings": "$2M+"
+      "timeSaved": "Significant time savings",
+      "costSavings": "Substantial cost reduction"
     },
     "ctaType": "quote",
     "ctaButtonText": {

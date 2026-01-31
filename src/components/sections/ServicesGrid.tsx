@@ -25,6 +25,9 @@ export function ServicesGrid({
   columns = 3,
   className = "",
 }: ServicesGridProps) {
+  // Helper to check if icon is a file path or emoji
+  const isIconPath = (icon: string) => icon.startsWith('/') || icon.startsWith('http');
+
   return (
     <div className={`${styles.servicesGrid} ${styles[`cols${columns}`]} ${className}`}>
       {services.map((service, index) => (
@@ -35,23 +38,20 @@ export function ServicesGrid({
           className={styles.serviceCardWrapper}
         >
           <Link href={service.href} className={styles.serviceCard}>
-            {service.image && (
-              <div className={styles.imageWrapper}>
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className={styles.image}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-                <div className={styles.overlay} />
-              </div>
-            )}
-
             <div className={styles.content}>
               {service.icon && (
                 <div className={styles.icon}>
-                  <span>{service.icon}</span>
+                  {isIconPath(service.icon) ? (
+                    <Image
+                      src={service.icon}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className={styles.iconImage}
+                    />
+                  ) : (
+                    <span>{service.icon}</span>
+                  )}
                 </div>
               )}
 

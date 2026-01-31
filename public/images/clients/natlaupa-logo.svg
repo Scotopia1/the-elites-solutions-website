@@ -1,0 +1,28 @@
+<svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .natlaupa-text {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        font-size: 28px;
+        font-weight: 400;
+        fill: #d4af37;
+        letter-spacing: 3px;
+      }
+      .natlaupa-subtitle {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        font-size: 9px;
+        font-weight: 300;
+        fill: #d4af37;
+        letter-spacing: 4px;
+        opacity: 0.8;
+      }
+    </style>
+  </defs>
+
+  <text x="100" y="30" text-anchor="middle" class="natlaupa-text">NATLAUPA</text>
+  <text x="100" y="45" text-anchor="middle" class="natlaupa-subtitle">LUXURY STAYS</text>
+
+  <!-- Decorative element -->
+  <line x1="40" y1="50" x2="70" y2="50" stroke="#d4af37" stroke-width="0.5" opacity="0.6"/>
+  <line x1="130" y1="50" x2="160" y2="50" stroke="#d4af37" stroke-width="0.5" opacity="0.6"/>
+</svg>

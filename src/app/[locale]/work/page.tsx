@@ -219,19 +219,6 @@ export default function WorkPage() {
                         </p>
                       </div>
 
-                      {project.technologies && project.technologies.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
-                          {project.technologies.slice(0, 4).map((tech, index) => (
-                            <span
-                              key={`${tech}-${index}`}
-                              className="text-xs px-2 py-1 rounded-md bg-dark-300 text-gray-400"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-
                       {project.resultsMetrics && project.resultsMetrics.length > 0 && (
                         <div className="grid grid-cols-3 gap-2 pt-4 border-t border-dark-300">
                           {project.resultsMetrics.slice(0, 3).map((result, index) => (

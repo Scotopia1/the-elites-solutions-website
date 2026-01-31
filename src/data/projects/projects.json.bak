@@ -1,0 +1,583 @@
+[
+  {
+    "id": "proj-001",
+    "slug": "natlaupa-luxury-hotel-booking",
+    "title": {
+      "en": "Natlaupa Luxury Hotel Booking Platform",
+      "fr": "Plateforme de Reservation Natlaupa",
+      "ar": "منصة حجز فنادق ناتلاوبا الفاخرة"
+    },
+    "category": "Web Development",
+    "industry": "Luxury Hospitality",
+    "projectScale": "enterprise",
+    "clientName": "Natlaupa",
+    "clientLogoUrl": "/images/clients/natlaupa-logo.svg",
+    "shortDescription": {
+      "en": "AI-powered luxury hotel booking platform managing 60+ properties across 3 continents with AI concierge recommendations and comprehensive admin dashboard.",
+      "fr": "Plateforme de reservation d'hotels de luxe alimentee par l'IA gerant plus de 60 proprietes sur 3 continents avec des recommandations de conciergerie IA.",
+      "ar": "منصة حجز فنادق فاخرة مدعومة بالذكاء الاصطناعي تدير أكثر من 60 عقارًا عبر 3 قارات مع توصيات الكونسيرج بالذكاء الاصطناعي."
+    },
+    "challenge": {
+      "en": "Natlaupa, a luxury hospitality firm with offices in Paris, Barcelona, and Beirut, needed a sophisticated booking platform to showcase 60+ curated hotels across 10 countries while providing personalized AI-powered recommendations.",
+      "fr": "Natlaupa, une entreprise d'hospitalite de luxe avec des bureaux a Paris, Barcelone et Beyrouth, avait besoin d'une plateforme sophistiquee pour presenter plus de 60 hotels selectionnes dans 10 pays.",
+      "ar": "احتاجت ناتلاوبا، شركة ضيافة فاخرة لديها مكاتب في باريس وبرشلونة وبيروت، إلى منصة حجز متطورة لعرض أكثر من 60 فندقًا منتقى عبر 10 دول."
+    },
+    "solution": {
+      "en": "We built a full-stack luxury booking platform with Next.js 15, React 19, and Google Gemini AI integration. Features include mood-based hotel matching, interactive Mapbox destination maps, comprehensive admin dashboard with 20 API endpoints, and GDPR-compliant architecture.",
+      "fr": "Nous avons construit une plateforme de reservation de luxe complete avec Next.js 15, React 19 et integration Google Gemini AI. Les fonctionnalites incluent la correspondance d'hotels basee sur l'humeur et des cartes interactives.",
+      "ar": "قمنا ببناء منصة حجز فاخرة متكاملة باستخدام Next.js 15 و React 19 وتكامل Google Gemini AI مع مطابقة الفنادق على أساس المزاج وخرائط تفاعلية."
+    },
+    "results": {
+      "en": "The platform now manages 60+ hotels across 3 continents and 10 countries. Admin dashboard handles hotel CRUD, offers, blog, inquiries, partnerships, and newsletter management. AI concierge provides personalized recommendations for every visitor.",
+      "fr": "La plateforme gere maintenant plus de 60 hotels sur 3 continents et 10 pays. Le tableau de bord admin gere les hotels, offres, blog et recommandations personnalisees.",
+      "ar": "تدير المنصة الآن أكثر من 60 فندقًا عبر 3 قارات و10 دول. تتعامل لوحة التحكم مع إدارة الفنادق والعروض والمدونة والاستفسارات."
+    },
+    "overview": {
+      "description": {
+        "en": "A comprehensive luxury hotel booking platform with AI-powered concierge recommendations, serving high-end travelers across Europe, Middle East, and beyond.",
+        "fr": "Une plateforme complete de reservation d'hotels de luxe avec des recommandations de conciergerie alimentees par l'IA.",
+        "ar": "منصة شاملة لحجز الفنادق الفاخرة مع توصيات الكونسيرج المدعومة بالذكاء الاصطناعي."
+      },
+      "highlights": [
+        "60+ luxury hotels across 10 countries",
+        "AI-powered mood-based recommendations",
+        "Interactive Mapbox destination exploration",
+        "Full admin dashboard with 20 API endpoints",
+        "GDPR-compliant with cookie consent system"
+      ]
+    },
+    "quickFacts": {
+      "client": "Natlaupa",
+      "year": "2025",
+      "duration": "Ongoing",
+      "status": "Live with Active Support",
+      "liveUrl": "https://natlaupa.com"
+    },
+    "technologies": ["Next.js", "React", "TypeScript", "TailwindCSS", "GSAP", "Framer Motion", "Mapbox GL", "Google Gemini AI"],
+    "techStack": [
+      { "name": "Next.js 15", "logo": "/icons/tech/nextjs.svg", "reason": "App Router for optimal performance and SEO" },
+      { "name": "React 19", "logo": "/icons/tech/react.svg", "reason": "Latest React features for responsive UI" },
+      { "name": "Google Gemini AI", "logo": "/icons/tech/google.svg", "reason": "AI-powered hotel recommendations and concierge" },
+      { "name": "Mapbox GL", "logo": "/icons/tech/mapbox.svg", "reason": "Interactive destination maps and exploration" },
+      { "name": "GSAP", "logo": "/icons/tech/gsap.svg", "reason": "Premium scroll-triggered animations" },
+      { "name": "TailwindCSS", "logo": "/icons/tech/tailwind.svg", "reason": "Responsive luxury design system" }
+    ],
+    "servicesUsed": ["web-development", "enterprise"],
+    "timeline": [
+      { "phase": "Discovery & Design", "date": "December 2025", "description": "Requirements gathering, UI/UX design for luxury brand positioning" },
+      { "phase": "Website Development", "date": "December 2025", "description": "Core platform with hotel listings, AI integration, and booking flows" },
+      { "phase": "Admin Dashboard", "date": "January 2026", "description": "Comprehensive admin system with 20 API endpoints" },
+      { "phase": "SEO & Optimization", "date": "Ongoing", "description": "Monthly SEO, Core Web Vitals optimization, and performance monitoring" }
+    ],
+    "duration": "Ongoing partnership",
+    "resultsMetrics": [
+      { "metric": "60+", "label": "Hotels", "description": "Curated luxury properties managed" },
+      { "metric": "10", "label": "Countries", "description": "Global destination coverage" },
+      { "metric": "20", "label": "API Endpoints", "description": "Full-featured admin dashboard" },
+      { "metric": "99.5%", "label": "Uptime", "description": "Guaranteed service availability" }
+    ],
+    "testimonial": {
+      "quote": "The Elites understood our vision for a luxury digital experience. The AI concierge has transformed how our clients discover their perfect hotel. The platform perfectly represents our brand across Paris, Barcelona, and Beirut.",
+      "author": "Natlaupa Team",
+      "title": "Luxury Hospitality",
+      "avatar": "/images/testimonials/natlaupa.jpg"
+    },
+    "heroImage": "/images/projects/natlaupa-hero.jpg",
+    "featuredImageUrl": "/images/projects/natlaupa-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/natlaupa-1.jpg", "alt": "Homepage with trending hotels" },
+      { "url": "/images/projects/natlaupa-2.jpg", "alt": "AI-powered hotel recommendations" },
+      { "url": "/images/projects/natlaupa-3.jpg", "alt": "Interactive Mapbox destination view" },
+      { "url": "/images/projects/natlaupa-4.jpg", "alt": "Admin dashboard interface" }
+    ],
+    "projectUrl": "https://natlaupa.com",
+    "isFeatured": true,
+    "publishedAt": "2025-01-15T00:00:00.000Z",
+    "orderIndex": 1,
+    "createdAt": "2025-12-01T00:00:00.000Z",
+    "updatedAt": "2026-01-20T00:00:00.000Z",
+    "videoUrl": null,
+    "interactiveDemo": null,
+    "architecture": null,
+    "processSteps": null,
+    "relatedSlugs": null
+  },
+  {
+    "id": "proj-002",
+    "slug": "trd-structural-remediation",
+    "title": {
+      "en": "TRD Structural Remediation Website",
+      "fr": "Site Web TRD Remediation Structurelle",
+      "ar": "موقع TRD للمعالجة الهيكلية"
+    },
+    "category": "Web Development",
+    "industry": "Construction & Engineering",
+    "projectScale": "large",
+    "clientName": "TRD (Tension Reinforced Developments)",
+    "clientLogoUrl": "/images/clients/trd-logo.svg",
+    "shortDescription": {
+      "en": "Award-worthy structural remediation website featuring industry-first 3D building visualization, procedural models, and WCAG 2.1 AA accessibility compliance.",
+      "fr": "Site web de remediation structurelle digne de prix avec visualisation 3D de batiment premiere du secteur et conformite WCAG 2.1 AA.",
+      "ar": "موقع معالجة هيكلية يستحق الجوائز مع تصور ثلاثي الأبعاد للمباني الأول في الصناعة ونماذج إجرائية."
+    },
+    "challenge": {
+      "en": "TRD needed a website that could showcase complex structural remediation services in an engaging, understandable way while demonstrating technical expertise to enterprise clients in the construction industry.",
+      "fr": "TRD avait besoin d'un site web capable de presenter des services complexes de remediation structurelle de maniere engageante tout en demontrant l'expertise technique.",
+      "ar": "احتاجت TRD إلى موقع ويب يمكنه عرض خدمات المعالجة الهيكلية المعقدة بطريقة جذابة ومفهومة مع إظهار الخبرة التقنية."
+    },
+    "solution": {
+      "en": "We built an award-worthy website with React Three Fiber for procedural 3D building models, GSAP ScrollTrigger for 7 major animated sections, interactive case study visualizations (timeline, before/after slider, 3D stress analysis), and full WCAG 2.1 AA compliance.",
+      "fr": "Nous avons construit un site web digne de prix avec React Three Fiber pour les modeles 3D proceduraux, GSAP ScrollTrigger pour 7 sections animees majeures et une conformite WCAG 2.1 AA complete.",
+      "ar": "قمنا ببناء موقع يستحق الجوائز مع React Three Fiber للنماذج ثلاثية الأبعاد الإجرائية و GSAP ScrollTrigger لـ 7 أقسام متحركة رئيسية."
+    },
+    "results": {
+      "en": "Delivered industry-first 3D visualization for construction. 27 custom components built. 60fps desktop / 30fps mobile performance. Award submission materials ready for CSS Design Awards, Awwwards, Webby Awards, and Australian Web Awards.",
+      "fr": "Livre la premiere visualisation 3D de l'industrie pour la construction. 27 composants personnalises. Performance 60fps desktop. Materiaux de soumission aux prix prets.",
+      "ar": "قدم أول تصور ثلاثي الأبعاد في الصناعة للبناء. 27 مكونًا مخصصًا. أداء 60 إطارًا في الثانية. مواد التقديم للجوائز جاهزة."
+    },
+    "overview": {
+      "description": {
+        "en": "A cutting-edge structural remediation showcase featuring procedural 3D building models, interactive case study visualizations, and award-worthy animations built for the construction industry.",
+        "fr": "Une vitrine de remediation structurelle de pointe avec des modeles de batiments 3D proceduraux et des visualisations interactives.",
+        "ar": "عرض معالجة هيكلية متطور يتميز بنماذج مباني ثلاثية الأبعاد إجرائية وتصورات تفاعلية لدراسات الحالة."
+      },
+      "highlights": [
+        "Industry-first 3D building visualization",
+        "Procedural building model (no external 3D files)",
+        "7 major animated sections with ScrollTrigger",
+        "WCAG 2.1 AA accessibility compliance",
+        "Award submission ready for 4 major awards"
+      ]
+    },
+    "quickFacts": {
+      "client": "TRD (Tension Reinforced Developments)",
+      "year": "2025",
+      "duration": "8 weeks",
+      "status": "Complete - Ready for Deployment",
+      "liveUrl": "https://trd-remedial-website.vercel.app"
+    },
+    "technologies": ["Next.js", "React", "TypeScript", "React Three Fiber", "Three.js", "GSAP", "Framer Motion", "TailwindCSS", "Lenis"],
+    "techStack": [
+      { "name": "Next.js 15", "logo": "/icons/tech/nextjs.svg", "reason": "App Router with static generation for all 7 pages" },
+      { "name": "React Three Fiber", "logo": "/icons/tech/threejs.svg", "reason": "Procedural 3D building models and stress visualizations" },
+      { "name": "GSAP 3", "logo": "/icons/tech/gsap.svg", "reason": "ScrollTrigger for 7 major animated sections" },
+      { "name": "Framer Motion", "logo": "/icons/tech/framer.svg", "reason": "UI component animations and transitions" },
+      { "name": "TypeScript", "logo": "/icons/tech/typescript.svg", "reason": "Type safety for complex 3D components" },
+      { "name": "Lenis", "logo": "/icons/tech/lenis.svg", "reason": "Smooth scrolling for premium feel" }
+    ],
+    "servicesUsed": ["web-development"],
+    "timeline": [
+      { "phase": "Foundation", "date": "Week 1-2", "description": "Project setup, design system, core components" },
+      { "phase": "Core Sections", "date": "Week 3-4", "description": "7 major sections with GSAP animations" },
+      { "phase": "3D Integration", "date": "Week 5-6", "description": "Procedural building model, stress visualization, guided tour" },
+      { "phase": "Polish & Performance", "date": "Week 7-8", "description": "Accessibility audit, performance optimization, award materials" }
+    ],
+    "duration": "8 weeks",
+    "resultsMetrics": [
+      { "metric": "27", "label": "Components", "description": "Custom-built React components" },
+      { "metric": "60fps", "label": "Performance", "description": "Desktop 3D rendering performance" },
+      { "metric": "229kB", "label": "Bundle Size", "description": "First Load JS (excellent for features)" },
+      { "metric": "95+", "label": "Lighthouse", "description": "SEO score with real assets" }
+    ],
+    "testimonial": {
+      "quote": "The 3D building visualization has set us apart from every competitor. Clients understand our complex remediation work instantly. The website is not just functional - it's award-worthy.",
+      "author": "TRD Team",
+      "title": "Structural Remediation Experts",
+      "avatar": "/images/testimonials/trd.jpg"
+    },
+    "heroImage": "/images/projects/trd-hero.jpg",
+    "featuredImageUrl": "/images/projects/trd-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/trd-1.jpg", "alt": "3D building visualization with service hotspots" },
+      { "url": "/images/projects/trd-2.jpg", "alt": "Interactive case study timeline" },
+      { "url": "/images/projects/trd-3.jpg", "alt": "Before/after comparison slider" },
+      { "url": "/images/projects/trd-4.jpg", "alt": "Stress analysis 3D overlay" }
+    ],
+    "projectUrl": "https://trd-remedial-website.vercel.app",
+    "isFeatured": true,
+    "publishedAt": "2025-10-15T00:00:00.000Z",
+    "orderIndex": 2,
+    "createdAt": "2025-08-01T00:00:00.000Z",
+    "updatedAt": "2026-01-20T00:00:00.000Z"
+  },
+  {
+    "id": "proj-003",
+    "slug": "michel-yammine-perfumerie",
+    "title": {
+      "en": "Michel Yammine Perfumerie E-Commerce",
+      "fr": "E-Commerce Parfumerie Michel Yammine",
+      "ar": "متجر عطور ميشال يمين الإلكتروني"
+    },
+    "category": "Web Development",
+    "industry": "Luxury Retail",
+    "projectScale": "large",
+    "clientName": "Perfumerie Michel Yammine",
+    "clientLogoUrl": "/images/clients/michelyammine-logo.svg",
+    "shortDescription": {
+      "en": "Luxury perfume e-commerce platform with AI-powered scent recommendations serving Lebanon's fragrance market since 1970.",
+      "fr": "Plateforme e-commerce de parfums de luxe avec recommandations de parfums alimentées par l'IA, servant le marché libanais depuis 1970.",
+      "ar": "منصة تجارة إلكترونية للعطور الفاخرة مع توصيات الروائح المدعومة بالذكاء الاصطناعي تخدم سوق العطور اللبناني منذ 1970."
+    },
+    "challenge": {
+      "en": "Michel Yammine, a prestigious Lebanese perfumery established in 1970, needed a modern e-commerce platform to bring their luxury fragrance expertise online while maintaining the personalized boutique experience their customers expect.",
+      "fr": "Michel Yammine, une parfumerie libanaise prestigieuse établie en 1970, avait besoin d'une plateforme e-commerce moderne pour mettre en ligne leur expertise en parfumerie de luxe tout en maintenant l'expérience boutique personnalisée.",
+      "ar": "احتاج ميشال يمين، متجر العطور اللبناني المرموق المؤسس عام 1970، إلى منصة تجارة إلكترونية حديثة لنقل خبرتهم في العطور الفاخرة عبر الإنترنت."
+    },
+    "solution": {
+      "en": "We built a full-featured luxury e-commerce platform with Next.js featuring AI-powered scent quiz recommendations, advanced product filtering by gender and category, same-day delivery integration, cash-on-delivery support, and SEO-optimized structured data for maximum visibility.",
+      "fr": "Nous avons construit une plateforme e-commerce de luxe complète avec Next.js comprenant des recommandations de quiz de parfum alimentées par l'IA, un filtrage avancé des produits et une intégration de livraison le jour même.",
+      "ar": "قمنا ببناء منصة تجارة إلكترونية فاخرة متكاملة باستخدام Next.js تتميز بتوصيات اختبار الروائح المدعومة بالذكاء الاصطناعي وتصفية المنتجات المتقدمة."
+    },
+    "results": {
+      "en": "The platform now serves customers across Lebanon with 100% authentic luxury fragrances from authorized distributors. Features include AI scent matching, same-day delivery for orders before 2 PM, 24/7 fragrance expert support, and gift wrapping services.",
+      "fr": "La plateforme sert maintenant les clients à travers le Liban avec des parfums de luxe 100% authentiques. Les fonctionnalités incluent la correspondance de parfum IA et la livraison le jour même.",
+      "ar": "تخدم المنصة الآن العملاء في جميع أنحاء لبنان بعطور فاخرة أصلية 100٪ من موزعين معتمدين مع مطابقة الروائح بالذكاء الاصطناعي."
+    },
+    "overview": {
+      "description": {
+        "en": "A luxury fragrance e-commerce platform bringing nearly 50 years of perfumery expertise online with AI-powered personalized recommendations.",
+        "fr": "Une plateforme e-commerce de parfums de luxe apportant près de 50 ans d'expertise en parfumerie en ligne.",
+        "ar": "منصة تجارة إلكترونية للعطور الفاخرة تقدم ما يقرب من 50 عامًا من الخبرة في صناعة العطور عبر الإنترنت."
+      },
+      "highlights": [
+        "AI-powered scent quiz and recommendations",
+        "100% authentic luxury fragrances",
+        "Same-day delivery (orders before 2 PM)",
+        "Cash on delivery payment option",
+        "24/7 fragrance expert support"
+      ]
+    },
+    "quickFacts": {
+      "client": "Perfumerie Michel Yammine",
+      "year": "2025",
+      "duration": "3 months",
+      "status": "Live",
+      "liveUrl": "https://michelyammine.com"
+    },
+    "technologies": ["Next.js", "React", "TypeScript", "TailwindCSS", "Node.js", "PostgreSQL"],
+    "techStack": [
+      { "name": "Next.js", "logo": "/icons/tech/nextjs.svg", "reason": "Server-side rendering for SEO and fast page loads" },
+      { "name": "React", "logo": "/icons/tech/react.svg", "reason": "Component-based UI for product catalog" },
+      { "name": "TypeScript", "logo": "/icons/tech/typescript.svg", "reason": "Type safety for e-commerce transactions" },
+      { "name": "TailwindCSS", "logo": "/icons/tech/tailwind.svg", "reason": "Luxury design system with responsive layouts" },
+      { "name": "Node.js", "logo": "/icons/tech/nodejs.svg", "reason": "API backend for orders and inventory" },
+      { "name": "PostgreSQL", "logo": "/icons/tech/postgresql.svg", "reason": "Product catalog and order management" }
+    ],
+    "servicesUsed": ["web-development"],
+    "timeline": [
+      { "phase": "Discovery & Design", "date": "Month 1", "description": "Requirements gathering, luxury UI/UX design, brand integration" },
+      { "phase": "E-Commerce Development", "date": "Month 2", "description": "Product catalog, cart, checkout, payment integration" },
+      { "phase": "AI & Launch", "date": "Month 3", "description": "Scent quiz AI, SEO optimization, delivery integration, launch" }
+    ],
+    "duration": "3 months",
+    "resultsMetrics": [
+      { "metric": "50+", "label": "Years Legacy", "description": "Bringing decades of expertise online" },
+      { "metric": "100%", "label": "Authentic", "description": "Guaranteed genuine fragrances" },
+      { "metric": "Same-Day", "label": "Delivery", "description": "Orders before 2 PM delivered same day" },
+      { "metric": "24/7", "label": "Support", "description": "Fragrance expert assistance" }
+    ],
+    "testimonial": {
+      "quote": "The Elites brought our 50-year legacy into the digital age. The AI scent quiz captures the personalized experience we provide in-store, and our customers love the convenience of same-day delivery.",
+      "author": "Michel Yammine Team",
+      "title": "Luxury Perfumery",
+      "avatar": "/images/testimonials/michelyammine.jpg"
+    },
+    "heroImage": "/images/projects/michelyammine-hero.jpg",
+    "featuredImageUrl": "/images/projects/michelyammine-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/michelyammine-1.jpg", "alt": "Homepage with featured fragrances" },
+      { "url": "/images/projects/michelyammine-2.jpg", "alt": "Product catalog with filters" },
+      { "url": "/images/projects/michelyammine-3.jpg", "alt": "AI scent quiz interface" },
+      { "url": "/images/projects/michelyammine-4.jpg", "alt": "Product detail page" }
+    ],
+    "projectUrl": "https://michelyammine.com",
+    "isFeatured": true,
+    "publishedAt": "2025-06-01T00:00:00.000Z",
+    "orderIndex": 3,
+    "createdAt": "2025-03-01T00:00:00.000Z",
+    "updatedAt": "2026-01-20T00:00:00.000Z"
+  },
+  {
+    "id": "proj-004",
+    "slug": "francis-legacy-heritage",
+    "title": {
+      "en": "Francis Legacy Heritage Website",
+      "fr": "Site Patrimoine Francis Legacy",
+      "ar": "موقع تراث فرانسيس ليجاسي"
+    },
+    "category": "Web Development",
+    "industry": "Family Heritage",
+    "projectScale": "medium",
+    "clientName": "Francis Family",
+    "clientLogoUrl": "/images/clients/francis-logo.svg",
+    "shortDescription": {
+      "en": "Modern family heritage website preserving generational stories with interactive timelines and elegant documentation.",
+      "fr": "Site web moderne de patrimoine familial préservant les histoires générationnelles avec des chronologies interactives.",
+      "ar": "موقع تراث عائلي حديث يحافظ على قصص الأجيال مع جداول زمنية تفاعلية."
+    },
+    "challenge": {
+      "en": "The Francis family wanted to preserve their generational heritage in a modern, accessible format that could be shared across family members worldwide while maintaining an elegant, respectful presentation.",
+      "fr": "La famille Francis souhaitait préserver son patrimoine générationnel dans un format moderne et accessible pouvant être partagé entre les membres de la famille dans le monde entier.",
+      "ar": "أرادت عائلة فرانسيس الحفاظ على تراثهم العائلي في شكل حديث وسهل الوصول يمكن مشاركته بين أفراد العائلة في جميع أنحاء العالم."
+    },
+    "solution": {
+      "en": "We built a modern heritage website using Vite, React, and TypeScript with shadcn/ui components for an elegant interface. The site features interactive family timelines, photo galleries, and story documentation with smooth animations.",
+      "fr": "Nous avons construit un site web de patrimoine moderne utilisant Vite, React et TypeScript avec des composants shadcn/ui pour une interface élégante.",
+      "ar": "قمنا ببناء موقع تراث حديث باستخدام Vite و React و TypeScript مع مكونات shadcn/ui لواجهة أنيقة."
+    },
+    "results": {
+      "en": "The website now serves as the family's digital archive, accessible to members worldwide. The elegant design honors the family's legacy while the modern tech stack ensures long-term maintainability.",
+      "fr": "Le site web sert maintenant d'archive numérique familiale, accessible aux membres dans le monde entier.",
+      "ar": "يعمل الموقع الآن كأرشيف رقمي للعائلة، متاح للأعضاء في جميع أنحاء العالم."
+    },
+    "overview": {
+      "description": {
+        "en": "A digital family heritage platform preserving stories, photos, and memories across generations.",
+        "fr": "Une plateforme de patrimoine familial numérique préservant les histoires et souvenirs à travers les générations.",
+        "ar": "منصة تراث عائلي رقمية تحافظ على القصص والصور والذكريات عبر الأجيال."
+      },
+      "highlights": [
+        "Interactive family timelines",
+        "Photo gallery with lightbox",
+        "Story documentation system",
+        "Elegant shadcn/ui design",
+        "Deployed on Vercel"
+      ]
+    },
+    "quickFacts": {
+      "client": "Francis Family",
+      "year": "2025",
+      "duration": "6 weeks",
+      "status": "Completed"
+    },
+    "technologies": ["Vite", "React", "TypeScript", "TailwindCSS", "shadcn/ui"],
+    "techStack": [
+      { "name": "Vite", "logo": "/icons/tech/vite.svg", "reason": "Fast build tooling and HMR" },
+      { "name": "React", "logo": "/icons/tech/react.svg", "reason": "Component-based UI architecture" },
+      { "name": "TypeScript", "logo": "/icons/tech/typescript.svg", "reason": "Type safety for content management" },
+      { "name": "shadcn/ui", "logo": "/icons/tech/shadcn.svg", "reason": "Elegant pre-built components" },
+      { "name": "TailwindCSS", "logo": "/icons/tech/tailwind.svg", "reason": "Responsive design system" }
+    ],
+    "servicesUsed": ["web-development"],
+    "timeline": [
+      { "phase": "Planning & Design", "date": "Week 1-2", "description": "Family consultation, content gathering, UI design" },
+      { "phase": "Development", "date": "Week 3-5", "description": "Timeline features, galleries, content integration" },
+      { "phase": "Launch", "date": "Week 6", "description": "Final review, Vercel deployment, family handoff" }
+    ],
+    "duration": "6 weeks",
+    "resultsMetrics": [
+      { "metric": "100%", "label": "Family Coverage", "description": "Complete generational documentation" },
+      { "metric": "Global", "label": "Access", "description": "Available to family worldwide" },
+      { "metric": "Fast", "label": "Performance", "description": "Vite-powered instant loads" },
+      { "metric": "Elegant", "label": "Design", "description": "shadcn/ui premium aesthetics" }
+    ],
+    "testimonial": {
+      "quote": "The Elites created a beautiful digital home for our family's history. Future generations will be able to explore our legacy in a way that was never possible before.",
+      "author": "Francis Family",
+      "title": "Heritage Project",
+      "avatar": "/images/testimonials/francis.jpg"
+    },
+    "heroImage": "/images/projects/francis-hero.jpg",
+    "featuredImageUrl": "/images/projects/francis-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/francis-1.jpg", "alt": "Interactive family timeline" },
+      { "url": "/images/projects/francis-2.jpg", "alt": "Photo gallery view" },
+      { "url": "/images/projects/francis-3.jpg", "alt": "Story documentation" },
+      { "url": "/images/projects/francis-4.jpg", "alt": "Mobile responsive design" }
+    ],
+    "isFeatured": false,
+    "publishedAt": "2025-09-01T00:00:00.000Z",
+    "orderIndex": 4,
+    "createdAt": "2025-07-15T00:00:00.000Z",
+    "updatedAt": "2026-01-20T00:00:00.000Z"
+  },
+  {
+    "id": "proj-005",
+    "slug": "mr5-pos-system",
+    "title": {
+      "en": "Mr5 Point-of-Sale System",
+      "fr": "Système de Point de Vente Mr5",
+      "ar": "نظام نقاط البيع Mr5"
+    },
+    "category": "Desktop Application",
+    "industry": "Retail & Hospitality",
+    "projectScale": "large",
+    "clientName": "Mr5 Restaurant Group",
+    "clientLogoUrl": "/images/clients/mr5-logo.svg",
+    "shortDescription": {
+      "en": "Full-featured Electron.js Point-of-Sale system with modern desktop interface for restaurant and retail operations management.",
+      "fr": "Système de point de vente complet basé sur Electron.js avec interface desktop moderne pour la gestion des opérations de restauration et de vente au détail.",
+      "ar": "نظام نقاط بيع متكامل قائم على Electron.js مع واجهة سطح مكتب حديثة لإدارة عمليات المطاعم والبيع بالتجزئة."
+    },
+    "challenge": {
+      "en": "Mr5 Restaurant Group needed a robust, offline-capable POS system that could handle high-volume transactions, manage inventory, track sales analytics, and integrate with their kitchen display systems across multiple locations.",
+      "fr": "Mr5 Restaurant Group avait besoin d'un système POS robuste, capable de fonctionner hors ligne, pour gérer des transactions à haut volume, l'inventaire et l'analyse des ventes.",
+      "ar": "احتاجت مجموعة مطاعم Mr5 إلى نظام نقاط بيع قوي قادر على العمل دون اتصال للتعامل مع المعاملات ذات الحجم الكبير وإدارة المخزون."
+    },
+    "solution": {
+      "en": "We developed a comprehensive Electron.js-based POS system with a modern, responsive desktop UI. Features include user authentication, real-time inventory tracking, sales reporting, receipt printing, and multi-terminal synchronization with cross-platform deployment capability.",
+      "fr": "Nous avons développé un système POS complet basé sur Electron.js avec une interface desktop moderne et réactive avec authentification, suivi d'inventaire et rapports de ventes.",
+      "ar": "قمنا بتطوير نظام نقاط بيع شامل قائم على Electron.js لواجهة سطح مكتب حديثة مع المصادقة وتتبع المخزون وتقارير المبيعات."
+    },
+    "results": {
+      "en": "The POS system now handles daily operations across multiple restaurant locations with reliable offline capability, streamlined checkout processes, and comprehensive sales analytics for business decision-making.",
+      "fr": "Le système POS gère maintenant les opérations quotidiennes dans plusieurs emplacements avec une capacité hors ligne fiable et des analyses de ventes complètes.",
+      "ar": "يتعامل نظام نقاط البيع الآن مع العمليات اليومية عبر مواقع متعددة مع قدرة موثوقة على العمل دون اتصال."
+    },
+    "overview": {
+      "description": {
+        "en": "A professional Point-of-Sale system built with Electron.js for cross-platform restaurant and retail operations.",
+        "fr": "Un système de point de vente professionnel construit avec Electron.js pour les opérations de restauration multiplateforme.",
+        "ar": "نظام نقاط بيع احترافي مبني باستخدام Electron.js لعمليات المطاعم والبيع بالتجزئة متعددة المنصات."
+      },
+      "highlights": [
+        "Electron.js cross-platform desktop app",
+        "Offline-capable operation",
+        "Real-time inventory tracking",
+        "Sales analytics and reporting",
+        "Multi-terminal synchronization"
+      ]
+    },
+    "quickFacts": {
+      "client": "Mr5 Restaurant Group",
+      "year": "2025",
+      "duration": "4 months",
+      "status": "Live"
+    },
+    "technologies": ["Electron.js", "JavaScript", "Node.js", "SQLite", "HTML", "CSS"],
+    "techStack": [
+      { "name": "Electron.js", "logo": "/icons/tech/electron.svg", "reason": "Cross-platform desktop application framework" },
+      { "name": "JavaScript", "logo": "/icons/tech/javascript.svg", "reason": "Core application logic and UI interactions" },
+      { "name": "Node.js", "logo": "/icons/tech/nodejs.svg", "reason": "Backend processes and system integration" },
+      { "name": "SQLite", "logo": "/icons/tech/sqlite.svg", "reason": "Lightweight embedded database for offline capability" }
+    ],
+    "servicesUsed": ["web-development", "automation"],
+    "timeline": [
+      { "phase": "Requirements & Design", "date": "Month 1", "description": "Business process analysis, UI/UX design for touch screens" },
+      { "phase": "Core Development", "date": "Month 2-3", "description": "Transaction processing, inventory, user management" },
+      { "phase": "Testing & Deployment", "date": "Month 4", "description": "Multi-location testing, staff training, rollout" }
+    ],
+    "duration": "4 months",
+    "resultsMetrics": [
+      { "metric": "100%", "label": "Offline", "description": "Fully operational without internet" },
+      { "metric": "Fast", "label": "Transactions", "description": "Sub-second checkout processing" },
+      { "metric": "Real-time", "label": "Inventory", "description": "Live stock tracking" },
+      { "metric": "Multi", "label": "Terminal", "description": "Synchronized across locations" }
+    ],
+    "testimonial": {
+      "quote": "The POS system has transformed our restaurant operations. The offline capability means we never miss a sale, and the inventory tracking has reduced our waste significantly.",
+      "author": "Mr5 Team",
+      "title": "Restaurant Operations",
+      "avatar": "/images/testimonials/mr5.jpg"
+    },
+    "heroImage": "/images/projects/mr5pos-hero.jpg",
+    "featuredImageUrl": "/images/projects/mr5pos-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/mr5pos-1.jpg", "alt": "Login screen interface" },
+      { "url": "/images/projects/mr5pos-2.jpg", "alt": "Main POS terminal view" },
+      { "url": "/images/projects/mr5pos-3.jpg", "alt": "Inventory management" },
+      { "url": "/images/projects/mr5pos-4.jpg", "alt": "Sales analytics dashboard" }
+    ],
+    "isFeatured": false,
+    "publishedAt": "2025-06-20T00:00:00.000Z",
+    "orderIndex": 5,
+    "createdAt": "2025-02-01T00:00:00.000Z",
+    "updatedAt": "2026-01-20T00:00:00.000Z"
+  },
+  {
+    "id": "proj-006",
+    "slug": "mr5-digital-menu",
+    "title": {
+      "en": "Mr5 Digital Menu System",
+      "fr": "Système de Menu Digital Mr5",
+      "ar": "نظام القائمة الرقمية Mr5"
+    },
+    "category": "Web Development",
+    "industry": "Hospitality",
+    "projectScale": "medium",
+    "clientName": "Mr5 Restaurant Group",
+    "clientLogoUrl": "/images/clients/mr5-logo.svg",
+    "shortDescription": {
+      "en": "Modern digital menu web application with React and TypeScript, enabling QR-code accessible menus for restaurant customers.",
+      "fr": "Application web de menu digital moderne avec React et TypeScript, permettant des menus accessibles par QR code pour les clients du restaurant.",
+      "ar": "تطبيق ويب قائمة رقمية حديث مع React و TypeScript، يتيح قوائم يمكن الوصول إليها عبر رمز QR لعملاء المطعم."
+    },
+    "challenge": {
+      "en": "Mr5 Restaurant Group wanted to modernize their customer experience with contactless digital menus that could be easily updated, support multiple languages, and provide an elegant browsing experience on any device.",
+      "fr": "Mr5 Restaurant Group souhaitait moderniser l'expérience client avec des menus digitaux sans contact facilement mis à jour et supportant plusieurs langues.",
+      "ar": "أرادت مجموعة مطاعم Mr5 تحديث تجربة العملاء بقوائم رقمية بدون تلامس يمكن تحديثها بسهولة ودعم لغات متعددة."
+    },
+    "solution": {
+      "en": "We built a responsive digital menu web application using React, TypeScript, and Tailwind CSS with shadcn/ui components. Customers scan a QR code to access the menu on their phones, with smooth navigation, category filtering, and an elegant design that matches the restaurant's brand.",
+      "fr": "Nous avons construit une application web de menu digital responsive utilisant React, TypeScript et Tailwind CSS avec des composants shadcn/ui.",
+      "ar": "قمنا ببناء تطبيق ويب قائمة رقمية متجاوب باستخدام React و TypeScript و Tailwind CSS مع مكونات shadcn/ui."
+    },
+    "results": {
+      "en": "The digital menu is now deployed on Vercel with instant updates, zero printing costs, and enhanced customer experience. Menu changes go live immediately without reprinting, saving costs and reducing environmental impact.",
+      "fr": "Le menu digital est maintenant déployé sur Vercel avec des mises à jour instantanées, zéro coût d'impression et une expérience client améliorée.",
+      "ar": "تم نشر القائمة الرقمية الآن على Vercel مع تحديثات فورية وتكلفة طباعة صفرية وتجربة عملاء محسنة."
+    },
+    "overview": {
+      "description": {
+        "en": "A QR-accessible digital menu system for modern restaurant operations.",
+        "fr": "Un système de menu digital accessible par QR pour les opérations de restaurant modernes.",
+        "ar": "نظام قائمة رقمية يمكن الوصول إليه عبر QR لعمليات المطاعم الحديثة."
+      },
+      "highlights": [
+        "QR code access",
+        "Real-time menu updates",
+        "Mobile-first responsive design",
+        "Category filtering",
+        "Deployed on Vercel"
+      ]
+    },
+    "quickFacts": {
+      "client": "Mr5 Restaurant Group",
+      "year": "2025",
+      "duration": "4 weeks",
+      "status": "Live",
+      "liveUrl": "https://mr5-menu.vercel.app"
+    },
+    "technologies": ["React", "TypeScript", "Vite", "TailwindCSS", "shadcn/ui"],
+    "techStack": [
+      { "name": "React", "logo": "/icons/tech/react.svg", "reason": "Component-based UI for menu items" },
+      { "name": "TypeScript", "logo": "/icons/tech/typescript.svg", "reason": "Type safety for menu data" },
+      { "name": "Vite", "logo": "/icons/tech/vite.svg", "reason": "Fast development and builds" },
+      { "name": "TailwindCSS", "logo": "/icons/tech/tailwind.svg", "reason": "Responsive mobile-first styling" },
+      { "name": "shadcn/ui", "logo": "/icons/tech/shadcn.svg", "reason": "Elegant pre-built components" }
+    ],
+    "servicesUsed": ["web-development"],
+    "timeline": [
+      { "phase": "Design", "date": "Week 1", "description": "Menu UI/UX design, brand alignment" },
+      { "phase": "Development", "date": "Week 2-3", "description": "React components, menu data structure, filtering" },
+      { "phase": "Launch", "date": "Week 4", "description": "Vercel deployment, QR code generation, staff training" }
+    ],
+    "duration": "4 weeks",
+    "resultsMetrics": [
+      { "metric": "0", "label": "Print Cost", "description": "Eliminated menu printing expenses" },
+      { "metric": "Instant", "label": "Updates", "description": "Menu changes go live immediately" },
+      { "metric": "100%", "label": "Mobile", "description": "Fully responsive on all devices" },
+      { "metric": "QR", "label": "Access", "description": "Contactless menu browsing" }
+    ],
+    "testimonial": {
+      "quote": "The digital menu has streamlined our operations completely. We can update prices, add seasonal items, and mark sold-out dishes instantly without any printing delays.",
+      "author": "Mr5 Team",
+      "title": "Restaurant Operations",
+      "avatar": "/images/testimonials/mr5.jpg"
+    },
+    "heroImage": "/images/projects/mr5menu-hero.jpg",
+    "featuredImageUrl": "/images/projects/mr5menu-featured.jpg",
+    "gallery": [
+      { "url": "/images/projects/mr5menu-1.jpg", "alt": "Digital menu homepage" },
+      { "url": "/images/projects/mr5menu-2.jpg", "alt": "Category navigation" },
+      { "url": "/images/projects/mr5menu-3.jpg", "alt": "Menu item details" },
+      { "url": "/images/projects/mr5menu-4.jpg", "alt": "Mobile responsive view" }
+    ],
+    "projectUrl": "https://mr5-menu.vercel.app",
+    "isFeatured": false,
+    "publishedAt": "2025-06-24T00:00:00.000Z",
+    "orderIndex": 6,
+    "createdAt": "2025-05-20T00:00:00.000Z",
+    "updatedAt": "2026-01-20T00:00:00.000Z"
+  }
+]
