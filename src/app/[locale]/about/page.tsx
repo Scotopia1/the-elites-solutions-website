@@ -65,31 +65,25 @@ export default function AboutPage() {
     },
   ];
 
-  // Team members
+  // Team members - The 3 Co-Founders
   const teamMembers = [
     {
-      name: "John Palmer",
-      role: "Founder & CEO",
-      image: "/images/team/john.jpg",
-      bio: "Visionary leader with 10+ years in software development and business strategy.",
+      name: "Johnny Jneid",
+      role: "Co-Founder & Business Lead",
+      image: "/images/team/johnny.jpg",
+      bio: "Marketing & Business Development expert. Developer at heart with a sharp eye for market opportunities. Bridges tech and business to deliver real value.",
     },
     {
-      name: "Sarah Chen",
-      role: "Lead Developer",
-      image: "/images/team/sarah.jpg",
-      bio: "Full-stack expert specializing in scalable web applications and cloud architecture.",
+      name: "Joe Jneid",
+      role: "Co-Founder & AI Lead",
+      image: "/images/team/joe.jpg",
+      bio: "AI Researcher & Developer. Explores the cutting edge of machine learning to build smarter solutions. Makes the complex feel simple.",
     },
     {
-      name: "Michael Rodriguez",
-      role: "UI/UX Designer",
-      image: "/images/team/michael.jpg",
-      bio: "Award-winning designer creating beautiful, user-centered digital experiences.",
-    },
-    {
-      name: "Emily Watson",
-      role: "Project Manager",
-      image: "/images/team/emily.jpg",
-      bio: "Agile expert ensuring projects are delivered on time and exceed expectations.",
+      name: "Charbel Tamer",
+      role: "Co-Founder & Tech Lead",
+      image: "/images/team/charbel.jpg",
+      bio: "Software Engineer obsessed with clean architecture. Builds robust systems that scale and crafts code that stands the test of time.",
     },
   ];
 

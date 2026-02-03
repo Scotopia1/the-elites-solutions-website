@@ -28,12 +28,11 @@ function GoldParticles() {
     pulse: number;
   }>>([]);
 
-  // Respect reduced motion preference
-  if (shouldDisableAnimation()) {
-    return null;
-  }
+  // Respect reduced motion preference - check moved inside useEffect for hooks rule compliance
+  const disableAnimation = shouldDisableAnimation();
 
   useEffect(() => {
+    if (disableAnimation) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -146,7 +145,12 @@ function GoldParticles() {
       window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [disableAnimation]);
+
+  // Return null after hooks for reduced motion preference
+  if (disableAnimation) {
+    return null;
+  }
 
   return <canvas ref={canvasRef} className="cinematic-particles" />;
 }

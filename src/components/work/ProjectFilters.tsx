@@ -40,6 +40,9 @@ export default function ProjectFiltersComponent({
     async function fetchOptions() {
       try {
         const response = await fetch('/api/projects?options=true');
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
         const data = await response.json();
 
         if (data.success && data.filterOptions) {

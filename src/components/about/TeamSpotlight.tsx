@@ -7,32 +7,32 @@ import { motion, useInView } from "framer-motion";
 const teamMembers = [
   {
     id: 1,
-    name: "Joe Jneid",
-    role: "Co-Founder",
-    quote: "AI is not replacing developers—it's amplifying them.",
+    name: "Johnny Jneid",
+    role: "Co-Founder & Business Lead",
+    quote: "The best technology means nothing if it doesn't solve real problems for real people.",
     initials: "JJ",
     color: "#d4af37",
-    bio: "AI Tools & Research Specialist. Software developer with expertise in leveraging artificial intelligence to accelerate development workflows and research processes.",
-    social: ["LinkedIn", "GitHub"]
+    bio: "Marketing & Business Development. Developer at heart with a sharp eye for market opportunities. Turns complex tech into clear value for clients.",
+    social: ["LinkedIn", "Twitter"]
   },
   {
     id: 2,
-    name: "Johnny Jneid",
-    role: "Co-Founder",
-    quote: "Great products start with understanding what people truly need.",
+    name: "Joe Jneid",
+    role: "Co-Founder & AI Lead",
+    quote: "AI isn't magic—it's a tool. The magic is knowing when and how to use it.",
     initials: "JJ",
     color: "#c0a030",
-    bio: "Marketing & Business Development Expert. Software developer focused on bridging the gap between technical excellence and market success.",
-    social: ["LinkedIn", "Twitter"]
+    bio: "AI Researcher & Developer. Explores the cutting edge of machine learning to build smarter solutions. Makes the complex feel simple.",
+    social: ["LinkedIn", "GitHub"]
   },
   {
     id: 3,
     name: "Charbel Tamer",
-    role: "Co-Founder",
-    quote: "Clean architecture is the foundation of scalable systems.",
+    role: "Co-Founder & Tech Lead",
+    quote: "Good code is like good design—invisible when done right.",
     initials: "CT",
     color: "#a89028",
-    bio: "Lead Software Engineer. Full-stack developer specializing in building robust, scalable applications with modern technologies.",
+    bio: "Software Engineer. Builds robust systems that scale. Obsessed with clean architecture and crafting code that stands the test of time.",
     social: ["LinkedIn", "GitHub"]
   }
 ];

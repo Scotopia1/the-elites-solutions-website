@@ -191,9 +191,9 @@ export default function WorkPage() {
                   >
                     {/* Image */}
                     <div className="aspect-video bg-gradient-to-br from-dark-300 to-dark-400 flex items-center justify-center relative overflow-hidden">
-                      {project.heroImage || project.featuredImageUrl ? (
+                      {project.featuredImageUrl ? (
                         <Image
-                          src={project.heroImage || project.featuredImageUrl || ''}
+                          src={project.featuredImageUrl}
                           alt={project.title?.[locale] || project.title?.en || 'Project'}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-300"

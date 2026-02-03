@@ -18,6 +18,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import { useRouter, useParams } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -27,12 +28,19 @@ import styles from "./ServicesCarousel.module.css";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ServicesCarousel() {
+  const router = useRouter();
+  const params = useParams();
+  const locale = (params?.locale as string) || "en";
   const containerRef = useRef<HTMLElement>(null);
   const projectIndexRef = useRef<HTMLHeadingElement>(null);
   const projectImagesContainerRef = useRef<HTMLDivElement>(null);
   const projectNamesContainerRef = useRef<HTMLDivElement>(null);
   const projectImgsRefs = useRef<(HTMLDivElement | null)[]>([]);
   const projectNamesRefs = useRef<(HTMLParagraphElement | null)[]>([]);
+
+  const handleServiceClick = (slug: string) => {
+    router.push(`/${locale}/services/${slug}`);
+  };
 
   useGSAP(() => {
     if (typeof window === "undefined") return;
@@ -173,6 +181,16 @@ export default function ServicesCarousel() {
                 projectImgsRefs.current[index] = el;
               }}
               className={styles.projectImg}
+              onClick={() => handleServiceClick(service.slug)}
+              role="button"
+              tabIndex={0}
+              aria-label={`View ${service.title} service details`}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  handleServiceClick(service.slug);
+                }
+              }}
             >
               <img
                 src={service.image}

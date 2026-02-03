@@ -18,7 +18,7 @@ export const VanguardHero = () => {
       // Marquee Effect based on Scroll Direction
       // We simply move it left continuously, but accelerate on scroll
       let xPercent = 0;
-      let direction = -1;
+      const direction = -1;
 
       const animate = () => {
         if (xPercent <= -100) {

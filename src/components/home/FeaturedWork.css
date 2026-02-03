@@ -186,29 +186,6 @@
   color: #FFFFFF;
 }
 
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.project-tag {
-  font-size: 0.85rem;
-  color: #c0c0c0;
-  padding: 6px 14px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-
-.project-card:hover .project-tag {
-  background: rgba(212, 175, 55, 0.1);
-  border-color: rgba(212, 175, 55, 0.2);
-  color: #d4af37;
-}
-
 .project-link {
   display: inline-flex;
   align-items: center;
@@ -298,16 +275,6 @@
   .project-description {
     font-size: 0.95rem;
     margin-bottom: 16px;
-  }
-
-  .project-tags {
-    gap: 6px;
-    margin-bottom: 16px;
-  }
-
-  .project-tag {
-    font-size: 0.75rem;
-    padding: 5px 12px;
   }
 
   .project-link {
@@ -473,10 +440,6 @@
     /* Remove hover-dependent effects for touch */
     border-color: rgba(212, 175, 55, 0.2);
   }
-
-  .project-tag {
-    user-select: none;
-  }
 }
 
 /* Reduced Motion Support */
@@ -485,8 +448,7 @@
   .project-card,
   .project-image,
   .view-all-btn,
-  .project-link,
-  .project-tag {
+  .project-link {
     transition: opacity 0.2s ease, transform 0.2s ease;
   }
 

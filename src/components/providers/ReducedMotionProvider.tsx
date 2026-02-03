@@ -80,7 +80,6 @@ export function ReducedMotionProvider({ children }: { children: ReactNode }) {
       mediaQuery.addEventListener("change", handleChange);
     } else {
       // Legacy browsers (IE11, older Safari)
-      // @ts-ignore
       mediaQuery.addListener(handleChange);
     }
 
@@ -89,7 +88,6 @@ export function ReducedMotionProvider({ children }: { children: ReactNode }) {
       if (mediaQuery.removeEventListener) {
         mediaQuery.removeEventListener("change", handleChange);
       } else {
-        // @ts-ignore
         mediaQuery.removeListener(handleChange);
       }
     };

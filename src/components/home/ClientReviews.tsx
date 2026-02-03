@@ -37,61 +37,43 @@ const testimonials: Testimonial[] = [
   {
     id: 1,
     quote:
-      "The Elites transformed our outdated web presence into a modern, high-converting platform that tripled our lead generation in just 3 months.",
-    author: "Sarah Mitchell",
-    role: "CEO",
-    company: "TechVision Solutions",
+      "The Elites understood our vision for a luxury digital experience. The AI concierge has transformed how our clients discover their perfect hotel. The platform perfectly represents our brand across Paris, Barcelona, and Beirut.",
+    author: "Natlaupa Team",
+    role: "Luxury Hospitality",
+    company: "Natlaupa",
   },
   {
     id: 2,
     quote:
-      "They didn't just build a website — they crafted a digital experience that authentically represents who we are and resonates with our audience.",
-    author: "Marcus Chen",
-    role: "Founder",
-    company: "Apex Digital",
+      "The Elites created a website that clearly communicates our complex structural remediation services. The professional design and intuitive navigation help clients understand our expertise instantly. Outstanding work.",
+    author: "TRD Team",
+    role: "Structural Remediation Experts",
+    company: "TRD",
   },
   {
     id: 3,
     quote:
-      "Their ability to blend cutting-edge design with flawless functionality resulted in a product that truly stands out in our industry.",
-    author: "Elena Rodriguez",
-    role: "CMO",
-    company: "Quantum Innovations",
+      "The Elites brought our 50-year legacy into the digital age. The AI scent quiz captures the personalized experience we provide in-store, and our customers love the convenience of same-day delivery.",
+    author: "Michel Yammine Team",
+    role: "Luxury Perfumery",
+    company: "Perfumerie Michel Yammine",
   },
   {
     id: 4,
     quote:
-      "The Elites brought our vision to life with precision and creativity. The seamless integration exceeded our ambitious goals.",
-    author: "David Park",
-    role: "CTO",
-    company: "NexGen Systems",
-  },
-  {
-    id: 5,
-    quote:
-      "Their deep understanding of both technology and business objectives resulted in a platform that drives real value and measurable growth.",
-    author: "Jennifer Clarke",
-    role: "VP of Operations",
-    company: "Frontier Labs",
-  },
-  {
-    id: 6,
-    quote:
-      "Excellence at every stage. Their commitment to quality made them an invaluable partner in our digital transformation journey.",
-    author: "Michael Torres",
-    role: "Director",
-    company: "Summit Ventures",
+      "The Elites delivered a website that truly showcases our craftsmanship. Our custom kitchen and joinery work now reaches clients across Sydney with a professional online presence that matches the quality we deliver.",
+    author: "TopCab Team",
+    role: "Custom Joinery Experts",
+    company: "TopCab Kitchens & Joinery",
   },
 ];
 
-// Card configurations for staggered layout
+// Card configurations for staggered layout (4 cards)
 const cardConfigs = [
   { rotateZ: -2, rotateY: 3, offsetX: 0, offsetY: 0, size: "hero", delay: 0 },
   { rotateZ: 1.5, rotateY: -2, offsetX: 20, offsetY: 40, size: "normal", delay: 0.1 },
   { rotateZ: -1, rotateY: 4, offsetX: -15, offsetY: 20, size: "normal", delay: 0.2 },
   { rotateZ: 2.5, rotateY: -3, offsetX: 10, offsetY: -30, size: "hero", delay: 0.15 },
-  { rotateZ: -1.5, rotateY: 2, offsetX: -25, offsetY: 50, size: "normal", delay: 0.25 },
-  { rotateZ: 1, rotateY: -4, offsetX: 30, offsetY: 10, size: "normal", delay: 0.3 },
 ];
 
 interface CardProps {

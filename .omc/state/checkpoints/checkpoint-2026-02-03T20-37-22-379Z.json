@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-02-03T20:37:22.378Z",
+  "trigger": "manual",
+  "active_modes": {
+    "ralph": {
+      "iteration": 5,
+      "prompt": ""
+    },
+    "ultrawork": {
+      "original_prompt": "/oh-my-claudecode:ultrawork /oh-my-claudecode:ralph I want you to go to the website and find all the pages, and list all the images that should be filled in each page as a check list. and then for the service details page and the work     \n  details page you should go over the checklist for each website or service and get images to fill them out  "
+    }
+  },
+  "todo_summary": {
+    "pending": 0,
+    "in_progress": 0,
+    "completed": 0
+  },
+  "wisdom_exported": false
+}

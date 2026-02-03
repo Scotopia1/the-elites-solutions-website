@@ -113,7 +113,10 @@
   height: 100%;
   object-fit: cover;
   transform: scale(1);
-  will-change: transform;
+  will-change: transform, filter;
+  /* B&W filter that fades to color on hover */
+  filter: grayscale(100%);
+  transition: filter 0.5s ease-out, transform 0.4s ease-out;
 }
 
 /* Mid Layer - Glassmorphism Overlay */
@@ -200,7 +203,8 @@
 
 .serviceLayer:hover .backgroundLayer img {
   transform: scale(1.02);
-  transition: transform 0.4s ease-out;
+  filter: grayscale(0%);
+  transition: filter 0.5s ease-out, transform 0.4s ease-out;
 }
 
 /* Responsive Styles */

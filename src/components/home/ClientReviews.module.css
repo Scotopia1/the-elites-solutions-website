@@ -2,9 +2,8 @@
  * ClientReviews Styles - Gallery Installation Design
  *
  * Awwwards-style testimonial section with:
- * - Staggered asymmetric 3-column grid
- * - Diagonal card rotations (rotateZ: -3deg to 3deg, rotateY: -5deg to 5deg)
- * - Overlapping card placement
+ * - Clean 2x2 grid layout (4 testimonials)
+ * - Subtle diagonal card rotations
  * - Giant decorative quotation mark watermark
  * - 3D tilt hover effects
  * - Gold accent theme (#FFD700)
@@ -125,14 +124,14 @@
 }
 
 /* ============================================
-   STAGGERED GALLERY GRID
+   2x2 GALLERY GRID
    ============================================ */
 .galleryGrid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem 2rem;
-  max-width: 1400px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
   z-index: 2;
@@ -184,31 +183,34 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 100%;
   z-index: 2;
+  padding-top: 3rem; /* Space for quote mark */
 }
 
 /* Decorative quote mark inside card */
 .cardQuoteMark {
   position: absolute;
-  top: -0.5rem;
-  left: -0.5rem;
+  top: 0;
+  left: 0;
   font-family: 'PP Editorial New', 'Playfair Display', Georgia, serif;
-  font-size: 6rem;
+  font-size: 5rem;
   font-style: italic;
   line-height: 1;
   color: #FFD700;
-  opacity: 0.08;
+  opacity: 0.15;
   pointer-events: none;
   user-select: none;
   z-index: 0;
 }
 
 .heroCard .cardQuoteMark {
-  font-size: 8rem;
-  top: -1rem;
-  left: -0.75rem;
+  font-size: 6rem;
+}
+
+.heroCard .cardInner {
+  padding-top: 3.5rem;
 }
 
 /* ============================================
@@ -219,7 +221,7 @@
   padding: 0;
   flex: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .quoteText {
@@ -242,6 +244,7 @@
 /* Individual word spans for animation */
 .word {
   display: inline-block;
+  margin-right: 0.3em;
   will-change: transform, opacity;
 }
 
@@ -300,62 +303,43 @@
 
 /* ============================================
    INDIVIDUAL CARD POSITIONING
-   Staggered asymmetric placement
+   Clean 2x2 grid with subtle stagger
    ============================================ */
 
-/* Card 1: Top left, slight tilt left */
+/* Card 1: Top left */
 .card1 {
   grid-column: 1;
   grid-row: 1;
-  margin-top: 0;
   z-index: 3;
 }
 
-/* Card 2: Top center, slight tilt right, pushed down */
+/* Card 2: Top right, slight offset */
 .card2 {
   grid-column: 2;
   grid-row: 1;
-  margin-top: 4rem;
+  margin-top: 2rem;
   z-index: 2;
 }
 
-/* Card 3: Top right, overlapping card 2 */
+/* Card 3: Bottom left, slight offset */
 .card3 {
-  grid-column: 3;
-  grid-row: 1;
-  margin-top: 1.5rem;
-  margin-left: -1rem;
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: -1rem;
   z-index: 4;
 }
 
-/* Card 4: Bottom left, overlapping upward */
+/* Card 4: Bottom right */
 .card4 {
-  grid-column: 1;
-  grid-row: 2;
-  margin-top: -2rem;
-  z-index: 5;
-}
-
-/* Card 5: Bottom center */
-.card5 {
   grid-column: 2;
   grid-row: 2;
-  margin-top: 2rem;
-  z-index: 1;
-}
-
-/* Card 6: Bottom right, highest overlap */
-.card6 {
-  grid-column: 3;
-  grid-row: 2;
-  margin-top: -1rem;
-  margin-left: -0.5rem;
-  z-index: 6;
+  margin-top: 1rem;
+  z-index: 5;
 }
 
 /* ============================================
    RESPONSIVE: TABLET (768px - 1023px)
-   2-column simplified grid
+   2-column grid maintained
    ============================================ */
 @media (max-width: 1023px) {
   .gallerySection {
@@ -370,6 +354,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem 1.5rem;
     padding: 0 1rem;
+    max-width: 900px;
   }
 
   .card {
@@ -385,13 +370,11 @@
     padding: 2.25rem;
   }
 
-  /* Reposition cards for 2-column layout */
+  /* Keep 2x2 layout with reduced stagger */
   .card1 { grid-column: 1; grid-row: 1; margin-top: 0; margin-left: 0; }
-  .card2 { grid-column: 2; grid-row: 1; margin-top: 2rem; margin-left: 0; }
+  .card2 { grid-column: 2; grid-row: 1; margin-top: 1.5rem; margin-left: 0; }
   .card3 { grid-column: 1; grid-row: 2; margin-top: 0; margin-left: 0; }
-  .card4 { grid-column: 2; grid-row: 2; margin-top: 1.5rem; margin-left: 0; }
-  .card5 { grid-column: 1; grid-row: 3; margin-top: 0; margin-left: 0; }
-  .card6 { grid-column: 2; grid-row: 3; margin-top: 2rem; margin-left: 0; }
+  .card4 { grid-column: 2; grid-row: 2; margin-top: 1rem; margin-left: 0; }
 
   .backgroundQuote {
     font-size: clamp(300px, 45vw, 500px);
@@ -449,7 +432,7 @@
   }
 
   /* Stack all cards vertically, remove staggering */
-  .card1, .card2, .card3, .card4, .card5, .card6 {
+  .card1, .card2, .card3, .card4 {
     grid-column: 1;
     margin-top: 0;
     margin-left: 0;
@@ -459,8 +442,6 @@
   .card2 { grid-row: 2; }
   .card3 { grid-row: 3; }
   .card4 { grid-row: 4; }
-  .card5 { grid-row: 5; }
-  .card6 { grid-row: 6; }
 
   .backgroundQuote {
     font-size: clamp(200px, 60vw, 350px);
@@ -477,13 +458,21 @@
   }
 
   .cardQuoteMark {
-    font-size: 4rem;
-    top: -0.25rem;
-    left: -0.25rem;
+    font-size: 3.5rem;
+    top: 0;
+    left: 0;
   }
 
   .heroCard .cardQuoteMark {
-    font-size: 5rem;
+    font-size: 4rem;
+  }
+
+  .cardInner {
+    padding-top: 2.5rem;
+  }
+
+  .heroCard .cardInner {
+    padding-top: 2.75rem;
   }
 
   .citation {
@@ -532,8 +521,12 @@
   }
 
   .cardQuoteMark {
-    font-size: 3.5rem;
-    opacity: 0.06;
+    font-size: 3rem;
+    opacity: 0.12;
+  }
+
+  .cardInner {
+    padding-top: 2rem;
   }
 
   .headerTitle {
@@ -575,7 +568,7 @@
   }
 
   /* Show static grid without staggering */
-  .card1, .card2, .card3, .card4, .card5, .card6 {
+  .card1, .card2, .card3, .card4 {
     margin-top: 0;
     margin-left: 0;
   }

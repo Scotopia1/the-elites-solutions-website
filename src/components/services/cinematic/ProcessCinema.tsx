@@ -28,8 +28,7 @@ export default function ProcessCinema({
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
   const [progress, setProgress] = useState(0);
-
-  if (steps.length === 0) return null;
+  const isEmpty = steps.length === 0;
 
   // Background gradients removed for transparent bg
 
@@ -58,6 +57,8 @@ export default function ProcessCinema({
     },
     { scope: containerRef, dependencies: [steps.length] }
   );
+
+  if (isEmpty) return null;
 
   return (
     <section ref={containerRef} className="relative bg-transparent">

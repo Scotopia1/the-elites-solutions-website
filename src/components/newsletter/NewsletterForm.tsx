@@ -97,6 +97,9 @@ export default function NewsletterForm({ variant = 'simple', className = '', onS
         }),
       });
 
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
       const result = await response.json();
 
       if (result.success) {

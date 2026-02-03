@@ -24,10 +24,10 @@ export default function TestimonialSpotlight({
   autoPlayInterval = 6000,
 }: TestimonialSpotlightProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  if (testimonials.length === 0) return null;
+  const isEmpty = testimonials.length === 0;
 
   useEffect(() => {
+    if (isEmpty) return;
     if (testimonials.length <= 1) return;
 
     const interval = setInterval(() => {
@@ -35,7 +35,9 @@ export default function TestimonialSpotlight({
     }, autoPlayInterval);
 
     return () => clearInterval(interval);
-  }, [testimonials.length, autoPlayInterval]);
+  }, [testimonials.length, autoPlayInterval, isEmpty]);
+
+  if (isEmpty) return null;
 
   const currentTestimonial = testimonials[activeIndex];
 

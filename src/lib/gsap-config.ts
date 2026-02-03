@@ -100,18 +100,16 @@ export function detectDeviceCapabilities(): DeviceCapabilities {
   const isTouch =
     'ontouchstart' in window ||
     navigator.maxTouchPoints > 0 ||
-    // @ts-ignore - Legacy IE detection
+    // @ts-expect-error - Legacy IE detection
     navigator.msMaxTouchPoints > 0;
 
   // Low-end device detection
   let isLowEnd = false;
   try {
-    // @ts-ignore - navigator.hardwareConcurrency is not in TS lib yet
     const cpuCores = navigator.hardwareConcurrency || 4;
-    // @ts-ignore - performance.memory is Chrome-specific
     const memoryGB = (navigator as any).deviceMemory || 4;
     isLowEnd = cpuCores < 4 || memoryGB < 4;
-  } catch (e) {
+  } catch {
     // Fallback: Assume not low-end if detection fails
     isLowEnd = false;
   }
@@ -123,7 +121,7 @@ export function detectDeviceCapabilities(): DeviceCapabilities {
     hasWebGL =
       !!window.WebGLRenderingContext &&
       !!(canvas.getContext('webgl') || canvas.getContext('experimental-webgl'));
-  } catch (e) {
+  } catch {
     hasWebGL = false;
   }
 
